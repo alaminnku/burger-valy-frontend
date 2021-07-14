@@ -1,0 +1,23 @@
+.Card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 95%;
+  height: 15rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.Card p,
+.Card a {
+  color: var(--almostWhite);
+  font-weight: var(--medium);
+}
+
+.Card a {
+  background-color: var(--kindaRed);
+  padding: 0.2rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+}

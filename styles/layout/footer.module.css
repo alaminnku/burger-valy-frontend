@@ -1,0 +1,18 @@
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--almostWhite);
+}
+
+.Item {
+  text-align: center;
+}
+
+.Item p {
+  font-size: 0.8rem;
+  font-weight: var(--semiBold);
+}

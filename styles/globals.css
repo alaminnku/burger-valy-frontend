@@ -1,0 +1,286 @@
+/* montserrat-regular - latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+    url("/fonts/montserrat-v15-latin-regular.woff2") format("woff2"),
+    url("/fonts/montserrat-v15-latin-regular.woff") format("woff");
+}
+
+/* montserrat-500 - latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("/fonts/montserrat-v15-latin-500.woff2") format("woff2"),
+    url("/fonts/montserrat-v15-latin-500.woff") format("woff");
+}
+
+/* montserrat-600 - latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  src: local(""), url("/fonts/montserrat-v15-latin-600.woff2") format("woff2"),
+    url("/fonts/montserrat-v15-latin-600.woff") format("woff");
+}
+
+/* montserrat-700 - latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("/fonts/montserrat-v15-latin-700.woff2") format("woff2"),
+    url("/fonts/montserrat-v15-latin-700.woff") format("woff");
+}
+
+/* Body */
+html,
+body {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  max-width: 1536px;
+  margin: 0 auto;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  --green: #20c552;
+  --grey: #6c757d;
+  --slateGrey: #334051;
+  --kindaRed: #f86469;
+  --almostWhite: #f6f6f8;
+  --medium: 500;
+  --semiBold: 600;
+  --bold: 700;
+}
+
+/* Heading */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.6em;
+  color: var(--slateGrey);
+  font-weight: var(--semiBold);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: var(--bold);
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 17px;
+}
+
+/* Body texts */
+p,
+a,
+li,
+input,
+select,
+button,
+textarea,
+blockquote {
+  font-size: 16px;
+  line-height: 1.7em;
+  color: var(--slateGrey);
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+textarea,
+select {
+  border-radius: 0px;
+}
+
+textarea {
+  font-family: "Montserrat", sans-serif;
+  resize: none;
+}
+
+/* 
+Min width 375px */
+@media (min-width: 375px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  h4 {
+    font-size: 19px;
+  }
+
+  p,
+  a,
+  li,
+  input,
+  select,
+  button,
+  textarea,
+  blockquote {
+    font-size: 18px;
+  }
+}
+
+/* Min width 411px */
+@media (min-width: 411px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+
+/* Min width 768px */
+@media (min-width: 768px) {
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  p,
+  a,
+  li,
+  input,
+  select,
+  button,
+  textarea,
+  blockquote {
+    font-size: 19px;
+  }
+}
+
+/* Min width 1024px */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  p,
+  a,
+  li,
+  input,
+  select,
+  button,
+  textarea,
+  blockquote {
+    font-size: 21px;
+  }
+}
+
+/* Min width 1280px */
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 52px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  h4 {
+    font-size: 22.5px;
+  }
+
+  p,
+  a,
+  li,
+  input,
+  select,
+  button,
+  textarea,
+  blockquote {
+    font-size: 21.5px;
+  }
+}
+
+/* Min width 1440px */
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 56px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 36px;
+  }
+
+  h4 {
+    font-size: 23.5px;
+  }
+
+  p,
+  a,
+  li,
+  input,
+  select,
+  button,
+  textarea,
+  blockquote {
+    font-size: 22.5px;
+  }
+}
+
+/* Min width 1540px */
+@media (min-width: 1540px) {
+  html,
+  body {
+    border-left: 1px solid #f6f6f8;
+    border-right: 1px solid #f6f6f8;
+  }
+}

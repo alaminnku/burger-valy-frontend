@@ -1,0 +1,38 @@
+.Controller {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-top: 0rem;
+  text-align: center;
+}
+
+.Item {
+  margin-bottom: 1rem;
+  width: 50%;
+}
+
+.Item p {
+  font-weight: var(--semiBold);
+  margin-bottom: 0.5rem;
+}
+
+.AddIcon,
+.RemoveIcon {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.AddIcon {
+  margin-right: 1rem;
+  color: var(--green);
+}
+
+.RemoveIcon {
+  color: var(--kindaRed);
+}
+
+.Disabled {
+  color: var(--grey);
+  cursor: not-allowed;
+}

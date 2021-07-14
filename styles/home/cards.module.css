@@ -1,0 +1,6 @@
+.Card {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-row-gap: 1rem;
+  padding-bottom: 6.3rem;
+}

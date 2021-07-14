@@ -1,0 +1,36 @@
+.Summary {
+  display: flex;
+  justify-content: space-between;
+  margin: 0rem 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--almostWhite);
+  border-radius: 0.5rem;
+}
+
+.Burger {
+  width: 20%;
+}
+
+.Description {
+  width: 75%;
+}
+
+.Description p {
+  font-size: 1rem;
+  font-weight: var(--semiBold);
+}
+
+.Description ul {
+  margin-bottom: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+.Description ul li {
+  font-size: 0.8rem;
+  font-weight: var(--medium);
+}
+
+.Description .Price {
+  font-size: 0.8rem;
+}

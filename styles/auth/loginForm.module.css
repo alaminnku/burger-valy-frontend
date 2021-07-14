@@ -1,0 +1,54 @@
+.LoginForm {
+  padding: 1rem;
+  margin: 0rem 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.LoginForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+.LoginForm h3 {
+  margin-bottom: 1rem;
+}
+
+.Item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.Item label {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.Item input {
+  border: 1px solid var(--grey);
+  padding: 0.2rem;
+}
+
+.Item input:focus {
+  outline: 2px solid var(--kindaRed);
+  border: none;
+}
+
+.LoginForm form button {
+  justify-self: center;
+  border: none;
+  background-color: var(--kindaRed);
+  color: var(--almostWhite);
+  padding: 0.3rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.LoginForm small,
+.LoginForm small a {
+  font-size: 0.8rem;
+}
+
+.LoginForm small a {
+  color: var(--kindaRed);
+}

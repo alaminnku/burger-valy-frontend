@@ -1,0 +1,47 @@
+.Card {
+  margin: 0rem 1rem;
+  padding: 1rem;
+  background-color: var(--almostWhite);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.ImageTitle {
+  display: flex;
+}
+
+.Image {
+  width: 25%;
+}
+
+.Title {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.Title p {
+  font-weight: var(--semiBold);
+  font-size: 1rem;
+}
+
+.Title p span {
+  color: var(--green);
+}
+
+.Title p:nth-child(2) {
+  font-size: 0.8rem;
+  font-weight: var(--medium);
+}
+
+.Icon {
+  align-self: flex-end;
+  font-size: 2rem;
+  color: var(--kindaRed);
+  cursor: pointer;
+}
+
+.Disabled {
+  color: var(--grey);
+  pointer-events: none;
+}
