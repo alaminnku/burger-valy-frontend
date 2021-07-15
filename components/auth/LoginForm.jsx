@@ -1,21 +1,40 @@
 import Link from "next/link";
 import styles from "@styles/auth/loginForm.module.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "@store/actions/authActions";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const LoginForm = () => {
+  // Dispatch
+  const dispatch = useDispatch();
+
+  // isAuthenticated state
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  // Router
+  const router = useRouter();
+
+  // Values
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
-
   const { email, password } = values;
 
+  // Handle login
   const handleLogin = (e) => {
     e.preventDefault();
-
-    console.log(values);
+    dispatch(login(values));
   };
 
+  // Check if isAuthenticated and push to homepage
+  {
+    isAuthenticated && router.push("/account");
+  }
+
+  // Handle the change
   const handleChange = (e) => {
     setValues({
       ...values,
@@ -41,7 +60,7 @@ const LoginForm = () => {
         <div className={styles.Item}>
           <label htmlFor='password'>Password</label>
           <input
-            type='text'
+            type='password'
             id='password'
             value={password}
             name='password'
