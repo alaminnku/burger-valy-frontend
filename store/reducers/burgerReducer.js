@@ -3,6 +3,7 @@ import {
   REMOVE_INGREDIENT,
   UPDATE_PRICE,
   ADD_SIDE,
+  SET_BURGER,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -15,12 +16,22 @@ const initialState = {
   side: "",
   price: {},
   totalPrice: 4,
+  burger: {},
 };
 
 const burgerReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case UPDATE_PRICE:
+      return {
+        ...state,
+        price: {
+          ...state.price,
+          ...payload,
+        },
+      };
+
     case ADD_INGREDIENT:
       return {
         ...state,
@@ -41,20 +52,24 @@ const burgerReducer = (state = initialState, action) => {
         totalPrice: state.totalPrice - [payload.price],
       };
 
-    case UPDATE_PRICE:
-      return {
-        ...state,
-        price: {
-          ...state.price,
-          ...payload,
-        },
-      };
-
     case ADD_SIDE:
       return {
         ...state,
         side: payload.size,
         totalPrice: state.totalPrice + payload.price,
+        burger: {
+          ...state.burger,
+          totalPrice: state.burger.totalPrice + payload.price,
+        },
+      };
+
+    case SET_BURGER:
+      return {
+        ...state,
+        burger: {
+          ...state.burger,
+          ...payload,
+        },
       };
 
     default:

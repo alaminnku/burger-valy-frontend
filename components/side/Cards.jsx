@@ -1,8 +1,21 @@
 import Card from "./Card";
 import LinkButton from "../layout/LinkButton";
+import { useSelector } from "react-redux";
 import styles from "@styles/side/cards.module.css";
+import Cookies from "js-cookie";
 
 const Cards = () => {
+  const { burger, side } = useSelector((state) => state.burger);
+  console.log(burger);
+
+  const finalBurger = { ...burger, side };
+
+  console.log(finalBurger);
+
+  const handleCreateFinalBurger = () => {
+    Cookies.set("burger", finalBurger);
+  };
+
   return (
     <div className={styles.Cards}>
       <div>
@@ -34,7 +47,11 @@ const Cards = () => {
           side='large'
         />
       </div>
-      <LinkButton text='ORDER NOW' href='/register' />
+      <LinkButton
+        text='ORDER NOW'
+        href='/register'
+        clicked={handleCreateFinalBurger}
+      />
     </div>
   );
 };

@@ -3,7 +3,31 @@ import {
   REMOVE_INGREDIENT,
   UPDATE_PRICE,
   ADD_SIDE,
+  SET_BURGER,
 } from "./actionTypes";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { API_URL } from "config";
+
+// Update price
+export const updatePrice = () => async (dispatch) => {
+  let price;
+
+  if (Cookies.getJSON("price")) {
+    price = Cookies.getJSON("price");
+  } else {
+    const res = await axios.get(`${API_URL}/burger-price`);
+    const { meat, cheese, salad, bacon, small, medium, large } = res.data;
+    const fetchedPrice = { meat, cheese, salad, bacon, small, medium, large };
+    Cookies.set("price", fetchedPrice, { sameSite: "strict" });
+    price = Cookies.getJSON("price");
+  }
+
+  dispatch({
+    type: UPDATE_PRICE,
+    payload: price,
+  });
+};
 
 // Add ingredient action
 export const addIngredient = (name, price) => {
@@ -21,18 +45,19 @@ export const removeIngredient = (name, price) => {
   };
 };
 
-// Update price
-export const updatePrice = (price) => {
-  return {
-    type: UPDATE_PRICE,
-    payload: price,
-  };
-};
-
 // Add side
 export const addSide = (price, size) => {
   return {
     type: ADD_SIDE,
     payload: { price, size },
+  };
+};
+
+export const setBurger = () => {
+  const burger = Cookies.getJSON("burger");
+
+  return {
+    type: SET_BURGER,
+    payload: burger,
   };
 };

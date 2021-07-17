@@ -3,25 +3,25 @@ import { useSelector, useDispatch } from "react-redux";
 import { addSide } from "@store/actions/burgerActions";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import styles from "@styles/side/card.module.css";
+import Cookies from "js-cookie";
 
 const Card = ({ title, items, side }) => {
   // Dispatch
   const dispatch = useDispatch();
 
   //Price
-  const { price } = useSelector((state) => state.burger);
-  const { ingredients } = useSelector((state) => state.burger);
-  const { side: sideItem } = useSelector((state) => state.burger);
-
-  const totalIngAmount = Object.values(ingredients).reduce(
-    (acc, cur) => acc + cur
-  );
+  const { price, burger } = useSelector((state) => state.burger);
 
   let sideAdded = false;
 
-  if (sideItem !== "" || totalIngAmount === 0) {
+  if (burger.side !== "") {
     sideAdded = true;
   }
+
+  const handleAddSide = () => {
+    dispatch(addSide(price[side], side));
+  };
+
   return (
     <div className={styles.Card}>
       <div className={styles.ImageTitle}>
@@ -37,7 +37,7 @@ const Card = ({ title, items, side }) => {
           <p>{items}</p>
           <IoIosAddCircleOutline
             className={`${styles.Icon} ${sideAdded && styles.Disabled}`}
-            onClick={() => dispatch(addSide(price[side], side))}
+            onClick={handleAddSide}
           />
         </div>
       </div>
