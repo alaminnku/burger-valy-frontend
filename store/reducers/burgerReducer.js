@@ -7,16 +7,17 @@ import {
 } from "../actions/actionTypes";
 
 const initialState = {
-  ingredients: {
-    Salad: 0,
-    Cheese: 0,
-    Meat: 0,
-    Bacon: 0,
-  },
-  side: "",
   price: {},
-  totalPrice: 4,
-  burger: {},
+  burger: {
+    ingredients: {
+      Salad: 0,
+      Cheese: 0,
+      Meat: 0,
+      Bacon: 0,
+    },
+    totalPrice: 4,
+    side: "",
+  },
 };
 
 const burgerReducer = (state = initialState, action) => {
@@ -35,31 +36,37 @@ const burgerReducer = (state = initialState, action) => {
     case ADD_INGREDIENT:
       return {
         ...state,
-        ingredients: {
-          ...state.ingredients,
-          [payload.name]: state.ingredients[payload.name] + 1,
+        burger: {
+          ...state.burger,
+          ingredients: {
+            ...state.burger.ingredients,
+            [payload.name]: state.burger.ingredients[payload.name] + 1,
+          },
+          totalPrice: state.burger.totalPrice + payload.price,
         },
-        totalPrice: state.totalPrice + payload.price,
       };
 
     case REMOVE_INGREDIENT:
       return {
         ...state,
-        ingredients: {
-          ...state.ingredients,
-          [payload.name]: state.ingredients[payload.name] - 1,
+        burger: {
+          ...state.burger,
+          ingredients: {
+            ...state.burger.ingredients,
+            [payload.name]: state.burger.ingredients[payload.name] - 1,
+          },
+          totalPrice: state.burger.totalPrice - payload.price,
         },
-        totalPrice: state.totalPrice - [payload.price],
       };
 
     case ADD_SIDE:
       return {
         ...state,
         side: payload.size,
-        totalPrice: state.totalPrice + payload.price,
         burger: {
           ...state.burger,
           totalPrice: state.burger.totalPrice + payload.price,
+          side: payload.size,
         },
       };
 

@@ -9,14 +9,14 @@ import { useDispatch } from "react-redux";
 
 const Burger = ({ meatType }) => {
   // Get the state
-  const { ingredients, price, totalPrice } = useSelector(
-    (state) => state.burger
-  );
+  const { price } = useSelector((state) => state.burger);
 
-  const initialBurger = { ...ingredients, totalPrice };
+  const { burger } = useSelector((state) => state.burger);
+
+  const { ingredients, totalPrice } = burger;
 
   const handleSetBurger = () => {
-    Cookies.set("burger", initialBurger);
+    Cookies.set("burger", burger);
   };
 
   return (

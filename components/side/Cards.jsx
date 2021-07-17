@@ -5,15 +5,10 @@ import styles from "@styles/side/cards.module.css";
 import Cookies from "js-cookie";
 
 const Cards = () => {
-  const { burger, side } = useSelector((state) => state.burger);
-  console.log(burger);
-
-  const finalBurger = { ...burger, side };
-
-  console.log(finalBurger);
+  const { burger } = useSelector((state) => state.burger);
 
   const handleCreateFinalBurger = () => {
-    Cookies.set("burger", finalBurger);
+    Cookies.set("burger", burger);
   };
 
   return (

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { addSide } from "@store/actions/burgerActions";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import styles from "@styles/side/card.module.css";
-import Cookies from "js-cookie";
 
 const Card = ({ title, items, side }) => {
   // Dispatch

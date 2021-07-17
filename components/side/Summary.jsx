@@ -14,8 +14,7 @@ const Summary = () => {
   }, []);
 
   // Get the state
-  const { burger, side } = useSelector((state) => state.burger);
-  console.log(burger);
+  const { burger } = useSelector((state) => state.burger);
 
   let friesAndDrink = "No fries and drink";
 
