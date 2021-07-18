@@ -1,8 +1,7 @@
-import { LOGIN } from "@store/actions/actionTypes";
+import { LOGIN, REGISTER, CHECK_USER } from "@store/actions/actionTypes";
 
 const initialState = {
-  user: {},
-  isAuthenticated: false,
+  user: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -13,7 +12,18 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         user: payload,
-        isAuthenticated: true,
+      };
+
+    case REGISTER:
+      return {
+        ...state,
+        user: payload,
+      };
+
+    case CHECK_USER:
+      return {
+        ...state,
+        user: payload,
       };
 
     default:

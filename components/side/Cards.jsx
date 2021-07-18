@@ -3,12 +3,57 @@ import LinkButton from "../layout/LinkButton";
 import { useSelector } from "react-redux";
 import styles from "@styles/side/cards.module.css";
 import Cookies from "js-cookie";
+import axios from "axios";
+import { API_URL } from "config";
+import router from "next/router";
 
 const Cards = () => {
   const { burger } = useSelector((state) => state.burger);
+  const { user } = useSelector((state) => state.auth);
 
-  const handleCreateFinalBurger = () => {
-    Cookies.set("burger", burger);
+  // Set the final burger to cookie
+  const handleCreateFinalBurger = async () => {
+    if (!user) {
+      Cookies.set("finalBurger", burger);
+      router.push("/register");
+      return;
+    }
+
+    // If there is a user
+    try {
+      // Fetch the price
+      const res = await axios.get(`${API_URL}/burger-price`);
+      const data = res.data;
+
+      // Get the price only
+      const { meat, cheese, salad, bacon, small, medium, large } = data;
+
+      // Get the ingredients and side
+      const { ingredients } = burger;
+      const { side } = burger;
+
+      // Destructure ingredients
+      const { Meat, Cheese, Salad, Bacon } = ingredients;
+
+      // Calculate total price
+      const totalPrice =
+        4 +
+        Meat * meat +
+        Cheese * cheese +
+        Salad * salad +
+        Bacon * bacon +
+        data[side];
+
+      // Build the final order
+      const order = { ...ingredients, side, totalPrice };
+
+      // Post the order to db
+      await axios.post(`${API_URL}/orders`, order);
+
+      router.push("/account");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -42,11 +87,7 @@ const Cards = () => {
           side='large'
         />
       </div>
-      <LinkButton
-        text='ORDER NOW'
-        href='/register'
-        clicked={handleCreateFinalBurger}
-      />
+      <LinkButton text='ORDER NOW' href='#' clicked={handleCreateFinalBurger} />
     </div>
   );
 };

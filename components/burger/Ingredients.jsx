@@ -1,16 +1,11 @@
 import styles from "@styles/burger/ingredients.module.css";
 
 const Ingredients = ({ ingredients }) => {
-  // Convert the object to array with ingredients
-  const ingredientsArray = Object.entries(ingredients).map(
-    (ingredient) => ingredient
-  );
-
   // Items to render
   let items = [];
 
-  // Loop through the amount and add/remove items in UI for each
-  ingredientsArray.map((ingredient) => {
+  // Convert the object to array and create an item for each amount
+  Object.entries(ingredients).map((ingredient) => {
     // Amount of ingredients
     const name = ingredient[0];
     const amount = ingredient[1];

@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 import styles from "@styles/side/summary.module.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setBurger, setTotalPrice } from "@store/actions/burgerActions";
+import { setBurger } from "@store/actions/burgerActions";
 
 const Summary = () => {
   // Dispatch set burger action
   const dispatch = useDispatch();
 
+  // Get the burger from cookies on reload
   useEffect(() => {
     dispatch(setBurger());
   }, []);
@@ -27,7 +28,7 @@ const Summary = () => {
   }
 
   // Destructure ingredients
-  const { Bacon, Cheese, Meat, Salad, totalPrice } = burger;
+  const { Bacon, Cheese, Meat, Salad } = burger.ingredients;
 
   return (
     <div className={styles.Summary}>
@@ -43,7 +44,7 @@ const Summary = () => {
           <li>{Bacon}x bacon</li>
           <li>{friesAndDrink}</li>
         </ul>
-        <p className={styles.Price}>Total price: ${totalPrice}</p>
+        <p className={styles.Price}>Total price: ${burger.totalPrice}</p>
       </div>
     </div>
   );

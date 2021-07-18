@@ -17,10 +17,6 @@ const Card = ({ title, items, side }) => {
     sideAdded = true;
   }
 
-  const handleAddSide = () => {
-    dispatch(addSide(price[side], side));
-  };
-
   return (
     <div className={styles.Card}>
       <div className={styles.ImageTitle}>
@@ -36,7 +32,7 @@ const Card = ({ title, items, side }) => {
           <p>{items}</p>
           <IoIosAddCircleOutline
             className={`${styles.Icon} ${sideAdded && styles.Disabled}`}
-            onClick={handleAddSide}
+            onClick={() => dispatch(addSide(price[side], side))}
           />
         </div>
       </div>

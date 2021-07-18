@@ -5,22 +5,20 @@ import cookie from "cookie";
 export default async (req, res) => {
   if (req.method === "POST") {
     const { identifier, password } = req.body;
+    const details = { identifier, password };
 
     // Try to login and send error if fails
     try {
       // Post request to strapi backend
-      const loginRes = await axios.post(`${API_URL}/auth/local`, {
-        identifier,
-        password,
-      });
+      const loginRes = await axios.post(`${API_URL}/auth/local`, details);
 
       // Get user data
-      const user = loginRes.data;
+      const data = loginRes.data;
 
       // Set Cookie with jwt token
       res.setHeader(
         "Set-Cookie",
-        cookie.serialize("token", JSON.stringify(user.jwt), {
+        cookie.serialize("token", JSON.stringify(data.jwt), {
           httpOnly: true,
           secure: process.env.NODE_ENV !== "development",
           maxAge: 60 * 60 * 24 * 7, // 1 week
@@ -30,10 +28,11 @@ export default async (req, res) => {
       );
 
       // Return the user data
-      res.status(200).json({ user: user.user });
+      res.status(200).json({ user: data.user });
     } catch (err) {
       // If login fails
-      res.json({ msg: "Invalid email or password" });
+      const message = err.response.data.message[0].messages[0].message;
+      res.status(err.response.data.statusCode).json({ message });
     }
   } else {
     // If the request isn't a post request

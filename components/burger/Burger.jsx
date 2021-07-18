@@ -11,13 +11,11 @@ const Burger = ({ meatType }) => {
   // Get the state
   const { price } = useSelector((state) => state.burger);
 
+  // Burger
   const { burger } = useSelector((state) => state.burger);
 
+  // Ingredients and total price
   const { ingredients, totalPrice } = burger;
-
-  const handleSetBurger = () => {
-    Cookies.set("burger", burger);
-  };
 
   return (
     <div className={styles.Burger}>
@@ -27,7 +25,7 @@ const Burger = ({ meatType }) => {
       <LinkButton
         text='CONTINUE'
         href='/beef-burger/side'
-        clicked={handleSetBurger}
+        clicked={() => Cookies.set("burger", burger)}
       />
     </div>
   );

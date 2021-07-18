@@ -5,13 +5,14 @@ import { useDispatch } from "react-redux";
 import { login } from "@store/actions/authActions";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const LoginForm = () => {
   // Dispatch
   const dispatch = useDispatch();
 
   // isAuthenticated state
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const { user } = useSelector((state) => state.auth);
 
   // Router
   const router = useRouter();
@@ -24,14 +25,14 @@ const LoginForm = () => {
   const { email, password } = values;
 
   // Handle login
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(login(values));
   };
 
   // Check if isAuthenticated and push to homepage
   {
-    isAuthenticated && router.push("/account");
+    user && router.push("/account");
   }
 
   // Handle the change

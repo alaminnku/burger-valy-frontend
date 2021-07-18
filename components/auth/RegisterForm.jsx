@@ -1,8 +1,17 @@
 import Link from "next/link";
 import { useState } from "react";
+import { register } from "@store/actions/authActions";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "@styles/auth/registerForm.module.css";
 
 const RegisterForm = () => {
+  // Dispatch
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { user } = useSelector((state) => state.auth);
+
+  // Values
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -11,12 +20,26 @@ const RegisterForm = () => {
   });
   const { name, email, password, confirmPassword } = values;
 
+  // Handle register
   const handleRegister = (e) => {
     e.preventDefault();
 
-    console.log(values);
+    // Check password match
+    if (password !== confirmPassword) {
+      console.log("Passwords don't match");
+      return;
+    }
+
+    // Dispatch action
+    dispatch(register({ name, email, password }));
   };
 
+  // If there is a user then redirect to account
+  {
+    user && router.push("/account");
+  }
+
+  // Handle input change
   const handleChange = (e) => {
     setValues({
       ...values,
