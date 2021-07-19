@@ -21,7 +21,7 @@ const Cards = () => {
       />
       <Card
         title='Vegan Burger'
-        href='/vegan-burger'
+        href='/vegetable-burger'
         bgImage='/images/burger/vegan-burger.jpg'
       />
     </div>

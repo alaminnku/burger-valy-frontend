@@ -4,6 +4,7 @@ import {
   UPDATE_PRICE,
   ADD_SIDE,
   SET_BURGER,
+  SET_BURGER_TYPE,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
     },
     totalPrice: 4,
     side: "",
+    type: "",
   },
 };
 
@@ -30,6 +32,15 @@ const burgerReducer = (state = initialState, action) => {
         price: {
           ...state.price,
           ...payload,
+        },
+      };
+
+    case SET_BURGER_TYPE:
+      return {
+        ...state,
+        burger: {
+          ...state.burger,
+          type: payload,
         },
       };
 

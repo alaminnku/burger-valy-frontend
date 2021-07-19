@@ -1,4 +1,4 @@
-import Burger from "components/burger/Burger";
+import Burger from "@/components/burger/Burger";
 
 const BeefBurger = () => {
   return (

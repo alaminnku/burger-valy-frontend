@@ -6,3 +6,4 @@ export const LOGIN = "LOGIN";
 export const REGISTER = "REGISTER";
 export const SET_BURGER = "SET_BURGER";
 export const CHECK_USER = "CHECK_USER";
+export const SET_BURGER_TYPE = "SET_BURGER_TYPE";

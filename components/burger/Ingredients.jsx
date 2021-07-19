@@ -1,6 +1,6 @@
 import styles from "@styles/burger/ingredients.module.css";
 
-const Ingredients = ({ ingredients }) => {
+const Ingredients = ({ ingredients, meatType }) => {
   // Items to render
   let items = [];
 
@@ -12,7 +12,12 @@ const Ingredients = ({ ingredients }) => {
 
     // Loop through the amount and push an item for each in the items array
     for (let i = 0; i < amount; i++) {
-      items.push(<div key={items.length} className={styles[name]}></div>);
+      items.push(
+        <div
+          key={items.length}
+          className={`${styles[name]} ${styles[meatType]}`}
+        ></div>
+      );
     }
   });
 

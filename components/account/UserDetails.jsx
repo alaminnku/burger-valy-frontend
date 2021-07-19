@@ -10,17 +10,9 @@ import axios from "axios";
 
 const userDetails = () => {
   const [orderDone, setOrderDone] = useState(false);
-
   // Router and state
   const router = useRouter();
   const { user } = useSelector((state) => state.auth);
-
-  // Get the burger from cookie
-  const finalBurger = Cookies.getJSON("finalBurger");
-
-  // Create a new object
-  const pendingOrder = { ...finalBurger };
-  const { ingredients, side } = pendingOrder;
 
   // Push to login page if there isn't a user
   useEffect(() => {
@@ -28,6 +20,13 @@ const userDetails = () => {
       router.push("/login");
     }
   });
+
+  // Get the burger from cookie
+  const finalBurger = Cookies.getJSON("finalBurger");
+
+  // Create a new object
+  const pendingOrder = { ...finalBurger };
+  const { ingredients, side } = pendingOrder;
 
   const handleConfirmOrder = async () => {
     try {
@@ -56,8 +55,10 @@ const userDetails = () => {
       // Post the order to db
       await axios.post(`${API_URL}/orders`, order);
 
+      // Remove the burger from cookie
       Cookies.remove("finalBurger");
 
+      // Set order done true
       setOrderDone(true);
     } catch (err) {
       console.log(err);

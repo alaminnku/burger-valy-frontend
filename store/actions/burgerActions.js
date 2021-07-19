@@ -4,6 +4,7 @@ import {
   UPDATE_PRICE,
   ADD_SIDE,
   SET_BURGER,
+  SET_BURGER_TYPE,
 } from "./actionTypes";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -27,6 +28,15 @@ export const updatePrice = () => async (dispatch) => {
     type: UPDATE_PRICE,
     payload: price,
   });
+};
+
+// Set burger type
+
+export const setBurgerType = (type) => {
+  return {
+    type: SET_BURGER_TYPE,
+    payload: type,
+  };
 };
 
 // Add ingredient action

@@ -1,25 +1,30 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Ingredients from "./Ingredients";
 import Controller from "./Controller";
 import LinkButton from "../layout/LinkButton";
 import styles from "@styles/burger/burger.module.css";
 import Cookies from "js-cookie";
-import { setBurger } from "@store/actions/burgerActions";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setBurgerType } from "@store/actions/burgerActions";
 
 const Burger = ({ meatType }) => {
-  // Get the state
-  const { price } = useSelector((state) => state.burger);
+  const dispatch = useDispatch();
 
-  // Burger
+  // Set burger type on load
+  useEffect(() => {
+    dispatch(setBurgerType(meatType));
+  }, []);
+
+  // Get the price and burger
+  const { price } = useSelector((state) => state.burger);
   const { burger } = useSelector((state) => state.burger);
 
   // Ingredients and total price
-  const { ingredients, totalPrice } = burger;
+  const { ingredients, totalPrice, type } = burger;
 
   return (
     <div className={styles.Burger}>
-      <Ingredients ingredients={ingredients} />
+      <Ingredients ingredients={ingredients} meatType={meatType} />
       <p className={styles.Price}>Price: ${totalPrice}</p>
       <Controller ingredients={ingredients} price={price} meatType={meatType} />
       <LinkButton

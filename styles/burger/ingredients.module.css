@@ -94,10 +94,37 @@
 
 .Meat {
   width: 80%;
-  height: 2rem;
-  background: linear-gradient(#7f3608, #702e05);
+  height: 13%;
   margin: 2% auto;
-  border-radius: 1rem;
+  border-radius: 2rem;
+}
+
+.Beef {
+  background-image: url("/images/burger/beef.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Chicken {
+  background-image: url("/images/burger/chicken.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Cheddar {
+  background-image: url("/images/burger/cheese.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Vegetable {
+  background-image: url("/images/burger/vegetable.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .Cheese {
