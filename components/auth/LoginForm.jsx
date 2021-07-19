@@ -25,7 +25,7 @@ const LoginForm = () => {
   const { email, password } = values;
 
   // Handle login
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     dispatch(login(values));
   };

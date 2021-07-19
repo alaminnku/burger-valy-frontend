@@ -18,9 +18,15 @@ export const updatePrice = () => async (dispatch) => {
     price = Cookies.getJSON("price");
   } else {
     const res = await axios.get(`${API_URL}/burger-price`);
-    const { meat, cheese, salad, bacon, small, medium, large } = res.data;
-    const fetchedPrice = { meat, cheese, salad, bacon, small, medium, large };
+    const { patty, cheese, salad, bacon, small, medium, large } = res.data;
+
+    // Fetched price
+    const fetchedPrice = { patty, cheese, salad, bacon, small, medium, large };
+
+    // Set to cookie
     Cookies.set("price", fetchedPrice, { sameSite: "strict" });
+
+    // Get the price from cookies
     price = Cookies.getJSON("price");
   }
 
@@ -64,7 +70,7 @@ export const addSide = (price, size) => {
 };
 
 export const setBurger = () => {
-  const burger = Cookies.getJSON("burger");
+  const burger = Cookies.getJSON("finalBurger" || "burger");
 
   return {
     type: SET_BURGER,

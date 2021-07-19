@@ -28,7 +28,7 @@ const Summary = () => {
   }
 
   // Destructure ingredients
-  const { Bacon, Cheese, Meat, Salad } = burger.ingredients;
+  const { Bacon, Cheese, Patty, Salad } = burger.ingredients;
 
   return (
     <div className={styles.Summary}>
@@ -38,10 +38,12 @@ const Summary = () => {
       <div className={styles.Description}>
         <p>Your burger with</p>
         <ul>
-          <li>{Salad}x salad</li>
-          <li>{Cheese}x cheese</li>
-          <li>{Meat}x meat</li>
-          <li>{Bacon}x bacon</li>
+          <li>{Salad}x Salad</li>
+          <li>{Cheese}x Cheese</li>
+          <li>{Bacon}x Bacon</li>
+          <li>
+            {Patty}x {burger.type} patty
+          </li>
           <li>{friesAndDrink}</li>
         </ul>
         <p className={styles.Price}>Total price: ${burger.totalPrice}</p>

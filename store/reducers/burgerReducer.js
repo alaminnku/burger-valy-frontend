@@ -13,7 +13,7 @@ const initialState = {
     ingredients: {
       Salad: 0,
       Cheese: 0,
-      Meat: 0,
+      Patty: 0,
       Bacon: 0,
     },
     totalPrice: 4,

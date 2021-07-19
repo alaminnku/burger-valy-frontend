@@ -20,7 +20,7 @@ const Burger = ({ meatType }) => {
   const { burger } = useSelector((state) => state.burger);
 
   // Ingredients and total price
-  const { ingredients, totalPrice, type } = burger;
+  const { ingredients, totalPrice } = burger;
 
   return (
     <div className={styles.Burger}>

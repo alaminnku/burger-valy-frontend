@@ -9,10 +9,10 @@ const Controller = ({ ingredients, price, meatType }) => {
   const dispatch = useDispatch();
 
   // Ingredients from UI
-  const { Meat, Cheese, Salad, Bacon } = ingredients;
+  const { Patty, Cheese, Salad, Bacon } = ingredients;
 
   // Individual price
-  const { meat, cheese, salad, bacon } = price;
+  const { patty, cheese, salad, bacon } = price;
 
   return (
     <div className={styles.Controller}>
@@ -21,11 +21,11 @@ const Controller = ({ ingredients, price, meatType }) => {
         <div>
           <AiOutlinePlusCircle
             className={styles.AddIcon}
-            onClick={() => dispatch(addIngredient("Meat", meat))}
+            onClick={() => dispatch(addIngredient("Patty", patty))}
           />
           <AiOutlineMinusCircle
-            className={`${styles.RemoveIcon} ${Meat === 0 && styles.Disabled}`}
-            onClick={() => dispatch(removeIngredient("Meat", meat))}
+            className={`${styles.RemoveIcon} ${Patty === 0 && styles.Disabled}`}
+            onClick={() => dispatch(removeIngredient("Patty", patty))}
           />
         </div>
       </div>

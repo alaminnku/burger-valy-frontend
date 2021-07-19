@@ -10,6 +10,7 @@ import axios from "axios";
 
 const userDetails = () => {
   const [orderDone, setOrderDone] = useState(false);
+
   // Router and state
   const router = useRouter();
   const { user } = useSelector((state) => state.auth);
@@ -26,7 +27,7 @@ const userDetails = () => {
 
   // Create a new object
   const pendingOrder = { ...finalBurger };
-  const { ingredients, side } = pendingOrder;
+  const { ingredients, side, type } = pendingOrder;
 
   const handleConfirmOrder = async () => {
     try {
@@ -35,28 +36,34 @@ const userDetails = () => {
       const data = res.data;
 
       // Get the price only
-      const { meat, cheese, salad, bacon, small, medium, large } = data;
+      const { patty, cheese, salad, bacon, small, medium, large } = data;
 
       // Get the ingredients and side
-      const { Meat, Cheese, Salad, Bacon } = ingredients;
+      const { Patty, Cheese, Salad, Bacon } = ingredients;
 
       // Calculate total price
       const totalPrice =
         4 +
-        Meat * meat +
+        Patty * patty +
         Cheese * cheese +
         Salad * salad +
         Bacon * bacon +
         data[side];
 
       // Build the final order
-      const order = { ...ingredients, side, totalPrice };
+      const order = {
+        ...ingredients,
+        Side: side,
+        TotalPrice: totalPrice,
+        Type: type,
+      };
 
       // Post the order to db
       await axios.post(`${API_URL}/orders`, order);
 
-      // Remove the burger from cookie
+      // Remove the burgers from cookie
       Cookies.remove("finalBurger");
+      Cookies.remove("burger");
 
       // Set order done true
       setOrderDone(true);

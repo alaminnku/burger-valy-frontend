@@ -26,29 +26,35 @@ const Cards = () => {
       const data = res.data;
 
       // Get the price only
-      const { meat, cheese, salad, bacon, small, medium, large } = data;
+      const { patty, cheese, salad, bacon, small, medium, large } = data;
 
       // Get the ingredients and side
-      const { ingredients } = burger;
-      const { side } = burger;
+      const { ingredients, side, type } = burger;
 
       // Destructure ingredients
-      const { Meat, Cheese, Salad, Bacon } = ingredients;
+      const { Patty, Cheese, Salad, Bacon } = ingredients;
 
       // Calculate total price
       const totalPrice =
         4 +
-        Meat * meat +
+        Patty * patty +
         Cheese * cheese +
         Salad * salad +
         Bacon * bacon +
         data[side];
 
       // Build the final order
-      const order = { ...ingredients, side, totalPrice };
+      const order = {
+        ...ingredients,
+        Side: side,
+        TotalPrice: totalPrice,
+        Type: type,
+      };
 
       // Post the order to db
       await axios.post(`${API_URL}/orders`, order);
+
+      Cookies.remove("burger");
 
       router.push("/account");
     } catch (err) {

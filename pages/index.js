@@ -20,11 +20,11 @@ export async function getStaticProps() {
   const data = res.data;
 
   // Get the price only
-  const { meat, cheese, salad, bacon, small, medium, large } = data;
+  const { patty, cheese, salad, bacon, small, medium, large } = data;
 
   // Price object
   const price = {
-    meat,
+    patty,
     cheese,
     salad,
     bacon,
@@ -35,6 +35,5 @@ export async function getStaticProps() {
 
   return {
     props: { price },
-    revalidate: 1,
   };
 }
