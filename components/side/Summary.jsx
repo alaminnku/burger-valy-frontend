@@ -64,7 +64,18 @@ const Summary = () => {
         </ul>
         <p className={styles.Price}>Total price: ${burger.totalPrice}</p>
       </div>
-      <BiEdit className={styles.Icon} onClick={() => router.push(href)} />
+      <BiEdit
+        className={styles.Icon}
+        onClick={() =>
+          router.push(
+            `${
+              burger.type === "Cheddar"
+                ? "/cheese-burger"
+                : `/${burger.type.toLowerCase()}-burger`
+            }`
+          )
+        }
+      />
     </div>
   );
 };

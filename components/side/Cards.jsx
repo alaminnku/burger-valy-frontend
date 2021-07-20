@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { API_URL } from "config";
 import router from "next/router";
+import ToRemove from "./ToRemove";
 
 const Cards = () => {
   // States
@@ -28,7 +29,7 @@ const Cards = () => {
       const data = res.data;
 
       // Get the price only
-      const { patty, cheese, salad, bacon, small, medium, large } = data;
+      const { patty, cheese, salad, bacon } = data;
 
       // Get the ingredients and side
       const { ingredients, side, type } = burger;
@@ -66,19 +67,6 @@ const Cards = () => {
     }
   };
 
-  // Dynamic link for button
-  let href = "#";
-
-  if (burger.type === "Beef") {
-    href = "/beef-burger";
-  } else if (burger.type === "Chicken") {
-    href = "/chicken-burger";
-  } else if (burger.type === "Cheddar") {
-    href = "/cheese-burger";
-  } else if (burger.type === "Vegetable") {
-    href = "/vegetable-burger";
-  }
-
   return (
     <div className={styles.Cards}>
       <div>
@@ -113,6 +101,7 @@ const Cards = () => {
           added={burger.side === "large" && true}
         />
       </div>
+      <ToRemove />
       <LinkButton text='ORDER NOW' href='#' clicked={handleSubmitOrder} />
     </div>
   );
