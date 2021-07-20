@@ -13,7 +13,13 @@
 }
 
 .Description {
-  width: 75%;
+  width: 65%;
+}
+
+.Icon {
+  font-size: 1.5rem;
+  color: var(--grey);
+  cursor: pointer;
 }
 
 .Description p {

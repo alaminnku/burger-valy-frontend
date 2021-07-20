@@ -9,10 +9,9 @@ import { API_URL } from "config";
 import axios from "axios";
 
 const userDetails = () => {
-  const [orderDone, setOrderDone] = useState(false);
-
   // Router and state
   const router = useRouter();
+  const [orderDone, setOrderDone] = useState(false);
   const { user } = useSelector((state) => state.auth);
 
   // Push to login page if there isn't a user
@@ -23,13 +22,14 @@ const userDetails = () => {
   });
 
   // Get the burger from cookie
-  const finalBurger = Cookies.getJSON("finalBurger");
+  const burger = Cookies.getJSON("burger");
 
   // Create a new object
-  const pendingOrder = { ...finalBurger };
+  const pendingOrder = { ...burger };
   const { ingredients, side, type } = pendingOrder;
 
-  const handleConfirmOrder = async () => {
+  // Submit the order
+  const handleSubmitOrder = async () => {
     try {
       // Fetch the price
       const res = await axios.get(`${API_URL}/burger-price`);
@@ -62,7 +62,6 @@ const userDetails = () => {
       await axios.post(`${API_URL}/orders`, order);
 
       // Remove the burgers from cookie
-      Cookies.remove("finalBurger");
       Cookies.remove("burger");
 
       // Set order done true
@@ -78,13 +77,13 @@ const userDetails = () => {
         <div className={styles.UserDetails}>
           <h4>Welcome {user.name}</h4>
           {/* Only show summary if orderDone is false and there is a burger in cookie */}
-          {!orderDone && finalBurger && (
+          {!orderDone && burger && (
             <div>
               <Summary />
               <LinkButton
                 href='#'
                 text='Confirm Order'
-                clicked={handleConfirmOrder}
+                clicked={handleSubmitOrder}
               />
             </div>
           )}

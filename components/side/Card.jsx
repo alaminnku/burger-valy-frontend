@@ -1,18 +1,21 @@
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
-import { addSide } from "@store/actions/burgerActions";
-import { IoIosAddCircleOutline } from "react-icons/io";
+import { addSide, removeSide } from "@store/actions/burgerActions";
+import {
+  IoIosAddCircleOutline,
+  IoIosRemoveCircleOutline,
+} from "react-icons/io";
 import styles from "@styles/side/card.module.css";
 
-const Card = ({ title, items, side }) => {
+const Card = ({ title, items, side, added }) => {
   // Dispatch
   const dispatch = useDispatch();
 
   //Price
   const { price, burger } = useSelector((state) => state.burger);
 
+  // Check if side added
   let sideAdded = false;
-
   if (burger.side !== "") {
     sideAdded = true;
   }
@@ -30,10 +33,17 @@ const Card = ({ title, items, side }) => {
         <div className={styles.Title}>
           <p>{title}</p>
           <p>{items}</p>
-          <IoIosAddCircleOutline
-            className={`${styles.Icon} ${sideAdded && styles.Disabled}`}
-            onClick={() => dispatch(addSide(price[side], side))}
-          />
+          {!added ? (
+            <IoIosAddCircleOutline
+              className={`${styles.Icon} ${sideAdded && styles.Disabled}`}
+              onClick={() => dispatch(addSide(price[side], side))}
+            />
+          ) : (
+            <IoIosRemoveCircleOutline
+              className={`${styles.Icon}`}
+              onClick={() => dispatch(removeSide(price[side], (side = "")))}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -8,9 +8,8 @@ import { useEffect } from "react";
 import { setBurgerType } from "@store/actions/burgerActions";
 
 const Burger = ({ meatType }) => {
-  const dispatch = useDispatch();
-
   // Set burger type on load
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setBurgerType(meatType));
   }, []);
@@ -20,7 +19,20 @@ const Burger = ({ meatType }) => {
   const { burger } = useSelector((state) => state.burger);
 
   // Ingredients and total price
-  const { ingredients, totalPrice } = burger;
+  const { ingredients, totalPrice, type } = burger;
+
+  // Dynamic link for button
+  let href = "#";
+
+  if (type === "Beef") {
+    href = "/beef-burger";
+  } else if (type === "Chicken") {
+    href = "/chicken-burger";
+  } else if (type === "Cheddar") {
+    href = "/cheese-burger";
+  } else if (type === "Vegetable") {
+    href = "/vegetable-burger";
+  }
 
   return (
     <div className={styles.Burger}>
@@ -29,7 +41,7 @@ const Burger = ({ meatType }) => {
       <Controller ingredients={ingredients} price={price} meatType={meatType} />
       <LinkButton
         text='CONTINUE'
-        href='/beef-burger/side'
+        href={`${href}/side`}
         clicked={() => Cookies.set("burger", burger)}
       />
     </div>

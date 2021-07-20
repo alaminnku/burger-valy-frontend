@@ -1,11 +1,11 @@
 import Link from "next/link";
 import styles from "@styles/layout/linkButton.module.css";
 
-const LinkButton = ({ text, href, clicked }) => {
+const LinkButton = ({ text, href, clicked, style }) => {
   return (
     <div className={styles.LinkButton} onClick={clicked}>
       <Link href={href}>
-        <a>{text}</a>
+        <a style={style}>{text}</a>
       </Link>
     </div>
   );

@@ -2,14 +2,16 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import styles from "@styles/side/summary.module.css";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { setBurger } from "@store/actions/burgerActions";
+import { BiEdit } from "react-icons/bi";
 
 const Summary = () => {
-  // Dispatch set burger action
-  const dispatch = useDispatch();
+  const router = useRouter();
 
-  // Get the burger from cookies on reload
+  // Get the burger from cookies on reload and set on state
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setBurger());
   }, []);
@@ -17,6 +19,7 @@ const Summary = () => {
   // Get the state
   const { burger } = useSelector((state) => state.burger);
 
+  // Check if there is fires and drink
   let friesAndDrink = "No fries and drink";
 
   if (burger.side === "small") {
@@ -29,6 +32,19 @@ const Summary = () => {
 
   // Destructure ingredients
   const { Bacon, Cheese, Patty, Salad } = burger.ingredients;
+
+  // Dynamic link for button
+  let href = "#";
+
+  if (burger.type === "Beef") {
+    href = "/beef-burger";
+  } else if (burger.type === "Chicken") {
+    href = "/chicken-burger";
+  } else if (burger.type === "Cheddar") {
+    href = "/cheese-burger";
+  } else if (burger.type === "Vegetable") {
+    href = "/vegetable-burger";
+  }
 
   return (
     <div className={styles.Summary}>
@@ -48,6 +64,7 @@ const Summary = () => {
         </ul>
         <p className={styles.Price}>Total price: ${burger.totalPrice}</p>
       </div>
+      <BiEdit className={styles.Icon} onClick={() => router.push(href)} />
     </div>
   );
 };

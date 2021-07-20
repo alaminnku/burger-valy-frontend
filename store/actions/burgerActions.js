@@ -3,6 +3,7 @@ import {
   REMOVE_INGREDIENT,
   UPDATE_PRICE,
   ADD_SIDE,
+  REMOVE_SIDE,
   SET_BURGER,
   SET_BURGER_TYPE,
 } from "./actionTypes";
@@ -69,8 +70,17 @@ export const addSide = (price, size) => {
   };
 };
 
+// Add side
+export const removeSide = (price, size) => {
+  return {
+    type: REMOVE_SIDE,
+    payload: { price, size },
+  };
+};
+
+// Get the burger from cookie and set to state
 export const setBurger = () => {
-  const burger = Cookies.getJSON("finalBurger" || "burger");
+  const burger = Cookies.getJSON("burger");
 
   return {
     type: SET_BURGER,
