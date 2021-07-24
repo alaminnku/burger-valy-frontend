@@ -1,16 +1,18 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import styles from "@styles/account/userDetails.module.css";
 import Summary from "../side/Summary";
 import LinkButton from "../layout/LinkButton";
-import { API_URL } from "config";
+import { API_URL, NEXT_URL } from "config";
+import { logout } from "@store/actions/authActions";
 import axios from "axios";
 
 const userDetails = () => {
   // Router and state
   const router = useRouter();
+  const dispatch = useDispatch();
   const [orderDone, setOrderDone] = useState(false);
   const { user } = useSelector((state) => state.auth);
 
@@ -71,6 +73,11 @@ const userDetails = () => {
     }
   };
 
+  const handleLogout = () => {
+    dispatch(logout());
+    router.push("/");
+  };
+
   return (
     <>
       {user && (
@@ -87,6 +94,8 @@ const userDetails = () => {
               />
             </div>
           )}
+
+          <LinkButton text='LOGOUT' href='#' clicked={handleLogout} />
         </div>
       )}
     </>

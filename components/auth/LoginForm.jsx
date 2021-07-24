@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { login } from "@store/actions/authActions";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import axios from "axios";
 
 const LoginForm = () => {
   // Dispatch

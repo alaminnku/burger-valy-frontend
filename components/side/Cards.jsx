@@ -37,28 +37,28 @@ const Cards = () => {
       // Destructure ingredients
       const { Patty, Cheese, Salad, Bacon } = ingredients;
 
+      // Get the items from cookies
+      const itemsToRemove = Cookies.getJSON("itemsToRemove");
+
       // Calculate total price
       const totalPrice =
-        4 +
-        Patty * patty +
-        Cheese * cheese +
-        Salad * salad +
-        Bacon * bacon +
-        data[side];
+        4 + Patty * patty + Cheese * cheese + Salad * salad + Bacon * bacon;
 
       // Build the final order
       const order = {
         ...ingredients,
         Side: side,
-        TotalPrice: totalPrice,
+        TotalPrice: side ? totalPrice + data[side] : totalPrice,
         Type: type,
       };
 
       // Post the order to db
       await axios.post(`${API_URL}/orders`, order);
+      await axios.post(`${API_URL}/items-to-removes`, itemsToRemove);
 
       // Remove the burger from cookie
       Cookies.remove("burger");
+      Cookies.remove("itemsToRemove");
 
       // Push to account after submit
       router.push("/account");

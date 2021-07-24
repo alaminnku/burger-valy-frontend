@@ -1,4 +1,5 @@
 import styles from "@styles/side/toRemove.module.css";
+import Cookies from "js-cookie";
 import { useState } from "react";
 
 const ToRemove = () => {
@@ -28,7 +29,8 @@ const ToRemove = () => {
   // Convert the array to object
   const itemsToRemove = Object.fromEntries(trueItems);
 
-  console.log(itemsToRemove);
+  // Set the values to cookies
+  Cookies.set("itemsToRemove", itemsToRemove);
 
   return (
     <div className={styles.ToRemove}>

@@ -5,7 +5,7 @@ import cookie from "cookie";
 export default async (req, res) => {
   if (req.method === "GET") {
     // If there is no cookie in the header
-    if (!req.headers.cookie) {
+    if (!req.headers.cookie.token) {
       res.status(403).json({ message: "Not Authorized" });
       return;
     }

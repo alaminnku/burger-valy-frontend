@@ -1,6 +1,30 @@
-import { LOGIN, REGISTER, CHECK_USER } from "@store/actions/actionTypes";
+import {
+  LOGIN,
+  REGISTER,
+  CHECK_USER,
+  LOGOUT,
+} from "@store/actions/actionTypes";
 import axios from "axios";
 import { NEXT_URL } from "config";
+
+// Check the user
+export const checkUser = () => async (dispatch) => {
+  try {
+    // Fetch the user
+    const res = await axios.get(`${NEXT_URL}/user`);
+
+    // Get the user data
+    const user = res.data.user;
+
+    // Dispatch the action
+    dispatch({
+      type: CHECK_USER,
+      payload: user,
+    });
+  } catch (err) {
+    console.log(err.response.data.message);
+  }
+};
 
 // Register action
 export const register =
@@ -47,21 +71,25 @@ export const login =
     }
   };
 
-// Check the user
-export const checkUser = () => async (dispatch) => {
+//Logout action
+export const logout = () => async (dispatch) => {
   try {
-    // Fetch the user
-    const res = await axios.get(`${NEXT_URL}/user`);
+    // Post the logout request
+    const res = await axios.post(`${NEXT_URL}/logout`);
 
-    // Get the user data
-    const user = res.data.user;
+    let user;
+
+    // Set the user to null if cookie is successfully removed
+    {
+      res.status === 200 && user === null;
+    }
 
     // Dispatch the action
     dispatch({
-      type: CHECK_USER,
+      type: LOGOUT,
       payload: user,
     });
   } catch (err) {
-    console.log(err.response.data.message);
+    console.log(err);
   }
 };
