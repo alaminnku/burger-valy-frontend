@@ -8,7 +8,7 @@ import { API_URL } from "config";
 import router from "next/router";
 import ToRemove from "./ToRemove";
 
-const Cards = () => {
+const Cards = ({ token }) => {
   // States
   const { burger } = useSelector((state) => state.burger);
   const { user } = useSelector((state) => state.auth);
@@ -50,11 +50,15 @@ const Cards = () => {
         Side: side,
         TotalPrice: side ? totalPrice + data[side] : totalPrice,
         Type: type,
+        ...itemsToRemove,
       };
 
       // Post the order to db
-      await axios.post(`${API_URL}/orders`, order);
-      await axios.post(`${API_URL}/items-to-removes`, itemsToRemove);
+      await axios.post(`${API_URL}/orders`, order, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       // Remove the burger from cookie
       Cookies.remove("burger");

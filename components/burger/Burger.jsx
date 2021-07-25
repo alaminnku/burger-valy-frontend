@@ -31,7 +31,7 @@ const Burger = ({ meatType }) => {
         href={`${
           burger.type === "Cheddar"
             ? "/cheese-burger/side"
-            : `${burger.type.toLowerCase()}-burger/side`
+            : `/${burger.type.toLowerCase()}-burger/side`
         }`}
         clicked={() => Cookies.set("burger", burger)}
       />
