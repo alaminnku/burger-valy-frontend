@@ -8,14 +8,17 @@ import LinkButton from "../layout/LinkButton";
 import { API_URL } from "config";
 import { logout } from "@store/actions/authActions";
 import axios from "axios";
+import Orders from "./Orders";
+import CurrentOrder from "./CurrentOrder";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 const userDetails = ({ token, orders }) => {
-  console.log(orders);
   // Router and state
   const router = useRouter();
   const dispatch = useDispatch();
   const [orderDone, setOrderDone] = useState(false);
   const { user } = useSelector((state) => state.auth);
+  const [showOrders, setShowOrders] = useState(false);
 
   // Push to login page if there isn't a user
   useEffect(() => {
@@ -88,7 +91,7 @@ const userDetails = ({ token, orders }) => {
     <>
       {user && (
         <div className={styles.UserDetails}>
-          <h4>Welcome {user.name}</h4>
+          <h4 className={styles.Title}>Welcome {user.name}</h4>
           {/* Only show summary if orderDone is false and there is a burger in cookie */}
           {!orderDone && burger && (
             <div>
@@ -100,53 +103,19 @@ const userDetails = ({ token, orders }) => {
               />
             </div>
           )}
+          <p className={styles.Order}>Current order</p>
+          <CurrentOrder orders={orders} />
 
-          <p>Your orders</p>
-          {orders.map((order) => {
-            // Get the items to remove from order
-            const { mayo, ketchup, lettuce, mustard, onions, pickles, tomato } =
-              order;
-
-            // Create an object
-            const items = {
-              mayo,
-              ketchup,
-              lettuce,
-              mustard,
-              onions,
-              pickles,
-              tomato,
-            };
-
-            // Return an array with the key when it's value is true
-            const itemsToRemove = Object.entries(items).filter((item) => {
-              if (item[1] === true) {
-                return item[0];
-              }
-            });
-
-            return (
-              <div key={order.id}>
-                <p>{order.Type} Burger</p>
-                <ul>
-                  <li>{order.Salad}x Salad</li>
-                  <li>{order.Cheese}x Cheese</li>
-                  <li>{order.Bacon}x Bacon</li>
-                  <li>
-                    {order.Patty}x {order.Type} patty
-                  </li>
-                  <li>1 {order.Side} fries and drink</li>
-                  <li>Items To Remove</li>
-                  {itemsToRemove.map((item) => (
-                    <li key={Math.random(10)}>{item}</li>
-                  ))}
-                </ul>
-                <p>Total ${order.TotalPrice}</p>
-                <hr />
-              </div>
-            );
-          })}
-
+          <p
+            className={styles.Order}
+            onClick={() => setShowOrders(!showOrders)}
+          >
+            All orders{" "}
+            <RiArrowDropDownLine
+              className={`${styles.Icon} ${showOrders && styles.RotateIcon}`}
+            />
+          </p>
+          {showOrders && <Orders orders={orders} />}
           <LinkButton text='LOGOUT' href='#' clicked={handleLogout} />
         </div>
       )}

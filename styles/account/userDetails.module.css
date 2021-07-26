@@ -2,3 +2,25 @@
   padding: 1rem;
   padding-bottom: 6rem;
 }
+
+.Title {
+  margin-bottom: 1rem;
+}
+
+.Order {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: var(--medium);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.Icon {
+  font-size: 1.5rem;
+  transition: all 0.25s;
+}
+
+.RotateIcon {
+  transform: rotate(180deg);
+}

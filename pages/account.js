@@ -26,7 +26,7 @@ export async function getServerSideProps({ req }) {
   });
 
   // Orders
-  const orders = res.data;
+  const orders = res.data.sort((a, b) => a.createdAt > b.createdAt && -1);
 
   return {
     props: {
