@@ -35,10 +35,21 @@ const CurrentOrder = ({ orders }) => {
           </ul>
         </div>
 
-        <div className={styles.ItemsToRemove}>
-          <p className={styles.Title}>Items To Remove</p>
-          <div className={styles.Items}>Hello</div>
-        </div>
+        {/* Show items to remove only when there is something to remove */}
+        {Object.entries(order).filter((item) => item[1] === true).length > 0 ? (
+          <div className={styles.ItemsToRemove}>
+            <p className={styles.Title}>Items Removed</p>
+            <div className={styles.Items}>
+              {Object.entries(order)
+                .filter((item) => item[1] === true)
+                .map((el) => (
+                  <p key={el[0]}>{el[0]},</p>
+                ))}
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
 
         <div className={styles.PriceReorder}>
           <p className={styles.Title}>Total amount: ${order.TotalPrice}</p>
@@ -48,7 +59,7 @@ const CurrentOrder = ({ orders }) => {
   } else {
     latestOrder = (
       <p className={styles.NoOrder}>
-        You don't have any order placed at the moment
+        You don't have any order placed at the moment. Want to place an order?
       </p>
     );
   }
