@@ -1,5 +1,5 @@
 .Cards {
   display: flex;
   flex-direction: column;
-  padding-bottom: 6.5rem;
+  padding-bottom: 6rem;
 }

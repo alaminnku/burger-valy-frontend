@@ -3,7 +3,7 @@ import Burger from "@/components/burger/Burger";
 const BeefBurger = () => {
   return (
     <div>
-      <Burger meatType='Beef' />
+      <Burger pattyType='Beef' />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 .Ingredients {
   width: 100%;
   padding-bottom: 1rem;
-  height: 20rem;
+  height: 15rem;
   overflow: auto;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .BreadTop {
-  height: 5rem;
+  height: 4.5rem;
   width: 80%;
   background: linear-gradient(#bc581e, #e27b36);
   border-radius: 50% 50% 0 0;
@@ -35,7 +35,7 @@
   position: absolute;
   background-color: white;
   left: 30%;
-  top: 50%;
+  top: 60%;
   border-radius: 40%;
   transform: rotate(-20deg);
   box-shadow: inset -2px -3px #c9c9c9;
@@ -73,7 +73,7 @@
   position: absolute;
   background-color: white;
   left: 64%;
-  top: 50%;
+  top: 60%;
   border-radius: 40%;
   transform: rotate(10deg);
   box-shadow: inset -3px 0 #c9c9c9;
@@ -94,7 +94,7 @@
 
 .Patty {
   width: 80%;
-  height: 13%;
+  height: 16%;
   margin: 2% auto;
   border-radius: 2rem;
 }

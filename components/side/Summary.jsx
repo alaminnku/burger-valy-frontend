@@ -54,11 +54,11 @@ const Summary = () => {
       <div className={styles.Description}>
         <p>Your burger with</p>
         <ul>
-          <li>{Salad}x Salad</li>
-          <li>{Cheese}x Cheese</li>
-          <li>{Bacon}x Bacon</li>
+          <li>{Salad}x salad</li>
+          <li>{Cheese}x cheese</li>
+          <li>{Bacon}x bacon</li>
           <li>
-            {Patty}x {burger.type} patty
+            {Patty}x {burger.type.toLowerCase()} patty
           </li>
           <li>{friesAndDrink}</li>
         </ul>

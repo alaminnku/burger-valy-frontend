@@ -34,7 +34,7 @@ const ToRemove = () => {
 
   return (
     <div className={styles.ToRemove}>
-      <h4>Things to remove</h4>
+      <h4>Items to remove</h4>
       <div className={styles.Items}>
         <div className={styles.Item}>
           <label htmlFor='mayo'>Mayo</label>

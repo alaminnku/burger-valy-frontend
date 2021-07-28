@@ -1,5 +1,4 @@
 import styles from "@styles/account/currentOrder.module.css";
-import { useState } from "react";
 
 const CurrentOrder = ({ orders }) => {
   // Get the order which is placed in last hour
@@ -38,7 +37,7 @@ const CurrentOrder = ({ orders }) => {
         {/* Show items to remove only when there is something to remove */}
         {Object.entries(order).filter((item) => item[1] === true).length > 0 ? (
           <div className={styles.ItemsToRemove}>
-            <p className={styles.Title}>Items Removed</p>
+            <p className={styles.Title}>Removed Items</p>
             <div className={styles.Items}>
               {Object.entries(order)
                 .filter((item) => item[1] === true)
@@ -57,11 +56,7 @@ const CurrentOrder = ({ orders }) => {
       </div>
     ));
   } else {
-    latestOrder = (
-      <p className={styles.NoOrder}>
-        You don't have any order placed at the moment. Want to place an order?
-      </p>
-    );
+    latestOrder = <p className={styles.NoOrder}>No active orders!</p>;
   }
 
   return <>{latestOrder}</>;

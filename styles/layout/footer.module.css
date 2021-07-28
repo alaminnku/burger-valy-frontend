@@ -4,15 +4,21 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 1rem;
-  background-color: var(--almostWhite);
+  padding: 0.5rem 1rem;
+  background-color: var(--slateGrey);
 }
 
 .Item {
   text-align: center;
 }
 
-.Item p {
-  font-size: 0.8rem;
+.Item p,
+.Item a {
+  font-size: 0.9rem;
   font-weight: var(--semiBold);
+  color: var(--almostWhite);
+}
+
+.Item a {
+  font-size: 1rem;
 }

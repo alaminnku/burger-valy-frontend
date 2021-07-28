@@ -40,6 +40,7 @@
 
 .Order .ItemsToRemove .Items {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 0.3rem;
 }
 
@@ -57,10 +58,10 @@
 
 .Order .PriceReorder button {
   font-size: 0.8rem;
-  padding: 0.3rem 1rem;
+  padding: 0.4rem 1rem;
   border: none;
   background-color: var(--kindaRed);
-  font-weight: var(--medium);
+  font-weight: var(--semiBold);
   border-radius: 0.25rem;
   color: var(--almostWhite);
   cursor: pointer;

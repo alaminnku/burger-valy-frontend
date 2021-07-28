@@ -1,6 +1,6 @@
 .Navbar {
   text-align: center;
-  padding: 1rem;
+  padding-top: 0.3rem;
   background-color: var(--almostWhite);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;

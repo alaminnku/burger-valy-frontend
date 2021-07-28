@@ -100,6 +100,7 @@ const userDetails = ({ token, orders }) => {
                 href='#'
                 text='Confirm Order'
                 clicked={handleSubmitOrder}
+                style={{ marginBottom: "1rem" }}
               />
             </div>
           )}
@@ -115,8 +116,13 @@ const userDetails = ({ token, orders }) => {
               className={`${styles.Icon} ${showOrders && styles.RotateIcon}`}
             />
           </p>
-          {showOrders && <Orders orders={orders} />}
-          <LinkButton text='LOGOUT' href='#' clicked={handleLogout} />
+          {showOrders && <Orders orders={orders} token={token} />}
+          <LinkButton
+            text='Logout'
+            href='#'
+            clicked={handleLogout}
+            style={{ backgroundColor: "var(--grey", padding: ".3rem 1rem" }}
+          />
         </div>
       )}
     </>

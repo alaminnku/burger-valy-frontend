@@ -7,11 +7,11 @@ import Cookies from "js-cookie";
 import { useEffect } from "react";
 import { setBurgerType } from "@store/actions/burgerActions";
 
-const Burger = ({ meatType }) => {
+const Burger = ({ pattyType }) => {
   // Set burger type on load
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setBurgerType(meatType));
+    dispatch(setBurgerType(pattyType));
   }, []);
 
   // Get the price and burger
@@ -23,9 +23,14 @@ const Burger = ({ meatType }) => {
 
   return (
     <div className={styles.Burger}>
-      <Ingredients ingredients={ingredients} meatType={meatType} />
+      <h4>{pattyType} Burger</h4>
+      <Ingredients ingredients={ingredients} pattyType={pattyType} />
       <p className={styles.Price}>Price: ${totalPrice}</p>
-      <Controller ingredients={ingredients} price={price} meatType={meatType} />
+      <Controller
+        ingredients={ingredients}
+        price={price}
+        pattyType={pattyType}
+      />
       <LinkButton
         text='CONTINUE'
         href={`${

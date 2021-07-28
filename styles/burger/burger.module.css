@@ -1,9 +1,14 @@
 .Burger {
   padding: 1rem;
-  padding-bottom: 6.5rem;
+  padding-bottom: 5rem;
+}
+
+.Burger h4 {
+  margin-bottom: 1rem;
 }
 
 .Price {
   text-align: center;
   margin-bottom: 1rem;
+  font-weight: var(--medium);
 }

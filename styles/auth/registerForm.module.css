@@ -1,6 +1,7 @@
 .RegisterForm {
   padding: 1rem;
   margin: 0rem 1rem;
+  margin-bottom: 5.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -10,7 +11,13 @@
 }
 
 .RegisterForm h3 {
+  display: flex;
+  align-items: center;
   margin-bottom: 1rem;
+}
+
+.RegisterForm h3 .Icon {
+  margin-right: 0.5rem;
 }
 
 .Item {
@@ -25,7 +32,7 @@
 }
 
 .Item input {
-  border: 1px solid var(--grey);
+  border: 1px solid black;
   padding: 0.2rem;
 }
 
@@ -39,6 +46,7 @@
   border: none;
   background-color: var(--kindaRed);
   color: var(--almostWhite);
+  font-weight: var(--semiBold);
   padding: 0.3rem;
   cursor: pointer;
   margin-bottom: 1rem;
@@ -46,9 +54,10 @@
 
 .RegisterForm small,
 .RegisterForm small a {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .RegisterForm small a {
   color: var(--kindaRed);
+  font-weight: var(--medium);
 }

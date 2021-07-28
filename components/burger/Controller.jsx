@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addIngredient } from "@store/actions/burgerActions";
 import { removeIngredient } from "@store/actions/burgerActions";
 
-const Controller = ({ ingredients, price, meatType }) => {
+const Controller = ({ ingredients, price, pattyType }) => {
   // Dispatch action
   const dispatch = useDispatch();
 
@@ -17,7 +17,7 @@ const Controller = ({ ingredients, price, meatType }) => {
   return (
     <div className={styles.Controller}>
       <div className={styles.Item}>
-        <p>{meatType}</p>
+        <p>{pattyType}</p>
         <div>
           <AiOutlinePlusCircle
             className={styles.AddIcon}

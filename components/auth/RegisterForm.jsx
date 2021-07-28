@@ -3,6 +3,7 @@ import { useState } from "react";
 import { register } from "@store/actions/authActions";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
+import { FaUserAlt } from "react-icons/fa";
 import styles from "@styles/auth/registerForm.module.css";
 
 const RegisterForm = () => {
@@ -49,7 +50,10 @@ const RegisterForm = () => {
 
   return (
     <div className={styles.RegisterForm}>
-      <h3>User register</h3>
+      <h3>
+        <FaUserAlt className={styles.Icon} />
+        User registration
+      </h3>
       <form>
         <div className={styles.Item}>
           <label htmlFor='name'>Name</label>

@@ -1,31 +1,24 @@
-.ToRemove {
+.BurgerType {
   padding: 1rem;
-  padding-top: 0rem;
+  padding-bottom: 0rem;
 }
 
-.ToRemove h4 {
+.BurgerType h3 {
   margin-bottom: 0.5rem;
 }
 
-.Items {
+.BurgerType .Types {
   display: flex;
   flex-wrap: wrap;
 }
 
-.Item {
+.BurgerType .Types .Type {
   display: flex;
   align-items: center;
-  width: 43%;
-  margin-bottom: 1rem;
   margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
-.Item label {
+.BurgerType .Types .Type label {
   margin-right: 0.5rem;
-}
-
-@media (min-width: 411px) {
-  .Item {
-    width: 29%;
-  }
 }

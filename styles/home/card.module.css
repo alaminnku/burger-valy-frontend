@@ -12,7 +12,7 @@
 .Card p,
 .Card a {
   color: var(--almostWhite);
-  font-weight: var(--medium);
+  font-weight: var(--semiBold);
 }
 
 .Card a {

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { login } from "@store/actions/authActions";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import { FaUserAlt } from "react-icons/fa";
 
 const LoginForm = () => {
   // Dispatch
@@ -44,7 +45,10 @@ const LoginForm = () => {
 
   return (
     <div className={styles.LoginForm}>
-      <h3>User login</h3>
+      <h3>
+        <FaUserAlt className={styles.Icon} />
+        User login
+      </h3>
       <form>
         <div className={styles.Item}>
           <label htmlFor='email'>Email</label>

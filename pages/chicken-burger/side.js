@@ -14,10 +14,13 @@ const side = ({ finalToken }) => {
 export async function getServerSideProps({ req }) {
   // Get the token from cookie
   const { token } = parseCookies(req);
-  const parsedToken = JSON.parse(token);
 
-  // Set finalToken to null if there is no cookie
-  const finalToken = parsedToken || null;
+  let finalToken;
+
+  // If there is a token, parse it else set final token to null
+  {
+    token ? (finalToken = JSON.parse(token)) : (finalToken = null);
+  }
 
   return {
     props: {
