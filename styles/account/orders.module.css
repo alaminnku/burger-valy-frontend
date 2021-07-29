@@ -1,3 +1,7 @@
+.Orders {
+  padding-bottom: 1rem;
+}
+
 .Order {
   display: flex;
   flex-direction: column;
@@ -7,13 +11,17 @@
   border-radius: 0.25rem;
 }
 
+.Order:last-child {
+  margin-bottom: 0rem;
+}
+
 .Order .TypeDate {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.Order small {
+.Order .Date {
   font-size: 0.6rem;
   color: var(--slateGrey);
 }
@@ -23,7 +31,6 @@
 }
 
 .Order .Title {
-  font-size: 0.9rem;
   font-weight: var(--semiBold);
   margin-bottom: 0.1rem;
 }
@@ -34,7 +41,6 @@
 }
 
 .Order ul li {
-  font-size: 0.8rem;
   padding: 0.2rem;
 }
 
@@ -44,8 +50,7 @@
   margin-bottom: 0.3rem;
 }
 
-.Order .ItemsToRemove .Items p {
-  font-size: 0.8rem;
+.Order .ItemsToRemove .Items small {
   padding: 0.2rem;
   text-transform: capitalize;
 }
@@ -54,15 +59,4 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.Order .PriceReorder button {
-  font-size: 0.8rem;
-  padding: 0.4rem 1rem;
-  border: none;
-  background-color: var(--kindaRed);
-  font-weight: var(--semiBold);
-  border-radius: 0.25rem;
-  color: var(--almostWhite);
-  cursor: pointer;
 }

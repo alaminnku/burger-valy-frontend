@@ -1,4 +1,6 @@
 .UserDetails {
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   margin-bottom: 4.5rem;
 }
@@ -7,11 +9,18 @@
   margin-bottom: 1rem;
 }
 
+.PendingOrder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 .Order {
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
-  font-weight: var(--medium);
+  font-weight: var(--semiBold);
   margin-bottom: 0.5rem;
   cursor: pointer;
 }

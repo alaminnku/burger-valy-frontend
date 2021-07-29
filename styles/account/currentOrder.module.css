@@ -13,7 +13,7 @@
   justify-content: space-between;
 }
 
-.Order small {
+.Order .Date {
   font-size: 0.6rem;
   color: var(--slateGrey);
 }
@@ -23,7 +23,6 @@
 }
 
 .Order .Title {
-  font-size: 0.9rem;
   font-weight: var(--semiBold);
   margin-bottom: 0.1rem;
 }
@@ -34,7 +33,6 @@
 }
 
 .Order ul li {
-  font-size: 0.8rem;
   padding: 0.2rem;
 }
 
@@ -43,8 +41,7 @@
   margin-bottom: 0.3rem;
 }
 
-.Order .ItemsToRemove .Items p {
-  font-size: 0.8rem;
+.Order .ItemsToRemove .Items small {
   padding: 0.2rem;
   text-transform: capitalize;
 }
@@ -56,6 +53,8 @@
 }
 
 .NoOrder {
-  font-size: 0.8rem;
   margin-bottom: 1rem;
+}
+
+@media (min-width: 411px) {
 }

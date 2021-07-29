@@ -11,14 +11,16 @@ import axios from "axios";
 import Orders from "./Orders";
 import CurrentOrder from "./CurrentOrder";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import Button from "../layout/Button";
 
-const userDetails = ({ token, orders }) => {
+const userDetails = ({ token }) => {
   // Router and state
   const router = useRouter();
   const dispatch = useDispatch();
   const [orderDone, setOrderDone] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const [showOrders, setShowOrders] = useState(false);
+  const [reOrdered, setReOrdered] = useState([]);
 
   // Push to login page if there isn't a user
   useEffect(() => {
@@ -91,21 +93,21 @@ const userDetails = ({ token, orders }) => {
     <>
       {user && (
         <div className={styles.UserDetails}>
-          <h4 className={styles.Title}>Welcome {user.name}</h4>
+          <h4 className={styles.Title}>Welcome {user.name}!</h4>
+
           {/* Only show summary if orderDone is false and there is a burger in cookie */}
           {!orderDone && burger && (
-            <div>
+            <div className={styles.PendingOrder}>
               <Summary />
-              <LinkButton
-                href='#'
-                text='Confirm Order'
-                clicked={handleSubmitOrder}
-                style={{ marginBottom: "1rem" }}
-              />
+              <Button text='Confirm Order' clicked={handleSubmitOrder} />
             </div>
           )}
-          <p className={styles.Order}>Current order</p>
-          <CurrentOrder orders={orders} />
+          <p className={styles.Order}>Current orders</p>
+          <CurrentOrder
+            token={token}
+            reOrdered={reOrdered}
+            orderDone={orderDone}
+          />
 
           <p
             className={styles.Order}
@@ -116,12 +118,19 @@ const userDetails = ({ token, orders }) => {
               className={`${styles.Icon} ${showOrders && styles.RotateIcon}`}
             />
           </p>
-          {showOrders && <Orders orders={orders} token={token} />}
-          <LinkButton
+          {showOrders && (
+            <Orders
+              token={token}
+              setReOrdered={setReOrdered}
+              reOrdered={reOrdered}
+              orderDone={orderDone}
+            />
+          )}
+
+          <Button
             text='Logout'
-            href='#'
             clicked={handleLogout}
-            style={{ backgroundColor: "var(--grey", padding: ".3rem 1rem" }}
+            style={{ backgroundColor: "var(--grey)", alignSelf: "center" }}
           />
         </div>
       )}

@@ -1,8 +1,27 @@
 import axios from "axios";
 import { API_URL } from "config";
+import { useEffect, useState } from "react";
 import styles from "@styles/account/orders.module.css";
+import Button from "../layout/Button";
 
-const Orders = ({ orders, token }) => {
+const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
+  const [orders, setOrders] = useState([]);
+
+  // Fetch the orders on render
+  useEffect(async () => {
+    const res = await axios.get(`${API_URL}/orders/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    // Sort the orders
+    const orders = res.data.sort((a, b) => b.createdAt > a.createdAt && 1);
+
+    // Update the state
+    setOrders(orders);
+  }, [orderDone, reOrdered]);
+
   // Handle reorder
   const handleReorder = async (order) => {
     // Delete unnecessary properties from order object
@@ -17,14 +36,18 @@ const Orders = ({ orders, token }) => {
     ].forEach((prop) => delete order[prop]);
 
     // Post the order to DB with token
-    await axios.post(`${API_URL}/orders`, order, {
+    const res = await axios.post(`${API_URL}/orders`, order, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
+
+    // Update reordered array with new order
+    setReOrdered([...reOrdered, res.data]);
   };
+
   return (
-    <div>
+    <div className={styles.Orders}>
       {orders.length > 0 ? (
         orders.map((order) => {
           return (
@@ -32,7 +55,9 @@ const Orders = ({ orders, token }) => {
               <div className={styles.Main}>
                 <div className={styles.TypeDate}>
                   <p className={styles.Title}>{order.Type} Burger</p>
-                  <small>{new Date(order.createdAt).toDateString()}</small>
+                  <small className={styles.Date}>
+                    {new Date(order.createdAt).toDateString()}
+                  </small>
                 </div>
                 <ul>
                   <li>{order.Salad}x salad,</li>
@@ -41,7 +66,11 @@ const Orders = ({ orders, token }) => {
                   <li>
                     {order.Patty}x {order.Type.toLowerCase()} patty,
                   </li>
-                  <li>1x {order.Side} fries and drink</li>
+                  <li>
+                    {order.Side === ""
+                      ? "No fries and drink"
+                      : `1x ${order.Side} fries and drink`}
+                  </li>
                 </ul>
               </div>
 
@@ -54,7 +83,7 @@ const Orders = ({ orders, token }) => {
                     {Object.entries(order)
                       .filter((item) => item[1] === true)
                       .map((el) => (
-                        <p key={el[0]}>{el[0]},</p>
+                        <small key={el[0]}>{el[0]},</small>
                       ))}
                   </div>
                 </div>
@@ -66,13 +95,18 @@ const Orders = ({ orders, token }) => {
                 <p className={styles.Title}>
                   Total amount: ${order.TotalPrice}
                 </p>
-                <button onClick={() => handleReorder(order)}>REORDER</button>
+
+                <Button
+                  text='REORDER'
+                  clicked={() => handleReorder(order)}
+                  style={{ padding: ".5rem 1rem", fontSize: "1rem" }}
+                />
               </div>
             </div>
           );
         })
       ) : (
-        <p>You haven't placed any order yet?</p>
+        <small className={styles.NoOrder}>Haven't placed any order yet?</small>
       )}
     </div>
   );

@@ -23,7 +23,6 @@
 }
 
 .Description p {
-  font-size: 1rem;
   font-weight: var(--semiBold);
 }
 
@@ -32,11 +31,5 @@
   margin-left: 0.5rem;
 }
 
-.Description ul li {
-  font-size: 0.8rem;
-  font-weight: var(--medium);
-}
-
-.Description .Price {
-  font-size: 0.8rem;
+@media (min-width: 411px) {
 }

@@ -1,12 +1,10 @@
 import UserDetails from "@/components/account/UserDetails";
 import { parseCookies } from "helpers";
-import axios from "axios";
-import { API_URL } from "config";
 
-const account = ({ parsedToken, orders }) => {
+const account = ({ parsedToken }) => {
   return (
     <div>
-      <UserDetails token={parsedToken} orders={orders} />
+      <UserDetails token={parsedToken} />
     </div>
   );
 };
@@ -16,22 +14,16 @@ export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req);
 
   // Parse the token
-  const parsedToken = JSON.parse(token);
+  let parsedToken;
 
-  // Get the orders with the token
-  const res = await axios.get(`${API_URL}/orders/me`, {
-    headers: {
-      Authorization: `Bearer ${parsedToken}`,
-    },
-  });
-
-  // Orders
-  const orders = res.data.sort((a, b) => a.createdAt > b.createdAt && -1);
+  // If there is a token, parse it else set final token to null
+  {
+    token ? (parsedToken = JSON.parse(token)) : (parsedToken = null);
+  }
 
   return {
     props: {
       parsedToken,
-      orders,
     },
   };
 }

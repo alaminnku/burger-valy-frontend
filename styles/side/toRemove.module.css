@@ -15,6 +15,7 @@
 .Item {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   width: 43%;
   margin-bottom: 1rem;
   margin-right: 1rem;
@@ -22,6 +23,12 @@
 
 .Item label {
   margin-right: 0.5rem;
+}
+
+@media (min-width: 375px) {
+  .Item {
+    width: auto;
+  }
 }
 
 @media (min-width: 411px) {

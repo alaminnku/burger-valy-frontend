@@ -95,7 +95,6 @@ a,
 li,
 input,
 select,
-button,
 textarea,
 blockquote {
   font-size: 16px;
@@ -103,12 +102,28 @@ blockquote {
   color: var(--slateGrey);
 }
 
-ul li {
+li {
   list-style: none;
+  font-size: 0.9rem;
+  font-weight: var(--medium);
+}
+
+small {
+  font-size: 0.9rem;
+  color: var(--slateGrey);
+  font-weight: var(--medium);
+}
+
+button {
+  font-size: 0.8rem;
 }
 
 a {
   text-decoration: none;
+}
+
+label {
+  font-size: 1rem;
 }
 
 input,
@@ -143,13 +158,31 @@ Min width 375px */
 
   p,
   a,
-  li,
   input,
   select,
-  button,
   textarea,
   blockquote {
     font-size: 18px;
+  }
+
+  li {
+    list-style: none;
+    font-size: 1rem;
+    font-weight: var(--medium);
+  }
+
+  label {
+    font-size: 1.1rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  small {
+    font-size: 1rem;
+    color: var(--slateGrey);
+    font-weight: var(--medium);
   }
 }
 

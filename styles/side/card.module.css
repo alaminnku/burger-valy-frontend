@@ -23,16 +23,10 @@
 
 .Title p {
   font-weight: var(--semiBold);
-  font-size: 1rem;
 }
 
 .Title p span {
   color: var(--green);
-}
-
-.Title p:nth-child(2) {
-  font-size: 0.8rem;
-  font-weight: var(--medium);
 }
 
 .Icon {
@@ -45,4 +39,10 @@
 .Disabled {
   color: var(--grey);
   pointer-events: none;
+}
+
+@media (min-width: 411px) {
+  .Image {
+    margin-right: 0rem;
+  }
 }

@@ -41,23 +41,19 @@
   border: none;
 }
 
-.LoginForm form button {
-  justify-self: center;
-  border: none;
-  background-color: var(--kindaRed);
-  color: var(--almostWhite);
-  font-weight: var(--semiBold);
-  padding: 0.3rem;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-
-.LoginForm small,
-.LoginForm small a {
-  font-size: 0.9rem;
+.LoginForm button {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .LoginForm small a {
   color: var(--kindaRed);
   font-weight: var(--medium);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 375px) {
+  .LoginForm small a {
+    font-size: 1rem;
+  }
 }

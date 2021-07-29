@@ -4,6 +4,7 @@ import { register } from "@store/actions/authActions";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
+import Button from "../layout/Button";
 import styles from "@styles/auth/registerForm.module.css";
 
 const RegisterForm = () => {
@@ -99,7 +100,7 @@ const RegisterForm = () => {
           />
         </div>
 
-        <button onClick={handleRegister}>REGISTER</button>
+        <Button text='REGISTER' clicked={handleRegister} />
       </form>
 
       <small>

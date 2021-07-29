@@ -1,5 +1,5 @@
 import Card from "./Card";
-import LinkButton from "../layout/LinkButton";
+import Button from "../layout/Button";
 import { useSelector } from "react-redux";
 import styles from "@styles/side/cards.module.css";
 import Cookies from "js-cookie";
@@ -106,7 +106,8 @@ const Cards = ({ token }) => {
         />
       </div>
       <ToRemove />
-      <LinkButton text='ORDER NOW' href='#' clicked={handleSubmitOrder} />
+
+      <Button text='ORDER NOW' clicked={handleSubmitOrder} />
     </div>
   );
 };

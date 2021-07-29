@@ -13,7 +13,7 @@ const Footer = () => {
       <div className={styles.Item}>
         <Link href='/'>
           <a>
-            <HiHome />
+            <HiHome className={styles.Icon} />
             <p>Home</p>
           </a>
         </Link>
@@ -21,7 +21,7 @@ const Footer = () => {
       <div className={styles.Item}>
         <Link href='/build-burger'>
           <a>
-            <RiBuilding2Fill />
+            <RiBuilding2Fill className={styles.Icon} />
             <p>Build</p>
           </a>
         </Link>
@@ -30,7 +30,7 @@ const Footer = () => {
       <div className={styles.Item}>
         <Link href={isAuthenticated ? "/account" : "/login"}>
           <a>
-            <MdAccountBox />
+            <MdAccountBox className={styles.Icon} />
             <p>Account</p>
           </a>
         </Link>

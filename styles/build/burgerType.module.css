@@ -1,6 +1,7 @@
 .BurgerType {
   padding: 1rem;
   padding-bottom: 0rem;
+  text-align: center;
 }
 
 .BurgerType h3 {
@@ -10,6 +11,7 @@
 .BurgerType .Types {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .BurgerType .Types .Type {

@@ -32,7 +32,7 @@ const Card = ({ title, items, side, added }) => {
         </div>
         <div className={styles.Title}>
           <p>{title}</p>
-          <p>{items}</p>
+          <small>{items}</small>
           {!added ? (
             <IoIosAddCircleOutline
               className={`${styles.Icon} ${sideAdded && styles.Disabled}`}

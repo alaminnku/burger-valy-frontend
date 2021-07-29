@@ -1,6 +1,26 @@
 import styles from "@styles/account/currentOrder.module.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { API_URL } from "config";
 
-const CurrentOrder = ({ orders }) => {
+const CurrentOrder = ({ token, orderDone, reOrdered }) => {
+  const [orders, setOrders] = useState([]);
+
+  // Fetch the orders on render
+  useEffect(async () => {
+    const res = await axios.get(`${API_URL}/orders/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    // Sor the orders
+    const orders = res.data.sort((a, b) => b.createdAt > a.createdAt && 1);
+
+    // Update the state
+    setOrders(orders);
+  }, [orderDone, reOrdered]);
+
   // Get the order which is placed in last hour
   const latestOrders = orders.filter((order) => {
     if (
@@ -21,7 +41,9 @@ const CurrentOrder = ({ orders }) => {
         <div className={styles.Main}>
           <div className={styles.TypeDate}>
             <p className={styles.Title}>{order.Type} Burger</p>
-            <small>{new Date(order.createdAt).toDateString()}</small>
+            <small className={styles.Date}>
+              {new Date(order.createdAt).toDateString()}
+            </small>
           </div>
           <ul>
             <li>{order.Salad}x salad,</li>
@@ -30,7 +52,11 @@ const CurrentOrder = ({ orders }) => {
             <li>
               {order.Patty}x {order.Type.toLowerCase()} patty,
             </li>
-            <li>1x {order.Side} fries and drink</li>
+            <li>
+              {order.Side === ""
+                ? "No fries and drink"
+                : `1x ${order.Side} fries and drink`}
+            </li>
           </ul>
         </div>
 
@@ -42,7 +68,7 @@ const CurrentOrder = ({ orders }) => {
               {Object.entries(order)
                 .filter((item) => item[1] === true)
                 .map((el) => (
-                  <p key={el[0]}>{el[0]},</p>
+                  <small key={el[0]}>{el[0]},</small>
                 ))}
             </div>
           </div>
@@ -56,7 +82,7 @@ const CurrentOrder = ({ orders }) => {
       </div>
     ));
   } else {
-    latestOrder = <p className={styles.NoOrder}>No active orders!</p>;
+    latestOrder = <small className={styles.NoOrder}>No active orders!</small>;
   }
 
   return <>{latestOrder}</>;

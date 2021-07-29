@@ -41,23 +41,19 @@
   border: none;
 }
 
-.RegisterForm form button {
-  justify-self: center;
-  border: none;
-  background-color: var(--kindaRed);
-  color: var(--almostWhite);
-  font-weight: var(--semiBold);
-  padding: 0.3rem;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-
-.RegisterForm small,
-.RegisterForm small a {
-  font-size: 0.9rem;
-}
-
 .RegisterForm small a {
   color: var(--kindaRed);
   font-weight: var(--medium);
+  font-size: 0.9rem;
+}
+
+.RegisterForm button {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 375px) {
+  .RegisterForm small a {
+    font-size: 1rem;
+  }
 }

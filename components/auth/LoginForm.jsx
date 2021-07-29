@@ -6,6 +6,7 @@ import { login } from "@store/actions/authActions";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { FaUserAlt } from "react-icons/fa";
+import Button from "../layout/Button";
 
 const LoginForm = () => {
   // Dispatch
@@ -72,7 +73,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <button onClick={handleLogin}>LOGIN</button>
+        <Button text='Login' clicked={handleLogin} />
       </form>
 
       <small>
