@@ -1,39 +1,19 @@
-.ToRemove h4 {
-  margin-bottom: 0.5rem;
+.Items {
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 
-.Items {
-  display: flex;
-  flex-wrap: wrap;
+.ToRemove h4 {
+  margin-bottom: 0.5rem;
 }
 
 .Item {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  width: 43%;
   margin-bottom: 1rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .Item label {
   margin-right: 0.5rem;
-}
-
-@media (min-width: 375px) {
-  .Item {
-    width: 44%;
-  }
-}
-
-@media (min-width: 411px) {
-  .Item {
-    width: auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .Item {
-    width: 22%;
-  }
 }

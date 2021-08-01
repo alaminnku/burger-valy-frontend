@@ -40,6 +40,18 @@
   transform: rotate(180deg);
 }
 
+@media (min-width: 375px) {
+  .UserDetails {
+    margin-bottom: 5.5rem;
+  }
+}
+
+@media (min-width: 411px) {
+  .UserDetails {
+    margin-bottom: 6.5rem;
+  }
+}
+
 @media (min-width: 768px) {
   .Icon {
     font-size: 2rem;

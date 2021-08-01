@@ -23,7 +23,7 @@ const Burger = ({ pattyType }) => {
 
   return (
     <div className={styles.Burger}>
-      <h3>{pattyType} Burger</h3>
+      <h2>{pattyType} Burger</h2>
       <Ingredients ingredients={ingredients} pattyType={pattyType} />
       <h4 className={styles.Price}>Price: ${totalPrice}</h4>
       <Controller

@@ -10,7 +10,13 @@ export default async (req, res) => {
       return;
     }
 
-    // Get the token from cookie
+    // Return if there is no token in the cookie
+    if (!cookie.parse(req.headers.cookie).token) {
+      res.status(403).json({ message: "Not Authorized" });
+      return;
+    }
+
+    // If there is a token in cookie
     const { token } = cookie.parse(req.headers.cookie);
 
     // Parse the token to string

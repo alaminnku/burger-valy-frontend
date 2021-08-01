@@ -14,8 +14,6 @@ const Controller = ({ ingredients, price, pattyType }) => {
   // Individual price
   const { patty, cheese, salad, bacon } = price;
 
-  console.log(typeof patty);
-
   return (
     <div className={styles.Controller}>
       <div className={styles.Item}>
@@ -31,6 +29,7 @@ const Controller = ({ ingredients, price, pattyType }) => {
           />
         </div>
       </div>
+
       <div className={styles.Item}>
         <h4>Cheese</h4>
         <div>
@@ -46,6 +45,7 @@ const Controller = ({ ingredients, price, pattyType }) => {
           />
         </div>
       </div>
+
       <div className={styles.Item}>
         <h4>Salad</h4>
         <div>
@@ -59,6 +59,7 @@ const Controller = ({ ingredients, price, pattyType }) => {
           />
         </div>
       </div>
+
       <div className={styles.Item}>
         <h4>Bacon</h4>
         <div>

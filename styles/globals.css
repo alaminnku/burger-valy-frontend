@@ -63,11 +63,16 @@ body {
 }
 
 /* Heading */
+h2,
 h3,
 h4 {
   line-height: 1.6em;
   color: var(--slateGrey);
   font-weight: var(--semiBold);
+}
+
+h2 {
+  font-size: 26px;
 }
 
 h3 {
@@ -120,16 +125,16 @@ Min width 375px */
   small {
     font-size: 1rem;
   }
-
-  label {
-    font-size: 1.1rem;
-  }
 }
 
 /* Min width 411px */
 @media (min-width: 411px) {
   h1 {
     font-size: 40px;
+  }
+
+  label {
+    font-size: 1.1rem;
   }
 }
 
@@ -144,7 +149,7 @@ Min width 375px */
   }
 
   h4 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   p,

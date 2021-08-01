@@ -2,13 +2,25 @@
   display: grid;
   grid-template-columns: 100%;
   grid-row-gap: 1rem;
-  margin-bottom: 6.3rem;
+  margin-bottom: 4.5rem;
 }
 
+@media (min-width: 375px) {
+  .Cards {
+    margin-bottom: 5.5rem;
+  }
+}
+
+@media (min-width: 411px) {
+  .Cards {
+    margin-bottom: 6rem;
+  }
+}
 @media (min-width: 768px) {
   .Cards {
-    padding: 2rem 3rem;
+    padding: 1rem 3rem;
     grid-row-gap: 2rem;
     justify-content: center;
+    margin-bottom: 6.5rem;
   }
 }

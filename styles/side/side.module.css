@@ -1,10 +1,23 @@
 .Side {
   padding: 0rem 1rem;
-  margin-bottom: 6rem;
+  margin-bottom: 4.5rem;
+}
+
+@media (min-width: 375px) {
+  .Side {
+    margin-bottom: 5.5rem;
+  }
+}
+
+@media (min-width: 411px) {
+  .Side {
+    margin-bottom: 6rem;
+  }
 }
 
 @media (min-width: 768px) {
   .Side {
     padding: 2rem 3rem;
+    margin-bottom: 5.5rem;
   }
 }

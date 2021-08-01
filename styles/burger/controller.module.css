@@ -1,21 +1,15 @@
 .Controller {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
   margin-bottom: 1rem;
-  text-align: center;
 }
 
-.Item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.Controller .Item {
   margin-bottom: 1rem;
-  width: 50%;
+  justify-self: center;
 }
 
-.Item h3 {
+.Item h4 {
   font-weight: var(--semiBold);
   margin-bottom: 0.5rem;
 }

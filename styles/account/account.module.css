@@ -1,9 +1,9 @@
 .Account {
-  padding: 1rem;
+  padding: 0rem 1rem;
 }
 
 @media (min-width: 768px) {
   .Account {
-    padding: 2rem 3rem;
+    padding: 1rem 3rem;
   }
 }

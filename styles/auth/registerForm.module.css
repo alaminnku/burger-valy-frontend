@@ -1,6 +1,6 @@
 .RegisterForm {
   padding: 1rem;
-  margin-bottom: 5.5rem;
+  margin-bottom: 5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,7 +35,7 @@
 
 .Item input {
   border: 1px solid black;
-  padding: 0.4rem;
+  padding: 0.3rem;
 }
 
 .Item input:focus {
@@ -55,8 +55,17 @@
 }
 
 @media (min-width: 375px) {
+  .RegisterForm {
+    margin-bottom: 6rem;
+  }
   .RegisterForm small a {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 411px) {
+  .Item input {
+    padding: 0.4rem;
   }
 }
 
@@ -74,7 +83,7 @@
   }
 
   .RegisterForm form .Item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.7rem;
   }
 
   .RegisterForm button {
