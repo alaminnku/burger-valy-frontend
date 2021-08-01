@@ -1,0 +1,9 @@
+.Login {
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .Login {
+    padding: 2rem 3rem;
+  }
+}

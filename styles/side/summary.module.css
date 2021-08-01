@@ -1,7 +1,6 @@
 .Summary {
   display: flex;
   justify-content: space-between;
-  margin: 0rem 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: var(--almostWhite);
@@ -31,5 +30,20 @@
   margin-left: 0.5rem;
 }
 
-@media (min-width: 411px) {
+@media (min-width: 768px) {
+  .Summary {
+    padding: 1.5rem 2rem;
+  }
+
+  .Description p:first-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .Description ul {
+    margin-bottom: 0.5rem;
+  }
+
+  .Icon {
+    font-size: 2rem;
+  }
 }

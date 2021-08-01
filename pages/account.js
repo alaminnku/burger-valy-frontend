@@ -1,9 +1,9 @@
 import UserDetails from "@/components/account/UserDetails";
 import { parseCookies } from "helpers";
-
+import styles from "@styles/account/account.module.css";
 const account = ({ parsedToken }) => {
   return (
-    <div>
+    <div className={styles.Account}>
       <UserDetails token={parsedToken} />
     </div>
   );

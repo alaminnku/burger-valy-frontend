@@ -60,3 +60,35 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.Order button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .Order {
+    padding: 1.5rem 2rem;
+  }
+
+  .Order .Date {
+    font-size: 0.7rem;
+  }
+
+  .Order .Main {
+    margin-bottom: 1rem;
+  }
+
+  .Order .Title {
+    margin-bottom: 0.3rem;
+  }
+
+  .Order .ItemsToRemove {
+    margin-bottom: 0.8rem;
+  }
+
+  .Order button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.3rem;
+  }
+}

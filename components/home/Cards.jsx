@@ -3,7 +3,7 @@ import styles from "@styles/home/cards.module.css";
 
 const Cards = () => {
   return (
-    <div className={styles.Card}>
+    <div className={styles.Cards}>
       <Card
         title='Beef Burger'
         href='/beef-burger'

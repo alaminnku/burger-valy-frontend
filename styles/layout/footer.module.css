@@ -46,3 +46,9 @@
     font-size: 1.3rem;
   }
 }
+
+@media (min-width: 768px) {
+  .Footer {
+    padding: 1.5rem 3rem;
+  }
+}

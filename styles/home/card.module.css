@@ -20,3 +20,14 @@
   padding: 0.2rem 1rem;
   border-radius: 1rem;
 }
+
+@media (min-width: 768px) {
+  .Card {
+    height: 17rem;
+  }
+
+  .Card a {
+    padding: 0.3rem 1.3rem;
+    border-radius: 1.5rem;
+  }
+}

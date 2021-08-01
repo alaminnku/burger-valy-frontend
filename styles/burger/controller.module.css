@@ -3,23 +3,26 @@
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 1rem;
-  padding-top: 0rem;
   text-align: center;
 }
 
 .Item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
   width: 50%;
 }
 
-.Item p {
+.Item h3 {
   font-weight: var(--semiBold);
   margin-bottom: 0.5rem;
 }
 
 .AddIcon,
 .RemoveIcon {
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -35,4 +38,15 @@
 .Disabled {
   color: var(--grey);
   cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .AddIcon,
+  .RemoveIcon {
+    font-size: 2.5rem;
+  }
+
+  .AddIcon {
+    margin-right: 1.5rem;
+  }
 }

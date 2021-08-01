@@ -24,3 +24,10 @@
 .BurgerType .Types .Type label {
   margin-right: 0.5rem;
 }
+
+@media (min-width: 768px) {
+  .BurgerType {
+    padding: 2rem 3rem;
+    padding-bottom: 0rem;
+  }
+}

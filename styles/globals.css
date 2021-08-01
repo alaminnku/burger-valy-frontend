@@ -63,8 +63,6 @@ body {
 }
 
 /* Heading */
-h1,
-h2,
 h3,
 h4 {
   line-height: 1.6em;
@@ -72,21 +70,12 @@ h4 {
   font-weight: var(--semiBold);
 }
 
-h1 {
-  font-size: 32px;
-  font-weight: var(--bold);
-}
-
-h2 {
-  font-size: 24px;
-}
-
 h3 {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 h4 {
-  font-size: 17px;
+  font-size: 18px;
 }
 
 /* Body texts */
@@ -94,12 +83,15 @@ p,
 a,
 li,
 input,
-select,
-textarea,
-blockquote {
+small,
+label {
   font-size: 16px;
   line-height: 1.7em;
   color: var(--slateGrey);
+}
+
+a {
+  text-decoration: none;
 }
 
 li {
@@ -110,79 +102,27 @@ li {
 
 small {
   font-size: 0.9rem;
-  color: var(--slateGrey);
   font-weight: var(--medium);
-}
-
-button {
-  font-size: 0.8rem;
-}
-
-a {
-  text-decoration: none;
 }
 
 label {
   font-size: 1rem;
 }
 
-input,
-textarea,
-select {
+input {
   border-radius: 0px;
-}
-
-textarea {
-  font-family: "Montserrat", sans-serif;
-  resize: none;
 }
 
 /* 
 Min width 375px */
 @media (min-width: 375px) {
-  h1 {
-    font-size: 36px;
-  }
-
-  h2 {
-    font-size: 26px;
-  }
-
-  h3 {
-    font-size: 22px;
-  }
-
-  h4 {
-    font-size: 19px;
-  }
-
-  p,
-  a,
-  input,
-  select,
-  textarea,
-  blockquote {
-    font-size: 18px;
-  }
-
-  li {
-    list-style: none;
+  li,
+  small {
     font-size: 1rem;
-    font-weight: var(--medium);
   }
 
   label {
     font-size: 1.1rem;
-  }
-
-  button {
-    font-size: 1rem;
-  }
-
-  small {
-    font-size: 1rem;
-    color: var(--slateGrey);
-    font-weight: var(--medium);
   }
 }
 
@@ -209,13 +149,14 @@ Min width 375px */
 
   p,
   a,
-  li,
-  input,
-  select,
-  button,
-  textarea,
-  blockquote {
+  input {
     font-size: 19px;
+  }
+
+  li,
+  small,
+  label {
+    font-size: 1.2rem;
   }
 }
 
@@ -240,11 +181,7 @@ Min width 375px */
   p,
   a,
   li,
-  input,
-  select,
-  button,
-  textarea,
-  blockquote {
+  input {
     font-size: 21px;
   }
 }
@@ -270,11 +207,7 @@ Min width 375px */
   p,
   a,
   li,
-  input,
-  select,
-  button,
-  textarea,
-  blockquote {
+  input {
     font-size: 21.5px;
   }
 }
@@ -300,11 +233,7 @@ Min width 375px */
   p,
   a,
   li,
-  input,
-  select,
-  button,
-  textarea,
-  blockquote {
+  input {
     font-size: 22.5px;
   }
 }

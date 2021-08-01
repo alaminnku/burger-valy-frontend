@@ -56,5 +56,24 @@
   margin-bottom: 1rem;
 }
 
-@media (min-width: 411px) {
+@media (min-width: 768px) {
+  .Order {
+    padding: 1.5rem 2rem;
+  }
+
+  .Order .Date {
+    font-size: 0.7rem;
+  }
+
+  .Order .Main {
+    margin-bottom: 1rem;
+  }
+
+  .Order .Title {
+    margin-bottom: 0.3rem;
+  }
+
+  .Order .ItemsToRemove {
+    margin-bottom: 0.8rem;
+  }
 }

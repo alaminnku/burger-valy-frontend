@@ -1,0 +1,9 @@
+.Register {
+  padding: 0rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .Register {
+    padding: 2rem 3rem;
+  }
+}

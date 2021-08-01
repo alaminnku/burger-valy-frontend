@@ -15,7 +15,10 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
     });
 
     // Sor the orders
-    const orders = res.data.sort((a, b) => b.createdAt > a.createdAt && 1);
+    const orders = res.data.sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
 
     // Update the state
     setOrders(orders);
@@ -67,8 +70,15 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
             <div className={styles.Items}>
               {Object.entries(order)
                 .filter((item) => item[1] === true)
-                .map((el) => (
-                  <small key={el[0]}>{el[0]},</small>
+                .map((el, i) => (
+                  <small key={el[0]}>{`${el[0]}${
+                    i <
+                    Object.entries(order).filter((item) => item[1] === true)
+                      .length -
+                      1
+                      ? ","
+                      : ""
+                  }`}</small>
                 ))}
             </div>
           </div>

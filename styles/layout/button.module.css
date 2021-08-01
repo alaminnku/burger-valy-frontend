@@ -8,3 +8,9 @@
   background-color: var(--kindaRed);
   cursor: pointer;
 }
+
+@media (min-width: 768px) {
+  .Button {
+    font-weight: var(--semiBold);
+  }
+}

@@ -16,7 +16,10 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
     });
 
     // Sort the orders
-    const orders = res.data.sort((a, b) => b.createdAt > a.createdAt && 1);
+    const orders = res.data.sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
 
     // Update the state
     setOrders(orders);
@@ -54,7 +57,7 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
             <div key={order.id} className={styles.Order}>
               <div className={styles.Main}>
                 <div className={styles.TypeDate}>
-                  <p className={styles.Title}>{order.Type} Burger</p>
+                  <h4 className={styles.Title}>{order.Type} Burger</h4>
                   <small className={styles.Date}>
                     {new Date(order.createdAt).toDateString()}
                   </small>
@@ -78,12 +81,20 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
               {Object.entries(order).filter((item) => item[1] === true).length >
               0 ? (
                 <div className={styles.ItemsToRemove}>
-                  <p className={styles.Title}>Removed Items</p>
+                  <h4 className={styles.Title}>Removed Items</h4>
                   <div className={styles.Items}>
                     {Object.entries(order)
                       .filter((item) => item[1] === true)
-                      .map((el) => (
-                        <small key={el[0]}>{el[0]},</small>
+                      .map((el, i) => (
+                        <small key={el[0]}>{`${el[0]}${
+                          i <
+                          Object.entries(order).filter(
+                            (item) => item[1] === true
+                          ).length -
+                            1
+                            ? ","
+                            : ""
+                        }`}</small>
                       ))}
                   </div>
                 </div>
@@ -92,15 +103,11 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
               )}
 
               <div className={styles.PriceReorder}>
-                <p className={styles.Title}>
+                <h4 className={styles.Title}>
                   Total amount: ${order.TotalPrice}
-                </p>
+                </h4>
 
-                <Button
-                  text='REORDER'
-                  clicked={() => handleReorder(order)}
-                  style={{ padding: ".5rem 1rem", fontSize: "1rem" }}
-                />
+                <Button text='REORDER' clicked={() => handleReorder(order)} />
               </div>
             </div>
           );

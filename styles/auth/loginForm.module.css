@@ -1,6 +1,5 @@
 .LoginForm {
   padding: 1rem;
-  margin: 0rem 1rem;
   margin-bottom: 5.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -23,17 +22,20 @@
 .Item {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.LoginForm .Item:nth-child(2) {
+  margin-bottom: 1.3rem;
 }
 
 .Item label {
-  font-size: 0.9rem;
   margin-bottom: 0.3rem;
 }
 
 .Item input {
   border: 1px solid black;
-  padding: 0.2rem;
+  padding: 0.4rem;
 }
 
 .Item input:focus {
@@ -43,7 +45,7 @@
 
 .LoginForm button {
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 .LoginForm small a {
@@ -55,5 +57,31 @@
 @media (min-width: 375px) {
   .LoginForm small a {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .LoginForm {
+    padding: 2rem 4rem;
+  }
+
+  .LoginForm form {
+    margin-bottom: 0.8rem;
+  }
+
+  .LoginForm form .Item {
+    margin-bottom: 1.5rem;
+  }
+
+  .LoginForm form input {
+    padding: 0.4rem;
+  }
+
+  .LoginForm button {
+    padding: 0.7rem;
+  }
+
+  .LoginForm small a {
+    font-size: 1.1rem;
   }
 }

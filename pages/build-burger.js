@@ -11,10 +11,10 @@ const BuildBurger = () => {
   };
 
   return (
-    <>
+    <div>
       <BurgerType changed={handleChange} />
       {pattyType && <Burger pattyType={pattyType} />}
-    </>
+    </div>
   );
 };
 

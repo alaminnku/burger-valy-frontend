@@ -14,3 +14,10 @@
   font-weight: var(--medium);
   cursor: pointer;
 }
+
+@media (min-width: 768px) {
+  .LinkButton a {
+    padding: 0.5rem 1.5rem;
+    font-weight: var(--semiBold);
+  }
+}

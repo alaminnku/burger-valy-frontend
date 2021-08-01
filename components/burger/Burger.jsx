@@ -23,9 +23,9 @@ const Burger = ({ pattyType }) => {
 
   return (
     <div className={styles.Burger}>
-      <h4>{pattyType} Burger</h4>
+      <h3>{pattyType} Burger</h3>
       <Ingredients ingredients={ingredients} pattyType={pattyType} />
-      <p className={styles.Price}>Price: ${totalPrice}</p>
+      <h4 className={styles.Price}>Price: ${totalPrice}</h4>
       <Controller
         ingredients={ingredients}
         price={price}

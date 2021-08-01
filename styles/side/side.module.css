@@ -1,0 +1,10 @@
+.Side {
+  padding: 0rem 1rem;
+  margin-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .Side {
+    padding: 2rem 3rem;
+  }
+}

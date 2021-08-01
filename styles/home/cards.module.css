@@ -1,6 +1,14 @@
-.Card {
+.Cards {
   display: grid;
   grid-template-columns: 100%;
   grid-row-gap: 1rem;
-  padding-bottom: 6.3rem;
+  margin-bottom: 6.3rem;
+}
+
+@media (min-width: 768px) {
+  .Cards {
+    padding: 2rem 3rem;
+    grid-row-gap: 2rem;
+    justify-content: center;
+  }
 }

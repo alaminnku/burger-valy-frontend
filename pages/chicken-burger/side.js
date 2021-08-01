@@ -1,10 +1,11 @@
 import Cards from "@/components/side/Cards";
 import Summary from "@/components/side/Summary";
 import { parseCookies } from "../../helpers/index";
+import styles from "@styles/side/side.module.css";
 
 const side = ({ parsedToken }) => {
   return (
-    <div>
+    <div className={styles.Side}>
       <Summary />
       <Cards token={parsedToken} />
     </div>

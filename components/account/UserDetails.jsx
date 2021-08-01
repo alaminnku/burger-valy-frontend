@@ -93,7 +93,7 @@ const userDetails = ({ token }) => {
     <>
       {user && (
         <div className={styles.UserDetails}>
-          <h4 className={styles.Title}>Welcome {user.name}!</h4>
+          <h3 className={styles.Title}>Welcome {user.name}!</h3>
 
           {/* Only show summary if orderDone is false and there is a burger in cookie */}
           {!orderDone && burger && (
@@ -102,35 +102,44 @@ const userDetails = ({ token }) => {
               <Button text='Confirm Order' clicked={handleSubmitOrder} />
             </div>
           )}
-          <p className={styles.Order}>Current orders</p>
-          <CurrentOrder
-            token={token}
-            reOrdered={reOrdered}
-            orderDone={orderDone}
-          />
 
-          <p
-            className={styles.Order}
-            onClick={() => setShowOrders(!showOrders)}
-          >
-            All orders{" "}
-            <RiArrowDropDownLine
-              className={`${styles.Icon} ${showOrders && styles.RotateIcon}`}
-            />
-          </p>
-          {showOrders && (
-            <Orders
+          <div className={styles.CurrentOrder}>
+            <h3 className={styles.Order}>Current orders</h3>
+            <CurrentOrder
               token={token}
-              setReOrdered={setReOrdered}
               reOrdered={reOrdered}
               orderDone={orderDone}
             />
-          )}
+          </div>
+
+          <div className={styles.AllOrders}>
+            <h3
+              className={styles.Order}
+              onClick={() => setShowOrders(!showOrders)}
+            >
+              All orders{" "}
+              <RiArrowDropDownLine
+                className={`${styles.Icon} ${showOrders && styles.RotateIcon}`}
+              />
+            </h3>
+            {showOrders && (
+              <Orders
+                token={token}
+                setReOrdered={setReOrdered}
+                reOrdered={reOrdered}
+                orderDone={orderDone}
+              />
+            )}
+          </div>
 
           <Button
-            text='Logout'
+            text='LOGOUT'
             clicked={handleLogout}
-            style={{ backgroundColor: "var(--grey)", alignSelf: "center" }}
+            style={{
+              backgroundColor: "var(--grey)",
+              alignSelf: "center",
+              padding: ".6rem 1.5rem",
+            }}
           />
         </div>
       )}

@@ -1,6 +1,6 @@
 .Ingredients {
   width: 100%;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   height: 15rem;
   overflow: auto;
 }
@@ -8,15 +8,6 @@
 .Ingredients p {
   text-align: center;
   font-weight: var(--medium);
-}
-
-.BreadBottom {
-  height: 3rem;
-  width: 80%;
-  background: linear-gradient(#f08e4a, #e27b36);
-  border-radius: 0 0 30px 30px;
-  box-shadow: inset -15px 0 #c15711;
-  margin: 2% auto;
 }
 
 .BreadTop {
@@ -94,7 +85,7 @@
 
 .Patty {
   width: 80%;
-  height: 16%;
+  height: 2.2rem;
   margin: 2% auto;
   border-radius: 2rem;
 }
@@ -148,4 +139,47 @@
   height: 1rem;
   background: linear-gradient(#bf3813, #c45e38);
   margin: 2% auto;
+}
+
+.BreadBottom {
+  height: 3rem;
+  width: 80%;
+  background: linear-gradient(#f08e4a, #e27b36);
+  border-radius: 0 0 30px 30px;
+  box-shadow: inset -15px 0 #c15711;
+  margin: 2% auto;
+}
+
+@media (min-width: 768px) {
+  .Ingredients {
+    width: 75%;
+    align-self: center;
+    height: 25rem;
+    margin-bottom: 2rem;
+  }
+
+  .BreadTop {
+    height: 6.5rem;
+  }
+
+  .Salad {
+    height: 3rem;
+    border-radius: 2rem;
+  }
+
+  .Cheese {
+    height: 2rem;
+  }
+
+  .Patty {
+    height: 3.5rem;
+  }
+
+  .Bacon {
+    height: 1.5rem;
+  }
+
+  .BreadBottom {
+    height: 4.5rem;
+  }
 }

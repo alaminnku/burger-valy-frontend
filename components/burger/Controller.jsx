@@ -14,10 +14,12 @@ const Controller = ({ ingredients, price, pattyType }) => {
   // Individual price
   const { patty, cheese, salad, bacon } = price;
 
+  console.log(typeof patty);
+
   return (
     <div className={styles.Controller}>
       <div className={styles.Item}>
-        <p>{pattyType}</p>
+        <h4>{pattyType}</h4>
         <div>
           <AiOutlinePlusCircle
             className={styles.AddIcon}
@@ -30,7 +32,7 @@ const Controller = ({ ingredients, price, pattyType }) => {
         </div>
       </div>
       <div className={styles.Item}>
-        <p>Cheese</p>
+        <h4>Cheese</h4>
         <div>
           <AiOutlinePlusCircle
             className={styles.AddIcon}
@@ -45,7 +47,7 @@ const Controller = ({ ingredients, price, pattyType }) => {
         </div>
       </div>
       <div className={styles.Item}>
-        <p>Salad</p>
+        <h4>Salad</h4>
         <div>
           <AiOutlinePlusCircle
             className={styles.AddIcon}
@@ -58,15 +60,17 @@ const Controller = ({ ingredients, price, pattyType }) => {
         </div>
       </div>
       <div className={styles.Item}>
-        <p>Bacon</p>
-        <AiOutlinePlusCircle
-          className={styles.AddIcon}
-          onClick={() => dispatch(addIngredient("Bacon", bacon))}
-        />
-        <AiOutlineMinusCircle
-          className={`${styles.RemoveIcon} ${Bacon === 0 && styles.Disabled}`}
-          onClick={() => dispatch(removeIngredient("Bacon", bacon))}
-        />
+        <h4>Bacon</h4>
+        <div>
+          <AiOutlinePlusCircle
+            className={styles.AddIcon}
+            onClick={() => dispatch(addIngredient("Bacon", bacon))}
+          />
+          <AiOutlineMinusCircle
+            className={`${styles.RemoveIcon} ${Bacon === 0 && styles.Disabled}`}
+            onClick={() => dispatch(removeIngredient("Bacon", bacon))}
+          />
+        </div>
       </div>
     </div>
   );

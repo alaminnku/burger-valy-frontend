@@ -1,5 +1,4 @@
 .Card {
-  margin: 0rem 1rem;
   padding: 1rem;
   background-color: var(--almostWhite);
   border-radius: 0.5rem;
@@ -44,5 +43,18 @@
 @media (min-width: 411px) {
   .Image {
     margin-right: 0rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .Card:last-child {
+    margin-bottom: 2rem;
+  }
+  .Title p {
+    margin-bottom: 0.5rem;
+  }
+
+  .Icon {
+    font-size: 2.5rem;
   }
 }
