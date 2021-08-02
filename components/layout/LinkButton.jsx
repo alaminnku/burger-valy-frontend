@@ -3,9 +3,9 @@ import styles from "@styles/layout/linkButton.module.css";
 
 const LinkButton = ({ text, href, clicked, style }) => {
   return (
-    <div className={styles.LinkButton} onClick={clicked}>
+    <div className={styles.LinkButton} onClick={clicked} style={style}>
       <Link href={href}>
-        <a style={style}>{text}</a>
+        <a>{text}</a>
       </Link>
     </div>
   );

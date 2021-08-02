@@ -1,4 +1,4 @@
-.Footer {
+.MobileFooter {
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -26,8 +26,12 @@
   font-size: 1rem;
 }
 
+.DesktopFooter {
+  display: none;
+}
+
 @media (min-width: 375px) {
-  .Footer {
+  .MobileFooter {
     padding: 0.8rem 1rem;
   }
 
@@ -38,17 +42,67 @@
 }
 
 @media (min-width: 411px) {
-  .Footer {
-    padding: 1rem;
-  }
-
   .Item a .Icon {
     font-size: 1.3rem;
   }
 }
 
 @media (min-width: 768px) {
-  .Footer {
-    padding: 1.5rem 3rem;
+  .MobileFooter {
+    padding: 1rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .MobileFooter {
+    display: none;
+  }
+
+  .DesktopFooter {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 5rem;
+    background-color: var(--slateGrey);
+  }
+
+  .DesktopFooter .Items .Item p,
+  .DesktopFooter .Items .Item ul li a,
+  .DesktopFooter small {
+    color: var(--almostWhite);
+  }
+
+  .DesktopFooter .Items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .DesktopFooter .Items .Item {
+    text-align: left;
+    width: 33%;
+  }
+
+  .DesktopFooter .Items .Item ul li {
+    display: flex;
+    padding: 0.3rem 0rem;
+  }
+
+  .DesktopFooter .Items .Item ul li a {
+    font-size: 1.2rem;
+    font-weight: var(--regular);
+    transition: all 0.3s;
+  }
+
+  .DesktopFooter .Items .Item ul li a:hover {
+    color: var(--green);
+  }
+
+  .DesktopFooter .Items .Item p {
+    font-size: 1.5rem;
+    color: var(--kindaRed);
+  }
+
+  .DesktopFooter .Items .Item small {
+    display: block;
   }
 }

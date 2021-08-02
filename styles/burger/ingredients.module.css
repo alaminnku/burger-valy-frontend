@@ -183,3 +183,37 @@
     height: 4.5rem;
   }
 }
+
+@media (min-width: 1024px) {
+  .Ingredients {
+    width: 70%;
+    align-self: center;
+    height: 25rem;
+    margin-bottom: 2rem;
+  }
+
+  .BreadTop {
+    height: 7rem;
+  }
+
+  .Salad {
+    height: 3rem;
+    border-radius: 2rem;
+  }
+
+  .Cheese {
+    height: 2rem;
+  }
+
+  .Patty {
+    height: 4.2rem;
+  }
+
+  .Bacon {
+    height: 1.5rem;
+  }
+
+  .BreadBottom {
+    height: 5rem;
+  }
+}

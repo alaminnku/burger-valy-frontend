@@ -39,6 +39,7 @@ const Burger = ({ pattyType }) => {
             : `/${burger.type.toLowerCase()}-burger/side`
         }`}
         clicked={() => Cookies.set("burger", burger)}
+        LinkStyle={{ textAlign: "center", width: "100%" }}
       />
     </div>
   );

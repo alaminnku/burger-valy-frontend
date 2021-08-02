@@ -7,3 +7,10 @@
     padding: 1rem 3rem;
   }
 }
+
+@media (min-width: 1024px) {
+  .Account {
+    padding: 1rem 5rem;
+    padding-bottom: 3rem;
+  }
+}

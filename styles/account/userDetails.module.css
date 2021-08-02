@@ -57,3 +57,13 @@
     font-size: 2rem;
   }
 }
+
+@media (min-width: 1024px) {
+  .UserDetails {
+    margin-bottom: 0rem;
+  }
+
+  .AllOrders {
+    margin-bottom: 2rem;
+  }
+}

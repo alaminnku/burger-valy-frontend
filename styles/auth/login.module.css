@@ -7,3 +7,9 @@
     padding: 2rem 3rem;
   }
 }
+
+@media (min-width: 1024px) {
+  .Login {
+    padding: 3rem 5rem;
+  }
+}

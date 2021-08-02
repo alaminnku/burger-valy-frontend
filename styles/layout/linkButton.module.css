@@ -1,10 +1,9 @@
 .LinkButton {
-  width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .LinkButton a {
-  display: inline-block;
   border: none;
   border-radius: 0.25rem;
   background-color: var(--kindaRed);

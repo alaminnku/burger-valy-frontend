@@ -91,3 +91,9 @@
     font-size: 1.1rem;
   }
 }
+
+@media (min-width: 1024px) {
+  .LoginForm {
+    padding: 3rem 5rem;
+  }
+}

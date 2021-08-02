@@ -94,3 +94,9 @@
     font-size: 1.1rem;
   }
 }
+
+@media (min-width: 1024px) {
+  .RegisterForm {
+    padding: 3rem 5rem;
+  }
+}

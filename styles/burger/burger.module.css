@@ -1,4 +1,6 @@
 .Burger {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 4.5rem;
 }
 
@@ -26,5 +28,11 @@
     flex-direction: column;
     padding: 1rem 3rem;
     margin-bottom: 6.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Burger {
+    margin-bottom: 0rem;
   }
 }

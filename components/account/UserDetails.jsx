@@ -133,7 +133,7 @@ const userDetails = ({ token }) => {
           </div>
 
           <Button
-            text='LOGOUT'
+            text='Log Out'
             clicked={handleLogout}
             style={{
               backgroundColor: "var(--grey)",
