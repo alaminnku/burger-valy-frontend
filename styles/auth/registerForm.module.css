@@ -72,6 +72,7 @@
 @media (min-width: 768px) {
   .RegisterForm {
     padding: 2rem 4rem;
+    margin-bottom: 0rem;
   }
 
   .RegisterForm form {
@@ -98,5 +99,11 @@
 @media (min-width: 1024px) {
   .RegisterForm {
     padding: 3rem 5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .RegisterForm {
+    padding: 3rem 8rem;
   }
 }

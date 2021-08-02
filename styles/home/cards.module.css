@@ -34,3 +34,17 @@
     margin-bottom: 1rem;
   }
 }
+
+@media (min-width: 1280px) {
+  .Cards {
+    padding: 3rem 8rem;
+    grid-gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .Cards {
+    padding: 4rem 10rem;
+    grid-gap: 3rem;
+  }
+}

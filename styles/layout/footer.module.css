@@ -106,3 +106,15 @@
     display: block;
   }
 }
+
+@media (min-width: 1280px) {
+  .DesktopFooter {
+    padding: 2.5rem 8rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .DesktopFooter {
+    padding: 3rem 10rem;
+  }
+}

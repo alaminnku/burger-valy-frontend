@@ -67,3 +67,9 @@
     margin-bottom: 2rem;
   }
 }
+
+@media (min-width: 1280px) {
+  .AllOrders {
+    margin-bottom: 3rem;
+  }
+}

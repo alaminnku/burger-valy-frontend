@@ -217,3 +217,9 @@
     height: 5rem;
   }
 }
+
+@media (min-width: 1280px) {
+  .Ingredients {
+    width: 55%;
+  }
+}

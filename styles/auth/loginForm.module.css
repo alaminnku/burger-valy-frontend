@@ -69,6 +69,7 @@
 @media (min-width: 768px) {
   .LoginForm {
     padding: 2rem 4rem;
+    margin-bottom: 0rem;
   }
 
   .LoginForm form {
@@ -95,5 +96,11 @@
 @media (min-width: 1024px) {
   .LoginForm {
     padding: 3rem 5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .LoginForm {
+    padding: 3rem 8rem;
   }
 }

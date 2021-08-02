@@ -29,3 +29,17 @@
     margin-bottom: 0rem;
   }
 }
+
+@media (min-width: 1280px) {
+  .Side {
+    padding: 4rem 8rem;
+    padding-top: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .Side {
+    padding: 4rem 10rem;
+    padding-top: 3rem;
+  }
+}

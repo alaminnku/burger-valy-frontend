@@ -13,3 +13,15 @@
     padding: 3rem 5rem;
   }
 }
+
+@media (min-width: 1280px) {
+  .Login {
+    padding: 4rem 8rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .Login {
+    padding: 4rem 10rem;
+  }
+}
