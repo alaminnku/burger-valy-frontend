@@ -1,5 +1,5 @@
 .BurgerType {
-  padding: 1rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -29,11 +29,6 @@
 }
 
 @media (min-width: 768px) {
-  .BurgerType {
-    padding: 2rem 3rem;
-    padding-bottom: 0rem;
-  }
-
   .BurgerType .Types .Type:last-child {
     margin-bottom: 1rem;
   }

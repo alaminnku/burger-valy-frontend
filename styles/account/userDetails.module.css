@@ -1,7 +1,6 @@
 .UserDetails {
   display: flex;
   flex-direction: column;
-  margin-bottom: 4.5rem;
 }
 
 .Title {
@@ -40,18 +39,6 @@
   transform: rotate(180deg);
 }
 
-@media (min-width: 375px) {
-  .UserDetails {
-    margin-bottom: 5.5rem;
-  }
-}
-
-@media (min-width: 411px) {
-  .UserDetails {
-    margin-bottom: 6.5rem;
-  }
-}
-
 @media (min-width: 768px) {
   .Icon {
     font-size: 2rem;
@@ -59,10 +46,6 @@
 }
 
 @media (min-width: 1024px) {
-  .UserDetails {
-    margin-bottom: 0rem;
-  }
-
   .AllOrders {
     margin-bottom: 2rem;
   }

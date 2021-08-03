@@ -32,7 +32,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className={styles.Items}>
+      <div className={styles.DesktopNav}>
         <ul>
           <li>
             <Link href='/build-burger'>
@@ -44,13 +44,31 @@ const Navbar = () => {
               <a>Account</a>
             </Link>
           </li>
-        </ul>
 
-        {user ? (
-          <Button text='Log Out' clicked={handleLogout} />
-        ) : (
-          <LinkButton href='/register' text='Sign Up' />
-        )}
+          <li>
+            {user ? (
+              <a onClick={handleLogout}>Log Out</a>
+            ) : (
+              <Link href='/register'>
+                <a>Sign Up</a>
+              </Link>
+            )}
+          </li>
+        </ul>
+      </div>
+
+      <div className={styles.MobileNav}>
+        <ul>
+          <li>
+            {user ? (
+              <a onClick={handleLogout}>Log Out</a>
+            ) : (
+              <Link href='/register'>
+                <a>Sign Up</a>
+              </Link>
+            )}
+          </li>
+        </ul>
       </div>
     </nav>
   );

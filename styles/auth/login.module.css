@@ -1,5 +1,12 @@
 .Login {
-  padding: 0rem 1rem;
+  padding: 1rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 375px) {
+  .Login {
+    margin-bottom: 0rem;
+  }
 }
 
 @media (min-width: 768px) {

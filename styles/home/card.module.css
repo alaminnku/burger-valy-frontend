@@ -1,12 +1,10 @@
 .Card {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
-  width: 95%;
+  justify-content: flex-end;
   height: 15rem;
   border-radius: 0.5rem;
   padding: 1rem;
-  margin: 0 auto;
 }
 
 .Card p,
@@ -19,6 +17,7 @@
   background-color: var(--kindaRed);
   padding: 0.2rem 1rem;
   border-radius: 1rem;
+  font-size: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -29,12 +28,6 @@
   .Card a {
     padding: 0.3rem 1.3rem;
     border-radius: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .Card {
-    width: 100%;
   }
 }
 

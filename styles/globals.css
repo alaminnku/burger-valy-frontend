@@ -189,10 +189,6 @@ Min width 375px */
 
 /* Min width 1280px */
 @media (min-width: 1280px) {
-  h1 {
-    font-size: 52px;
-  }
-
   h2 {
     font-size: 36px;
   }
@@ -202,7 +198,7 @@ Min width 375px */
   }
 
   h4 {
-    font-size: 22.5px;
+    font-size: 28px;
   }
 
   p,

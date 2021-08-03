@@ -7,6 +7,7 @@ import { checkUser } from "@store/actions/authActions";
 
 import "../styles/globals.css";
 
+// Update the price and check for user in app reload
 store.dispatch(updatePrice());
 store.dispatch(checkUser());
 

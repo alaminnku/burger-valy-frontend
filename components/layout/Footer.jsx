@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 import styles from "@styles/layout/footer.module.css";
 
 const Footer = () => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
+
   return (
     <footer className={styles.Footer}>
       <div className={styles.MobileFooter}>
@@ -29,7 +30,7 @@ const Footer = () => {
         </div>
 
         <div className={styles.Item}>
-          <Link href={isAuthenticated ? "/account" : "/login"}>
+          <Link href={user ? "/account" : "/login"}>
             <a>
               <MdAccountBox className={styles.Icon} />
               <p>Account</p>
@@ -39,13 +40,18 @@ const Footer = () => {
       </div>
 
       <div className={styles.DesktopFooter}>
-        <div>
+        <div className={styles.Logo}>
           <Link href='/'>
             <a>
-              <Image src='/images/layout/logo.svg' width={64} height={64} />
+              <Image
+                src='/images/layout/footer-logo.svg'
+                width={64}
+                height={64}
+              />
             </a>
           </Link>
         </div>
+
         <div className={styles.Items}>
           <div className={styles.Item}>
             <p>Menu</p>

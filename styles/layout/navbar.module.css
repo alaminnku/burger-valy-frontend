@@ -6,21 +6,17 @@
   padding-top: 0.3rem;
   background-color: var(--almostWhite);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
 }
 
-.Navbar button {
+.Navbar .MobileNav ul li a {
+  background-color: var(--kindaRed);
+  padding: 0.5rem 1.3rem;
   border-radius: 2rem;
-  padding: 0.5rem 1.2rem;
-}
-
-.Navbar div:last-child a {
-  border-radius: 2rem;
-  padding: 0.3rem 1rem;
+  color: var(--almostWhite);
   font-weight: var(--semiBold);
 }
 
-.Navbar ul {
+.Navbar .DesktopNav {
   display: none;
 }
 
@@ -35,26 +31,32 @@
     padding: 0.5rem 5rem;
   }
 
-  .Navbar .Items {
+  .Navbar .MobileNav {
+    display: none;
+  }
+
+  .Navbar .DesktopNav {
     display: flex;
     align-items: center;
   }
 
-  .Navbar ul {
+  .Navbar .DesktopNav ul {
     display: flex;
     margin-right: 0.5rem;
   }
 
-  .Navbar .Items ul li a {
+  .Navbar .DesktopNav ul li a {
     padding: 0.5rem 1.5rem;
     font-size: 1.3rem;
     border: 1px solid var(--slateGrey);
+    border-radius: 2rem;
     margin: 0rem 0.5rem;
   }
 
-  .Navbar div:last-child a {
-    font-size: 1.3rem;
-    padding: 0.3rem 1.5rem;
+  .Navbar .DesktopNav ul li:last-child a {
+    background-color: var(--kindaRed);
+    color: var(--almostWhite);
+    border: none;
   }
 }
 

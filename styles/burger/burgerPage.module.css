@@ -1,0 +1,36 @@
+.BurgerPage {
+  padding: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 375px) {
+  .BurgerPage {
+    margin-bottom: 4.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .BurgerPage {
+    padding: 2rem 3rem;
+    margin-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .BurgerPage {
+    padding: 3rem 5rem;
+    margin-bottom: 0rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .BurgerPage {
+    padding: 4rem 8rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .BurgerPage {
+    padding: 4rem 10rem;
+  }
+}
