@@ -59,6 +59,7 @@
 @media (min-width: 768px) {
   .Order {
     padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
   }
 
   .Order .Date {
@@ -75,5 +76,12 @@
 
   .Order .ItemsToRemove {
     margin-bottom: 0.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Order {
+    width: 90%;
+    margin: 0 auto;
   }
 }

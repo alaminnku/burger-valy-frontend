@@ -40,6 +40,10 @@
 }
 
 @media (min-width: 768px) {
+  .CurrentOrder {
+    margin-bottom: 2rem;
+  }
+
   .Icon {
     font-size: 2rem;
   }

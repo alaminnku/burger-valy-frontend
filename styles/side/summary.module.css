@@ -33,6 +33,7 @@
 @media (min-width: 768px) {
   .Summary {
     padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
   }
 
   .Description p:first-child {

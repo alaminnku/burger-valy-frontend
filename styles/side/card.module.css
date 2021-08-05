@@ -47,6 +47,10 @@
 }
 
 @media (min-width: 768px) {
+  .Card {
+    margin-bottom: 2rem;
+  }
+
   .Card:last-child {
     margin-bottom: 2rem;
   }
