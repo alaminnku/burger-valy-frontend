@@ -20,3 +20,9 @@
     font-weight: var(--semiBold);
   }
 }
+
+@media (min-width: 1280px) {
+  .LinkButton a {
+    padding: 0.5rem 3rem;
+  }
+}

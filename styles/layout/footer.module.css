@@ -8,18 +8,18 @@
   background-color: var(--slateGrey);
 }
 
-.Item {
+.MobileFooter .Item {
   text-align: center;
 }
 
-.Item p,
-.Item a {
+.MobileFooter .Item p,
+.MobileFooter .Item a {
   font-size: 0.9rem;
   font-weight: var(--semiBold);
   color: var(--almostWhite);
 }
 
-.Item a {
+.MobileFooter .Item a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,14 +35,14 @@
     padding: 0.8rem 1rem;
   }
 
-  .Item a .Icon {
+  .MobileFooter .Item a .Icon {
     font-size: 1.2rem;
     margin-bottom: 0.2rem;
   }
 }
 
 @media (min-width: 411px) {
-  .Item a .Icon {
+  .MobileFooter .Item a .Icon {
     font-size: 1.3rem;
   }
 }
@@ -71,6 +71,10 @@
     color: var(--almostWhite);
   }
 
+  .DesktopFooter .Items .Item p {
+    font-weight: var(--medium);
+  }
+
   .DesktopFooter .Items {
     display: flex;
     justify-content: space-between;
@@ -84,11 +88,10 @@
 
   .DesktopFooter .Items .Item ul li {
     display: flex;
-    padding: 0.3rem 0rem;
+    padding: 0.2rem 0rem;
   }
 
   .DesktopFooter .Items .Item ul li a {
-    font-size: 1.2rem;
     font-weight: var(--regular);
     transition: all 0.3s;
   }
@@ -98,7 +101,6 @@
   }
 
   .DesktopFooter .Items .Item p {
-    font-size: 1.5rem;
     color: var(--kindaRed);
   }
 

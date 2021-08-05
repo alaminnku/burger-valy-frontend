@@ -105,6 +105,7 @@ const Cards = ({ token }) => {
           added={burger.side === "large" && true}
         />
       </div>
+
       <ToRemove />
 
       <Button text='ORDER NOW' clicked={handleSubmitOrder} />

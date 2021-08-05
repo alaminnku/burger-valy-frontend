@@ -38,6 +38,7 @@
   .Controller {
     width: 80%;
     align-self: center;
+    margin-bottom: 1rem;
   }
   .AddIcon,
   .RemoveIcon {
@@ -52,16 +53,18 @@
 @media (min-width: 1024px) {
   .Controller {
     width: 70%;
+    margin-bottom: 1.5rem;
   }
 }
 
 @media (min-width: 1280px) {
   .Controller {
     width: 60%;
+    margin-bottom: 2rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .Controller {
     width: 50%;
   }

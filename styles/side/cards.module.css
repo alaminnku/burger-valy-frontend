@@ -6,3 +6,16 @@
 .Cards button {
   align-self: center;
 }
+
+@media (min-width: 1024px) {
+  .Cards {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .Cards {
+    width: 70%;
+  }
+}

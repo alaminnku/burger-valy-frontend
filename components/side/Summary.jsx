@@ -49,7 +49,7 @@ const Summary = () => {
   return (
     <div className={styles.Summary}>
       <div className={styles.Burger}>
-        <Image src='/images/layout/logo.svg' width={64} height={64} />
+        <Image src='/images/layout/burger.svg' width={64} height={64} />
       </div>
       <div className={styles.Description}>
         <p>Your burger with</p>

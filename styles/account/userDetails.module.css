@@ -22,11 +22,10 @@
   margin-bottom: 1.5rem;
 }
 
-.Order {
+.OrdersTitle {
   display: flex;
   align-items: center;
-  font-weight: var(--semiBold);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   cursor: pointer;
 }
 
@@ -40,7 +39,8 @@
 }
 
 @media (min-width: 768px) {
-  .CurrentOrder {
+  .CurrentOrder,
+  .AllOrders {
     margin-bottom: 2rem;
   }
 
@@ -50,13 +50,26 @@
 }
 
 @media (min-width: 1024px) {
+  .MainTitle {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+  .CurrentOrder,
   .AllOrders {
+    width: 80%;
+    margin: 0 auto;
     margin-bottom: 2rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
+  .MainTitle {
+    width: 70%;
+    margin-bottom: 1rem;
+  }
+  .CurrentOrder,
   .AllOrders {
-    margin-bottom: 3rem;
+    width: 70%;
   }
 }

@@ -22,7 +22,7 @@ export const checkUser = () => async (dispatch) => {
       payload: user,
     });
   } catch (err) {
-    console.log(err);
+    console.log(err.response.data.message);
   }
 };
 
@@ -67,7 +67,7 @@ export const login =
         payload: data.user,
       });
     } catch (err) {
-      console.log(err);
+      console.log(err.response.data.message);
     }
   };
 

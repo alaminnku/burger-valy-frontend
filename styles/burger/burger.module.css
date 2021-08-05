@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.Burger h2,
+.Burger h3,
 .Price {
   margin-bottom: 1rem;
   text-align: center;
@@ -13,5 +13,15 @@
   .Burger {
     display: flex;
     flex-direction: column;
+  }
+
+  .Burger .Price {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 120px) {
+  .Burger .Price {
+    margin-bottom: 2.5rem;
   }
 }

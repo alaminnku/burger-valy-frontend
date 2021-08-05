@@ -1,8 +1,6 @@
 import Image from "next/image";
-import LinkButton from "./LinkButton";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import Button from "./Button";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { logout } from "@store/actions/authActions";
@@ -36,18 +34,30 @@ const Navbar = () => {
         <ul>
           <li>
             <Link href='/build-burger'>
-              <a>Build</a>
+              <a
+                className={
+                  router.pathname === "/build-burger" ? styles.Active : ""
+                }
+              >
+                Build
+              </a>
             </Link>
           </li>
           <li>
             <Link href='/account'>
-              <a>Account</a>
+              <a
+                className={router.pathname === "/account" ? styles.Active : ""}
+              >
+                Account
+              </a>
             </Link>
           </li>
 
           <li>
             {user ? (
-              <a onClick={handleLogout}>Log Out</a>
+              <Link href='#'>
+                <a onClick={handleLogout}>Log Out</a>
+              </Link>
             ) : (
               <Link href='/register'>
                 <a>Sign Up</a>
@@ -61,7 +71,9 @@ const Navbar = () => {
         <ul>
           <li>
             {user ? (
-              <a onClick={handleLogout}>Log Out</a>
+              <Link href='#'>
+                <a onClick={handleLogout}>Log Out</a>
+              </Link>
             ) : (
               <Link href='/register'>
                 <a>Sign Up</a>

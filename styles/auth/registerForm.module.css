@@ -44,19 +44,11 @@
 
 .RegisterForm small a {
   color: var(--kindaRed);
-  font-weight: var(--medium);
-  font-size: 0.9rem;
 }
 
 .RegisterForm button {
   padding: 0.5rem;
   margin-bottom: 0.8rem;
-}
-
-@media (min-width: 375px) {
-  .RegisterForm small a {
-    font-size: 1rem;
-  }
 }
 
 @media (min-width: 411px) {
@@ -86,20 +78,24 @@
   .RegisterForm button {
     padding: 0.7rem;
   }
-
-  .RegisterForm small a {
-    font-size: 1.1rem;
-  }
 }
 
 @media (min-width: 1024px) {
   .RegisterForm {
     padding: 3rem 5rem;
+    width: 80%;
+    margin: 0 auto;
   }
 }
 
 @media (min-width: 1280px) {
   .RegisterForm {
-    padding: 3rem 8rem;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .RegisterForm {
+    width: 60%;
   }
 }

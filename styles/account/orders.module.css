@@ -31,7 +31,7 @@
 }
 
 .Order .Title {
-  font-weight: var(--semiBold);
+  font-weight: var(--medium);
   margin-bottom: 0.1rem;
 }
 
@@ -91,13 +91,5 @@
   .Order button {
     font-size: 1.1rem;
     padding: 0.6rem 1.3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .Orders {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 2rem;
   }
 }

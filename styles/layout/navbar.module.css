@@ -13,7 +13,7 @@
   padding: 0.5rem 1.3rem;
   border-radius: 2rem;
   color: var(--almostWhite);
-  font-weight: var(--semiBold);
+  font-weight: var(--medium);
 }
 
 .Navbar .DesktopNav {
@@ -47,14 +47,30 @@
 
   .Navbar .DesktopNav ul li a {
     padding: 0.5rem 1.5rem;
-    font-size: 1.3rem;
     border: 1px solid var(--slateGrey);
     border-radius: 2rem;
     margin: 0rem 0.5rem;
+    font-weight: var(--medium);
+    transition: all 0.3s;
   }
 
   .Navbar .DesktopNav ul li:last-child a {
     background-color: var(--kindaRed);
+    color: var(--almostWhite);
+    border: none;
+  }
+
+  .Navbar .DesktopNav ul li a:hover {
+    border: 1px solid var(--green);
+    color: var(--green);
+  }
+
+  .Navbar .DesktopNav ul li a.Active {
+    border: 1px solid var(--green);
+    color: var(--green);
+  }
+  .Navbar .DesktopNav ul li:last-child a:hover {
+    background-color: var(--slateGrey);
     color: var(--almostWhite);
     border: none;
   }

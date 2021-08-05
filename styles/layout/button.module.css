@@ -14,3 +14,9 @@
     font-weight: var(--semiBold);
   }
 }
+
+@media (min-width: 1280px) {
+  .Button {
+    padding: 0.6rem 2rem;
+  }
+}

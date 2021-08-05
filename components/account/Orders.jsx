@@ -57,7 +57,7 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
             <div key={order.id} className={styles.Order}>
               <div className={styles.Main}>
                 <div className={styles.TypeDate}>
-                  <h4 className={styles.Title}>{order.Type} Burger</h4>
+                  <p className={styles.Title}>{order.Type} Burger</p>
                   <small className={styles.Date}>
                     {new Date(order.createdAt).toDateString()}
                   </small>
@@ -81,7 +81,7 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
               {Object.entries(order).filter((item) => item[1] === true).length >
               0 ? (
                 <div className={styles.ItemsToRemove}>
-                  <h4 className={styles.Title}>Removed Items</h4>
+                  <p className={styles.Title}>Removed Items</p>
                   <div className={styles.Items}>
                     {Object.entries(order)
                       .filter((item) => item[1] === true)
@@ -103,9 +103,9 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
               )}
 
               <div className={styles.PriceReorder}>
-                <h4 className={styles.Title}>
+                <p className={styles.Title}>
                   Total amount: ${order.TotalPrice}
-                </h4>
+                </p>
 
                 <Button text='REORDER' clicked={() => handleReorder(order)} />
               </div>

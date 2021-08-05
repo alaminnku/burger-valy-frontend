@@ -49,6 +49,7 @@
 @media (min-width: 768px) {
   .Card {
     margin-bottom: 2rem;
+    padding: 1.5rem 2rem;
   }
 
   .Card:last-child {

@@ -36,6 +36,10 @@
     margin-bottom: 2rem;
   }
 
+  .Description p {
+    font-weight: var(--medium);
+  }
+
   .Description p:first-child {
     margin-bottom: 0.5rem;
   }
@@ -46,5 +50,19 @@
 
   .Icon {
     font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Summary {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .Summary {
+    width: 70%;
   }
 }

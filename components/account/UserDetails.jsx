@@ -93,7 +93,9 @@ const userDetails = ({ token }) => {
     <>
       {user && (
         <div className={styles.UserDetails}>
-          <h3 className={styles.Title}>Welcome {user.name}!</h3>
+          <h3 className={`${styles.Title} ${styles.MainTitle}`}>
+            Welcome {user.name}!
+          </h3>
 
           {/* Only show summary if orderDone is false and there is a burger in cookie */}
           {!orderDone && burger && (
@@ -104,7 +106,7 @@ const userDetails = ({ token }) => {
           )}
 
           <div className={styles.CurrentOrder}>
-            <h3 className={styles.Order}>Current orders</h3>
+            <h4 className={styles.Title}>Current orders</h4>
             <CurrentOrder
               token={token}
               reOrdered={reOrdered}
@@ -113,15 +115,15 @@ const userDetails = ({ token }) => {
           </div>
 
           <div className={styles.AllOrders}>
-            <h3
-              className={styles.Order}
+            <h4
+              className={`${styles.Title} ${styles.OrdersTitle}`}
               onClick={() => setShowOrders(!showOrders)}
             >
               All orders{" "}
               <RiArrowDropDownLine
                 className={`${styles.Icon} ${showOrders && styles.RotateIcon}`}
               />
-            </h3>
+            </h4>
             {showOrders && (
               <Orders
                 token={token}

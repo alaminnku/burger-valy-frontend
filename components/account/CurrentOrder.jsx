@@ -95,7 +95,7 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
     latestOrder = <small className={styles.NoOrder}>No active orders!</small>;
   }
 
-  return <>{latestOrder}</>;
+  return <div className={styles.Orders}>{latestOrder}</div>;
 };
 
 export default CurrentOrder;
