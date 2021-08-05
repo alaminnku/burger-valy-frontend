@@ -15,8 +15,14 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .Button {
+    font-weight: var(--regular);
+  }
+}
+
 @media (min-width: 1280px) {
   .Button {
-    padding: 0.6rem 2rem;
+    padding: 0.7rem 2rem;
   }
 }

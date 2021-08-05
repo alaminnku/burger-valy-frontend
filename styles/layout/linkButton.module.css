@@ -21,6 +21,12 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .LinkButton a {
+    font-weight: var(--regular);
+  }
+}
+
 @media (min-width: 1280px) {
   .LinkButton a {
     padding: 0.5rem 3rem;

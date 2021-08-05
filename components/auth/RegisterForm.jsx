@@ -100,7 +100,7 @@ const RegisterForm = () => {
           />
         </div>
 
-        <Button text='REGISTER' clicked={handleRegister} />
+        <Button text='Register' clicked={handleRegister} />
       </form>
 
       <small>

@@ -73,7 +73,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <Button text='LOGIN' clicked={handleLogin} />
+        <Button text='Login' clicked={handleLogin} />
       </form>
 
       <small>
