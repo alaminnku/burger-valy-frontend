@@ -39,7 +39,6 @@ export const setBurgerType = (type) => {
 
 // Add ingredient action
 export const addIngredient = (name, price) => {
-  console.log(price);
   return {
     type: ADD_INGREDIENT,
     payload: { name, price },

@@ -1,0 +1,23 @@
+.Alerts {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 4.5rem;
+  right: 1rem;
+  max-width: 68%;
+}
+
+.Alert {
+  padding: 0.3rem 1rem;
+  margin-bottom: 1rem;
+  color: var(--almostWhite);
+  font-weight: var(--medium);
+}
+
+.Danger {
+  background-color: var(--kindaRed);
+}
+
+.Success {
+  background-color: var(--green);
+}

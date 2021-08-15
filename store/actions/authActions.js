@@ -6,6 +6,7 @@ import {
 } from "@store/actions/actionTypes";
 import axios from "axios";
 import { NEXT_URL } from "config";
+import { setAlert } from "./alertActions";
 
 // Check the user
 export const checkUser = () => async (dispatch) => {
@@ -44,8 +45,10 @@ export const register =
         type: REGISTER,
         payload: data.user,
       });
+
+      dispatch(setAlert("Successfully registered!", "Success"));
     } catch (err) {
-      console.log(err.response.data.message);
+      dispatch(setAlert(err.response.data.message, "Danger"));
     }
   };
 
@@ -66,8 +69,12 @@ export const login =
         type: LOGIN,
         payload: data.user,
       });
+
+      // Successful message
+      dispatch(setAlert("Successfully logged in!", "Success"));
     } catch (err) {
-      console.log(err.response.data.message);
+      // Show the error with alert
+      dispatch(setAlert(err.response.data.message, "Danger"));
     }
   };
 
@@ -89,7 +96,10 @@ export const logout = () => async (dispatch) => {
       type: LOGOUT,
       payload: user,
     });
+
+    // Show message
+    dispatch(setAlert("Successfully logged out!", "Success"));
   } catch (err) {
-    console.log(err.response.data.message);
+    dispatch(setAlert(err.response.data.message, "Danger"));
   }
 };

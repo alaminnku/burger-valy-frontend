@@ -1,10 +1,16 @@
 import UserDetails from "@/components/account/UserDetails";
 import { parseCookies } from "helpers";
 import styles from "@styles/account/account.module.css";
+import Alert from "@/components/layout/Alert";
+import { useSelector } from "react-redux";
+
 const account = ({ parsedToken }) => {
+  const alerts = useSelector((state) => state.alerts);
+
   return (
     <div className={styles.Account}>
       <UserDetails token={parsedToken} />
+      <Alert alerts={alerts} />
     </div>
   );
 };

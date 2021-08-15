@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
 import Button from "../layout/Button";
 import styles from "@styles/auth/registerForm.module.css";
+import { setAlert } from "@store/actions/alertActions";
 
 const RegisterForm = () => {
   // Dispatch
@@ -28,7 +29,7 @@ const RegisterForm = () => {
 
     // Check password match
     if (password !== confirmPassword) {
-      console.log("Passwords don't match");
+      dispatch(setAlert("Passwords don't match", "Danger"));
       return;
     }
 

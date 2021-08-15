@@ -12,17 +12,18 @@ const LoginForm = () => {
   // Dispatch
   const dispatch = useDispatch();
 
-  // isAuthenticated state
+  // User state
   const { user } = useSelector((state) => state.auth);
-
-  // Router
-  const router = useRouter();
 
   // Values
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
+
+  // Router
+  const router = useRouter();
+
   const { email, password } = values;
 
   // Handle login
