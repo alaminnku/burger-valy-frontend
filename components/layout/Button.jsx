@@ -1,7 +1,12 @@
 import styles from "@styles/layout/button.module.css";
-const Button = ({ text, clicked, style }) => {
+const Button = ({ text, clicked, style, disabled }) => {
   return (
-    <button className={styles.Button} onClick={clicked} style={style}>
+    <button
+      disabled={disabled}
+      className={`${styles.Button} ${disabled && styles.Disabled}`}
+      onClick={clicked}
+      style={style}
+    >
       {text}
     </button>
   );

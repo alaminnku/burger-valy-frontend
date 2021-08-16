@@ -9,6 +9,12 @@
   cursor: pointer;
 }
 
+.Disabled {
+  background-color: var(--grey);
+  cursor: not-allowed;
+  color: var(--slateGrey);
+}
+
 @media (min-width: 768px) {
   .Button {
     font-weight: var(--semiBold);

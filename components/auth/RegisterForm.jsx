@@ -9,18 +9,20 @@ import styles from "@styles/auth/registerForm.module.css";
 import { setAlert } from "@store/actions/alertActions";
 
 const RegisterForm = () => {
-  // Dispatch
+  // Hooks
   const dispatch = useDispatch();
   const router = useRouter();
-  const { user } = useSelector((state) => state.auth);
 
-  // Values
+  // States
   const [values, setValues] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  const { user } = useSelector((state) => state.auth);
+  const [disabled, setDisabled] = useState(true);
+
   const { name, email, password, confirmPassword } = values;
 
   // Handle register
@@ -44,6 +46,15 @@ const RegisterForm = () => {
 
   // Handle input change
   const handleChange = (e) => {
+    if (
+      name !== "" &&
+      email !== "" &&
+      password !== "" &&
+      confirmPassword !== ""
+    ) {
+      setDisabled(false);
+    }
+
     setValues({
       ...values,
       [e.target.name]: e.target.value,
@@ -101,7 +112,7 @@ const RegisterForm = () => {
           />
         </div>
 
-        <Button text='Register' clicked={handleRegister} />
+        <Button disabled={disabled} text='Register' clicked={handleRegister} />
       </form>
 
       <small>

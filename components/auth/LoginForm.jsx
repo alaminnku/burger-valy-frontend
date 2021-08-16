@@ -12,8 +12,9 @@ const LoginForm = () => {
   // Dispatch
   const dispatch = useDispatch();
 
-  // User state
+  // States
   const { user } = useSelector((state) => state.auth);
+  const [disabled, setDisabled] = useState(true);
 
   // Values
   const [values, setValues] = useState({
@@ -39,6 +40,10 @@ const LoginForm = () => {
 
   // Handle the change
   const handleChange = (e) => {
+    if (email !== "" && password !== "") {
+      setDisabled(false);
+    }
+
     setValues({
       ...values,
       [e.target.name]: e.target.value,
@@ -74,7 +79,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <Button text='Login' clicked={handleLogin} />
+        <Button disabled={disabled} text='Login' clicked={handleLogin} />
       </form>
 
       <small>
