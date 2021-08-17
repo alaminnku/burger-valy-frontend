@@ -1,13 +1,22 @@
 import styles from "@styles/account/currentOrder.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import { API_URL } from "config";
+import { removeLoader, setLoader } from "@store/actions/loaderActions";
+import Loader from "../layout/Loader";
 
 const CurrentOrder = ({ token, orderDone, reOrdered }) => {
+  // States
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // Fetch the orders on render
   useEffect(async () => {
+    // Start the loader
+    setLoading(true);
+
+    // Fetch the orders
     const res = await axios.get(`${API_URL}/orders/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -20,8 +29,9 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
 
-    // Update the state
+    // Update the state and remove the loader
     setOrders(orders);
+    setLoading(false);
   }, [orderDone, reOrdered]);
 
   // Get the order which is placed in last hour
@@ -35,11 +45,11 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
     }
   });
 
-  let latestOrder;
+  let allLatestOrders;
 
   // Check if there is a current order and update the state
   if (latestOrders.length > 0) {
-    latestOrder = latestOrders.map((order) => (
+    allLatestOrders = latestOrders.map((order) => (
       <div className={styles.Order} key={order.id}>
         <div className={styles.Main}>
           <div className={styles.TypeDate}>
@@ -92,10 +102,17 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
       </div>
     ));
   } else {
-    latestOrder = <small className={styles.NoOrder}>No active orders!</small>;
+    allLatestOrders = (
+      <small className={styles.NoOrder}>No active orders!</small>
+    );
   }
 
-  return <div className={styles.Orders}>{latestOrder}</div>;
+  return (
+    <div className={styles.Orders}>
+      <h4 className={styles.Title}>Current orders</h4>
+      {loading ? <Loader /> : allLatestOrders}
+    </div>
+  );
 };
 
 export default CurrentOrder;

@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { logout } from "@store/actions/authActions";
 import styles from "@styles/layout/navbar.module.css";
+import Loader from "./Loader";
 
 const Navbar = () => {
   // Get the user from state
   const user = useSelector((state) => state.auth.user);
+  const { loading } = useSelector((state) => state.loader);
 
   // Dispatch and router
   const dispatch = useDispatch();
@@ -23,9 +25,9 @@ const Navbar = () => {
   return (
     <nav className={styles.Navbar}>
       <div>
-        <Link href='/'>
+        <Link href="/">
           <a>
-            <Image src='/images/layout/logo.svg' width={64} height={64} />
+            <Image src="/images/layout/logo.svg" width={64} height={64} />
           </a>
         </Link>
       </div>
@@ -33,7 +35,7 @@ const Navbar = () => {
       <div className={styles.DesktopNav}>
         <ul>
           <li>
-            <Link href='/build-burger'>
+            <Link href="/build-burger">
               <a
                 className={
                   router.pathname === "/build-burger" ? styles.Active : ""
@@ -44,7 +46,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href='/account'>
+            <Link href="/account">
               <a
                 className={router.pathname === "/account" ? styles.Active : ""}
               >
@@ -55,11 +57,11 @@ const Navbar = () => {
 
           <li>
             {user ? (
-              <Link href='#'>
-                <a onClick={handleLogout}>Log Out</a>
+              <Link href="#">
+                <a onClick={handleLogout}>{loading ? <Loader /> : "Log Out"}</a>
               </Link>
             ) : (
-              <Link href='/register'>
+              <Link href="/register">
                 <a>Sign Up</a>
               </Link>
             )}
@@ -71,11 +73,11 @@ const Navbar = () => {
         <ul>
           <li>
             {user ? (
-              <Link href='#'>
+              <Link href="#">
                 <a onClick={handleLogout}>Log Out</a>
               </Link>
             ) : (
-              <Link href='/register'>
+              <Link href="/register">
                 <a>Sign Up</a>
               </Link>
             )}

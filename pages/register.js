@@ -6,8 +6,6 @@ import { useSelector } from "react-redux";
 const register = () => {
   const alerts = useSelector((state) => state.alerts);
 
-  console.log(alerts);
-
   return (
     <div className={styles.Register}>
       <RegisterForm />

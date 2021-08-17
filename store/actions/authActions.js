@@ -7,6 +7,7 @@ import {
 import axios from "axios";
 import { NEXT_URL } from "config";
 import { setAlert } from "./alertActions";
+import { setLoader, removeLoader } from "./loaderActions";
 
 // Check the user
 export const checkUser = () => async (dispatch) => {
@@ -34,6 +35,9 @@ export const register =
     const details = { name, email, password };
 
     try {
+      // Set the loader
+      dispatch(setLoader(true));
+
       // Post the details
       const res = await axios.post(`${NEXT_URL}/register`, details);
 
@@ -46,8 +50,12 @@ export const register =
         payload: data.user,
       });
 
+      // Remove the loader and show the message
+      dispatch(removeLoader(false));
       dispatch(setAlert("Successfully registered!", "Success"));
     } catch (err) {
+      // Remove the loader and show the message
+      dispatch(removeLoader(false));
       dispatch(setAlert(err.response.data.message, "Danger"));
     }
   };
@@ -57,7 +65,11 @@ export const login =
   ({ email: identifier, password }) =>
   async (dispatch) => {
     const details = { identifier, password };
+
     try {
+      // Start the loader
+      dispatch(setLoader(true));
+
       // Post the details
       const res = await axios.post(`${NEXT_URL}/login`, details);
 
@@ -70,10 +82,12 @@ export const login =
         payload: data.user,
       });
 
-      // Successful message
+      // Set the loader and show the message
+      dispatch(removeLoader(false));
       dispatch(setAlert("Successfully logged in!", "Success"));
     } catch (err) {
-      // Show the error with alert
+      // Remove the loader and show the message
+      dispatch(removeLoader(false));
       dispatch(setAlert(err.response.data.message, "Danger"));
     }
   };
@@ -81,6 +95,8 @@ export const login =
 //Logout action
 export const logout = () => async (dispatch) => {
   try {
+    dispatch(setLoader(true));
+
     // Post the logout request
     const res = await axios.post(`${NEXT_URL}/logout`);
 
@@ -97,9 +113,12 @@ export const logout = () => async (dispatch) => {
       payload: user,
     });
 
-    // Show message
+    // Show the message
     dispatch(setAlert("Successfully logged out!", "Success"));
+    dispatch(removeLoader(false));
   } catch (err) {
+    // Show the message
     dispatch(setAlert(err.response.data.message, "Danger"));
+    dispatch(removeLoader(false));
   }
 };

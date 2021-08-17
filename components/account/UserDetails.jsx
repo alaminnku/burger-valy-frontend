@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import styles from "@styles/account/userDetails.module.css";
 import Summary from "../side/Summary";
-import LinkButton from "../layout/LinkButton";
 import { API_URL } from "config";
 import { logout } from "@store/actions/authActions";
 import axios from "axios";
 import Orders from "./Orders";
 import CurrentOrder from "./CurrentOrder";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import Button from "../layout/Button";
+import Loader from "../layout/Loader";
+import { setLoader, removeLoader } from "@store/actions/loaderActions";
 
 const userDetails = ({ token }) => {
   // Router and state
@@ -19,7 +19,8 @@ const userDetails = ({ token }) => {
   const dispatch = useDispatch();
   const [orderDone, setOrderDone] = useState(false);
   const { user } = useSelector((state) => state.auth);
-  const [showOrders, setShowOrders] = useState(false);
+  const { loading } = useSelector((state) => state.loader);
+  const [loader, setLoader] = useState(false);
   const [reOrdered, setReOrdered] = useState([]);
 
   // Push to login page if there isn't a user
@@ -39,6 +40,9 @@ const userDetails = ({ token }) => {
   // Submit the order
   const handleSubmitOrder = async () => {
     try {
+      // Set the loader
+      setLoader(true);
+
       // Fetch the price
       const res = await axios.get(`${API_URL}/burger-price`);
       const data = res.data;
@@ -78,8 +82,10 @@ const userDetails = ({ token }) => {
 
       // Set order done true
       setOrderDone(true);
+      setLoader(false);
     } catch (err) {
       console.log(err);
+      setLoader(false);
     }
   };
 
@@ -101,12 +107,14 @@ const userDetails = ({ token }) => {
           {!orderDone && burger && (
             <div className={styles.PendingOrder}>
               <Summary />
-              <Button text='Confirm Order' clicked={handleSubmitOrder} />
+              <Button
+                text={loader ? <Loader /> : "Confirm Order"}
+                clicked={handleSubmitOrder}
+              />
             </div>
           )}
 
           <div className={styles.CurrentOrder}>
-            <h4 className={styles.Title}>Current orders</h4>
             <CurrentOrder
               token={token}
               reOrdered={reOrdered}
@@ -115,27 +123,16 @@ const userDetails = ({ token }) => {
           </div>
 
           <div className={styles.AllOrders}>
-            <h4
-              className={`${styles.Title} ${styles.OrdersTitle}`}
-              onClick={() => setShowOrders(!showOrders)}
-            >
-              All orders{" "}
-              <RiArrowDropDownLine
-                className={`${styles.Icon} ${showOrders && styles.RotateIcon}`}
-              />
-            </h4>
-            {showOrders && (
-              <Orders
-                token={token}
-                setReOrdered={setReOrdered}
-                reOrdered={reOrdered}
-                orderDone={orderDone}
-              />
-            )}
+            <Orders
+              token={token}
+              setReOrdered={setReOrdered}
+              reOrdered={reOrdered}
+              orderDone={orderDone}
+            />
           </div>
 
           <Button
-            text='Log Out'
+            text={loading ? <Loader /> : "Log Out"}
             clicked={handleLogout}
             style={{
               backgroundColor: "var(--grey)",
