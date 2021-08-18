@@ -91,6 +91,11 @@ const LoginForm = () => {
       <small>
         Don't have an account? Please <Link href="/register">register</Link>
       </small>
+
+      <br />
+      <small>
+        Forgot your password? <Link href="/password-reset">Reset here</Link>
+      </small>
     </div>
   );
 };
