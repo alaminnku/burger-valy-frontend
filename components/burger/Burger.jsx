@@ -4,7 +4,7 @@ import Controller from "./Controller";
 import LinkButton from "../layout/LinkButton";
 import styles from "@styles/burger/burger.module.css";
 import Cookies from "js-cookie";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { setBurgerType } from "@store/actions/burgerActions";
 
 const Burger = ({ pattyType }) => {
@@ -14,12 +14,21 @@ const Burger = ({ pattyType }) => {
     dispatch(setBurgerType(pattyType));
   }, []);
 
-  // Get the price and burger
+  // States
   const { price } = useSelector((state) => state.burger);
   const { burger } = useSelector((state) => state.burger);
 
   // Ingredients and total price
   const { ingredients, totalPrice } = burger;
+
+  // Disabled and enable button
+  const { Salad, Cheese, Patty, Bacon } = ingredients;
+
+  let disabled = true;
+
+  if (Salad > 0 && Cheese > 0 && Patty > 0 && Bacon > 0) {
+    disabled = false;
+  }
 
   return (
     <div className={styles.Burger}>
@@ -31,8 +40,9 @@ const Burger = ({ pattyType }) => {
         price={price}
         pattyType={pattyType}
       />
+
       <LinkButton
-        text='CONTINUE'
+        text="CONTINUE"
         href={`${
           burger.type === "Cheddar"
             ? "/cheese-burger/side"
@@ -40,6 +50,7 @@ const Burger = ({ pattyType }) => {
         }`}
         clicked={() => Cookies.set("burger", burger)}
         LinkStyle={{ textAlign: "center", width: "100%" }}
+        disabled={disabled}
       />
     </div>
   );

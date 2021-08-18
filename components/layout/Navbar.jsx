@@ -6,11 +6,11 @@ import { useRouter } from "next/router";
 import { logout } from "@store/actions/authActions";
 import styles from "@styles/layout/navbar.module.css";
 import Loader from "./Loader";
+import { useState } from "react";
 
 const Navbar = () => {
-  // Get the user from state
+  // States
   const user = useSelector((state) => state.auth.user);
-  const { loading } = useSelector((state) => state.loader);
 
   // Dispatch and router
   const dispatch = useDispatch();
@@ -58,7 +58,7 @@ const Navbar = () => {
           <li>
             {user ? (
               <Link href="#">
-                <a onClick={handleLogout}>{loading ? <Loader /> : "Log Out"}</a>
+                <a onClick={handleLogout}>Log Out</a>
               </Link>
             ) : (
               <Link href="/register">

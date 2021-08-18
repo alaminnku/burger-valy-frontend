@@ -14,6 +14,12 @@
   cursor: pointer;
 }
 
+.Disabled a {
+  background-color: var(--grey);
+  color: var(--slateGrey);
+  pointer-events: none;
+}
+
 @media (min-width: 768px) {
   .LinkButton a {
     padding: 0.5rem 1.5rem;

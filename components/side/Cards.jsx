@@ -7,11 +7,14 @@ import axios from "axios";
 import { API_URL } from "config";
 import router from "next/router";
 import ToRemove from "./ToRemove";
+import { useState } from "react";
+import Loader from "../layout/Loader";
 
 const Cards = ({ token }) => {
   // States
   const { burger } = useSelector((state) => state.burger);
   const { user } = useSelector((state) => state.auth);
+  const [loading, setLoading] = useState(false);
 
   // Set the final burger to cookie
   const handleSubmitOrder = async () => {
@@ -24,6 +27,9 @@ const Cards = ({ token }) => {
 
     // If there is a user
     try {
+      // Start the laoder
+      setLoading(true);
+
       // Fetch the price
       const res = await axios.get(`${API_URL}/burger-price`);
       const data = res.data;
@@ -64,10 +70,16 @@ const Cards = ({ token }) => {
       Cookies.remove("burger");
       Cookies.remove("itemsToRemove");
 
+      // Remove the loader
+      setLoading(false);
+
       // Push to account after submit
       router.push("/account");
     } catch (err) {
       console.log(err);
+
+      // Remove the loader
+      setLoading(false);
     }
   };
 
@@ -80,8 +92,8 @@ const Cards = ({ token }) => {
               Add <span>small</span> drink and fries +$6
             </>
           }
-          items='1x small fries and 250ml drink'
-          side='small'
+          items="1x small fries and 250ml drink"
+          side="small"
           added={burger.side === "small" && true}
         />
         <Card
@@ -90,8 +102,8 @@ const Cards = ({ token }) => {
               Add <span>medium</span> drink and fries +$8
             </>
           }
-          items='1x medium fries and 350ml drink'
-          side='medium'
+          items="1x medium fries and 350ml drink"
+          side="medium"
           added={burger.side === "medium" && true}
         />
         <Card
@@ -100,15 +112,18 @@ const Cards = ({ token }) => {
               Add <span>large</span> drink and fries +$10
             </>
           }
-          items='1x large fries and 450ml drink'
-          side='large'
+          items="1x large fries and 450ml drink"
+          side="large"
           added={burger.side === "large" && true}
         />
       </div>
 
       <ToRemove />
 
-      <Button text='ORDER NOW' clicked={handleSubmitOrder} />
+      <Button
+        text={loading ? <Loader /> : "ORDER NOW"}
+        clicked={handleSubmitOrder}
+      />
     </div>
   );
 };

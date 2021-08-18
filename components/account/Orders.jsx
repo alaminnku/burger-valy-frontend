@@ -1,11 +1,10 @@
 import axios from "axios";
 import { API_URL } from "config";
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import styles from "@styles/account/orders.module.css";
 import Button from "../layout/Button";
-import { removeLoader, setLoader } from "@store/actions/loaderActions";
 import Loader from "../layout/Loader";
 
 const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
