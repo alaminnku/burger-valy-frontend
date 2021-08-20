@@ -33,7 +33,7 @@ const RegisterForm = () => {
 
     // Check password match
     if (password !== confirmPassword) {
-      dispatch(setAlert("Passwords don't match", "Danger"));
+      dispatch(setAlert("Passwords don't match!", "Danger"));
       return;
     }
 

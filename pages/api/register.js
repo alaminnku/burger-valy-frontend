@@ -33,7 +33,7 @@ export default async (req, res) => {
       // Return the user
       res.status(200).json({ user: data.user });
     } catch (err) {
-      // If registration fails
+      // If registration
       const message = err.response.data.message[0].messages[0].message;
       res.status(err.response.data.statusCode).json({ message });
     }

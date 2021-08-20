@@ -38,7 +38,7 @@ export default async (req, res) => {
       res.status(200).json({ user });
     } catch (err) {
       // If user fetching fails
-      const message = err.response.data.message[0].messages[0].message;
+      const message = err.response.data.message;
       res.status(err.response.data.statusCode).json({ message });
     }
   } else {

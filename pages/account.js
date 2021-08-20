@@ -19,6 +19,8 @@ export async function getServerSideProps({ req }) {
   // Get the token from cookie
   const { token } = parseCookies(req);
 
+  console.log(token);
+
   // Parse the token
   let parsedToken;
 
