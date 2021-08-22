@@ -3,7 +3,7 @@ import Burger from "@/components/burger/Burger";
 import { useState } from "react";
 import styles from "@styles/build/build.module.css";
 
-const BuildBurger = () => {
+const BuildBurgerPage = () => {
   const [pattyType, setPattyType] = useState(null);
 
   // Handle change
@@ -19,4 +19,4 @@ const BuildBurger = () => {
   );
 };
 
-export default BuildBurger;
+export default BuildBurgerPage;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "@styles/auth/loginForm.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "@store/actions/authActions";
 import { useSelector } from "react-redux";
@@ -88,14 +88,14 @@ const LoginForm = () => {
         />
       </form>
 
-      <small>
-        Don't have an account? Please <Link href="/register">register</Link>
-      </small>
-
-      <br />
-      <small>
-        Forgot your password? <Link href="/password-reset">Reset here</Link>
-      </small>
+      <div className={styles.RegisterPassword}>
+        <small>
+          <Link href="/register">Register here</Link>
+        </small>
+        <small>
+          <Link href="/forgot-password">Reset password</Link>
+        </small>
+      </div>
     </div>
   );
 };

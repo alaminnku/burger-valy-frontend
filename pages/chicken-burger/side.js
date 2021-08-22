@@ -3,7 +3,7 @@ import Summary from "@/components/side/Summary";
 import { parseCookies } from "../../helpers/index";
 import styles from "@styles/side/side.module.css";
 
-const side = ({ parsedToken }) => {
+const SidePage = ({ parsedToken }) => {
   return (
     <div className={styles.Side}>
       <Summary />
@@ -30,4 +30,4 @@ export async function getServerSideProps({ req }) {
   };
 }
 
-export default side;
+export default SidePage;

@@ -3,7 +3,7 @@ import styles from "@styles/auth/login.module.css";
 import Alert from "@/components/layout/Alert";
 import { useSelector } from "react-redux";
 
-const login = () => {
+const LoginPage = () => {
   const alerts = useSelector((state) => state.alerts);
 
   return (
@@ -14,4 +14,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default LoginPage;

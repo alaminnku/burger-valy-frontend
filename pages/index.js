@@ -2,7 +2,7 @@ import Cards from "@/components/home/Cards";
 import Alert from "@/components/layout/Alert";
 import { useSelector } from "react-redux";
 
-export default function Home() {
+const HomePage = () => {
   const alerts = useSelector((state) => state.alerts);
 
   return (
@@ -11,4 +11,6 @@ export default function Home() {
       <Alert alerts={alerts} />
     </>
   );
-}
+};
+
+export default HomePage;

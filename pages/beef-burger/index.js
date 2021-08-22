@@ -1,12 +1,12 @@
 import Burger from "@/components/burger/Burger";
 import styles from "@styles/burger/burgerPage.module.css";
 
-const BeefBurger = () => {
+const BeefBurgerPage = () => {
   return (
     <div className={styles.BurgerPage}>
-      <Burger pattyType='Beef' />
+      <Burger pattyType="Beef" />
     </div>
   );
 };
 
-export default BeefBurger;
+export default BeefBurgerPage;

@@ -1,12 +1,14 @@
+import Alert from "../layout/Alert";
 import Button from "@/components/layout/Button";
-import { setAlert } from "@store/actions/alertActions";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import { API_URL } from "config";
+import { setAlert } from "@store/actions/alertActions";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Alert from "@/components/layout/Alert";
+import axios from "axios";
+import styles from "@styles/passwordReset/forgotPassword.module.css";
+import Link from "next/link";
 
-const PasswordReset = () => {
+const ForgotPassword = () => {
   const dispatch = useDispatch();
 
   // States
@@ -28,6 +30,8 @@ const PasswordReset = () => {
       });
 
       dispatch(setAlert("Email sent successfully!", "Success"));
+
+      setEmail("");
     } catch (err) {
       const message = err.response.data.message[0].messages[0].message;
 
@@ -36,12 +40,18 @@ const PasswordReset = () => {
   };
 
   return (
-    <form>
-      <input type="email" value={email} onChange={handleChange} />
+    <form className={styles.ForgotPassword}>
+      <label htmlFor="email">Email</label>
+      <input type="email" value={email} onChange={handleChange} id="email" />
       <Button text="Submit" clicked={handleSubmit} />
+      <small>
+        <Link href="/login">
+          <a>Sign in here</a>
+        </Link>
+      </small>
       <Alert alerts={alerts} />
     </form>
   );
 };
 
-export default PasswordReset;
+export default ForgotPassword;

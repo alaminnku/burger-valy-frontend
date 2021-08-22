@@ -3,7 +3,7 @@ import Alert from "@/components/layout/Alert";
 import styles from "@styles/auth/register.module.css";
 import { useSelector } from "react-redux";
 
-const register = () => {
+const RegisterPage = () => {
   const alerts = useSelector((state) => state.alerts);
 
   return (
@@ -14,4 +14,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default RegisterPage;

@@ -4,7 +4,7 @@ import styles from "@styles/account/account.module.css";
 import Alert from "@/components/layout/Alert";
 import { useSelector } from "react-redux";
 
-const account = ({ parsedToken }) => {
+const AccountPage = ({ parsedToken }) => {
   const alerts = useSelector((state) => state.alerts);
 
   return (
@@ -36,4 +36,4 @@ export async function getServerSideProps({ req }) {
   };
 }
 
-export default account;
+export default AccountPage;

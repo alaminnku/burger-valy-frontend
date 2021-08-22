@@ -47,7 +47,12 @@
   margin-bottom: 0.8rem;
 }
 
-.LoginForm small a {
+.LoginForm .RegisterPassword {
+  display: flex;
+  justify-content: space-between;
+}
+
+.LoginForm small:first-child a {
   color: var(--kindaRed);
 }
 
