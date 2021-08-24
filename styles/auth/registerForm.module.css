@@ -1,6 +1,7 @@
 .RegisterForm {
   padding: 1rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid var(--kindaRed);
 }
 
 .RegisterForm h3 {
@@ -43,32 +44,26 @@
 }
 
 .RegisterForm small a {
+  position: relative;
   color: var(--kindaRed);
+  transition: all 200ms ease-in-out;
 }
 
 .RegisterForm button {
-  padding: 0.5rem;
+  padding: 0.4rem;
   margin-bottom: 0.8rem;
-}
-
-@media (min-width: 411px) {
-  .Item input {
-    padding: 0.4rem;
-  }
 }
 
 @media (min-width: 768px) {
   .RegisterForm {
     padding: 2rem 4rem;
     margin-bottom: 0rem;
-  }
-
-  .RegisterForm form {
-    margin-bottom: 0.8rem;
+    width: 35rem;
+    margin: 0 auto;
   }
 
   .RegisterForm form input {
-    padding: 0.4rem;
+    padding: 0.2rem;
   }
 
   .RegisterForm form .Item {
@@ -76,26 +71,32 @@
   }
 
   .RegisterForm button {
-    padding: 0.7rem;
+    padding: 0.5rem;
+  }
+
+  .RegisterForm small a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--green);
+    transition: transform 200ms ease-in-out;
+    transform: scaleX(0);
+  }
+
+  .RegisterForm small a:hover::before {
+    transform: scaleX(1);
+  }
+
+  .RegisterForm small a:hover {
+    color: var(--green);
   }
 }
 
 @media (min-width: 1024px) {
   .RegisterForm {
     padding: 3rem 5rem;
-    width: 80%;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 1280px) {
-  .RegisterForm {
-    width: 70%;
-  }
-}
-
-@media (min-width: 1440px) {
-  .RegisterForm {
-    width: 60%;
   }
 }

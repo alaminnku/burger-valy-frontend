@@ -93,7 +93,7 @@
 
   .DesktopFooter .Items .Item ul li a {
     font-weight: var(--regular);
-    transition: all 0.3s;
+    transition: all 200ms;
   }
 
   .DesktopFooter .Items .Item ul li a:hover {

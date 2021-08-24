@@ -7,15 +7,15 @@
   align-self: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .Cards {
-    width: 80%;
+    width: 35rem;
     margin: 0 auto;
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .Cards {
-    width: 70%;
+    width: 40rem;
   }
 }

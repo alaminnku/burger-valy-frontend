@@ -152,7 +152,7 @@
 
 @media (min-width: 768px) {
   .Ingredients {
-    width: 75%;
+    width: 30rem;
     align-self: center;
     height: 25rem;
     margin-bottom: 2rem;
@@ -186,7 +186,7 @@
 
 @media (min-width: 1024px) {
   .Ingredients {
-    width: 70%;
+    width: 32rem;
     align-self: center;
     height: 25rem;
     margin-bottom: 2rem;
@@ -215,11 +215,5 @@
 
   .BreadBottom {
     height: 5rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .Ingredients {
-    width: 55%;
   }
 }

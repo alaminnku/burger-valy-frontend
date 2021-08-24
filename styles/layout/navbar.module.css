@@ -51,7 +51,7 @@
     border-radius: 2rem;
     margin: 0rem 0.5rem;
     font-weight: var(--medium);
-    transition: all 0.3s;
+    transition: all 200ms;
   }
 
   .Navbar .DesktopNav ul li:last-child a {

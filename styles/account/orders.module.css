@@ -85,6 +85,8 @@
 @media (min-width: 768px) {
   .Order {
     padding: 1.5rem 2rem;
+    width: 35rem;
+    margin: 0 auto;
     margin-bottom: 2rem;
   }
 
@@ -111,5 +113,11 @@
   .Order button {
     font-size: 1.1rem;
     padding: 0.6rem 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Order {
+    width: 40rem;
   }
 }

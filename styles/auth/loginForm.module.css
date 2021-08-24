@@ -1,6 +1,7 @@
 .LoginForm {
   padding: 1rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid var(--kindaRed);
 }
 
 .LoginForm form {
@@ -43,7 +44,7 @@
 }
 
 .LoginForm button {
-  padding: 0.5rem;
+  padding: 0.4rem;
   margin-bottom: 0.8rem;
 }
 
@@ -52,24 +53,25 @@
   justify-content: space-between;
 }
 
-.LoginForm small:first-child a {
-  color: var(--kindaRed);
+.LoginForm small a {
+  position: relative;
+  transition: all 200ms ease-in-out;
 }
 
-@media (min-width: 411px) {
-  .LoginForm form input {
-    padding: 0.4rem;
-  }
+.LoginForm small:first-child a {
+  color: var(--kindaRed);
 }
 
 @media (min-width: 768px) {
   .LoginForm {
     padding: 2rem 4rem;
     margin-bottom: 0rem;
+    width: 35rem;
+    margin: 0 auto;
   }
 
   .LoginForm form {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0rem;
   }
 
   .LoginForm form .Item {
@@ -77,30 +79,36 @@
   }
 
   .LoginForm form input {
-    padding: 0.4rem;
+    padding: 0.2rem;
   }
 
   .LoginForm button {
-    padding: 0.7rem;
+    padding: 0.5rem;
+  }
+
+  .LoginForm small a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--green);
+    transition: transform 200ms ease-in-out;
+    transform: scaleX(0);
+  }
+
+  .LoginForm small a:hover::before {
+    transform: scaleX(1);
+  }
+
+  .LoginForm small a:hover {
+    color: var(--green);
   }
 }
 
 @media (min-width: 1024px) {
   .LoginForm {
     padding: 3rem 5rem;
-    width: 80%;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 1280px) {
-  .LoginForm {
-    width: 70%;
-  }
-}
-
-@media (min-width: 1440px) {
-  .LoginForm {
-    width: 60%;
   }
 }

@@ -110,7 +110,17 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
   return (
     <div className={styles.Orders}>
       <h4 className={styles.Title}>Current orders</h4>
-      {loading ? <Loader /> : allLatestOrders}
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          {allLatestOrders}
+          <small className={styles.Address}>
+            <span>Please collect your orders at - </span> Thompson Street 75,
+            New York City, NY 10012. USA
+          </small>
+        </div>
+      )}
     </div>
   );
 };

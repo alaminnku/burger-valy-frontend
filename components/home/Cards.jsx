@@ -5,24 +5,24 @@ const Cards = () => {
   return (
     <div className={styles.Cards}>
       <Card
-        title='Beef Burger'
-        href='/beef-burger'
-        bgImage='/images/burger/beef-burger.jpg'
+        title="Beef Burger"
+        href="/beef-burger"
+        bgImage="/images/burger/beef-burger.jpg"
       />
       <Card
-        title='Chicken Burger'
-        href='/chicken-burger'
-        bgImage='/images/burger/chicken-burger.jpg'
+        title="Chicken Burger"
+        href="/chicken-burger"
+        bgImage="/images/burger/chicken-burger.jpg"
       />
       <Card
-        title='Cheese Burger'
-        href='/cheese-burger'
-        bgImage='/images/burger/cheese-burger.jpg'
+        title="Cheese Burger"
+        href="/cheese-burger"
+        bgImage="/images/burger/cheese-burger.jpg"
       />
       <Card
-        title='Vegan Burger'
-        href='/vegetable-burger'
-        bgImage='/images/burger/vegan-burger.jpg'
+        title="Vegetable Burger"
+        href="/vegetable-burger"
+        bgImage="/images/burger/vegan-burger.jpg"
       />
     </div>
   );
