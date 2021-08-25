@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className={styles.Footer}>
       <div className={styles.MobileFooter}>
         <div className={styles.Item}>
-          <Link href='/'>
+          <Link href="/">
             <a>
               <HiHome className={styles.Icon} />
               <p>Home</p>
@@ -21,7 +21,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className={styles.Item}>
-          <Link href='/build-burger'>
+          <Link href="/build-burger">
             <a>
               <RiBuilding2Fill className={styles.Icon} />
               <p>Build</p>
@@ -41,18 +41,30 @@ const Footer = () => {
 
       <div className={styles.DesktopFooter}>
         <div className={styles.Logo}>
-          <Link href='/'>
+          <Link href="/">
             <a>
-              <Image
-                src='/images/layout/footer-logo.svg'
-                width={64}
-                height={64}
-              />
+              <h3>Burger Valley</h3>
             </a>
           </Link>
         </div>
 
-        <div className={styles.Items}>
+        <div className={styles.Item}>
+          <p>Contact Us</p>
+          <a href="tel:+18475555555">Phone: +1-847-555-5555</a>
+          <a href="mailto:info@burgervalley.com">
+            Email: info@burgervalley.com
+          </a>
+        </div>
+
+        <div className={styles.Item}>
+          <p>Address</p>
+          <small>
+            Thompson Street 75, New York City, <br /> NY 10012. USA
+          </small>
+        </div>
+      </div>
+
+      {/* <div className={styles.Items}>
           <div className={styles.Item}>
             <p>Menu</p>
             <ul>
@@ -104,8 +116,7 @@ const Footer = () => {
             <p>Address</p>
             <small>Thompson Street 75, New York City, NY 10012. USA</small>
           </div>
-        </div>
-      </div>
+        </div> */}
     </footer>
   );
 };

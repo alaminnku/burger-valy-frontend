@@ -24,10 +24,10 @@ const Navbar = () => {
 
   return (
     <nav className={styles.Navbar}>
-      <div>
+      <div className={styles.Logo}>
         <Link href="/">
           <a>
-            <Image src="/images/layout/logo.svg" width={64} height={64} />
+            <h3>Burger Valley</h3>
           </a>
         </Link>
       </div>

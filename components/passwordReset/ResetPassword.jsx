@@ -38,8 +38,6 @@ const ResetPassword = () => {
     ) {
       setDisabled(false);
     }
-
-    console.log(password.length);
   };
 
   const handleSubmit = async (e) => {
@@ -49,8 +47,10 @@ const ResetPassword = () => {
     const code = router.query.code;
 
     try {
+      // Start the loader
       setLoading(true);
 
+      // Post the data
       await axios.post(`${API_URL}/auth/reset-password`, {
         code,
         password,
@@ -68,6 +68,7 @@ const ResetPassword = () => {
       // Show the alert
       dispatch(setAlert("Password reset successful!", "Success"));
 
+      // Push to login
       router.push("/login");
     } catch (err) {
       const message = err.response.data.message[0].messages[0].message;

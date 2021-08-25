@@ -45,6 +45,16 @@
       url("/fonts/carter-one-v12-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* permanent-marker-regular - latin */
+@font-face {
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+    url("/fonts/permanent-marker-v10-latin-regular.woff2") format("woff2"),
+    url("/fonts/permanent-marker-v10-latin-regular.woff") format("woff");
+}
+
 /* Body */
 html,
 body {

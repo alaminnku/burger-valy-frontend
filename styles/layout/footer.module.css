@@ -60,22 +60,38 @@
 
   .DesktopFooter {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     padding: 2rem 5rem;
+    justify-content: space-between;
     background-color: var(--slateGrey);
   }
 
-  .DesktopFooter .Items .Item p,
-  .DesktopFooter .Items .Item ul li a,
-  .DesktopFooter small {
+  .DesktopFooter .Logo {
+    text-align: center;
+  }
+
+  .DesktopFooter .Logo h3 {
+    font-family: "Permanent Marker";
     color: var(--almostWhite);
   }
 
-  .DesktopFooter .Items .Item p {
-    font-weight: var(--medium);
+  .DesktopFooter .Item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .DesktopFooter .Items {
+  .DesktopFooter .Item p {
+    font-weight: var(--medium);
+    color: var(--kindaRed);
+  }
+
+  .DesktopFooter .Item small,
+  .DesktopFooter .Item a {
+    color: var(--almostWhite);
+  }
+
+  /* .DesktopFooter .Items {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -106,7 +122,7 @@
 
   .DesktopFooter .Items .Item small {
     display: block;
-  }
+  } */
 }
 
 @media (min-width: 1280px) {
