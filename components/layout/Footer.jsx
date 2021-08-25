@@ -59,64 +59,10 @@ const Footer = () => {
         <div className={styles.Item}>
           <p>Address</p>
           <small>
-            Thompson Street 75, New York City, <br /> NY 10012. USA
+            Thompson Street 75, <br /> New York City, NY 10012. USA
           </small>
         </div>
       </div>
-
-      {/* <div className={styles.Items}>
-          <div className={styles.Item}>
-            <p>Menu</p>
-            <ul>
-              <li>
-                <Link href='/beef-burger'>
-                  <a>Beef Burger</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/chicken-burger'>
-                  <a>Chicken Burger</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/cheese-burger'>
-                  <a>Cheese Burger</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/vegetable-burger'>
-                  <a>Vegetable Burger</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className={styles.Item}>
-            <p>Company</p>
-            <ul>
-              <li>
-                <Link href='/find-us'>
-                  <a>Find Us</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/about-us'>
-                  <a>About Us</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/contact-us'>
-                  <a>Contact Us</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className={styles.Item}>
-            <p>Address</p>
-            <small>Thompson Street 75, New York City, NY 10012. USA</small>
-          </div>
-        </div> */}
     </footer>
   );
 };

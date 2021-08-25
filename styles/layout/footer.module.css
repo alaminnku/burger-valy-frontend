@@ -61,7 +61,7 @@
   .DesktopFooter {
     display: flex;
     align-items: center;
-    padding: 2rem 5rem;
+    padding: 1.5rem 5rem;
     justify-content: space-between;
     background-color: var(--slateGrey);
   }
@@ -90,49 +90,16 @@
   .DesktopFooter .Item a {
     color: var(--almostWhite);
   }
-
-  /* .DesktopFooter .Items {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .DesktopFooter .Items .Item {
-    text-align: left;
-    width: 33%;
-  }
-
-  .DesktopFooter .Items .Item ul li {
-    display: flex;
-    padding: 0.2rem 0rem;
-  }
-
-  .DesktopFooter .Items .Item ul li a {
-    font-weight: var(--regular);
-    transition: all 200ms;
-  }
-
-  .DesktopFooter .Items .Item ul li a:hover {
-    color: var(--green);
-  }
-
-  .DesktopFooter .Items .Item p {
-    color: var(--kindaRed);
-  }
-
-  .DesktopFooter .Items .Item small {
-    display: block;
-  } */
 }
 
 @media (min-width: 1280px) {
   .DesktopFooter {
-    padding: 2.5rem 8rem;
+    padding: 2rem 8rem;
   }
 }
 
 @media (min-width: 1440px) {
   .DesktopFooter {
-    padding: 3rem 10rem;
+    padding: 2rem 10rem;
   }
 }

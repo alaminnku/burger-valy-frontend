@@ -2,8 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0rem 1rem;
-  padding-top: 0.3rem;
+  padding: 1rem;
   background-color: var(--almostWhite);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -26,13 +25,13 @@
 
 @media (min-width: 768px) {
   .Navbar {
-    padding: 0.5rem 3rem;
+    padding: 1rem 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .Navbar {
-    padding: 0.5rem 5rem;
+    padding: 1rem 5rem;
   }
 
   .Navbar .MobileNav {
@@ -82,12 +81,12 @@
 
 @media (min-width: 1280px) {
   .Navbar {
-    padding: 0.5rem 8rem;
+    padding: 1rem 8rem;
   }
 }
 
 @media (min-width: 1440px) {
   .Navbar {
-    padding: 0.5rem 10rem;
+    padding: 1rem 10rem;
   }
 }
