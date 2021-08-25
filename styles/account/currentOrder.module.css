@@ -58,11 +58,11 @@
 
 .Address {
   font-size: 0.8rem;
-  color: var(--green);
 }
 
 .Address span {
   font-weight: var(--semiBold);
+  color: var(--green);
 }
 
 .NoOrder {

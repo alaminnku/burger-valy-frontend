@@ -115,10 +115,12 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
       ) : (
         <div>
           {allLatestOrders}
-          <small className={styles.Address}>
-            <span>Please collect your orders at - </span> Thompson Street 75,
-            New York City, NY 10012. USA
-          </small>
+          {latestOrders.length > 0 && (
+            <small className={styles.Address}>
+              <span>Please collect your orders at - </span> Thompson Street 75,
+              New York City, NY 10012. USA
+            </small>
+          )}
         </div>
       )}
     </div>

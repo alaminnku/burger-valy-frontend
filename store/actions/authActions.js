@@ -1,9 +1,4 @@
-import {
-  LOGIN,
-  REGISTER,
-  CHECK_USER,
-  LOGOUT,
-} from "@store/actions/actionTypes";
+import { LOGIN, CHECK_USER, LOGOUT } from "@store/actions/actionTypes";
 import axios from "axios";
 import { NEXT_URL } from "config";
 import { setAlert } from "./alertActions";
@@ -27,38 +22,6 @@ export const checkUser = () => async (dispatch) => {
     console.log(err.response.data.message);
   }
 };
-
-// Register action
-export const register =
-  ({ name, email, password }) =>
-  async (dispatch) => {
-    const details = { name, email, password };
-
-    try {
-      // Set the loader
-      dispatch(setLoader(true));
-
-      // Post the details
-      const res = await axios.post(`${NEXT_URL}/register`, details);
-
-      // Get the response
-      const data = res.data;
-
-      // Dispatch register
-      dispatch({
-        type: REGISTER,
-        payload: data.user,
-      });
-
-      // Remove the loader and show the message
-      dispatch(removeLoader(false));
-      dispatch(setAlert("Successfully registered!", "Success"));
-    } catch (err) {
-      // Remove the loader and show the message
-      dispatch(removeLoader(false));
-      dispatch(setAlert(err.response.data.message, "Danger"));
-    }
-  };
 
 // Login action
 export const login =
@@ -88,7 +51,7 @@ export const login =
     } catch (err) {
       // Remove the loader and show the message
       dispatch(removeLoader(false));
-      dispatch(setAlert(err.response.data.message, "Danger"));
+      dispatch(setAlert(`${err.response.data.message}!`, "Danger"));
     }
   };
 

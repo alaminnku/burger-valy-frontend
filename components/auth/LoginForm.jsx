@@ -10,8 +10,8 @@ import Button from "../layout/Button";
 import Loader from "../layout/Loader";
 
 const LoginForm = () => {
-  // Dispatch
   const dispatch = useDispatch();
+  const router = useRouter();
 
   // States
   const { user } = useSelector((state) => state.auth);
@@ -24,21 +24,7 @@ const LoginForm = () => {
     password: "",
   });
 
-  // Router
-  const router = useRouter();
-
   const { email, password } = values;
-
-  // Handle login
-  const handleLogin = (e) => {
-    e.preventDefault();
-    dispatch(login(values));
-  };
-
-  // Check if isAuthenticated and push to homepage
-  {
-    user && router.push("/account");
-  }
 
   // Handle the change
   const handleChange = (e) => {
@@ -51,6 +37,17 @@ const LoginForm = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  // Handle login
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(login(values));
+  };
+
+  // Check if isAuthenticated and push to homepage
+  {
+    user && router.push("/account");
+  }
 
   return (
     <div className={styles.LoginForm}>

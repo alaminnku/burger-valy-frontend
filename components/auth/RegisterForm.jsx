@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import { register } from "@store/actions/authActions";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
@@ -8,6 +7,8 @@ import Button from "../layout/Button";
 import styles from "@styles/auth/registerForm.module.css";
 import { setAlert } from "@store/actions/alertActions";
 import Loader from "../layout/Loader";
+import axios from "axios";
+import { API_URL } from "config";
 
 const RegisterForm = () => {
   // Hooks
@@ -22,29 +23,10 @@ const RegisterForm = () => {
     confirmPassword: "",
   });
   const { user } = useSelector((state) => state.auth);
-  const { loading } = useSelector((state) => state.loader);
+  const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(true);
 
   const { name, email, password, confirmPassword } = values;
-
-  // Handle register
-  const handleRegister = (e) => {
-    e.preventDefault();
-
-    // Check password match
-    if (password !== confirmPassword) {
-      dispatch(setAlert("Passwords don't match!", "Danger"));
-      return;
-    }
-
-    // Dispatch action
-    dispatch(register({ name, email, password }));
-  };
-
-  // If there is a user then redirect to account
-  {
-    user && router.push("/account");
-  }
 
   // Handle input change
   const handleChange = (e) => {
@@ -52,7 +34,9 @@ const RegisterForm = () => {
       name !== "" &&
       email !== "" &&
       password !== "" &&
-      confirmPassword !== ""
+      confirmPassword !== "" &&
+      password.length > 6 &&
+      confirmPassword.length > 6
     ) {
       setDisabled(false);
     }
@@ -62,6 +46,57 @@ const RegisterForm = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  // Handle register
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    // Check password match
+    if (password !== confirmPassword) {
+      dispatch(setAlert("Passwords don't match!", "Danger"));
+      return;
+    }
+
+    try {
+      // Start the laoder
+      setLoading(true);
+
+      // Post the request
+      const res = await axios.post(`${API_URL}/auth/local/register`, {
+        name,
+        email,
+        username: email,
+        password,
+      });
+
+      // Stop the laoder and clear the fields
+      setLoading(false);
+      setValues({
+        ...values,
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
+
+      // Show the message
+      dispatch(setAlert("Confirmation email sent to your email!", "Success"));
+
+      // Push to homepage
+      router.push("/");
+    } catch (err) {
+      const message = err.response.data.message[0].messages[0].message;
+
+      // Stop the loader and show the message
+      setLoading(false);
+      dispatch(setAlert(message, "Danger"));
+    }
+  };
+
+  // // If there is a user then redirect to account
+  // {
+  //   user && router.push("/account");
+  // }
 
   return (
     <div className={styles.RegisterForm}>
