@@ -21,10 +21,10 @@ const Footer = () => {
           </Link>
         </div>
         <div className={styles.Item}>
-          <Link href="/build-burger">
+          <Link href="/menu">
             <a>
               <RiBuilding2Fill className={styles.Icon} />
-              <p>Build</p>
+              <p>Menu</p>
             </a>
           </Link>
         </div>

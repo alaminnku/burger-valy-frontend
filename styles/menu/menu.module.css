@@ -1,0 +1,30 @@
+.Menu {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-row-gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .Menu {
+    grid-row-gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Menu {
+    grid-template-columns: 48% 48%;
+    grid-column-gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .Menu {
+    grid-gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .Menu {
+    grid-gap: 3rem;
+  }
+}

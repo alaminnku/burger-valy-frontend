@@ -1,37 +1,37 @@
-.Build {
+.MenuPage {
   padding: 1rem;
   padding-bottom: 1rem;
   margin-bottom: 3.5rem;
 }
 
 @media (min-width: 375px) {
-  .Build {
+  .MenuPage {
     margin-bottom: 4.5rem;
   }
 }
 
 @media (min-width: 768px) {
-  .Build {
+  .MenuPage {
     padding: 2rem 3rem;
     margin-bottom: 5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .Build {
+  .MenuPage {
     padding: 3rem 5rem;
     margin-bottom: 0rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .Build {
+  .MenuPage {
     padding: 4rem 8rem;
   }
 }
 
 @media (min-width: 1440px) {
-  .Build {
+  .MenuPage {
     padding: 4rem 10rem;
   }
 }

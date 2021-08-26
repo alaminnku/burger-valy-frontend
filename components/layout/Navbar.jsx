@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { logout } from "@store/actions/authActions";
 import styles from "@styles/layout/navbar.module.css";
-import Loader from "./Loader";
-import { useState } from "react";
 
 const Navbar = () => {
   // States
@@ -35,13 +33,9 @@ const Navbar = () => {
       <div className={styles.DesktopNav}>
         <ul>
           <li>
-            <Link href="/build-burger">
-              <a
-                className={
-                  router.pathname === "/build-burger" ? styles.Active : ""
-                }
-              >
-                Build
+            <Link href="/menu">
+              <a className={router.pathname === "/menu" ? styles.Active : ""}>
+                Menu
               </a>
             </Link>
           </li>

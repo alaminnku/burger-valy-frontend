@@ -1,4 +1,4 @@
-.Card {
+.Item {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -7,33 +7,34 @@
   padding: 1rem;
 }
 
-.Card h2 {
+.Item h2 {
   font-family: "Carter One";
   color: var(--almostWhite);
+  max-width: 65%;
 }
 
-.Card a {
+.Item a {
+  background-color: var(--kindaRed);
   color: var(--almostWhite);
   font-weight: var(--semiBold);
-  background-color: var(--kindaRed);
   padding: 0.2rem 1rem;
   border-radius: 1rem;
   font-size: 1rem;
 }
 
 @media (min-width: 768px) {
-  .Card {
+  .Item {
     height: 17rem;
   }
 
-  .Card a {
+  .Item a {
     padding: 0.3rem 1.3rem;
     border-radius: 1.5rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .Card {
+  .Item {
     height: 18rem;
   }
 }
