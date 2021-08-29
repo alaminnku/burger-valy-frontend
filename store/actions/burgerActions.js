@@ -14,11 +14,43 @@ import { API_URL } from "config";
 // Update price
 export const updatePrice = () => async (dispatch) => {
   try {
-    const res = await axios.get(`${API_URL}/burger-price`);
-    const { patty, cheese, salad, bacon, small, medium, large } = res.data;
+    const res = await axios.get(`${API_URL}/price`);
+    const {
+      patty,
+      cheese,
+      salad,
+      bacon,
+      small,
+      medium,
+      large,
+      cheesePizza,
+      clubSandwich,
+      crispyFriedChicken,
+      fishFingers,
+      mexicanTaco,
+      ovenBakedPasta,
+      pepperoniPizza,
+      subSandwich,
+    } = res.data;
 
     // Fetched price
-    const price = { patty, cheese, salad, bacon, small, medium, large };
+    const price = {
+      patty,
+      cheese,
+      salad,
+      bacon,
+      small,
+      medium,
+      large,
+      cheesePizza,
+      clubSandwich,
+      crispyFriedChicken,
+      fishFingers,
+      mexicanTaco,
+      ovenBakedPasta,
+      pepperoniPizza,
+      subSandwich,
+    };
 
     dispatch({
       type: UPDATE_PRICE,

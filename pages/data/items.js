@@ -1,6 +1,8 @@
-export const items = {
-  cheesePizza: {
+export const items = [
+  {
     name: "Cheese Pizza",
+    slug: "cheese-pizza",
+    img: "/images/menu/cheese-pizza.jpg",
     ingredients: [
       "Yeast",
       "Flour",
@@ -19,8 +21,10 @@ export const items = {
     pickupTime: "30m",
   },
 
-  clubSandwich: {
+  {
     name: "Club Sandwich",
+    slug: "club-snadwich",
+    img: "/images/menu/club-sandwich.jpg",
     ingredients: [
       "Turkey",
       "Bacon",
@@ -35,8 +39,10 @@ export const items = {
     pickupTime: "45m",
   },
 
-  crispyFriedChicken: {
+  {
     name: "Crispy Fried Chicken",
+    slug: "crispy-fried-chicken",
+    img: "/images/menu/crispy-fried-chicken.jpg",
     ingredients: [
       "Whole chicken",
       "Salt",
@@ -54,8 +60,10 @@ export const items = {
     pickupTime: "45m",
   },
 
-  ovenBakedPasta: {
+  {
     name: "Oven Baked Pasta",
+    slug: "oven-baked-pasta",
+    img: "/images/menu/oven-baked-pasta.jpg",
     ingredients: [
       "Dry pasta",
       "Lean ground beef",
@@ -73,8 +81,10 @@ export const items = {
     pickupTime: "45m",
   },
 
-  fishFingers: {
-    name: "Firsh Fingers",
+  {
+    name: "Fish Fingers",
+    slug: "fish-fingers",
+    img: "/images/menu/fish-fingers.jpg",
     ingredients: [
       "12 strips sliced white fish",
       "Egg",
@@ -91,8 +101,10 @@ export const items = {
     pickupTime: "45m",
   },
 
-  mexicanTaco: {
+  {
     name: "Mexican Taco",
+    slug: "mexican-taco",
+    img: "/images/menu/mexican-taco.jpg",
     ingredients: [
       "Sodium soy sauce",
       "Lime juice",
@@ -111,8 +123,10 @@ export const items = {
     pickupTime: "45m",
   },
 
-  subSandwich: {
+  {
     name: "Sub Sandwich",
+    slug: "sub-sandwich",
+    img: "/images/menu/sub-sandwich.jpg",
     ingredients: [
       "French bread",
       "Butter",
@@ -130,8 +144,10 @@ export const items = {
     pickupTime: "45m",
   },
 
-  pepperoniPizza: {
+  {
     name: "Pepperoni Pizza",
+    slug: "pepperoni-pizza",
+    img: "/images/menu/pepperoni-pizza.jpg",
     ingredients: [
       "Pizza dough",
       "Pizza sauce",
@@ -145,4 +161,4 @@ export const items = {
     calorie: 250,
     pickupTime: "45m",
   },
-};
+];

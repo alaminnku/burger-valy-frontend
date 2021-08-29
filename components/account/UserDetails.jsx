@@ -44,7 +44,7 @@ const userDetails = ({ token }) => {
       setLoader(true);
 
       // Fetch the price
-      const res = await axios.get(`${API_URL}/burger-price`);
+      const res = await axios.get(`${API_URL}/price`);
       const data = res.data;
 
       // Get the price only

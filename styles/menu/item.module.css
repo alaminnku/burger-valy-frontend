@@ -1,19 +1,32 @@
 .Item {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   justify-content: space-between;
   height: 15rem;
   border-radius: 0.5rem;
   padding: 1rem;
 }
 
-.Item h2 {
+.Item h5 {
+  align-self: flex-end;
+  color: var(--almostWhite);
+  font-family: "Carter One";
+  font-size: 0.8rem;
+}
+
+.TitleButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.TitleButton h2 {
   font-family: "Carter One";
   color: var(--almostWhite);
   max-width: 65%;
 }
 
-.Item a {
+.TitleButton a {
   background-color: var(--kindaRed);
   color: var(--almostWhite);
   font-weight: var(--semiBold);
@@ -27,7 +40,11 @@
     height: 17rem;
   }
 
-  .Item a {
+  .Item h5 {
+    font-size: 0.9rem;
+  }
+
+  .TitleButton a {
     padding: 0.3rem 1.3rem;
     border-radius: 1.5rem;
   }
