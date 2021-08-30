@@ -9,9 +9,9 @@ import { BiEdit } from "react-icons/bi";
 
 const Summary = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   // Get the burger from cookies on reload and set on state
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setBurger());
   }, []);
@@ -33,23 +33,10 @@ const Summary = () => {
   // Destructure ingredients
   const { Bacon, Cheese, Patty, Salad } = burger.ingredients;
 
-  // Dynamic link for button
-  let href = "#";
-
-  if (burger.type === "Beef") {
-    href = "/beef-burger";
-  } else if (burger.type === "Chicken") {
-    href = "/chicken-burger";
-  } else if (burger.type === "Cheddar") {
-    href = "/cheese-burger";
-  } else if (burger.type === "Vegetable") {
-    href = "/vegetable-burger";
-  }
-
   return (
     <div className={styles.Summary}>
       <div className={styles.Burger}>
-        <Image src='/images/layout/burger.svg' width={64} height={64} />
+        <Image src="/images/layout/burger.svg" width={64} height={64} />
       </div>
       <div className={styles.Description}>
         <p>Your burger with</p>

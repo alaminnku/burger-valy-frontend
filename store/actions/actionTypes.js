@@ -12,3 +12,4 @@ export const SET_ALERT = "SET_ALERT";
 export const REMOVE_ALERT = "REMOVE_ALERT";
 export const SET_LOADER = "SET_LOADER";
 export const REMOVE_LOADER = "REMOVE_LOADER";
+export const SET_ITEM = "SET_ITEM";

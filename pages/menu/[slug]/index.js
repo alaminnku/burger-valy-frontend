@@ -1,12 +1,15 @@
-import { items } from "../data/items";
+import { items } from "../../data/items";
 import Image from "next/image";
 import styles from "@styles/menu/itemPage.module.css";
 import { useSelector } from "react-redux";
 import { TiTick } from "react-icons/ti";
-import Button from "@/components/layout/Button";
+import LinkButton from "@/components/layout/LinkButton";
+import Cookies from "js-cookie";
 
 const ItemPage = ({ item }) => {
+  // States
   const { price } = useSelector((state) => state.burger);
+  // const { user } = useSelector((state) => state.auth);
 
   // Get the first word and rest of the words from the name in seperate arrays
   const [fristWord, ...restWords] = item.name.split(" ");
@@ -16,6 +19,17 @@ const ItemPage = ({ item }) => {
     fristWord[0],
     fristWord[0].toLowerCase()
   )}${restWords.join("")}`;
+
+  const foodItem = {
+    name: item.name,
+    quantity: item.quantity,
+    price: price[name],
+  };
+
+  // Save the item to cookie
+  const handleSaveItem = () => {
+    Cookies.set("item", foodItem);
+  };
 
   return (
     <div className={styles.ItemPage}>
@@ -60,7 +74,11 @@ const ItemPage = ({ item }) => {
         </div>
       </div>
 
-      <Button text="Confirm Order" />
+      <LinkButton
+        text="CONTINUE"
+        href={`/menu/${item.slug}/confirm-order`}
+        clicked={handleSaveItem}
+      />
     </div>
   );
 };

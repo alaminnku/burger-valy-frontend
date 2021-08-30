@@ -1,67 +1,68 @@
-.ItemPage {
+.ConfirmOrderPage {
   display: flex;
   flex-direction: column;
   padding: 1rem;
 }
 
-.ItemPage h3 {
+/* .ConfirmOrderPage h3 {
   margin-bottom: 0.8rem;
 }
 
-.ItemPage .Image {
+.ConfirmOrderPage .Image {
   margin-bottom: 1rem;
 }
 
-.ItemPage .Content {
+.ConfirmOrderPage .Content {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
 
-.ItemPage .Content .Item {
+.ConfirmOrderPage .Content .Item {
   margin-bottom: 0.5rem;
 }
 
-.ItemPage .Content h4 {
+.ConfirmOrderPage .Content h4 {
   font-size: 1rem;
   margin-bottom: 0.3rem;
 }
 
-.ItemPage .Content p,
-.ItemPage .Content ul li {
+.ConfirmOrderPage .Content p,
+.ConfirmOrderPage .Content ul li {
   font-size: 0.9rem;
 }
 
-.ItemPage .Content ul li {
+.ConfirmOrderPage .Content ul li {
   margin-bottom: 0.5rem;
 }
 
-.ItemPage button {
+
+} */
+
+.ConfirmOrderPage button {
   align-self: center;
 }
 
 @media (min-width: 768px) {
-  .ItemPage {
+  .ConfirmOrderPage {
     padding: 2rem 3rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .ItemPage {
+  .ConfirmOrderPage {
     padding: 3rem 5rem;
-    max-width: 55rem;
-    margin: 0 auto;
   }
 }
 
 @media (min-width: 1280px) {
-  .ItemPage {
+  .ConfirmOrderPage {
     padding: 4rem 8rem;
   }
 }
 
 @media (min-width: 1440px) {
-  .ItemPage {
+  .ConfirmOrderPage {
     padding: 4rem 10rem;
   }
 }

@@ -21,7 +21,7 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
     setLoading(true);
 
     // Fetch the orders
-    const res = await axios.get(`${API_URL}/orders/me`, {
+    const res = await axios.get(`${API_URL}/burgerorders/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -53,7 +53,7 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
 
     try {
       // Post the order to DB with token
-      const res = await axios.post(`${API_URL}/orders`, order, {
+      const res = await axios.post(`${API_URL}/burgerorders`, order, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -70,7 +70,7 @@ const userDetails = ({ token }) => {
       };
 
       // Post the order to db
-      await axios.post(`${API_URL}/orders`, order, {
+      await axios.post(`${API_URL}/burgerorders`, order, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -1,9 +1,7 @@
 import styles from "@styles/account/currentOrder.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
 import { API_URL } from "config";
-import { removeLoader, setLoader } from "@store/actions/loaderActions";
 import Loader from "../layout/Loader";
 
 const CurrentOrder = ({ token, orderDone, reOrdered }) => {
@@ -17,7 +15,7 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
     setLoading(true);
 
     // Fetch the orders
-    const res = await axios.get(`${API_URL}/orders/me`, {
+    const res = await axios.get(`${API_URL}/burgerorders/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
