@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
@@ -7,12 +6,12 @@ import { logout } from "@store/actions/authActions";
 import styles from "@styles/layout/navbar.module.css";
 
 const Navbar = () => {
-  // States
-  const user = useSelector((state) => state.auth.user);
-
   // Dispatch and router
   const dispatch = useDispatch();
   const router = useRouter();
+
+  // States
+  const { token } = useSelector((state) => state.auth);
 
   // Logout the user
   const handleLogout = () => {
@@ -50,7 +49,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            {user ? (
+            {token ? (
               <Link href="#">
                 <a onClick={handleLogout}>Log Out</a>
               </Link>
@@ -66,7 +65,7 @@ const Navbar = () => {
       <div className={styles.MobileNav}>
         <ul>
           <li>
-            {user ? (
+            {token ? (
               <Link href="#">
                 <a onClick={handleLogout}>Log Out</a>
               </Link>

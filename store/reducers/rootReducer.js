@@ -3,7 +3,6 @@ import burgerReducer from "./burgerReducer";
 import authReducer from "./authReducer";
 import alertReducer from "./alertReducer";
 import loaderReducer from "./loaderReducer";
-import itemReducer from "./itemReducer";
 
 // Combine the reducers
 export default combineReducers({
@@ -11,5 +10,4 @@ export default combineReducers({
   auth: authReducer,
   alerts: alertReducer,
   loader: loaderReducer,
-  item: itemReducer,
 });

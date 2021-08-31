@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import styles from "@styles/layout/footer.module.css";
 
 const Footer = () => {
-  const user = useSelector((state) => state.auth.user);
+  const { token } = useSelector((state) => state.auth);
 
   return (
     <footer className={styles.Footer}>
@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
 
         <div className={styles.Item}>
-          <Link href={user ? "/account" : "/login"}>
+          <Link href={token ? "/account" : "/login"}>
             <a>
               <MdAccountBox className={styles.Icon} />
               <p>Account</p>

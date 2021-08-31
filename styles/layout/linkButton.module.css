@@ -23,13 +23,7 @@
 @media (min-width: 768px) {
   .LinkButton a {
     padding: 0.5rem 1.5rem;
-    font-weight: var(--semiBold);
-  }
-}
-
-@media (min-width: 1024px) {
-  .LinkButton a {
-    font-weight: var(--regular);
+    font-weight: var(--medium);
   }
 }
 

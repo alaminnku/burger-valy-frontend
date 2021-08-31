@@ -1,6 +1,6 @@
 import axios from "axios";
 import { API_URL } from "config";
-import cookie from "cookie";
+import cookie, { parse } from "cookie";
 
 export default async (req, res) => {
   if (req.method === "GET") {
@@ -34,8 +34,8 @@ export default async (req, res) => {
       // User data
       const user = userRes.data;
 
-      // Return the user
-      res.status(200).json({ user });
+      // Return the user and token
+      res.status(200).json({ user, token: parsedToken });
     } catch (err) {
       // If user fetching fails
       const message = err.response.data.message;

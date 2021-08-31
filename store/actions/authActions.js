@@ -7,16 +7,17 @@ import { setLoader, removeLoader } from "./loaderActions";
 // Check the user
 export const checkUser = () => async (dispatch) => {
   try {
-    // Fetch the user
+    // Fetch the token
     const res = await axios.get(`${NEXT_URL}/user`);
 
-    // Get the user data
+    // Get the token
+    const token = res.data.token;
     const user = res.data.user;
 
     // Dispatch the action
     dispatch({
       type: CHECK_USER,
-      payload: user,
+      payload: { token, user },
     });
   } catch (err) {
     console.log(err.response.data.message);
@@ -37,12 +38,13 @@ export const login =
       const res = await axios.post(`${NEXT_URL}/login`, details);
 
       // Get the response
-      const data = res.data;
+      const token = res.data.token;
+      const user = res.data.user;
 
       // Dispatch login
       dispatch({
         type: LOGIN,
-        payload: data.user,
+        payload: { token, user },
       });
 
       // Set the loader and show the message
@@ -63,17 +65,17 @@ export const logout = () => async (dispatch) => {
     // Post the logout request
     const res = await axios.post(`${NEXT_URL}/logout`);
 
-    let user;
+    let token;
 
-    // Set the user to null if cookie is successfully removed
+    // Set the token to null if cookie is successfully removed
     {
-      res.status === 200 && user === null;
+      res.status === 200 && token === null;
     }
 
     // Dispatch the action
     dispatch({
       type: LOGOUT,
-      payload: user,
+      payload: token,
     });
 
     // Show the message

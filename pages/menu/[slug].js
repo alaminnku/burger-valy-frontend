@@ -1,34 +1,35 @@
-import { items } from "../../data/items";
+import { items } from "../data/items";
 import Image from "next/image";
 import styles from "@styles/menu/itemPage.module.css";
 import { useSelector } from "react-redux";
 import { TiTick } from "react-icons/ti";
-import LinkButton from "@/components/layout/LinkButton";
-import Cookies from "js-cookie";
+import Button from "@/components/layout/Button";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+import { useState } from "react";
 
 const ItemPage = ({ item }) => {
-  // States
-  const { price } = useSelector((state) => state.burger);
-  // const { user } = useSelector((state) => state.auth);
-
   // Get the first word and rest of the words from the name in seperate arrays
-  const [fristWord, ...restWords] = item.name.split(" ");
+  const [firstWord, ...restWords] = item.name.split(" ");
 
   // Convert the first letter of the first word to lowercase and join the whole string back
-  const name = `${fristWord.replace(
-    fristWord[0],
-    fristWord[0].toLowerCase()
+  const name = `${firstWord.replace(
+    firstWord[0],
+    firstWord[0].toLowerCase()
   )}${restWords.join("")}`;
+
+  // States
+  const { price } = useSelector((state) => state.burger);
+  const { token } = useSelector((state) => state.auth);
+  const [quantity, setQuantity] = useState(item.quantity);
 
   const foodItem = {
     name: item.name,
-    quantity: item.quantity,
-    price: price[name],
+    quantity,
+    price: price[name] * quantity,
   };
 
-  // Save the item to cookie
-  const handleSaveItem = () => {
-    Cookies.set("item", foodItem);
+  const handleSubmitOrder = () => {
+    console.log(foodItem);
   };
 
   return (
@@ -59,7 +60,13 @@ const ItemPage = ({ item }) => {
 
           <div className={styles.Item}>
             <h4>Quantity</h4>
-            <p>{item.quantity}</p>
+            <p>{quantity}</p>
+            <AiOutlinePlusCircle onClick={() => setQuantity(quantity + 1)} />
+            <AiOutlineMinusCircle
+              onClick={() =>
+                setQuantity(quantity > 1 ? quantity - 1 : quantity)
+              }
+            />
           </div>
 
           <div className={styles.Item}>
@@ -69,16 +76,12 @@ const ItemPage = ({ item }) => {
 
           <div className={styles.Item}>
             <h4>Price</h4>
-            <p>${price[name]}</p>
+            <p>${price[name] * quantity}</p>
           </div>
         </div>
       </div>
 
-      <LinkButton
-        text="CONTINUE"
-        href={`/menu/${item.slug}/confirm-order`}
-        clicked={handleSaveItem}
-      />
+      <Button text="Confirm Order" clicked={handleSubmitOrder} />
     </div>
   );
 };

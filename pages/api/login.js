@@ -12,7 +12,7 @@ export default async (req, res) => {
       // Post request to strapi backend
       const loginRes = await axios.post(`${API_URL}/auth/local`, details);
 
-      // Get user data
+      // Response data
       const data = loginRes.data;
 
       // Set Cookie with jwt token
@@ -27,8 +27,8 @@ export default async (req, res) => {
         })
       );
 
-      // Return the user data
-      res.status(200).json({ user: data.user });
+      // Return the user and token
+      res.status(200).json({ token: data.jwt, user: data.user });
     } catch (err) {
       // If login fails
       const message = err.response.data.message[0].messages[0].message;

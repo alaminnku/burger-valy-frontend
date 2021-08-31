@@ -11,21 +11,22 @@ import Orders from "./Orders";
 import CurrentOrder from "./CurrentOrder";
 import Button from "../layout/Button";
 import Loader from "../layout/Loader";
-import { setLoader, removeLoader } from "@store/actions/loaderActions";
 
-const userDetails = ({ token }) => {
-  // Router and state
+const userDetails = () => {
+  // Router
   const router = useRouter();
   const dispatch = useDispatch();
+
+  // Statues
   const [orderDone, setOrderDone] = useState(false);
-  const { user } = useSelector((state) => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
   const { loading } = useSelector((state) => state.loader);
   const [loader, setLoader] = useState(false);
   const [reOrdered, setReOrdered] = useState([]);
 
   // Push to login page if there isn't a user
   useEffect(() => {
-    if (!user) {
+    if (!token) {
       router.push("/login");
     }
   }, []);
@@ -97,7 +98,7 @@ const userDetails = ({ token }) => {
 
   return (
     <>
-      {user && (
+      {token && (
         <div className={styles.UserDetails}>
           <h3 className={`${styles.Title} ${styles.MainTitle}`}>
             Welcome {user.name}!

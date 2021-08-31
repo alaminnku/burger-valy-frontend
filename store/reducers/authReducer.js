@@ -1,6 +1,7 @@
 import { LOGIN, CHECK_USER, LOGOUT } from "@store/actions/actionTypes";
 
 const initialState = {
+  token: null,
   user: null,
 };
 
@@ -12,19 +13,19 @@ const authReducer = (state = initialState, action) => {
     case CHECK_USER:
       return {
         ...state,
-        user: payload,
+        ...payload,
       };
 
     case LOGIN:
       return {
         ...state,
-        user: payload,
+        ...payload,
       };
 
     case LOGOUT:
       return {
         ...state,
-        user: payload,
+        token: payload,
       };
 
     default:

@@ -10,11 +10,12 @@ import Button from "../layout/Button";
 import Loader from "../layout/Loader";
 
 const LoginForm = () => {
+  // Hooks
   const dispatch = useDispatch();
   const router = useRouter();
 
   // States
-  const { user } = useSelector((state) => state.auth);
+  const { token } = useSelector((state) => state.auth);
   const { loading } = useSelector((state) => state.loader);
   const [disabled, setDisabled] = useState(true);
 
@@ -46,7 +47,7 @@ const LoginForm = () => {
 
   // Check if isAuthenticated and push to homepage
   {
-    user && router.push("/account");
+    token && router.push("/account");
   }
 
   return (

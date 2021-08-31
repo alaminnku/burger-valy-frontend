@@ -31,7 +31,7 @@
 }
 
 .Order .Title {
-  font-weight: var(--medium);
+  font-weight: var(--semiBold);
   margin-bottom: 0.1rem;
 }
 
