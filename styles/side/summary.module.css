@@ -42,10 +42,7 @@
     font-weight: var(--medium);
   }
 
-  .Description p:first-child {
-    margin-bottom: 0.5rem;
-  }
-
+  .Description p:first-child,
   .Description ul {
     margin-bottom: 0.5rem;
   }

@@ -8,6 +8,7 @@ import { setBurger } from "@store/actions/burgerActions";
 import { BiEdit } from "react-icons/bi";
 
 const Summary = () => {
+  // Hooks
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -36,7 +37,7 @@ const Summary = () => {
   return (
     <div className={styles.Summary}>
       <div className={styles.Burger}>
-        <Image src="/images/layout/burger.svg" width={64} height={64} />
+        <Image src='/images/layout/burger.svg' width={64} height={64} />
       </div>
       <div className={styles.Description}>
         <p>Your burger with</p>

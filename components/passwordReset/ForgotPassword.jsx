@@ -55,15 +55,15 @@ const ForgotPassword = () => {
 
   return (
     <form className={styles.ForgotPassword}>
-      <label htmlFor="email">Email</label>
-      <input type="email" value={email} onChange={handleChange} id="email" />
+      <label htmlFor='email'>Email</label>
+      <input type='email' value={email} onChange={handleChange} id='email' />
       <Button
         text={loading ? <Loader /> : "Send Email"}
         clicked={handleSubmit}
         disabled={disabled}
       />
       <small>
-        <Link href="/login">
+        <Link href='/login'>
           <a>Sign in here</a>
         </Link>
       </small>

@@ -1,14 +1,25 @@
 import { items } from "../data/items";
 import Image from "next/image";
 import styles from "@styles/menu/itemPage.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { TiTick } from "react-icons/ti";
 import Button from "@/components/layout/Button";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useState } from "react";
+import axios from "axios";
+import { API_URL } from "config";
+import Loader from "@/components/layout/Loader";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
+import { setAlert } from "@store/actions/alertActions";
+import Alert from "@/components/layout/Alert";
 
 const ItemPage = ({ item }) => {
-  // Get the first word and rest of the words from the name in seperate arrays
+  // Hooks
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  // Get the first word and rest of the words from the name in separate arrays
   const [firstWord, ...restWords] = item.name.split(" ");
 
   // Convert the first letter of the first word to lowercase and join the whole string back
@@ -21,15 +32,58 @@ const ItemPage = ({ item }) => {
   const { price } = useSelector((state) => state.burger);
   const { token } = useSelector((state) => state.auth);
   const [quantity, setQuantity] = useState(item.quantity);
+  const [loading, setLoading] = useState(false);
+  const alerts = useSelector((state) => state.alerts);
 
-  const foodItem = {
+  // Final item
+  const finalItem = {
     name: item.name,
     quantity,
-    price: price[name] * quantity,
+    totalPrice: price[name] * quantity,
+    img: item.img,
   };
 
-  const handleSubmitOrder = () => {
-    console.log(foodItem);
+  // Submit the order
+  const handleSubmitOrder = async () => {
+    // If there is no token
+    if (!token) {
+      Cookies.set("item", finalItem);
+      router.push("/register");
+      return;
+    }
+
+    // If there is a token
+    try {
+      // Start the loader
+      setLoading(true);
+
+      // Get the price
+      const priceRes = await axios.get(`${API_URL}/price`);
+      const fetchedPrice = priceRes.data;
+
+      // Final item
+      const order = {
+        name: item.name,
+        quantity,
+        totalPrice: fetchedPrice[name] * quantity,
+      };
+
+      // Post the order to db
+      await axios.post(`${API_URL}/genericorders`, order, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Stop the loader, show the message and navigate to account page
+      setLoading(false);
+      dispatch(setAlert("Order placed successfully!", "Success"));
+      router.push("/account");
+    } catch (err) {
+      // Stop the loader and show the message
+      setLoading(false);
+      console.log(err.response.data.message);
+    }
   };
 
   return (
@@ -37,7 +91,7 @@ const ItemPage = ({ item }) => {
       <h3>{item.name}</h3>
 
       <div className={styles.Image}>
-        <Image src={item.img} alt="" width="768" height="432" />
+        <Image src={item.img} alt='' width='768' height='432' />
       </div>
 
       <div className={styles.Content}>
@@ -81,7 +135,12 @@ const ItemPage = ({ item }) => {
         </div>
       </div>
 
-      <Button text="Confirm Order" clicked={handleSubmitOrder} />
+      <Button
+        text={loading ? <Loader /> : "Confirm Order"}
+        clicked={handleSubmitOrder}
+      />
+
+      <Alert alerts={alerts} />
     </div>
   );
 };

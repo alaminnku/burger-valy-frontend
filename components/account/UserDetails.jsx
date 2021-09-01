@@ -11,6 +11,7 @@ import Orders from "./Orders";
 import CurrentOrder from "./CurrentOrder";
 import Button from "../layout/Button";
 import Loader from "../layout/Loader";
+import Image from "next/image";
 
 const userDetails = () => {
   // Router
@@ -33,6 +34,8 @@ const userDetails = () => {
 
   // Get the burger from cookie
   const burger = Cookies.getJSON("burger");
+  const item = Cookies.getJSON("item");
+  console.log(item);
 
   // Create a new object
   const pendingOrder = { ...burger };
@@ -112,6 +115,32 @@ const userDetails = () => {
                 text={loader ? <Loader /> : "Confirm Order"}
                 clicked={handleSubmitOrder}
               />
+            </div>
+          )}
+
+          {!orderDone && item && (
+            <div className={styles.PendingOrder}>
+              <div className={styles.Item}>
+                <Image src={item.img} width='192' height='108' />
+
+                <div className={styles.Content}>
+                  <p>Your order with</p>
+                  <ul>
+                    <li>
+                      <span>Name</span>: {item.name}
+                    </li>
+                    <li>
+                      <span>Quantity</span>: {item.quantity}
+                    </li>
+                  </ul>
+
+                  <p>
+                    <span>Total price</span>: ${item.totalPrice}
+                  </p>
+                </div>
+              </div>
+
+              <Button text={loader ? <Loader /> : "Confirm Order"} />
             </div>
           )}
 

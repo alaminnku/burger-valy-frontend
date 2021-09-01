@@ -8,8 +8,6 @@ import Button from "../layout/Button";
 import Loader from "../layout/Loader";
 
 const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
-  const dispatch = useDispatch();
-
   // States
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -119,7 +117,7 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
         <div className={styles.PriceReorder}>
           <p className={styles.Title}>Total amount: ${order.TotalPrice}</p>
 
-          <Button text="REORDER" clicked={() => handleReorder(order)} />
+          <Button text='REORDER' clicked={() => handleReorder(order)} />
         </div>
       </div>
     ));
