@@ -1,3 +1,7 @@
+.Orders .CurrentBurgerOrders {
+  margin-bottom: 1rem;
+}
+
 .Orders .Title {
   margin-bottom: 1rem;
 }
@@ -50,12 +54,6 @@
   text-transform: capitalize;
 }
 
-.Order .PriceReorder {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .Address {
   font-size: 0.8rem;
 }
@@ -70,10 +68,11 @@
 }
 
 @media (min-width: 768px) {
+  .Orders .CurrentBurgerOrders {
+    margin-bottom: 2rem;
+  }
+
   .Order {
-    padding: 1.5rem 2rem;
-    width: 35rem;
-    margin: 0 auto;
     margin-bottom: 2rem;
   }
 
@@ -100,11 +99,5 @@
 
   .Address {
     font-size: 0.9rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .Order {
-    width: 40rem;
   }
 }

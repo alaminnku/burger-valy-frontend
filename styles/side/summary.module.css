@@ -33,8 +33,6 @@
 @media (min-width: 768px) {
   .Summary {
     padding: 1.5rem 2rem;
-    width: 35rem;
-    margin: 0 auto;
     margin-bottom: 2rem;
   }
 
@@ -54,7 +52,6 @@
 
 @media (min-width: 1024px) {
   .Summary {
-    width: 40rem;
     margin-bottom: 2rem;
   }
 }

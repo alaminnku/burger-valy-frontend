@@ -23,7 +23,7 @@ export const items = [
 
   {
     name: "Club Sandwich",
-    slug: "club-snadwich",
+    slug: "club-sandwich",
     img: "/images/menu/club-sandwich.jpg",
     ingredients: [
       "Turkey",
@@ -46,7 +46,7 @@ export const items = [
     ingredients: [
       "Whole chicken",
       "Salt",
-      "Garlic poweder",
+      "Garlic powder",
       "Onion powder",
       "Butter milk",
       "Hot sauce",

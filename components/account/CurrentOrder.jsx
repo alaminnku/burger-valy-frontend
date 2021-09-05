@@ -3,37 +3,54 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "config";
 import Loader from "../layout/Loader";
+import { useSelector } from "react-redux";
 
-const CurrentOrder = ({ token, orderDone, reOrdered }) => {
+const CurrentOrder = ({ orderDone, reOrdered }) => {
   // States
-  const [orders, setOrders] = useState([]);
+  const [burgerOrders, setBurgerOrders] = useState([]);
+  const [genericOrders, setGenericOrders] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { token } = useSelector((state) => state.auth);
 
   // Fetch the orders on render
   useEffect(async () => {
     // Start the loader
     setLoading(true);
 
-    // Fetch the orders
-    const res = await axios.get(`${API_URL}/burgerorders/me`, {
+    // Fetch burger orders
+    const burgerRes = await axios.get(`${API_URL}/burgerorders/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
-    // Sor the orders
-    const orders = res.data.sort(
+    // Fetch generic orders
+    const genericRes = await axios.get(`${API_URL}/genericorders/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    // Sort burger orders
+    const burgerOrders = burgerRes.data.sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+
+    // Sort generic orders
+    const genericOrders = genericRes.data.sort(
       (a, b) =>
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
 
     // Update the state and remove the loader
-    setOrders(orders);
+    setBurgerOrders(burgerOrders);
+    setGenericOrders(genericOrders);
     setLoading(false);
   }, [orderDone, reOrdered]);
 
-  // Get the order which is placed in last hour
-  const latestOrders = orders.filter((order) => {
+  // Get the burger orders which is placed in last hour
+  const latestBurgerOrders = burgerOrders.filter((order) => {
     if (
       new Date().getTime() / 1000 -
         new Date(order.createdAt).getTime() / 1000 <=
@@ -43,11 +60,26 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
     }
   });
 
-  let allLatestOrders;
+  // Get the generic orders which is placed in last hour
+  const latestGenericOrders = genericOrders.filter((order) => {
+    if (
+      new Date().getTime() / 1000 -
+        new Date(order.createdAt).getTime() / 1000 <=
+      3600
+    ) {
+      return order;
+    }
+  });
 
-  // Check if there is a current order and update the state
-  if (latestOrders.length > 0) {
-    allLatestOrders = latestOrders.map((order) => (
+  // Dynamic variables
+  let allLatestBurgerOrders;
+  let allLatestGenericOrders;
+  let noLatestOrders;
+  let address;
+
+  // Render the order if there are current burger orders
+  if (latestBurgerOrders.length > 0) {
+    allLatestBurgerOrders = latestBurgerOrders.map((order) => (
       <div className={styles.Order} key={order.id}>
         <div className={styles.Main}>
           <div className={styles.TypeDate}>
@@ -99,28 +131,75 @@ const CurrentOrder = ({ token, orderDone, reOrdered }) => {
         </div>
       </div>
     ));
-  } else {
-    allLatestOrders = (
+  }
+
+  // Render the order if there are current generic orders
+  if (latestGenericOrders.length > 0) {
+    allLatestGenericOrders = latestGenericOrders.map((order) => (
+      <div className={styles.Order} key={order.id}>
+        <div className={styles.Main}>
+          <div className={styles.TypeDate}>
+            <p className={styles.Title}>{order.name}</p>
+            <small className={styles.Date}>
+              {new Date(order.createdAt).toDateString()}
+            </small>
+          </div>
+          <ul>
+            <li>Quantity: {order.quantity}</li>
+          </ul>
+        </div>
+
+        <div>
+          <p className={styles.Title}>Total amount: ${order.totalPrice}</p>
+        </div>
+      </div>
+    ));
+  }
+
+  // Show no orders if there are no current orders
+  if (latestBurgerOrders.length === 0 && latestGenericOrders.length === 0) {
+    noLatestOrders = (
       <small className={styles.NoOrder}>No active orders!</small>
+    );
+  }
+
+  // Show the collection address if there are current orders
+  if (latestBurgerOrders.length > 0 || latestGenericOrders.length > 0) {
+    address = (
+      <small className={styles.Address}>
+        <span>Please collect your orders at - </span> Thompson Street 75, New
+        York City, NY 10012. USA
+      </small>
     );
   }
 
   return (
     <div className={styles.Orders}>
-      <h4 className={styles.Title}>Current orders</h4>
-      {loading ? (
-        <Loader />
-      ) : (
-        <div>
-          {allLatestOrders}
-          {latestOrders.length > 0 && (
-            <small className={styles.Address}>
-              <span>Please collect your orders at - </span> Thompson Street 75,
-              New York City, NY 10012. USA
-            </small>
-          )}
-        </div>
-      )}
+      <div className={styles.CurrentBurgerOrders}>
+        <h4 className={styles.Title}>Current burger orders</h4>
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            {allLatestBurgerOrders}
+            {address}
+            {noLatestOrders}
+          </>
+        )}
+      </div>
+
+      <div>
+        <h4 className={styles.Title}>Current generic orders</h4>
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            {allLatestGenericOrders}
+            {address}
+            {noLatestOrders}
+          </>
+        )}
+      </div>
     </div>
   );
 };

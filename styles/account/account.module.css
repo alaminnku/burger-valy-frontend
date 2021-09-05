@@ -17,26 +17,29 @@
 
 @media (min-width: 768px) {
   .Account {
-    padding: 2rem 3rem;
+    padding: 2rem 0rem;
+    width: 35rem;
+    margin: 0 auto;
     margin-bottom: 5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .Account {
-    padding: 3rem 5rem;
+    padding: 3rem 0rem;
+    width: 40rem;
     margin-bottom: 0rem;
   }
 }
 
 @media (min-width: 1280px) {
   .Account {
-    padding: 4rem 8rem;
+    padding: 4rem 0rem;
   }
 }
 
 @media (min-width: 1280px) {
   .Account {
-    padding: 4rem 10rem;
+    padding: 4rem 0rem;
   }
 }

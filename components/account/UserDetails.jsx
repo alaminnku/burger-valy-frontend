@@ -12,6 +12,8 @@ import CurrentOrder from "./CurrentOrder";
 import Button from "../layout/Button";
 import Loader from "../layout/Loader";
 import Image from "next/image";
+import Alert from "../layout/Alert";
+import { setAlert } from "@store/actions/alertActions";
 
 const userDetails = () => {
   // Router
@@ -24,6 +26,7 @@ const userDetails = () => {
   const { loading } = useSelector((state) => state.loader);
   const [loader, setLoader] = useState(false);
   const [reOrdered, setReOrdered] = useState([]);
+  const alerts = useSelector((state) => state.alerts);
 
   // Push to login page if there isn't a user
   useEffect(() => {
@@ -35,14 +38,13 @@ const userDetails = () => {
   // Get the burger from cookie
   const burger = Cookies.getJSON("burger");
   const item = Cookies.getJSON("item");
-  console.log(item);
 
   // Create a new object
   const pendingOrder = { ...burger };
   const { ingredients, side, type } = pendingOrder;
 
   // Submit the order
-  const handleSubmitOrder = async () => {
+  const handleSubmitBurgerOrder = async () => {
     try {
       // Set the loader
       setLoader(true);
@@ -87,9 +89,55 @@ const userDetails = () => {
       // Set order done true
       setOrderDone(true);
       setLoader(false);
+      dispatch(setAlert("Order placed successfully!", "Success"));
     } catch (err) {
-      console.log(err);
       setLoader(false);
+      dispatch(setAlert(err.response.data.message, "Danger"));
+    }
+  };
+
+  // Submit pending generic order
+  const handleSubmitGenericOrder = async () => {
+    try {
+      setLoader(true);
+
+      // Fetch the price
+      const res = await axios.get(`${API_URL}/price`);
+      const price = res.data;
+
+      // Get the first name and rest of the words separated
+      const [firstWord, ...restWords] = item.name.split(" ");
+
+      // Get the name that matches the price
+      const name = `${firstWord.replace(
+        firstWord[0],
+        firstWord[0].toLowerCase()
+      )}${restWords.join("")}`;
+
+      // Final order
+      const order = {
+        name: item.name,
+        quantity: item.quantity,
+        totalPrice: item.quantity * price[name],
+      };
+
+      // Post the order to db
+      await axios.post(`${API_URL}/genericorders`, order, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Remove the item from cookies
+      Cookies.remove("item");
+
+      // Update states
+      setOrderDone(true);
+      setLoader(false);
+      dispatch(setAlert("Order placed successfully!", "Success"));
+    } catch (err) {
+      setLoader(false);
+      dispatch(setAlert(err.response.data.message, "Danger"));
     }
   };
 
@@ -113,7 +161,7 @@ const userDetails = () => {
               <Summary />
               <Button
                 text={loader ? <Loader /> : "Confirm Order"}
-                clicked={handleSubmitOrder}
+                clicked={handleSubmitBurgerOrder}
               />
             </div>
           )}
@@ -140,21 +188,19 @@ const userDetails = () => {
                 </div>
               </div>
 
-              <Button text={loader ? <Loader /> : "Confirm Order"} />
+              <Button
+                text={loader ? <Loader /> : "Confirm Order"}
+                clicked={handleSubmitGenericOrder}
+              />
             </div>
           )}
 
           <div className={styles.CurrentOrder}>
-            <CurrentOrder
-              token={token}
-              reOrdered={reOrdered}
-              orderDone={orderDone}
-            />
+            <CurrentOrder reOrdered={reOrdered} orderDone={orderDone} />
           </div>
 
           <div className={styles.AllOrders}>
             <Orders
-              token={token}
               setReOrdered={setReOrdered}
               reOrdered={reOrdered}
               orderDone={orderDone}
@@ -172,6 +218,7 @@ const userDetails = () => {
           />
         </div>
       )}
+      <Alert alerts={alerts} />
     </>
   );
 };

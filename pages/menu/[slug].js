@@ -82,7 +82,7 @@ const ItemPage = ({ item }) => {
     } catch (err) {
       // Stop the loader and show the message
       setLoading(false);
-      console.log(err.response.data.message);
+      dispatch(setAlert(err.response.data.message, "Danger"));
     }
   };
 

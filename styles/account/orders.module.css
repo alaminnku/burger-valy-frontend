@@ -2,6 +2,10 @@
   padding-bottom: 1rem;
 }
 
+.Orders .AllBurgerOrders {
+  margin-bottom: 1rem;
+}
+
 .Order {
   display: flex;
   flex-direction: column;
@@ -83,6 +87,10 @@
 }
 
 @media (min-width: 768px) {
+  .Orders .AllBurgerOrders {
+    margin-bottom: 2rem;
+  }
+
   .Order {
     padding: 1.5rem 2rem;
     width: 35rem;

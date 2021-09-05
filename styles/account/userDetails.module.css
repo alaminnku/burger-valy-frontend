@@ -45,8 +45,6 @@
 @media (min-width: 768px) {
   .CurrentOrder,
   .AllOrders {
-    width: 35rem;
-    margin: 0 auto;
     margin-bottom: 2rem;
   }
 
@@ -55,9 +53,6 @@
   }
 
   .UserDetails .PendingOrder .Item {
-    padding: 1.5rem 2rem;
-    width: 35rem;
-    margin: 0 auto;
     margin-bottom: 2rem;
   }
 
@@ -77,19 +72,15 @@
 
 @media (min-width: 1024px) {
   .MainTitle {
-    width: 40rem;
-    margin: 0 auto;
     margin-bottom: 1rem;
   }
 
   .CurrentOrder,
   .AllOrders {
-    width: 40rem;
     margin-bottom: 2rem;
   }
 
   .UserDetails .PendingOrder .Item {
-    width: 40rem;
     margin-bottom: 2rem;
   }
 
@@ -106,12 +97,6 @@
 
 @media (min-width: 1440px) {
   .MainTitle {
-    width: 70%;
     margin-bottom: 1rem;
-  }
-
-  .CurrentOrder,
-  .AllOrders {
-    width: 70%;
   }
 }

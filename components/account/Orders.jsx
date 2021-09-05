@@ -1,43 +1,66 @@
 import axios from "axios";
 import { API_URL } from "config";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import styles from "@styles/account/orders.module.css";
 import Button from "../layout/Button";
 import Loader from "../layout/Loader";
+import { setAlert } from "@store/actions/alertActions";
+import Alert from "../layout/Alert";
 
-const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
+const Orders = ({ orderDone, reOrdered, setReOrdered }) => {
+  // Hooks
+  const dispatch = useDispatch();
+
   // States
-  const [orders, setOrders] = useState([]);
+  const [burgerOrders, setBurgerOrders] = useState([]);
+  const [genericOrders, setGenericOrders] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showOrders, setShowOrders] = useState(false);
+  const [showBurgerOrders, setShowBurgerOrders] = useState(false);
+  const [showGenericOrders, setShowGenericOrders] = useState(false);
+  const { token } = useSelector((state) => state.auth);
+  const alerts = useSelector((state) => state.alerts);
 
   // Fetch the orders on render
   useEffect(async () => {
     // Start the loader
     setLoading(true);
 
-    // Fetch the orders
-    const res = await axios.get(`${API_URL}/burgerorders/me`, {
+    // Fetch burger orders
+    const burgerRes = await axios.get(`${API_URL}/burgerorders/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
-    // Sort the orders
-    const orders = res.data.sort(
+    // Fetch generic orders
+    const genericRes = await axios.get(`${API_URL}/genericorders/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    // Sort burger orders
+    const burgerOrders = burgerRes.data.sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+
+    // Sort generic orders
+    const genericOrders = genericRes.data.sort(
       (a, b) =>
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
 
     // Update the state and stop the loader
-    setOrders(orders);
+    setBurgerOrders(burgerOrders);
+    setGenericOrders(genericOrders);
     setLoading(false);
   }, [orderDone, reOrdered]);
 
-  // Handle reorder
-  const handleReorder = async (order) => {
+  // Handle burger reorder
+  const handleBurgerReorder = async (order) => {
     // Delete unnecessary properties from order object
     [
       "__v",
@@ -59,15 +82,50 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
 
       // Update reordered array with new order
       setReOrdered([...reOrdered, res.data]);
+      dispatch(setAlert("Order placed successfully!", "Success"));
     } catch (err) {
-      console.log(err);
+      dispatch(setAlert(err.response.data.message, "Danger"));
     }
   };
 
-  let allOrders;
+  const handleGenericReorder = async (order) => {
+    // Delete unnecessary fields
+    [
+      "__v",
+      "_id",
+      "createdAt",
+      "id",
+      "published_at",
+      "updatedAt",
+      "user",
+    ].forEach((prop) => delete order[prop]);
 
-  if (orders.length > 0) {
-    allOrders = orders.map((order) => (
+    try {
+      // Post the order to db
+      const res = await axios.post(`${API_URL}/genericorders`, order, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Update reordered array with new order
+      setReOrdered([...reOrdered, res.data]);
+
+      // Show the alert
+      dispatch(setAlert("Order placed successfully!", "Success"));
+    } catch (err) {
+      dispatch(setAlert(err.response.data.message, "Danger"));
+    }
+  };
+
+  // Dynamic variables
+  let allBurgerOrders;
+  let allGenericOrders;
+  let noOrders;
+
+  // Render all the burger orders
+  if (burgerOrders.length > 0) {
+    allBurgerOrders = burgerOrders.map((order) => (
       <div key={order.id} className={styles.Order}>
         <div className={styles.Main}>
           <div className={styles.TypeDate}>
@@ -117,29 +175,95 @@ const Orders = ({ token, orderDone, reOrdered, setReOrdered }) => {
         <div className={styles.PriceReorder}>
           <p className={styles.Title}>Total amount: ${order.TotalPrice}</p>
 
-          <Button text='REORDER' clicked={() => handleReorder(order)} />
+          <Button text='REORDER' clicked={() => handleBurgerReorder(order)} />
         </div>
       </div>
     ));
-  } else {
-    allOrders = (
+  }
+
+  // Render all generic orders
+  if (genericOrders.length > 0) {
+    allGenericOrders = genericOrders.map((order) => (
+      <div className={styles.Order} key={order.id}>
+        <div className={styles.Main}>
+          <div className={styles.TypeDate}>
+            <p className={styles.Title}>{order.name}</p>
+            <small className={styles.Date}>
+              {new Date(order.createdAt).toDateString()}
+            </small>
+          </div>
+          <ul>
+            <li>Quantity: {order.quantity}</li>
+          </ul>
+        </div>
+
+        <div className={styles.PriceReorder}>
+          <p className={styles.Title}>Total amount: ${order.totalPrice}</p>
+          <Button text='REORDER' clicked={() => handleGenericReorder(order)} />
+        </div>
+      </div>
+    ));
+  }
+
+  // If there are no orders
+  if (burgerOrders.length === 0 && genericOrders.length === 0) {
+    noOrders = (
       <small className={styles.NoOrder}>Haven't placed any order yet?</small>
     );
   }
 
   return (
     <div className={styles.Orders}>
-      <h4
-        className={`${styles.Title} ${styles.OrdersTitle}`}
-        onClick={() => setShowOrders(!showOrders)}
-      >
-        All orders{" "}
-        <RiArrowDropDownLine
-          className={`${styles.Icon} ${showOrders && styles.RotateIcon}`}
-        />
-      </h4>
+      <div className={styles.AllBurgerOrders}>
+        <h4
+          className={`${styles.Title} ${styles.OrdersTitle}`}
+          onClick={() => setShowBurgerOrders(!showBurgerOrders)}
+        >
+          All burger orders{" "}
+          <RiArrowDropDownLine
+            className={`${styles.Icon} ${
+              showBurgerOrders && styles.RotateIcon
+            }`}
+          />
+        </h4>
 
-      {loading ? <Loader /> : showOrders && allOrders}
+        {loading ? (
+          <Loader />
+        ) : (
+          showBurgerOrders && (
+            <>
+              {allBurgerOrders}
+              {noOrders}
+            </>
+          )
+        )}
+      </div>
+
+      <div>
+        <h4
+          className={`${styles.Title} ${styles.OrdersTitle}`}
+          onClick={() => setShowGenericOrders(!showGenericOrders)}
+        >
+          All generic orders{" "}
+          <RiArrowDropDownLine
+            className={`${styles.Icon} ${
+              showGenericOrders && styles.RotateIcon
+            }`}
+          />
+        </h4>
+
+        {loading ? (
+          <Loader />
+        ) : (
+          showGenericOrders && (
+            <>
+              {allGenericOrders}
+              {noOrders}
+            </>
+          )
+        )}
+      </div>
+      <Alert alerts={alerts} />
     </div>
   );
 };
