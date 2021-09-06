@@ -74,8 +74,6 @@ const CurrentOrder = ({ orderDone, reOrdered }) => {
   // Dynamic variables
   let allLatestBurgerOrders;
   let allLatestGenericOrders;
-  let noLatestOrders;
-  let address;
 
   // Render the order if there are current burger orders
   if (latestBurgerOrders.length > 0) {
@@ -156,47 +154,47 @@ const CurrentOrder = ({ orderDone, reOrdered }) => {
     ));
   }
 
-  // Show no orders if there are no current orders
-  if (latestBurgerOrders.length === 0 && latestGenericOrders.length === 0) {
-    noLatestOrders = (
-      <small className={styles.NoOrder}>No active orders!</small>
-    );
-  }
-
-  // Show the collection address if there are current orders
-  if (latestBurgerOrders.length > 0 || latestGenericOrders.length > 0) {
-    address = (
-      <small className={styles.Address}>
-        <span>Please collect your orders at - </span> Thompson Street 75, New
-        York City, NY 10012. USA
-      </small>
-    );
-  }
+  const address = (
+    <small className={styles.Address}>
+      <span>Please collect your orders at - </span> Thompson Street 75, New York
+      City, NY 10012. USA
+    </small>
+  );
 
   return (
     <div className={styles.Orders}>
       <div className={styles.CurrentBurgerOrders}>
-        <h4 className={styles.Title}>Current burger orders</h4>
+        <h4 className={styles.MainTitle}>Active orders (burger)</h4>
         {loading ? (
           <Loader />
         ) : (
           <>
             {allLatestBurgerOrders}
-            {address}
-            {noLatestOrders}
+            {latestBurgerOrders.length > 0 ? (
+              address
+            ) : (
+              <small className={styles.NoOrder}>
+                You don't have any burgers in order!
+              </small>
+            )}
           </>
         )}
       </div>
 
       <div>
-        <h4 className={styles.Title}>Current generic orders</h4>
+        <h4 className={styles.MainTitle}>Active orders (generic)</h4>
         {loading ? (
           <Loader />
         ) : (
           <>
             {allLatestGenericOrders}
-            {address}
-            {noLatestOrders}
+            {latestGenericOrders.length > 0 ? (
+              address
+            ) : (
+              <small className={styles.NoOrder}>
+                You don't have any items in order!
+              </small>
+            )}
           </>
         )}
       </div>

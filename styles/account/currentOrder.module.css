@@ -2,8 +2,14 @@
   margin-bottom: 1rem;
 }
 
-.Orders .Title {
+.Orders .Title,
+.Orders .MainTitle {
   margin-bottom: 1rem;
+}
+
+.Orders .MainTitle {
+  font-family: "Permanent Marker";
+  color: var(--kindaRed);
 }
 
 .Order {
@@ -60,7 +66,6 @@
 
 .Address span {
   font-weight: var(--semiBold);
-  color: var(--green);
 }
 
 .NoOrder {

@@ -44,6 +44,8 @@
   align-items: center;
   margin-bottom: 1rem;
   cursor: pointer;
+  font-family: "Permanent Marker";
+  color: var(--kindaRed);
 }
 
 .Icon {

@@ -219,7 +219,7 @@ const Orders = ({ orderDone, reOrdered, setReOrdered }) => {
           className={`${styles.Title} ${styles.OrdersTitle}`}
           onClick={() => setShowBurgerOrders(!showBurgerOrders)}
         >
-          All burger orders{" "}
+          All orders (burger){" "}
           <RiArrowDropDownLine
             className={`${styles.Icon} ${
               showBurgerOrders && styles.RotateIcon
@@ -244,7 +244,7 @@ const Orders = ({ orderDone, reOrdered, setReOrdered }) => {
           className={`${styles.Title} ${styles.OrdersTitle}`}
           onClick={() => setShowGenericOrders(!showGenericOrders)}
         >
-          All generic orders{" "}
+          All orders (generic){" "}
           <RiArrowDropDownLine
             className={`${styles.Icon} ${
               showGenericOrders && styles.RotateIcon

@@ -115,8 +115,14 @@ const ItemPage = ({ item }) => {
           <div className={styles.Item}>
             <h4>Quantity</h4>
             <p>{quantity}</p>
-            <AiOutlinePlusCircle onClick={() => setQuantity(quantity + 1)} />
+            <AiOutlinePlusCircle
+              className={styles.AddIcon}
+              onClick={() => setQuantity(quantity + 1)}
+            />
             <AiOutlineMinusCircle
+              className={`${styles.RemoveIcon} ${
+                quantity === 1 && styles.Disabled
+              }`}
               onClick={() =>
                 setQuantity(quantity > 1 ? quantity - 1 : quantity)
               }

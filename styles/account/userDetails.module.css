@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.UserDetails .MainTitle span {
+  color: var(--green);
+}
+
 .Title {
   margin-bottom: 1rem;
 }

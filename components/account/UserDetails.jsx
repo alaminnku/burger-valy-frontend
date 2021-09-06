@@ -148,11 +148,11 @@ const userDetails = () => {
   };
 
   return (
-    <>
+    <div className={styles.UserDetailsPage}>
       {token && (
         <div className={styles.UserDetails}>
           <h3 className={`${styles.Title} ${styles.MainTitle}`}>
-            Welcome {user.name}!
+            Hi <span>{user.name}</span> 👋
           </h3>
 
           {/* Only show summary if orderDone is false and there is a burger in cookie */}
@@ -219,7 +219,7 @@ const userDetails = () => {
         </div>
       )}
       <Alert alerts={alerts} />
-    </>
+    </div>
   );
 };
 
