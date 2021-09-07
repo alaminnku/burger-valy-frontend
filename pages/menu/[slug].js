@@ -1,4 +1,4 @@
-import { items } from "../data/items";
+import { items } from "../../data/items";
 import Image from "next/image";
 import styles from "@styles/menu/itemPage.module.css";
 import { useDispatch, useSelector } from "react-redux";

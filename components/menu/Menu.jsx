@@ -1,5 +1,5 @@
 import Item from "./Item";
-import { items } from "pages/data/items";
+import { items } from "data/items";
 import styles from "@styles/menu/menu.module.css";
 
 const Menu = () => {
