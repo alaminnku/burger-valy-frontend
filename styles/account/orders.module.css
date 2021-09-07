@@ -40,12 +40,26 @@
 }
 
 .OrdersTitle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   margin-bottom: 1rem;
   cursor: pointer;
-  font-family: "Permanent Marker";
+  background-color: var(--green);
+  color: var(--almostWhite);
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.25rem;
+}
+
+.AllBurgerOrders small,
+.AllGenericOrders small {
+  display: block;
+}
+
+.AllBurgerOrders small a,
+.AllGenericOrders small a {
+  position: relative;
   color: var(--kindaRed);
+  transition: all 200ms ease-in-out;
 }
 
 .Icon {
@@ -106,6 +120,29 @@
 
   .Order .Main {
     margin-bottom: 1rem;
+  }
+
+  .AllBurgerOrders small a::before,
+  .AllGenericOrders small a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--green);
+    transition: transform 200ms ease-in-out;
+    transform: scaleX(0);
+  }
+
+  .AllBurgerOrders small a:hover::before,
+  .AllGenericOrders small a:hover::before {
+    transform: scaleX(1);
+  }
+
+  .AllBurgerOrders small a:hover,
+  .AllGenericOrders small a:hover {
+    color: var(--green);
   }
 
   .Order .Title {

@@ -1,8 +1,7 @@
 import { HiHome } from "react-icons/hi";
-import { RiBuilding2Fill } from "react-icons/ri";
+import { MdRestaurantMenu } from "react-icons/md";
 import { MdAccountBox } from "react-icons/md";
 import Link from "next/link";
-import Image from "next/image";
 import { useSelector } from "react-redux";
 import styles from "@styles/layout/footer.module.css";
 
@@ -13,7 +12,7 @@ const Footer = () => {
     <footer className={styles.Footer}>
       <div className={styles.MobileFooter}>
         <div className={styles.Item}>
-          <Link href="/">
+          <Link href='/'>
             <a>
               <HiHome className={styles.Icon} />
               <p>Home</p>
@@ -21,9 +20,9 @@ const Footer = () => {
           </Link>
         </div>
         <div className={styles.Item}>
-          <Link href="/menu">
+          <Link href='/menu'>
             <a>
-              <RiBuilding2Fill className={styles.Icon} />
+              <MdRestaurantMenu className={styles.Icon} />
               <p>Menu</p>
             </a>
           </Link>
@@ -41,7 +40,7 @@ const Footer = () => {
 
       <div className={styles.DesktopFooter}>
         <div className={styles.Logo}>
-          <Link href="/">
+          <Link href='/'>
             <a>
               <h3>Burger Valley</h3>
             </a>
@@ -50,8 +49,8 @@ const Footer = () => {
 
         <div className={styles.Item}>
           <p>Contact Us</p>
-          <a href="tel:+18475555555">Phone: +1-847-555-5555</a>
-          <a href="mailto:info@burgervalley.com">
+          <a href='tel:+18475555555'>Phone: +1-847-555-5555</a>
+          <a href='mailto:info@burgervalley.com'>
             Email: info@burgervalley.com
           </a>
         </div>

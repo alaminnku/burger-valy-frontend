@@ -8,8 +8,16 @@
 }
 
 .Orders .MainTitle {
-  font-family: "Permanent Marker";
-  color: var(--kindaRed);
+  background-color: var(--green);
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.25rem;
+  color: var(--almostWhite);
+}
+
+.CurrentBurgerOrders small,
+.CurrentGenericOrders small {
+  display: block;
 }
 
 .Order {

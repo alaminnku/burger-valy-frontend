@@ -181,7 +181,7 @@ const CurrentOrder = ({ orderDone, reOrdered }) => {
         )}
       </div>
 
-      <div>
+      <div className={styles.CurrentGenericOrders}>
         <h4 className={styles.MainTitle}>Active orders (generic)</h4>
         {loading ? (
           <Loader />

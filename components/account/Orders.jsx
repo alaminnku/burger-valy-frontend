@@ -8,6 +8,7 @@ import Button from "../layout/Button";
 import Loader from "../layout/Loader";
 import { setAlert } from "@store/actions/alertActions";
 import Alert from "../layout/Alert";
+import Link from "next/link";
 
 const Orders = ({ orderDone, reOrdered, setReOrdered }) => {
   // Hooks
@@ -121,7 +122,6 @@ const Orders = ({ orderDone, reOrdered, setReOrdered }) => {
   // Dynamic variables
   let allBurgerOrders;
   let allGenericOrders;
-  let noOrders;
 
   // Render all the burger orders
   if (burgerOrders.length > 0) {
@@ -205,18 +205,11 @@ const Orders = ({ orderDone, reOrdered, setReOrdered }) => {
     ));
   }
 
-  // If there are no orders
-  if (burgerOrders.length === 0 && genericOrders.length === 0) {
-    noOrders = (
-      <small className={styles.NoOrder}>Haven't placed any order yet?</small>
-    );
-  }
-
   return (
     <div className={styles.Orders}>
       <div className={styles.AllBurgerOrders}>
         <h4
-          className={`${styles.Title} ${styles.OrdersTitle}`}
+          className={styles.OrdersTitle}
           onClick={() => setShowBurgerOrders(!showBurgerOrders)}
         >
           All orders (burger){" "}
@@ -232,16 +225,22 @@ const Orders = ({ orderDone, reOrdered, setReOrdered }) => {
         ) : (
           showBurgerOrders && (
             <>
-              {allBurgerOrders}
-              {noOrders}
+              {burgerOrders.length > 0 ? (
+                allBurgerOrders
+              ) : (
+                <small className={styles.NoOrder}>
+                  Haven't ordered any burger yet? Order{" "}
+                  <Link href='/'>here</Link>
+                </small>
+              )}
             </>
           )
         )}
       </div>
 
-      <div>
+      <div className={styles.AllGenericOrders}>
         <h4
-          className={`${styles.Title} ${styles.OrdersTitle}`}
+          className={styles.OrdersTitle}
           onClick={() => setShowGenericOrders(!showGenericOrders)}
         >
           All orders (generic){" "}
@@ -257,8 +256,14 @@ const Orders = ({ orderDone, reOrdered, setReOrdered }) => {
         ) : (
           showGenericOrders && (
             <>
-              {allGenericOrders}
-              {noOrders}
+              {genericOrders.length > 0 ? (
+                allGenericOrders
+              ) : (
+                <small className={styles.NoOrder}>
+                  Haven't ordered any item yet? Order{" "}
+                  <Link href='/menu'>here</Link>
+                </small>
+              )}
             </>
           )
         )}

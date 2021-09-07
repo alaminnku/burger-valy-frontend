@@ -11,7 +11,7 @@ const Card = ({ title, href, bgImage }) => {
   return (
     <div className={styles.Card} style={background}>
       <h2>{title}</h2>
-      <Link href={href}>Build Now</Link>
+      <Link href={href}>Make Now</Link>
     </div>
   );
 };
