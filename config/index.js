@@ -1,5 +1,5 @@
-export const API_URL = "http://localhost:1337";
-export const NEXT_URL = "http://localhost:3000/api";
+export const API_URL = "https://burger-valley.herokuapp.com";
+export const NEXT_URL = "https://burgervalley.vercel.app/api";
 
 // "https://burger-valley.herokuapp.com";
 // "https://burgervalley.vercel.app/api";
