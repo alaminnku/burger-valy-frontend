@@ -1,0 +1,56 @@
+.MobileNav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: var(--slateGrey);
+}
+
+.MobileNav .Item {
+  text-align: center;
+}
+
+.MobileNav .Item p,
+.MobileNav .Item a {
+  font-size: 0.9rem;
+  font-weight: var(--semiBold);
+  color: var(--almostWhite);
+}
+
+.MobileNav .Item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+}
+
+@media (min-width: 375px) {
+  .MobileNav {
+    padding: 0.8rem 1rem;
+  }
+
+  .MobileNav .Item a .Icon {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+@media (min-width: 411px) {
+  .MobileNav .Item a .Icon {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .MobileNav {
+    padding: 1rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .MobileNav {
+    display: none;
+  }
+}

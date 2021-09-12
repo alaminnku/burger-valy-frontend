@@ -1,7 +1,5 @@
 .MenuPage {
   padding: 1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 3.5rem;
 }
 
 .MenuPage .Title {
@@ -13,16 +11,9 @@
   margin-bottom: 0.5rem;
 }
 
-@media (min-width: 375px) {
-  .MenuPage {
-    margin-bottom: 4.5rem;
-  }
-}
-
 @media (min-width: 768px) {
   .MenuPage {
     padding: 2rem 3rem;
-    margin-bottom: 5rem;
   }
 
   .MenuPage .Title {
@@ -36,7 +27,6 @@
 @media (min-width: 1024px) {
   .MenuPage {
     padding: 3rem 5rem;
-    margin-bottom: 0rem;
   }
 
   .MenuPage .Title {

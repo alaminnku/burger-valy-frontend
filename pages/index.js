@@ -3,6 +3,7 @@ import Alert from "@/components/layout/Alert";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import styles from "@styles/home/homepage.module.css";
+import ImageGallery from "@/components/home/ImageGallery";
 
 const HomePage = () => {
   const alerts = useSelector((state) => state.alerts);
@@ -25,19 +26,8 @@ const HomePage = () => {
         </small>
       </div>
 
-      <div className={styles.Image}>
-        <Image
-          src='/images/home/interior.jpg'
-          width='1024'
-          height='576'
-          layout='responsive'
-        />
-      </div>
+      <ImageGallery />
 
-      <div className={styles.CTA}>
-        <h4>Placed an Order or Want to Place One?</h4>
-        <a href='tel:+18475555555'>Give us a call: +1-847-555-5555</a>
-      </div>
       <Alert alerts={alerts} />
     </div>
   );

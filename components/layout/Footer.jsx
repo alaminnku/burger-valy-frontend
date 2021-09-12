@@ -1,66 +1,62 @@
-import { HiHome } from "react-icons/hi";
-import { MdRestaurantMenu } from "react-icons/md";
-import { MdAccountBox } from "react-icons/md";
 import Link from "next/link";
-import { useSelector } from "react-redux";
 import styles from "@styles/layout/footer.module.css";
 
 const Footer = () => {
-  const { token } = useSelector((state) => state.auth);
-
   return (
     <footer className={styles.Footer}>
-      <div className={styles.MobileFooter}>
-        <div className={styles.Item}>
-          <Link href='/'>
-            <a>
-              <HiHome className={styles.Icon} />
-              <p>Home</p>
-            </a>
-          </Link>
-        </div>
-        <div className={styles.Item}>
-          <Link href='/menu'>
-            <a>
-              <MdRestaurantMenu className={styles.Icon} />
-              <p>Menu</p>
-            </a>
-          </Link>
+      <div className={styles.Content}>
+        <div className={styles.AboutUs}>
+          <h4>About Us</h4>
+          <small>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
+            dolores sint. Pariatur, perferendis vitae ipsum distinctio, alias,
+            est blanditiis similique voluptatibus iure incidunt libero
+            cupiditate!
+          </small>
         </div>
 
-        <div className={styles.Item}>
-          <Link href={token ? "/account" : "/login"}>
-            <a>
-              <MdAccountBox className={styles.Icon} />
-              <p>Account</p>
-            </a>
-          </Link>
+        <div className={styles.Info}>
+          <div className={styles.OpeningHours}>
+            <h4>Opening Hours</h4>
+            <p>Saturday-Friday</p>
+            <small>10AM-10PM</small>
+          </div>
+
+          <div className={styles.ContactInfo}>
+            <h4>Contact Info</h4>
+            <div className={styles.Item}>
+              <p>Address:</p>
+              <small>
+                68/5 Dorga Road, Opposite of Lions School <br /> Khulna,
+                Bangladesh
+              </small>
+            </div>
+
+            <div className={styles.Item}>
+              <p>Phone:</p>
+              <small>+880 17011 022 532</small>
+            </div>
+
+            <div className={styles.Item}>
+              <p>Email:</p>
+              <small>info@burgervalley.com</small>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.QuickLinks}>
+          <h4>Quick Links</h4>
+          <ul>
+            <li>About</li>
+            <li>Menu</li>
+            <li>Account</li>
+            <li>Reservation</li>
+          </ul>
         </div>
       </div>
 
-      <div className={styles.DesktopFooter}>
-        <div className={styles.Logo}>
-          <Link href='/'>
-            <a>
-              <h3>Burger Valley</h3>
-            </a>
-          </Link>
-        </div>
-
-        <div className={styles.Item}>
-          <p>Contact Us</p>
-          <a href='tel:+18475555555'>Phone: +1-847-555-5555</a>
-          <a href='mailto:info@burgervalley.com'>
-            Email: info@burgervalley.com
-          </a>
-        </div>
-
-        <div className={styles.Item}>
-          <p>Address</p>
-          <small>
-            Thompson Street 75, <br /> New York City, NY 10012. USA
-          </small>
-        </div>
+      <div className={styles.Copyright}>
+        <small>Copyright &copy; 2021 All rights reserved</small>
       </div>
     </footer>
   );

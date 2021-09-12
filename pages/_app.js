@@ -1,9 +1,10 @@
 import store from "../store/store";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import { Provider } from "react-redux";
 import { updatePrice } from "@store/actions/burgerActions";
 import { checkUser } from "@store/actions/authActions";
+import MobileNav from "@/components/layout/MobileNav";
+import Footer from "@/components/layout/Footer";
 
 import "../styles/globals.css";
 
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }) {
       <Navbar />
       <Component {...pageProps} />
       <Footer />
+      <MobileNav />
     </Provider>
   );
 }

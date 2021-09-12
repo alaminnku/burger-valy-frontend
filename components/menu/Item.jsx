@@ -15,6 +15,7 @@ const Item = ({ bgImage, title, href }) => {
     firstWord[0].toLowerCase()
   )}${restWords.join("")}`;
 
+  // Background
   const background = {
     backgroundImage: `url(${bgImage})`,
     backgroundPosition: "center",
@@ -24,7 +25,7 @@ const Item = ({ bgImage, title, href }) => {
 
   return (
     <div className={styles.Item} style={background}>
-      <h5>{`Starts from $${price[name]}`} </h5>
+      <h5>{`Starts from $${price[name]}`}</h5>
       <div className={styles.TitleButton}>
         <h2>{title}</h2>
         <Link href={href}>Order Now</Link>

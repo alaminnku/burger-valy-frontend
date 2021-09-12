@@ -1,105 +1,155 @@
-.MobileFooter {
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 0.5rem 1rem;
-  background-color: var(--slateGrey);
+.Footer {
+  padding: 1rem;
+  margin-bottom: 3.5rem;
+  background-color: var(--almostWhite);
 }
 
-.MobileFooter .Item {
-  text-align: center;
+.Content {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgb(211, 211, 211);
 }
 
-.MobileFooter .Item p,
-.MobileFooter .Item a {
+.AboutUs,
+.Info,
+.OpeningHours,
+.QuickLinks {
+  margin-bottom: 1rem;
+}
+
+.Footer h4 {
+  margin-bottom: 0.3rem;
+}
+
+.Footer p {
+  font-weight: var(--medium);
   font-size: 0.9rem;
-  font-weight: var(--semiBold);
-  color: var(--almostWhite);
+  margin-bottom: 0.3rem;
 }
 
-.MobileFooter .Item a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1rem;
+.Footer small {
+  font-weight: var(--regular);
+  color: grey;
+  font-size: 0.9rem;
 }
 
-.DesktopFooter {
+.ContactInfo .Item {
+  margin-bottom: 0.5rem;
+}
+
+.Footer ul li {
+  color: var(--kindaRed);
+  font-size: 0.9rem;
+}
+
+.QuickLinks {
   display: none;
 }
 
-@media (min-width: 375px) {
-  .MobileFooter {
-    padding: 0.8rem 1rem;
-  }
-
-  .MobileFooter .Item a .Icon {
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
-  }
+.Copyright {
+  text-align: center;
 }
 
-@media (min-width: 411px) {
-  .MobileFooter .Item a .Icon {
-    font-size: 1.3rem;
+@media (min-width: 375px) {
+  .Footer {
+    margin-bottom: 4.5rem;
   }
 }
 
 @media (min-width: 768px) {
-  .MobileFooter {
-    padding: 1rem 3rem;
+  .Footer {
+    padding: 2rem 3rem;
+    margin-bottom: 5rem;
+  }
+
+  .Content {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+  .AboutUs,
+  .Info {
+    margin-right: 2rem;
+  }
+
+  .AboutUs {
+    width: 65%;
+  }
+
+  .Info {
+    width: 35%;
+  }
+
+  .OpeningHours {
+    margin-bottom: 1rem;
+  }
+
+  .ContactInfo .Item {
+    margin-bottom: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .MobileFooter {
-    display: none;
+  .Footer {
+    padding: 3rem 5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 0rem;
   }
 
-  .DesktopFooter {
-    display: flex;
-    align-items: center;
-    padding: 1.5rem 5rem;
-    justify-content: space-between;
-    background-color: var(--slateGrey);
+  .AboutUs,
+  .Info {
+    margin-right: 3rem;
   }
 
-  .DesktopFooter .Logo {
-    text-align: center;
+  .AboutUs {
+    width: 40%;
   }
 
-  .DesktopFooter .Logo h3 {
-    font-family: "Permanent Marker";
-    color: var(--almostWhite);
+  .Info {
+    width: 35%;
   }
 
-  .DesktopFooter .Item {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  .QuickLinks {
+    display: block;
+    width: 25%;
   }
 
-  .DesktopFooter .Item p {
-    font-weight: var(--medium);
-    color: var(--kindaRed);
+  .Footer ul li {
+    padding: 0.2rem 0rem;
   }
 
-  .DesktopFooter .Item small,
-  .DesktopFooter .Item a {
-    color: var(--almostWhite);
+  .Content {
+    margin-bottom: 1.5rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .DesktopFooter {
-    padding: 2rem 8rem;
+  .Footer {
+    padding: 4rem 8rem;
+    padding-bottom: 2rem;
+  }
+
+  .AboutUs,
+  .Info {
+    margin-right: 3.5rem;
+  }
+
+  .OpeningHours {
+    margin-bottom: 1.5rem;
+  }
+
+  .ContactInfo .Item {
+    margin-bottom: 1.5rem;
   }
 }
 
 @media (min-width: 1440px) {
-  .DesktopFooter {
-    padding: 2rem 10rem;
+  .Footer {
+    padding: 4rem 10rem;
+    padding-bottom: 2rem;
+  }
+
+  .AboutUs,
+  .Info {
+    margin-right: 4rem;
   }
 }

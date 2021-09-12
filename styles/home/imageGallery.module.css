@@ -1,0 +1,27 @@
+.ImageGallery {
+  /* display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 1rem; */
+}
+
+.ImageGallery {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.Arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  font-size: 2rem;
+  padding: 0rem 1rem;
+}
+
+.LeftArrow,
+.RightArrow {
+  background-color: var(--almostWhite);
+  border-radius: 50%;
+  cursor: pointer;
+}
