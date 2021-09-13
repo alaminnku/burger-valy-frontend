@@ -1,0 +1,24 @@
+.ReservationPage {
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .ReservationPage {
+    padding: 2rem 0rem;
+    width: 35rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ReservationPage {
+    padding: 3rem 0rem;
+    width: 40rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .ReservationPage {
+    padding: 4rem 0rem;
+  }
+}

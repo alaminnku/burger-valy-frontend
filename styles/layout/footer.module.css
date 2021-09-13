@@ -6,7 +6,7 @@
 
 .Content {
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid rgb(211, 211, 211);
+  border-bottom: 1px solid var(--borderColor);
 }
 
 .AboutUs,
@@ -28,7 +28,7 @@
 
 .Footer small {
   font-weight: var(--regular);
-  color: grey;
+  color: var(--grey);
   font-size: 0.9rem;
 }
 
@@ -36,7 +36,7 @@
   margin-bottom: 0.5rem;
 }
 
-.Footer ul li {
+.Footer ul li a {
   color: var(--kindaRed);
   font-size: 0.9rem;
 }

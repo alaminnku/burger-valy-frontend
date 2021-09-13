@@ -1,13 +1,11 @@
 .ImageGallery {
-  /* display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 1rem; */
-}
-
-.ImageGallery {
   display: flex;
   align-items: center;
   position: relative;
+}
+
+.Image img {
+  border-radius: 0.5rem;
 }
 
 .Arrows {
@@ -15,8 +13,8 @@
   justify-content: space-between;
   width: 100%;
   position: absolute;
-  font-size: 2rem;
-  padding: 0rem 1rem;
+  font-size: 1.5rem;
+  padding: 0rem 0.5rem;
 }
 
 .LeftArrow,
@@ -24,4 +22,25 @@
   background-color: var(--almostWhite);
   border-radius: 50%;
   cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.Disabled {
+  background-color: var(--slateGrey);
+  color: var(--grey);
+  cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .Arrows {
+    font-size: 1.8rem;
+    padding: 0rem 0.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Arrows {
+    font-size: 2rem;
+    padding: 0rem 1rem;
+  }
 }

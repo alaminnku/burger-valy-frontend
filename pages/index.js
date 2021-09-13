@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import styles from "@styles/home/homepage.module.css";
 import ImageGallery from "@/components/home/ImageGallery";
+import ReservationForm from "@/components/reservation/ReservationForm";
 
 const HomePage = () => {
   const alerts = useSelector((state) => state.alerts);
@@ -26,7 +27,20 @@ const HomePage = () => {
         </small>
       </div>
 
-      <ImageGallery />
+      <div className={styles.ImageGallery}>
+        <ImageGallery />
+      </div>
+
+      <div className={styles.ReservationForm}>
+        <div className={styles.Title}>
+          <h2>Reserve a Table</h2>
+          <small>Reserve a table for a party or a get together</small>
+        </div>
+
+        <div className={styles.Form}>
+          <ReservationForm style={{ padding: "2rem" }} />
+        </div>
+      </div>
 
       <Alert alerts={alerts} />
     </div>

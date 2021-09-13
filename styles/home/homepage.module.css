@@ -11,6 +11,18 @@
   margin-bottom: 0.5rem;
 }
 
+.HomePage .Title small {
+  color: var(--grey);
+}
+
+.HomePage .ImageGallery {
+  margin-bottom: 0.5rem;
+}
+
+.HomePage .ReservationForm .Title {
+  margin-bottom: 1rem;
+}
+
 @media (min-width: 768px) {
   .HomePage {
     padding: 2rem 3rem;
@@ -33,6 +45,27 @@
   .HomePage .Title {
     width: 65%;
     margin-bottom: 2rem;
+  }
+
+  .HomePage .ImageGallery {
+    margin-bottom: 3rem;
+  }
+
+  .HomePage .ReservationForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .HomePage .ReservationForm .Title {
+    width: 30%;
+    margin-bottom: 0rem;
+    text-align: left;
+  }
+
+  .HomePage .ReservationForm .Form {
+    width: 70%;
+    margin-left: 2rem;
   }
 }
 

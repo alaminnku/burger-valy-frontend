@@ -30,12 +30,15 @@
 }
 
 .Item label {
+  nt-size: 0.9rem;
   margin-bottom: 0.3rem;
+  color: var(--grey);
 }
 
 .Item input {
-  border: 1px solid black;
+  border: 1px solid var(--borderColor);
   padding: 0.3rem;
+  border-radius: 0.25rem;
 }
 
 .Item input:focus {

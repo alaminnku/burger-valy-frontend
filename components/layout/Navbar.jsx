@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <nav className={styles.Navbar}>
       <div className={styles.Logo}>
-        <Link href="/">
+        <Link href='/'>
           <a>
             <h3>Burger Valley</h3>
           </a>
@@ -32,14 +32,27 @@ const Navbar = () => {
       <div className={styles.DesktopNav}>
         <ul>
           <li>
-            <Link href="/menu">
+            <Link href='/menu'>
               <a className={router.pathname === "/menu" ? styles.Active : ""}>
                 Menu
               </a>
             </Link>
           </li>
+
           <li>
-            <Link href="/account">
+            <Link href='/reservation'>
+              <a
+                className={
+                  router.pathname === "/reservation" ? styles.Active : ""
+                }
+              >
+                Reservation
+              </a>
+            </Link>
+          </li>
+
+          <li>
+            <Link href='/account'>
               <a
                 className={router.pathname === "/account" ? styles.Active : ""}
               >
@@ -50,11 +63,11 @@ const Navbar = () => {
 
           <li>
             {token ? (
-              <Link href="#">
+              <Link href='#'>
                 <a onClick={handleLogout}>Log Out</a>
               </Link>
             ) : (
-              <Link href="/register">
+              <Link href='/register'>
                 <a>Sign Up</a>
               </Link>
             )}
@@ -66,11 +79,11 @@ const Navbar = () => {
         <ul>
           <li>
             {token ? (
-              <Link href="#">
+              <Link href='#'>
                 <a onClick={handleLogout}>Log Out</a>
               </Link>
             ) : (
-              <Link href="/register">
+              <Link href='/register'>
                 <a>Sign Up</a>
               </Link>
             )}

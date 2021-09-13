@@ -1,0 +1,63 @@
+.ReservationForm {
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.ReservationForm h3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ReservationForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Item {
+  display: flex;
+  flex-direction: column;
+}
+
+.Item label {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+.ReservationForm form input,
+.ReservationForm form textarea,
+.ReservationForm form select {
+  border: 1px solid var(--borderColor);
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.ReservationForm form select {
+  padding: 0.6rem 0.3rem;
+}
+
+.ReservationForm form textarea {
+  height: 10rem;
+  padding: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.Item input:focus,
+.Item textarea:focus {
+  outline: 2px solid var(--kindaRed);
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .ReservationForm {
+    padding: 2rem 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ReservationForm {
+    padding: 3rem 5rem;
+  }
+}

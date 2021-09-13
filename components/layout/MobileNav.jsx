@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HiHome } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { MdRestaurantMenu, MdAccountBox } from "react-icons/md";
+import { GiRoundTable } from "react-icons/gi";
 import styles from "@styles/layout/mobileNav.module.css";
 
 const MobileNav = () => {
@@ -23,6 +24,15 @@ const MobileNav = () => {
           <a>
             <MdRestaurantMenu className={styles.Icon} />
             <p>Menu</p>
+          </a>
+        </Link>
+      </div>
+
+      <div className={styles.Item}>
+        <Link href='/reservation'>
+          <a>
+            <GiRoundTable className={styles.Icon} />
+            <p>Reservation</p>
           </a>
         </Link>
       </div>

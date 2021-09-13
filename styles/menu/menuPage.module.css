@@ -11,6 +11,10 @@
   margin-bottom: 0.5rem;
 }
 
+.MenuPage .Title small {
+  color: var(--grey);
+}
+
 @media (min-width: 768px) {
   .MenuPage {
     padding: 2rem 3rem;

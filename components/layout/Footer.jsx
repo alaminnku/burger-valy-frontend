@@ -47,10 +47,15 @@ const Footer = () => {
         <div className={styles.QuickLinks}>
           <h4>Quick Links</h4>
           <ul>
-            <li>About</li>
-            <li>Menu</li>
-            <li>Account</li>
-            <li>Reservation</li>
+            <li>
+              <Link href='/menu'>Menu</Link>
+            </li>
+            <li>
+              <Link href='/account'>Account</Link>
+            </li>
+            <li>
+              <Link href='/reservation'>Reservation</Link>
+            </li>
           </ul>
         </div>
       </div>
