@@ -38,7 +38,7 @@ const HomePage = () => {
         </div>
 
         <div className={styles.Form}>
-          <ReservationForm style={{ padding: "2rem" }} />
+          <ReservationForm />
         </div>
       </div>
 
