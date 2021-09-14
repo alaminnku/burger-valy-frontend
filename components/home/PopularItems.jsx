@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "@styles/home/popularItems.module.css";
 import LinkButton from "../layout/LinkButton";
 
-const images = [
+const items = [
   {
     name: "Fish fingers",
     src: "/images/home/popular-items/fish-fingers.jpg",
@@ -59,19 +59,19 @@ const PopularItems = () => {
       </div>
 
       <div className={styles.Cards}>
-        {images.map((image) => (
-          <div className={styles.Card}>
+        {items.map((item) => (
+          <div key={item.name} className={styles.Card}>
             <div className={styles.Image}>
-              <Image src={image.src} width='200' height='200' />
-              <h5>${image.price}</h5>
+              <Image src={item.src} width='200' height='200' />
+              <h5>${item.price}</h5>
             </div>
 
             <div className={styles.Content}>
-              <h4>{image.name}</h4>
-              <small>{image.desc}</small>
+              <h4>{item.name}</h4>
+              <small>{item.desc}</small>
             </div>
 
-            <LinkButton text='Order Now' href={image.url} />
+            <LinkButton text='Order Now' href={item.url} />
           </div>
         ))}
       </div>

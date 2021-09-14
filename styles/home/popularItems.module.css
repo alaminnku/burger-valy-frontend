@@ -54,6 +54,7 @@
 }
 
 .PopularItems .Card .Content small {
+  color: var(--grey);
   font-size: 0.9rem;
 }
 

@@ -48,10 +48,12 @@
   color: var(--almostWhite);
   padding: 0.1rem 0.6rem;
   border-radius: 0.25rem;
+  font-size: 1rem;
 }
 
 .AllBurgerOrders small,
 .AllGenericOrders small {
+  color: var(--grey);
   display: block;
 }
 
@@ -150,7 +152,7 @@
   }
 
   .Icon {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .Order .ItemsToRemove {

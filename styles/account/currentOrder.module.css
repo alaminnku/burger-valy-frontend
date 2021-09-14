@@ -13,10 +13,12 @@
   padding: 0.1rem 0.6rem;
   border-radius: 0.25rem;
   color: var(--almostWhite);
+  font-size: 1rem;
 }
 
 .CurrentBurgerOrders small,
 .CurrentGenericOrders small {
+  color: var(--grey);
   display: block;
 }
 
