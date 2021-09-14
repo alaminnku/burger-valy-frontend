@@ -1,10 +1,10 @@
 import Cards from "@/components/home/Cards";
 import Alert from "@/components/layout/Alert";
-import Image from "next/image";
 import { useSelector } from "react-redux";
 import styles from "@styles/home/homepage.module.css";
 import ImageGallery from "@/components/home/ImageGallery";
 import ReservationForm from "@/components/reservation/ReservationForm";
+import PopularItems from "@/components/home/PopularItems";
 
 const HomePage = () => {
   const alerts = useSelector((state) => state.alerts);
@@ -12,18 +12,18 @@ const HomePage = () => {
   return (
     <div className={styles.HomePage}>
       <div className={styles.Title}>
-        <h2>Design Your Burger, Order and Pickup in 30 Minutes!</h2>
+        <h2>Make Your Burger</h2>
         <small>
-          Make the burger exactly as your taste! Choose what you like and how
-          much of it!
+          Choose the ingredients and make the burger. Order online and pickup in
+          30 minutes!
         </small>
       </div>
       <Cards />
 
       <div className={styles.Title}>
-        <h2>Enjoy Delicious Foods on Table!</h2>
+        <h2>Delicious Foods on Table!</h2>
         <small>
-          Visit our restaurant and enjoy your meals in a foodie environment!
+          Visit our restaurant and enjoy foods in a foodie environment!
         </small>
       </div>
 
@@ -34,13 +34,22 @@ const HomePage = () => {
       <div className={styles.ReservationForm}>
         <div className={styles.Title}>
           <h2>Reserve a Table</h2>
-          <small>Reserve a table for a party or a get together</small>
+          <small>
+            Reserve a table and enjoy foods with your friends and family!
+          </small>
         </div>
 
         <div className={styles.Form}>
-          <ReservationForm />
+          <ReservationForm
+            style={{
+              borderRadius: ".5rem",
+              borderTop: "1.5px solid var(--borderColor)",
+            }}
+          />
         </div>
       </div>
+
+      <PopularItems />
 
       <Alert alerts={alerts} />
     </div>

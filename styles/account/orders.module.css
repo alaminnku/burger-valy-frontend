@@ -44,9 +44,9 @@
   align-items: center;
   margin-bottom: 1rem;
   cursor: pointer;
-  background-color: var(--green);
+  background-color: var(--grey);
   color: var(--almostWhite);
-  padding: 0.2rem 0.8rem;
+  padding: 0.1rem 0.6rem;
   border-radius: 0.25rem;
 }
 
