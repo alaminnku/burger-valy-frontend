@@ -1,106 +1,45 @@
-.UserDetails {
-  display: flex;
-  flex-direction: column;
-}
-
-.UserDetails .MainTitle span {
-  color: var(--kindaRed);
-}
-
-.Title {
+.UserDetails .Menu {
   margin-bottom: 1rem;
 }
 
-.PendingOrder {
+.UserDetails .Menu h4 {
+  padding: 0.8rem 0rem;
+  border-bottom: 1px solid var(--almostWhite);
+}
+
+.UserDetails h4:first-child {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
+  cursor: pointer;
 }
 
-.UserDetails .PendingOrder button {
-  align-self: center;
-}
-
-.UserDetails .PendingOrder .Item {
+.UserDetails .Menu h4 p {
   display: flex;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: var(--almostWhite);
-  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.1rem 1rem;
+  font-weight: var(--medium);
+  cursor: pointer;
 }
 
-.UserDetails .PendingOrder .Item .Content {
-  margin-left: 1.5rem;
+.UserDetails .Menu .Icon {
+  transition: all 200ms ease-in-out;
 }
 
-.UserDetails .PendingOrder .Item .Content p {
-  font-weight: var(--semiBold);
-}
-
-.UserDetails .PendingOrder .Item .Content ul {
-  margin-bottom: 0.25rem;
-}
-
-.CurrentOrder {
-  margin-bottom: 1.5rem;
+.UserDetails .Menu .RotateIcon {
+  transform: rotate(180deg);
 }
 
 @media (min-width: 768px) {
-  .CurrentOrder,
-  .AllOrders {
-    margin-bottom: 2rem;
-  }
-
-  .UserDetails .PendingOrder {
-    margin-bottom: 2rem;
-  }
-
-  .UserDetails .PendingOrder .Item {
-    margin-bottom: 2rem;
-  }
-
-  .UserDetails .PendingOrder .Item .Content {
-    margin-left: 2rem;
-  }
-
-  .UserDetails .PendingOrder .Item .Content p {
-    font-weight: var(--medium);
-  }
-
-  .UserDetails .PendingOrder .Item .Content p:first-child,
-  .UserDetails .PendingOrder .Item .Content ul {
-    margin-bottom: 0.5rem;
-  }
 }
 
 @media (min-width: 1024px) {
-  .MainTitle {
-    margin-bottom: 1rem;
-  }
-
-  .CurrentOrder,
-  .AllOrders {
-    margin-bottom: 2rem;
-  }
-
-  .UserDetails .PendingOrder .Item {
-    margin-bottom: 2rem;
-  }
-
-  .UserDetails .PendingOrder .Item .Content {
-    margin-left: 2.5rem;
-  }
 }
 
 @media (min-width: 1280px) {
-  .UserDetails .PendingOrder .Item .Content {
-    margin-left: 3rem;
-  }
 }
 
 @media (min-width: 1440px) {
-  .MainTitle {
-    margin-bottom: 1rem;
-  }
 }

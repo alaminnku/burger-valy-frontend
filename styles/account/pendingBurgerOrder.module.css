@@ -1,0 +1,30 @@
+.PendingBurgerOrder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.PendingBurgerOrder button {
+  align-self: center;
+}
+
+.PendingBurgerOrder .Item {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--almostWhite);
+  border-radius: 0.5rem;
+}
+
+.PendingBurgerOrder .Item .Content {
+  margin-left: 1.5rem;
+}
+
+.PendingBurgerOrder .Item .Content p {
+  font-weight: var(--semiBold);
+}
+
+.PendingBurgerOrder .Item .Content ul {
+  margin-bottom: 0.25rem;
+}

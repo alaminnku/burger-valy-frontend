@@ -1,0 +1,148 @@
+.AllGenericOrders {
+  margin-bottom: 1rem;
+}
+
+.Order {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--almostWhite);
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+.Order:last-child {
+  margin-bottom: 0rem;
+}
+
+.Order .TypeDate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Order .Date {
+  font-size: 0.6rem;
+  color: var(--slateGrey);
+}
+
+.Order .Main {
+  margin-bottom: 0.5rem;
+}
+
+.Order .Title {
+  font-weight: var(--semiBold);
+  margin-bottom: 0.1rem;
+}
+
+.OrdersTitle {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background-color: var(--grey);
+  color: var(--almostWhite);
+  padding: 0.1rem 0.6rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.AllGenericOrders small {
+  color: var(--grey);
+  display: block;
+}
+
+.AllGenericOrders small a {
+  position: relative;
+  color: var(--kindaRed);
+  transition: all 200ms ease-in-out;
+}
+
+.Icon {
+  font-size: 1.5rem;
+  transition: all 0.25s;
+}
+
+.RotateIcon {
+  transform: rotate(180deg);
+}
+
+.Order ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Order ul li {
+  padding: 0.2rem;
+}
+
+.Order .PriceReorder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Order button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .AllGenericOrders {
+    margin-bottom: 2rem;
+  }
+
+  .Order {
+    padding: 1.5rem 2rem;
+    width: 35rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+
+  .Order .Date {
+    font-size: 0.7rem;
+  }
+
+  .Order .Main {
+    margin-bottom: 1rem;
+  }
+
+  .AllGenericOrders small a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--green);
+    transition: transform 200ms ease-in-out;
+    transform: scaleX(0);
+  }
+
+  .AllGenericOrders small a:hover::before {
+    transform: scaleX(1);
+  }
+
+  .AllGenericOrders small a:hover {
+    color: var(--green);
+  }
+
+  .Order .Title {
+    margin-bottom: 0.3rem;
+  }
+
+  .Icon {
+    font-size: 1.6rem;
+  }
+
+  .Order button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Order {
+    width: 40rem;
+  }
+}

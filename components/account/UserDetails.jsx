@@ -3,17 +3,17 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import styles from "@styles/account/userDetails.module.css";
-import Summary from "../side/Summary";
-import { API_URL } from "config";
 import { logout } from "@store/actions/authActions";
-import axios from "axios";
-import Orders from "./Orders";
-import CurrentOrder from "./CurrentOrder";
 import Button from "../layout/Button";
 import Loader from "../layout/Loader";
-import Image from "next/image";
 import Alert from "../layout/Alert";
-import { setAlert } from "@store/actions/alertActions";
+import PendingGenericOrder from "./PendingGenericOrder";
+import PendingBurgerOrder from "./PendingBurgerOrder";
+import CurrentGenericOrder from "./CurrentGenericOrder";
+import CurrentBurgerOrder from "./CurrentBurgerOrder";
+import AllBurgerOrders from "./AllBurgerOrders";
+import AllGenericOrders from "./AllGenericOrders";
+import { IoIosArrowDown } from "react-icons/io";
 
 const userDetails = () => {
   // Router
@@ -24,9 +24,18 @@ const userDetails = () => {
   const [orderDone, setOrderDone] = useState(false);
   const { token, user } = useSelector((state) => state.auth);
   const { loading } = useSelector((state) => state.loader);
-  const [loader, setLoader] = useState(false);
   const [reOrdered, setReOrdered] = useState([]);
   const alerts = useSelector((state) => state.alerts);
+  const [showDetails, setShowDetails] = useState({
+    profile: false,
+    pendingBurgerOrders: false,
+    pendingGenericOrders: false,
+    activeBurgerOrders: false,
+    activeGenericOrders: false,
+    allBurgerOrders: false,
+    allGenericOrders: false,
+    tableReservation: false,
+  });
 
   // Push to login page if there isn't a user
   useEffect(() => {
@@ -43,170 +52,206 @@ const userDetails = () => {
   const pendingOrder = { ...burger };
   const { ingredients, side, type } = pendingOrder;
 
-  // Submit the order
-  const handleSubmitBurgerOrder = async () => {
-    try {
-      // Set the loader
-      setLoader(true);
-
-      // Fetch the price
-      const res = await axios.get(`${API_URL}/price`);
-      const data = res.data;
-
-      // Get the price only
-      const { patty, cheese, salad, bacon, small, medium, large } = data;
-
-      // Get the ingredients and side
-      const { Patty, Cheese, Salad, Bacon } = ingredients;
-
-      // Get the items from cookies
-      const itemsToRemove = Cookies.getJSON("itemsToRemove");
-
-      // Calculate total price
-      const totalPrice =
-        4 + Patty * patty + Cheese * cheese + Salad * salad + Bacon * bacon;
-
-      // Build the final order
-      const order = {
-        ...ingredients,
-        Side: side,
-        TotalPrice: side ? totalPrice + data[side] : totalPrice,
-        Type: type,
-        ...itemsToRemove,
-      };
-
-      // Post the order to db
-      await axios.post(`${API_URL}/burgerorders`, order, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      // Remove the burgers from cookie
-      Cookies.remove("burger");
-      Cookies.remove("itemsToRemove");
-
-      // Set order done true
-      setOrderDone(true);
-      setLoader(false);
-      dispatch(setAlert("Order placed successfully!", "Success"));
-    } catch (err) {
-      setLoader(false);
-      dispatch(setAlert(err.response.data.message, "Danger"));
-    }
-  };
-
-  // Submit pending generic order
-  const handleSubmitGenericOrder = async () => {
-    try {
-      setLoader(true);
-
-      // Fetch the price
-      const res = await axios.get(`${API_URL}/price`);
-      const price = res.data;
-
-      // Get the first name and rest of the words separated
-      const [firstWord, ...restWords] = item.name.split(" ");
-
-      // Get the name that matches the price
-      const name = `${firstWord.replace(
-        firstWord[0],
-        firstWord[0].toLowerCase()
-      )}${restWords.join("")}`;
-
-      // Final order
-      const order = {
-        name: item.name,
-        quantity: item.quantity,
-        totalPrice: item.quantity * price[name],
-      };
-
-      // Post the order to db
-      await axios.post(`${API_URL}/genericorders`, order, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      // Remove the item from cookies
-      Cookies.remove("item");
-
-      // Update states
-      setOrderDone(true);
-      setLoader(false);
-      dispatch(setAlert("Order placed successfully!", "Success"));
-    } catch (err) {
-      setLoader(false);
-      dispatch(setAlert(err.response.data.message, "Danger"));
-    }
-  };
-
-  // Logout the user
-  const handleLogout = () => {
-    dispatch(logout());
-    router.push("/");
-  };
+  // // Logout the user
+  // const handleLogout = () => {
+  //   dispatch(logout());
+  //   router.push("/");
+  // };
 
   return (
-    <div className={styles.UserDetailsPage}>
-      {token && (
-        <div className={styles.UserDetails}>
+    <div className={styles.UserDetails}>
+      <div className={styles.Menu}>
+        <h4
+          onClick={() =>
+            setShowDetails({ ...showDetails, profile: !showDetails.profile })
+          }
+        >
+          Profile{" "}
+          <IoIosArrowDown
+            className={`${styles.Icon} ${
+              showDetails.profile && styles.RotateIcon
+            }`}
+          />
+        </h4>
+
+        {/* Show the profile on click */}
+        {showDetails.profile && (
           <h3 className={`${styles.Title} ${styles.MainTitle}`}>
             Hi <span>{user.name}</span> 👋
           </h3>
+        )}
 
-          {/* Only show summary if orderDone is false and there is a burger in cookie */}
-          {!orderDone && burger && (
-            <div className={styles.PendingOrder}>
-              <Summary />
-              <Button
-                text={loader ? <Loader /> : "Confirm Order"}
-                clicked={handleSubmitBurgerOrder}
-              />
-            </div>
-          )}
-
-          {!orderDone && item && (
-            <div className={styles.PendingOrder}>
-              <div className={styles.Item}>
-                <Image src={item.img} width='192' height='108' />
-
-                <div className={styles.Content}>
-                  <p>Your order with</p>
-                  <ul>
-                    <li>
-                      <span>Name</span>: {item.name}
-                    </li>
-                    <li>
-                      <span>Quantity</span>: {item.quantity}
-                    </li>
-                  </ul>
-
-                  <p>
-                    <span>Total price</span>: ${item.totalPrice}
-                  </p>
-                </div>
-              </div>
-
-              <Button
-                text={loader ? <Loader /> : "Confirm Order"}
-                clicked={handleSubmitGenericOrder}
-              />
-            </div>
-          )}
-
-          <div className={styles.CurrentOrder}>
-            <CurrentOrder reOrdered={reOrdered} orderDone={orderDone} />
-          </div>
-
-          <div className={styles.AllOrders}>
-            <Orders
-              setReOrdered={setReOrdered}
-              reOrdered={reOrdered}
-              orderDone={orderDone}
+        <h4>
+          Active orders
+          <p
+            onClick={() =>
+              setShowDetails({
+                ...showDetails,
+                activeBurgerOrders: !showDetails.activeBurgerOrders,
+              })
+            }
+          >
+            Burger{" "}
+            <IoIosArrowDown
+              className={`${styles.Icon} ${
+                showDetails.activeBurgerOrders && styles.RotateIcon
+              }`}
             />
-          </div>
+          </p>
+          {/* Show active burger orders */}
+          {showDetails.activeBurgerOrders && (
+            <div className={styles.CurrentOrder}>
+              <CurrentBurgerOrder reOrdered={reOrdered} orderDone={orderDone} />
+            </div>
+          )}
+          <p
+            onClick={() =>
+              setShowDetails({
+                ...showDetails,
+                activeGenericOrders: !showDetails.activeGenericOrders,
+              })
+            }
+          >
+            Generic{" "}
+            <IoIosArrowDown
+              className={`${styles.Icon} ${
+                showDetails.activeBurgerOrders && styles.RotateIcon
+              }`}
+            />
+          </p>
+          {/* Show active generic orders */}
+          {showDetails.activeGenericOrders && (
+            <div className={styles.CurrentOrder}>
+              <CurrentGenericOrder
+                reOrdered={reOrdered}
+                orderDone={orderDone}
+              />
+            </div>
+          )}
+        </h4>
 
+        <h4>
+          Pending orders
+          <p
+            onClick={() =>
+              setShowDetails({
+                ...showDetails,
+                pendingBurgerOrders: !showDetails.pendingBurgerOrders,
+              })
+            }
+          >
+            Burger{" "}
+            <IoIosArrowDown
+              className={`${styles.Icon} ${
+                showDetails.pendingBurgerOrders && styles.RotateIcon
+              }`}
+            />
+          </p>
+          {/* Show pending burger orders on click */}
+          {showDetails.pendingBurgerOrders && (
+            <>
+              {!orderDone && burger ? (
+                <PendingBurgerOrder setOrderDone={setOrderDone} />
+              ) : (
+                <small>No pending burger orders</small>
+              )}
+            </>
+          )}
+          <p
+            onClick={() =>
+              setShowDetails({
+                ...showDetails,
+                pendingGenericOrders: !showDetails.pendingGenericOrders,
+              })
+            }
+          >
+            Generic{" "}
+            <IoIosArrowDown
+              className={`${styles.Icon} ${
+                showDetails.pendingGenericOrders && styles.RotateIcon
+              }`}
+            />
+          </p>
+          {/* Show pending generic orders on click */}
+          {showDetails.pendingGenericOrders && (
+            <>
+              {!orderDone && item ? (
+                <PendingGenericOrder setOrderDone={setOrderDone} />
+              ) : (
+                <small>No pending generic orders</small>
+              )}
+            </>
+          )}
+        </h4>
+
+        <h4>
+          All orders
+          <p
+            onClick={() =>
+              setShowDetails({
+                ...showDetails,
+                allBurgerOrders: !showDetails.allBurgerOrders,
+              })
+            }
+          >
+            Burger{" "}
+            <IoIosArrowDown
+              className={`${styles.Icon} ${
+                showDetails.allBurgerOrders && styles.RotateIcon
+              }`}
+            />
+          </p>
+          {/* Show all burger orders */}
+          {showDetails.allBurgerOrders && (
+            <div className={styles.AllOrders}>
+              <AllBurgerOrders
+                setReOrdered={setReOrdered}
+                reOrdered={reOrdered}
+                orderDone={orderDone}
+              />
+            </div>
+          )}
+          <p
+            onClick={() =>
+              setShowDetails({
+                ...showDetails,
+                allGenericOrders: !showDetails.allGenericOrders,
+              })
+            }
+          >
+            Generic{" "}
+            <IoIosArrowDown
+              className={`${styles.Icon} ${
+                showDetails.allGenericOrders && styles.RotateIcon
+              }`}
+            />
+          </p>
+          {/* Show active generic orders */}
+          {showDetails.allGenericOrders && (
+            <div className={styles.AllOrders}>
+              <AllGenericOrders
+                setReOrdered={setReOrdered}
+                reOrdered={reOrdered}
+                orderDone={orderDone}
+              />
+            </div>
+          )}
+        </h4>
+
+        <h4
+          onClick={() =>
+            setShowDetails({
+              ...showDetails,
+              tableReservation: !showDetails.tableReservation,
+            })
+          }
+        >
+          Table Reservation
+        </h4>
+      </div>
+
+      {/* {token && (
+        <div className={styles.UserDetails}>
           <Button
             text={loading ? <Loader /> : "Log Out"}
             clicked={handleLogout}
@@ -217,7 +262,7 @@ const userDetails = () => {
             }}
           />
         </div>
-      )}
+      )} */}
       <Alert alerts={alerts} />
     </div>
   );

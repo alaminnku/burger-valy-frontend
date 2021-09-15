@@ -12,6 +12,7 @@
   margin-bottom: 1rem;
   color: var(--almostWhite);
   font-weight: var(--medium);
+  border-radius: 0.25rem;
 }
 
 .Danger {

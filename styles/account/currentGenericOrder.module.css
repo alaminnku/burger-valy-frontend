@@ -1,0 +1,93 @@
+.CurrentGenericOrders {
+  margin-bottom: 1rem;
+}
+
+.CurrentGenericOrders .Title {
+  margin-bottom: 1rem;
+}
+
+.CurrentGenericOrders small {
+  color: var(--grey);
+  display: block;
+}
+
+.Order {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--almostWhite);
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+.Order .TypeDate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Order .Date {
+  font-size: 0.6rem;
+  color: var(--slateGrey);
+}
+
+.Order .Main {
+  margin-bottom: 0.5rem;
+}
+
+.Order .Title {
+  font-weight: var(--semiBold);
+  margin-bottom: 0.1rem;
+}
+
+.Order ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Order ul li {
+  padding: 0.2rem;
+}
+
+.Address {
+  font-size: 0.8rem;
+}
+
+.Address span {
+  font-weight: var(--semiBold);
+}
+
+.NoOrder {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .CurrentGenericOrders {
+    margin-bottom: 2rem;
+  }
+
+  .Order {
+    margin-bottom: 2rem;
+  }
+
+  .Order:last-child {
+    margin-bottom: 0rem;
+  }
+
+  .Order .Date {
+    font-size: 0.7rem;
+  }
+
+  .Order .Main {
+    margin-bottom: 1rem;
+  }
+
+  .Order .Title {
+    margin-bottom: 0.3rem;
+    font-weight: var(--medium);
+  }
+
+  .Address {
+    font-size: 0.9rem;
+  }
+}
