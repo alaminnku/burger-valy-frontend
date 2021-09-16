@@ -6,6 +6,7 @@ import axios from "axios";
 import { API_URL } from "config";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { convertName } from "helpers";
 import { setAlert } from "@store/actions/alertActions";
 import styles from "@styles/account/pendingGenericOrder.module.css";
 
@@ -29,20 +30,13 @@ const PendingGenericOrder = ({ setOrderDone }) => {
       const res = await axios.get(`${API_URL}/price`);
       const price = res.data;
 
-      // Get the first name and rest of the words separated
-      const [firstWord, ...restWords] = item.name.split(" ");
-
-      // Get the name that matches the price
-      const name = `${firstWord.replace(
-        firstWord[0],
-        firstWord[0].toLowerCase()
-      )}${restWords.join("")}`;
+      const convertedText = convertName(item.name);
 
       // Final order
       const order = {
         name: item.name,
         quantity: item.quantity,
-        totalPrice: item.quantity * price[name],
+        totalPrice: item.quantity * price[convertedText],
       };
 
       // Post the order to db

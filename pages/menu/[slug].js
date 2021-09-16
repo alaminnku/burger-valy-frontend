@@ -11,6 +11,7 @@ import { API_URL } from "config";
 import Loader from "@/components/layout/Loader";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
+import { convertName } from "helpers";
 import { setAlert } from "@store/actions/alertActions";
 import Alert from "@/components/layout/Alert";
 
@@ -19,14 +20,7 @@ const ItemPage = ({ item }) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  // Get the first word and rest of the words from the name in separate arrays
-  const [firstWord, ...restWords] = item.name.split(" ");
-
-  // Convert the first letter of the first word to lowercase and join the whole string back
-  const name = `${firstWord.replace(
-    firstWord[0],
-    firstWord[0].toLowerCase()
-  )}${restWords.join("")}`;
+  const convertedText = convertName(item.name);
 
   // States
   const { price } = useSelector((state) => state.burger);
@@ -39,7 +33,7 @@ const ItemPage = ({ item }) => {
   const finalItem = {
     name: item.name,
     quantity,
-    totalPrice: price[name] * quantity,
+    totalPrice: price[convertedText] * quantity,
     img: item.img,
   };
 
@@ -65,7 +59,7 @@ const ItemPage = ({ item }) => {
       const order = {
         name: item.name,
         quantity,
-        totalPrice: fetchedPrice[name] * quantity,
+        totalPrice: fetchedPrice[convertedText] * quantity,
       };
 
       // Post the order to db
@@ -136,7 +130,7 @@ const ItemPage = ({ item }) => {
 
           <div className={styles.Item}>
             <h4>Price</h4>
-            <p>${price[name] * quantity}</p>
+            <p>${price[convertedText] * quantity}</p>
           </div>
         </div>
       </div>

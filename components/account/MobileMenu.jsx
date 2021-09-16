@@ -1,5 +1,6 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
+import { convertName } from "helpers";
 import styles from "@styles/account/mobileMenu.module.css";
 
 const mobileMenu = ({ showMenu, handleShowDetails }) => {
@@ -12,17 +13,11 @@ const mobileMenu = ({ showMenu, handleShowDetails }) => {
 
   // Handle show sub items
   const handleShowItems = (e) => {
-    const [firstWord, ...restWords] = e.target.textContent.split(" ");
-
-    // Convert to the text
-    const name = `${firstWord.replace(
-      firstWord[0],
-      firstWord[0].toLowerCase()
-    )}${restWords.join("")}`;
+    const convertedText = convertName(e.target.textContent);
 
     // Update the state
     setShowItems({
-      [name]: !showItems[name],
+      [convertedText]: !showItems[convertedText],
     });
   };
 

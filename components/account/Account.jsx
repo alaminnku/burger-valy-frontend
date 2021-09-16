@@ -12,6 +12,7 @@ import AllBurgerOrders from "./AllBurgerOrders";
 import AllGenericOrders from "./AllGenericOrders";
 import MobileDashboard from "./MobileMenu";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
+import { convertName } from "helpers";
 
 const account = () => {
   // Hooks
@@ -53,19 +54,6 @@ const account = () => {
   const handleShowDetails = (e) => {
     // Child text
     const childText = e.target.textContent;
-
-    // Name converter
-    const convertName = (text) => {
-      const [firstWord, ...restWords] = text.split(" ");
-
-      // Convert to the text
-      const convertedText = `${firstWord.replace(
-        firstWord[0],
-        firstWord[0].toLowerCase()
-      )}${restWords.join("")}`;
-
-      return convertedText;
-    };
 
     // Update state
     if (childText === "Profile" || childText === "Table Reservation") {
