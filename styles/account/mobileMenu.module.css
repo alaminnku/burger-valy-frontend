@@ -1,0 +1,58 @@
+.Items {
+  position: absolute;
+  top: 7rem;
+  right: 3.5rem;
+  background-color: var(--green);
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+.Item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: var(--almostWhite);
+  border-radius: 0.25rem;
+  color: var(--slateGrey);
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.Arrow {
+  margin-left: 0.5rem;
+  transition: all 200ms ease-in-out;
+}
+
+.RotateArrow {
+  transform: rotate(180deg);
+}
+
+.SubItems {
+  background-color: var(--);
+  padding: 0rem 1rem;
+}
+
+.SubItems h5 {
+  padding: 0.25rem;
+  font-weight: var(--medium);
+  border: 1px solid var(--almostWhite);
+  border-radius: 0.25rem;
+  color: var(--almostWhite);
+  text-align: center;
+  cursor: pointer;
+}
+
+.SubItems h5:first-child {
+  margin-bottom: 0.5rem;
+}
+
+.CloseIcon {
+  position: absolute;
+  top: -1.1rem;
+  left: -1.1rem;
+  font-size: 1.3rem;
+  color: var(--kindaRed);
+  cursor: pointer;
+}

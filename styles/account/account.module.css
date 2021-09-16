@@ -1,24 +1,27 @@
-.Account {
-  padding: 1rem;
+.Account .MenuIcon {
+  position: absolute;
+  top: 5rem;
+  right: 1rem;
+  background-color: var(--green);
+  padding: 0.5rem;
+  font-size: 2.3rem;
+  border-radius: 50%;
+  color: var(--almostWhite);
+  cursor: pointer;
+}
+
+.Title {
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
-  .Account {
-    padding: 2rem 0rem;
-    width: 35rem;
-    margin: 0 auto;
-  }
 }
 
 @media (min-width: 1024px) {
-  .Account {
-    padding: 3rem 0rem;
-    width: 40rem;
-  }
 }
 
 @media (min-width: 1280px) {
-  .Account {
-    padding: 4rem 0rem;
-  }
+}
+
+@media (min-width: 1440px) {
 }
