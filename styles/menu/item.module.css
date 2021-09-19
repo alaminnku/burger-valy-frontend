@@ -26,15 +26,6 @@
   max-width: 65%;
 }
 
-.TitleButton a {
-  background-color: var(--kindaRed);
-  color: var(--almostWhite);
-  font-weight: var(--semiBold);
-  padding: 0.2rem 1rem;
-  border-radius: 1rem;
-  font-size: 1rem;
-}
-
 @media (min-width: 768px) {
   .Item {
     height: 17rem;
@@ -42,11 +33,6 @@
 
   .Item h5 {
     font-size: 0.9rem;
-  }
-
-  .TitleButton a {
-    padding: 0.3rem 1.3rem;
-    border-radius: 1.5rem;
   }
 }
 

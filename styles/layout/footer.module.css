@@ -36,9 +36,10 @@
   margin-bottom: 0.5rem;
 }
 
-.Footer ul li a {
-  color: var(--kindaRed);
+.QuickLinks ul li a {
+  color: var(--green);
   font-size: 0.9rem;
+  transition: all 200ms ease-in-out;
 }
 
 .QuickLinks {
@@ -59,6 +60,10 @@
   .Footer {
     padding: 2rem 3rem;
     margin-bottom: 5rem;
+  }
+
+  .QuickLinks ul li a:hover {
+    color: var(--kindaRed);
   }
 
   .Content {
