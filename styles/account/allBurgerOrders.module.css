@@ -1,7 +1,3 @@
-.AllBurgerOrders {
-  margin-bottom: 1rem;
-}
-
 .Order {
   display: flex;
   flex-direction: column;
@@ -32,19 +28,7 @@
 
 .Order .Title {
   font-weight: var(--semiBold);
-  margin-bottom: 0.1rem;
-}
-
-.OrdersTitle {
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  background-color: var(--grey);
-  color: var(--almostWhite);
-  padding: 0.1rem 0.6rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
+  margin-bottom: 0.3rem;
 }
 
 .AllBurgerOrders small {
@@ -58,15 +42,6 @@
   transition: all 200ms ease-in-out;
 }
 
-.Icon {
-  font-size: 1.5rem;
-  transition: all 0.25s;
-}
-
-.RotateIcon {
-  transform: rotate(180deg);
-}
-
 .Order ul {
   display: flex;
   flex-wrap: wrap;
@@ -74,6 +49,7 @@
 
 .Order ul li {
   padding: 0.2rem;
+  color: var(--grey);
 }
 
 .Order .ItemsToRemove .Items {
@@ -94,20 +70,18 @@
 }
 
 .Order button {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.7rem;
 }
 
 @media (min-width: 768px) {
-  .AllBurgerOrders {
+  .Order {
+    padding: 1rem 1.5rem;
     margin-bottom: 2rem;
   }
 
-  .Order {
-    padding: 1.5rem 2rem;
-    width: 35rem;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+  .Order:last-child {
+    margin-bottom: 0rem;
   }
 
   .Order .Date {
@@ -138,26 +112,8 @@
     color: var(--green);
   }
 
-  .Order .Title {
-    margin-bottom: 0.3rem;
-  }
-
-  .Icon {
-    font-size: 1.6rem;
-  }
-
+  .Order .Title,
   .Order .ItemsToRemove {
-    margin-bottom: 0.8rem;
-  }
-
-  .Order button {
-    font-size: 1.1rem;
-    padding: 0.6rem 1.3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .Order {
-    width: 40rem;
+    margin-bottom: 0.5rem;
   }
 }

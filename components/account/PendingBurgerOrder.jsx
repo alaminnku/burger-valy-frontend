@@ -6,6 +6,7 @@ import { useState } from "react";
 import Loader from "../layout/Loader";
 import { setAlert } from "@store/actions/alertActions";
 import { useSelector, useDispatch } from "react-redux";
+import Cookies from "js-cookie";
 import styles from "@styles/account/pendingBurgerOrder.module.css";
 
 const PendingBurgerOrder = ({ setOrderDone }) => {
@@ -15,6 +16,11 @@ const PendingBurgerOrder = ({ setOrderDone }) => {
   // States
   const [loading, setLoading] = useState(false);
   const { token } = useSelector((state) => state.auth);
+  const { burger } = useSelector((state) => state.burger);
+
+  // Create a new object
+  const pendingOrder = { ...burger };
+  const { ingredients, side, type } = pendingOrder;
 
   // Submit the order
   const handleSubmitBurgerOrder = async () => {
@@ -64,8 +70,9 @@ const PendingBurgerOrder = ({ setOrderDone }) => {
       setLoading(false);
       dispatch(setAlert("Order placed successfully!", "Success"));
     } catch (err) {
+      console.log(err);
       setLoading(false);
-      dispatch(setAlert(err.response.data.message, "Danger"));
+      // dispatch(setAlert(err.response.data.message, "Danger"));
     }
   };
 

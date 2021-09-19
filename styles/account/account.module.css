@@ -1,7 +1,15 @@
-.Account .MenuIcon {
-  position: absolute;
-  top: 5rem;
-  right: 1rem;
+.Account {
+  position: relative;
+}
+
+.MenuTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.MenuIcon {
   background-color: var(--green);
   padding: 0.5rem;
   font-size: 2.3rem;
@@ -10,11 +18,37 @@
   cursor: pointer;
 }
 
-.Title {
-  margin-bottom: 1rem;
+.SideMenu {
+  display: none;
+}
+
+.Item {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.Item p {
+  margin-right: 0.5rem;
+}
+
+.Item p,
+.Item small {
+  font-size: 0.9rem;
 }
 
 @media (min-width: 768px) {
+  .Account {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .MenuIcon {
+    display: none;
+  }
+
+  .Details {
+    width: 70%;
+  }
 }
 
 @media (min-width: 1024px) {

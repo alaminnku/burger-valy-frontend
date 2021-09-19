@@ -8,7 +8,7 @@ const AccountPage = () => {
   const alerts = useSelector((state) => state.alerts);
 
   return (
-    <div className={styles.Account}>
+    <div className={styles.AccountPage}>
       <Account />
       <Alert alerts={alerts} />
     </div>

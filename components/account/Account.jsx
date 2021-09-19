@@ -10,9 +10,10 @@ import CurrentGenericOrder from "./CurrentGenericOrder";
 import CurrentBurgerOrder from "./CurrentBurgerOrder";
 import AllBurgerOrders from "./AllBurgerOrders";
 import AllGenericOrders from "./AllGenericOrders";
-import MobileDashboard from "./MobileMenu";
-import { AiOutlineMenuUnfold } from "react-icons/ai";
+import { BiMenu } from "react-icons/bi";
+import { RiCloseFill } from "react-icons/ri";
 import { convertName } from "helpers";
+import Menu from "./Menu";
 
 const account = () => {
   // Hooks
@@ -25,7 +26,7 @@ const account = () => {
   const alerts = useSelector((state) => state.alerts);
   const [showMenu, setShowMenu] = useState(false);
   const [showDetails, setShowDetails] = useState({
-    profile: false,
+    profile: true,
     activeOrdersBurger: false,
     activeOrdersGeneric: false,
     pendingOrdersBurger: false,
@@ -45,10 +46,6 @@ const account = () => {
   // // Get the burger from cookie
   const burger = Cookies.getJSON("burger");
   const item = Cookies.getJSON("item");
-
-  // // Create a new object
-  // const pendingOrder = { ...burger };
-  // const { ingredients, side, type } = pendingOrder;
 
   // Handle show the details
   const handleShowDetails = (e) => {
@@ -92,89 +89,104 @@ const account = () => {
     <div className={styles.Account}>
       {token && (
         <>
-          {/* Welcome title */}
-          <p className={styles.Title}>
-            Welcome back <span>{user.name}</span> 👋
-          </p>
+          <Menu showMenu={showMenu} handleShowDetails={handleShowDetails} />
 
-          {/* Show profile conditionally */}
-          {showDetails.profile && (
-            <div className={styles.Profile}>
-              <h4>Profile</h4>
-              <p className={`${styles.Title} ${styles.MainTitle}`}>
-                Hi <span>{user.name}</span> 👋
-              </p>
+          <div className={styles.Details}>
+            <div className={styles.MenuTop}>
+              {/* Welcome title */}
+              <h4 className={styles.Title}>
+                Welcome back <span>{user.name}</span>!
+              </h4>
+
+              {/* Menu icon */}
+              {!showMenu ? (
+                <BiMenu
+                  onClick={() => setShowMenu(!showMenu)}
+                  className={styles.MenuIcon}
+                />
+              ) : (
+                <RiCloseFill
+                  className={styles.MenuIcon}
+                  onClick={() => setShowMenu(!showMenu)}
+                />
+              )}
             </div>
-          )}
 
-          {/* Show active burger orders */}
-          {showDetails.activeOrdersBurger && (
-            <CurrentBurgerOrder reOrdered={reOrdered} orderDone={orderDone} />
-          )}
+            {/* Show profile conditionally */}
+            {showDetails.profile && (
+              <div className={styles.Profile}>
+                <div className={styles.Item}>
+                  <p>Name:</p>
+                  <small>{user.name}</small>
+                </div>
 
-          {/* Show active generic orders */}
+                <div className={styles.Item}>
+                  <p>Email:</p>
+                  <small>{user.email}</small>
+                </div>
+              </div>
+            )}
 
-          {showDetails.activeOrdersGeneric && (
-            <CurrentGenericOrder reOrdered={reOrdered} orderDone={orderDone} />
-          )}
+            {/* Show active burger orders */}
+            {showDetails.activeOrdersBurger && (
+              <CurrentBurgerOrder reOrdered={reOrdered} orderDone={orderDone} />
+            )}
 
-          {/* Show pending burger orders */}
+            {/* Show active generic orders */}
 
-          {showDetails.pendingOrdersBurger && (
-            <>
-              {!orderDone && burger ? (
-                <PendingBurgerOrder setOrderDone={setOrderDone} />
-              ) : (
-                <small>No pending burger orders</small>
-              )}
-            </>
-          )}
+            {showDetails.activeOrdersGeneric && (
+              <CurrentGenericOrder
+                reOrdered={reOrdered}
+                orderDone={orderDone}
+              />
+            )}
 
-          {/* Show pending generic orders */}
+            {/* Show pending burger orders */}
 
-          {showDetails.pendingOrdersGeneric && (
-            <>
-              {!orderDone && item ? (
-                <PendingGenericOrder setOrderDone={setOrderDone} />
-              ) : (
-                <small>No pending generic orders</small>
-              )}
-            </>
-          )}
+            {showDetails.pendingOrdersBurger && (
+              <>
+                {!orderDone && burger ? (
+                  <PendingBurgerOrder setOrderDone={setOrderDone} />
+                ) : (
+                  <small>No pending burger orders</small>
+                )}
+              </>
+            )}
 
-          {/* Show all burger orders */}
+            {/* Show pending generic orders */}
 
-          {showDetails.allOrdersBurger && (
-            <AllBurgerOrders
-              setReOrdered={setReOrdered}
-              reOrdered={reOrdered}
-              orderDone={orderDone}
-            />
-          )}
+            {showDetails.pendingOrdersGeneric && (
+              <>
+                {!orderDone && item ? (
+                  <PendingGenericOrder setOrderDone={setOrderDone} />
+                ) : (
+                  <small>No pending generic orders</small>
+                )}
+              </>
+            )}
 
-          {/* Show all generic orders */}
-          {showDetails.allOrdersGeneric && (
-            <AllGenericOrders
-              setReOrdered={setReOrdered}
-              reOrdered={reOrdered}
-              orderDone={orderDone}
-            />
-          )}
+            {/* Show all burger orders */}
 
-          {/* Show table reservation */}
-          {showDetails.tableReservation && <div>Table Reservation</div>}
+            {showDetails.allOrdersBurger && (
+              <AllBurgerOrders
+                setReOrdered={setReOrdered}
+                reOrdered={reOrdered}
+                orderDone={orderDone}
+              />
+            )}
 
-          {/* Mobile dashboard */}
-          <MobileDashboard
-            showMenu={showMenu}
-            handleShowDetails={handleShowDetails}
-          />
+            {/* Show all generic orders */}
+            {showDetails.allOrdersGeneric && (
+              <AllGenericOrders
+                setReOrdered={setReOrdered}
+                reOrdered={reOrdered}
+                orderDone={orderDone}
+              />
+            )}
 
-          {/* Menu icon */}
-          <AiOutlineMenuUnfold
-            onClick={() => setShowMenu(!showMenu)}
-            className={styles.MenuIcon}
-          />
+            {/* Show table reservation */}
+            {showDetails.tableReservation && <div>Table Reservation</div>}
+          </div>
         </>
       )}
       <Alert alerts={alerts} />
