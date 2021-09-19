@@ -23,7 +23,7 @@
 .TitleButton h2 {
   font-family: "Carter One";
   color: var(--almostWhite);
-  max-width: 65%;
+  max-width: 60%;
 }
 
 @media (min-width: 768px) {

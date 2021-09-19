@@ -20,7 +20,7 @@ export const checkUser = () => async (dispatch) => {
       payload: { token, user },
     });
   } catch (err) {
-    console.log(err.response.data.message);
+    console.log(err);
   }
 };
 
