@@ -1,18 +1,5 @@
 .Side {
   padding: 1rem;
-  margin-bottom: 3.5rem;
-}
-
-@media (min-width: 375px) {
-  .Side {
-    margin-bottom: 4.5rem;
-  }
-}
-
-@media (min-width: 411px) {
-  .Side {
-    margin-bottom: 4.8rem;
-  }
 }
 
 @media (min-width: 768px) {
@@ -20,7 +7,6 @@
     width: 35rem;
     margin: 0 auto;
     padding: 2rem 0rem;
-    margin-bottom: 4.5rem;
   }
 }
 
@@ -28,7 +14,6 @@
   .Side {
     width: 40rem;
     padding: 3rem 0rem;
-    margin-bottom: 0rem;
   }
 }
 

@@ -7,7 +7,7 @@
   border: none;
   border-radius: 0.25rem;
   background-color: var(--kindaRed);
-  padding: 0.4rem 1.2rem;
+  padding: 0.2rem 0.8rem;
   font-size: 1rem;
   color: var(--almostWhite);
   font-weight: var(--medium);
@@ -22,13 +22,6 @@
 
 @media (min-width: 768px) {
   .LinkButton a {
-    padding: 0.5rem 1.5rem;
     font-weight: var(--medium);
-  }
-}
-
-@media (min-width: 1280px) {
-  .LinkButton a {
-    padding: 0.5rem 3rem;
   }
 }

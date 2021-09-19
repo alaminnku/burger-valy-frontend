@@ -1,5 +1,5 @@
-import Link from "next/link";
 import styles from "@styles/home/card.module.css";
+import LinkButton from "../layout/LinkButton";
 
 const Card = ({ title, href, bgImage }) => {
   const background = {
@@ -13,7 +13,11 @@ const Card = ({ title, href, bgImage }) => {
       <h5>Starts from $9.99</h5>
       <div className={styles.TitleButton}>
         <h2>{title}</h2>
-        <Link href={href}>Make Now</Link>
+        <LinkButton
+          href={href}
+          text='Make Now'
+          style={{ borderRadius: "1.5rem" }}
+        />
       </div>
     </div>
   );

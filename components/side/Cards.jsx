@@ -10,16 +10,16 @@ import ToRemove from "./ToRemove";
 import { useState } from "react";
 import Loader from "../layout/Loader";
 
-const Cards = ({ token }) => {
+const Cards = () => {
   // States
   const { burger } = useSelector((state) => state.burger);
-  const { user } = useSelector((state) => state.auth);
+  const { token } = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);
 
   // Set the final burger to cookie
   const handleSubmitOrder = async () => {
     // Save the burger to cookie, push to register and return if the user isn't logged in
-    if (!user) {
+    if (!token) {
       Cookies.set("burger", burger);
       router.push("/register");
       return;
@@ -92,8 +92,8 @@ const Cards = ({ token }) => {
               Add <span>small</span> drink and fries +$6
             </>
           }
-          items="1x small fries and 250ml drink"
-          side="small"
+          items='1x small fries and 250ml drink'
+          side='small'
           added={burger.side === "small" && true}
         />
         <Card
@@ -102,8 +102,8 @@ const Cards = ({ token }) => {
               Add <span>medium</span> drink and fries +$8
             </>
           }
-          items="1x medium fries and 350ml drink"
-          side="medium"
+          items='1x medium fries and 350ml drink'
+          side='medium'
           added={burger.side === "medium" && true}
         />
         <Card
@@ -112,8 +112,8 @@ const Cards = ({ token }) => {
               Add <span>large</span> drink and fries +$10
             </>
           }
-          items="1x large fries and 450ml drink"
-          side="large"
+          items='1x large fries and 450ml drink'
+          side='large'
           added={burger.side === "large" && true}
         />
       </div>

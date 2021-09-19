@@ -1,7 +1,7 @@
-import Link from "next/link";
-import styles from "@styles/menu/item.module.css";
 import { convertName } from "helpers";
+import LinkButton from "../layout/LinkButton";
 import { useSelector } from "react-redux";
+import styles from "@styles/menu/item.module.css";
 
 const Item = ({ bgImage, title, href }) => {
   // State
@@ -22,7 +22,11 @@ const Item = ({ bgImage, title, href }) => {
       <h5>{`Starts from $${price[convertedText]}`}</h5>
       <div className={styles.TitleButton}>
         <h2>{title}</h2>
-        <Link href={href}>Order Now</Link>
+        <LinkButton
+          href={href}
+          text='Order Now'
+          style={{ borderRadius: "1.5rem" }}
+        />
       </div>
     </div>
   );

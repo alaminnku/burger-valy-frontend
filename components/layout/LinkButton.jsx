@@ -6,10 +6,9 @@ const LinkButton = ({ text, href, clicked, style, disabled }) => {
     <div
       className={`${styles.LinkButton} ${disabled && styles.Disabled}`}
       onClick={clicked}
-      style={style}
     >
       <Link href={href}>
-        <a>{text}</a>
+        <a style={style}>{text}</a>
       </Link>
     </div>
   );
