@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import styles from "@styles/account/account.module.css";
+import styles from "@styles/dashboard/dashboard.module.css";
 import Alert from "../layout/Alert";
 import PendingGenericOrder from "./PendingGenericOrder";
 import PendingBurgerOrder from "./PendingBurgerOrder";
@@ -15,7 +15,7 @@ import { RiCloseFill } from "react-icons/ri";
 import { convertName } from "helpers";
 import Menu from "./Menu";
 
-const account = () => {
+const dashboard = () => {
   // Hooks
   const router = useRouter();
 
@@ -86,7 +86,7 @@ const account = () => {
   };
 
   return (
-    <div className={styles.Account}>
+    <div className={styles.Dashboard}>
       {token && (
         <>
           <Menu showMenu={showMenu} handleShowDetails={handleShowDetails} />
@@ -194,4 +194,4 @@ const account = () => {
   );
 };
 
-export default account;
+export default dashboard;

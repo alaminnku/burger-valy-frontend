@@ -52,11 +52,13 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link href='/account'>
+            <Link href='/dashboard'>
               <a
-                className={router.pathname === "/account" ? styles.Active : ""}
+                className={
+                  router.pathname === "/dashboard" ? styles.Active : ""
+                }
               >
-                Account
+                Dashboard
               </a>
             </Link>
           </li>

@@ -38,10 +38,10 @@ const MobileNav = () => {
       </div>
 
       <div className={styles.Item}>
-        <Link href={token ? "/account" : "/login"}>
+        <Link href={token ? "/dashboard" : "/login"}>
           <a>
             <MdAccountBox className={styles.Icon} />
-            <p>Account</p>
+            <p>Dashboard</p>
           </a>
         </Link>
       </div>

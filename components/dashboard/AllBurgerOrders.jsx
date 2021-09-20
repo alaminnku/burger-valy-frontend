@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_URL } from "config";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "@styles/account/allBurgerOrders.module.css";
+import styles from "@styles/dashboard/allBurgerOrders.module.css";
 import Button from "../layout/Button";
 import Loader from "../layout/Loader";
 import { setAlert } from "@store/actions/alertActions";

@@ -1,7 +1,7 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
 import { convertName } from "helpers";
-import styles from "@styles/account/menu.module.css";
+import styles from "@styles/dashboard/menu.module.css";
 
 const menu = ({ showMenu, handleShowDetails }) => {
   // Sates

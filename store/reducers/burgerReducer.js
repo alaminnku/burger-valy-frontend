@@ -1,11 +1,11 @@
 import {
   ADD_INGREDIENT,
   REMOVE_INGREDIENT,
-  UPDATE_PRICE,
   ADD_SIDE,
   REMOVE_SIDE,
   SET_BURGER,
   SET_BURGER_TYPE,
+  FETCH_PRICE,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -27,7 +27,7 @@ const burgerReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case UPDATE_PRICE:
+    case FETCH_PRICE:
       return {
         ...state,
         price: {

@@ -1,4 +1,4 @@
-import styles from "@styles/account/currentGenericOrder.module.css";
+import styles from "@styles/dashboard/currentGenericOrder.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "config";

@@ -7,7 +7,7 @@ import Loader from "../layout/Loader";
 import { setAlert } from "@store/actions/alertActions";
 import { useSelector, useDispatch } from "react-redux";
 import Cookies from "js-cookie";
-import styles from "@styles/account/pendingBurgerOrder.module.css";
+import styles from "@styles/dashboard/pendingBurgerOrder.module.css";
 
 const PendingBurgerOrder = ({ setOrderDone }) => {
   // Hooks

@@ -47,7 +47,7 @@ const LoginForm = () => {
 
   // Check if isAuthenticated and push to homepage
   {
-    token && router.push("/account");
+    token && router.push("/dashboard");
   }
 
   return (
@@ -58,23 +58,23 @@ const LoginForm = () => {
       </h3>
       <form>
         <div className={styles.Item}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor='email'>Email</label>
           <input
-            type="email"
-            id="email"
+            type='email'
+            id='email'
             value={email}
-            name="email"
+            name='email'
             onChange={(e) => handleChange(e)}
           />
         </div>
 
         <div className={styles.Item}>
-          <label htmlFor="password">Password</label>
+          <label htmlFor='password'>Password</label>
           <input
-            type="password"
-            id="password"
+            type='password'
+            id='password'
             value={password}
-            name="password"
+            name='password'
             onChange={(e) => handleChange(e)}
           />
         </div>
@@ -88,10 +88,10 @@ const LoginForm = () => {
 
       <div className={styles.RegisterPassword}>
         <small>
-          <Link href="/register">Register here</Link>
+          <Link href='/register'>Register here</Link>
         </small>
         <small>
-          <Link href="/forgot-password">Reset password</Link>
+          <Link href='/forgot-password'>Reset password</Link>
         </small>
       </div>
     </div>

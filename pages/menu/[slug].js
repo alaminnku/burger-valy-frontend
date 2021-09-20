@@ -12,6 +12,7 @@ import Loader from "@/components/layout/Loader";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import { convertName } from "helpers";
+import HeadSection from "@/components/layout/HeadSection";
 import { setAlert } from "@store/actions/alertActions";
 import Alert from "@/components/layout/Alert";
 
@@ -81,67 +82,74 @@ const ItemPage = ({ item }) => {
   };
 
   return (
-    <div className={styles.ItemPage}>
-      <h3>{item.name}</h3>
-
-      <div className={styles.Image}>
-        <Image src={item.img} alt='' width='768' height='432' />
-      </div>
-
-      <div className={styles.Content}>
-        <div>
-          <h4>Ingredients</h4>
-          <ul>
-            {item.ingredients.map((ingredient) => (
-              <li key={ingredient}>
-                <TiTick /> {ingredient}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <div className={styles.Item}>
-            <h4> Calorie (Approx)</h4>
-            <p>{item.calorie}</p>
-          </div>
-
-          <div className={styles.Item}>
-            <h4>Quantity</h4>
-            <p>{quantity}</p>
-            <AiOutlinePlusCircle
-              className={styles.AddIcon}
-              onClick={() => setQuantity(quantity + 1)}
-            />
-            <AiOutlineMinusCircle
-              className={`${styles.RemoveIcon} ${
-                quantity === 1 && styles.Disabled
-              }`}
-              onClick={() =>
-                setQuantity(quantity > 1 ? quantity - 1 : quantity)
-              }
-            />
-          </div>
-
-          <div className={styles.Item}>
-            <h4>Pickup time</h4>
-            <p>{item.pickupTime}</p>
-          </div>
-
-          <div className={styles.Item}>
-            <h4>Price</h4>
-            <p>${price[convertedText] * quantity}</p>
-          </div>
-        </div>
-      </div>
-
-      <Button
-        text={loading ? <Loader /> : "Confirm Order"}
-        clicked={handleSubmitOrder}
+    <>
+      <HeadSection
+        title={`Burger Valley | ${item.name}`}
+        content={`Order ${item.name.toLowerCase()} and pickup in just 30 minutes.`}
+        pageURL={`https://www.burgervalley.com/menu/${item.slug}`}
       />
+      <main className={styles.ItemPage}>
+        <h3>{item.name}</h3>
 
-      <Alert alerts={alerts} />
-    </div>
+        <div className={styles.Image}>
+          <Image src={item.img} alt='' width='768' height='432' />
+        </div>
+
+        <div className={styles.Content}>
+          <div>
+            <h4>Ingredients</h4>
+            <ul>
+              {item.ingredients.map((ingredient) => (
+                <li key={ingredient}>
+                  <TiTick /> {ingredient}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className={styles.Item}>
+              <h4> Calorie (Approx)</h4>
+              <p>{item.calorie}</p>
+            </div>
+
+            <div className={styles.Item}>
+              <h4>Quantity</h4>
+              <p>{quantity}</p>
+              <AiOutlinePlusCircle
+                className={styles.AddIcon}
+                onClick={() => setQuantity(quantity + 1)}
+              />
+              <AiOutlineMinusCircle
+                className={`${styles.RemoveIcon} ${
+                  quantity === 1 && styles.Disabled
+                }`}
+                onClick={() =>
+                  setQuantity(quantity > 1 ? quantity - 1 : quantity)
+                }
+              />
+            </div>
+
+            <div className={styles.Item}>
+              <h4>Pickup time</h4>
+              <p>{item.pickupTime}</p>
+            </div>
+
+            <div className={styles.Item}>
+              <h4>Price</h4>
+              <p>${price[convertedText] * quantity}</p>
+            </div>
+          </div>
+        </div>
+
+        <Button
+          text={loading ? <Loader /> : "Confirm Order"}
+          clicked={handleSubmitOrder}
+        />
+
+        <Alert alerts={alerts} />
+      </main>
+    </>
   );
 };
 

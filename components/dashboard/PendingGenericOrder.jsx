@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { convertName } from "helpers";
 import { setAlert } from "@store/actions/alertActions";
-import styles from "@styles/account/pendingGenericOrder.module.css";
+import styles from "@styles/dashboard/pendingGenericOrder.module.css";
 
 const PendingGenericOrder = ({ setOrderDone }) => {
   // Hooks

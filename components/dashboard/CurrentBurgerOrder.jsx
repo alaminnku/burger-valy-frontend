@@ -1,4 +1,4 @@
-import styles from "@styles/account/currentBurgerOrder.module.css";
+import styles from "@styles/dashboard/currentBurgerOrder.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "config";

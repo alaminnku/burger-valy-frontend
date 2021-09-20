@@ -16,8 +16,8 @@
 }
 
 .LinkButton a:hover {
-  border: 2px solid var(--green);
-  color: var(--green);
+  border: 2px solid var(--kindaRed);
+  color: var(--kindaRed);
   background-color: transparent;
 }
 

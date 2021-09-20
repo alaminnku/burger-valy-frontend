@@ -1,17 +1,17 @@
 import {
   ADD_INGREDIENT,
   REMOVE_INGREDIENT,
-  UPDATE_PRICE,
   ADD_SIDE,
   REMOVE_SIDE,
   SET_BURGER,
   SET_BURGER_TYPE,
+  FETCH_PRICE,
 } from "./actionTypes";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { API_URL } from "config";
 
-// Update price
+// Fetch the price
 export const updatePrice = () => async (dispatch) => {
   try {
     const res = await axios.get(`${API_URL}/price`);
@@ -53,7 +53,7 @@ export const updatePrice = () => async (dispatch) => {
     };
 
     dispatch({
-      type: UPDATE_PRICE,
+      type: FETCH_PRICE,
       payload: price,
     });
   } catch (err) {
