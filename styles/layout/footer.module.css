@@ -1,12 +1,12 @@
 .Footer {
   padding: 1rem;
   margin-bottom: 3.5rem;
-  background-color: var(--slateGrey);
+  background-color: var(--almostWhite);
 }
 
 .Content {
   margin-bottom: 0.5rem;
-  border-bottom: 0.5px solid var(--almostWhite);
+  border-bottom: 0.5px solid var(--slateGrey);
 }
 
 .AboutUs,
@@ -18,19 +18,17 @@
 
 .Footer h4 {
   margin-bottom: 0.3rem;
-  color: var(--kindaRed);
+  color: var(--green);
 }
 
 .Footer p {
   font-weight: var(--medium);
-  color: var(--almostWhite);
   font-size: 0.9rem;
   margin-bottom: 0.3rem;
 }
 
 .Footer small {
   font-weight: var(--regular);
-  color: var(--almostWhite);
   font-size: 0.9rem;
 }
 
