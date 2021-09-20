@@ -18,7 +18,6 @@
 
 .Footer h4 {
   margin-bottom: 0.3rem;
-  color: var(--green);
 }
 
 .Footer p {
@@ -63,7 +62,7 @@
   }
 
   .QuickLinks ul li a:hover {
-    color: var(--almostWhite);
+    color: var(--slateGrey);
   }
 
   .Content {
