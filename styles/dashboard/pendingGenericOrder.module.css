@@ -14,7 +14,11 @@
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: var(--almostWhite);
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.PendingGenericOrder .Item img {
+  border-radius: 0.25rem;
 }
 
 .PendingGenericOrder .Item .Content {

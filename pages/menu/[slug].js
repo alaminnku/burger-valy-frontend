@@ -73,7 +73,7 @@ const ItemPage = ({ item }) => {
       // Stop the loader, show the message and navigate to account page
       setLoading(false);
       dispatch(setAlert("Order placed successfully!", "Success"));
-      router.push("/account");
+      router.push("/dashboard");
     } catch (err) {
       // Stop the loader and show the message
       setLoading(false);

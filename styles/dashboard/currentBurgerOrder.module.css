@@ -56,7 +56,8 @@
   text-transform: capitalize;
 }
 
-.Address {
+.CurrentBurgerOrders .Address {
+  color: var(--slateGrey);
   font-size: 0.9rem;
 }
 

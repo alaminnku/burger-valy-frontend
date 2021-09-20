@@ -9,12 +9,19 @@ import router from "next/router";
 import ToRemove from "./ToRemove";
 import { useState } from "react";
 import Loader from "../layout/Loader";
+import Alert from "../layout/Alert";
+import { useDispatch } from "react-redux";
+import { setAlert } from "@store/actions/alertActions";
 
 const Cards = () => {
+  // Hooks
+  const dispatch = useDispatch();
+
   // States
   const { burger } = useSelector((state) => state.burger);
   const { token } = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);
+  const alerts = useSelector((state) => state.alerts);
 
   // Set the final burger to cookie
   const handleSubmitOrder = async () => {
@@ -73,8 +80,10 @@ const Cards = () => {
       // Remove the loader
       setLoading(false);
 
+      // Show the message
+      dispatch(setAlert("Order placed successfully!", "Success"));
       // Push to account after submit
-      router.push("/account");
+      router.push("/dashboard");
     } catch (err) {
       console.log(err);
 
@@ -124,6 +133,8 @@ const Cards = () => {
         text={loading ? <Loader /> : "ORDER NOW"}
         clicked={handleSubmitOrder}
       />
+
+      <Alert alerts={alerts} />
     </div>
   );
 };

@@ -46,7 +46,8 @@
   color: var(--grey);
 }
 
-.Address {
+.CurrentGenericOrders .Address {
+  color: var(--slateGrey);
   font-size: 0.9rem;
 }
 

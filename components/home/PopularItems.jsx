@@ -43,7 +43,7 @@ const items = [
     name: "Crispy Fried Chicken",
     src: "/images/home/popular-items/crispy-fried-chicken.jpg",
     desc: "4 pieces of crispy fried chicken",
-    url: "/crispy-fried-chicken",
+    url: "/menu/crispy-fried-chicken",
     price: 8.99,
   },
 ];
