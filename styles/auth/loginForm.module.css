@@ -47,7 +47,6 @@
 }
 
 .LoginForm button {
-  padding: 0.4rem;
   margin-bottom: 0.8rem;
 }
 
@@ -83,10 +82,6 @@
 
   .LoginForm form input {
     padding: 0.2rem;
-  }
-
-  .LoginForm button {
-    padding: 0.5rem;
   }
 
   .LoginForm small a::before {

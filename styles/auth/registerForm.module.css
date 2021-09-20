@@ -53,7 +53,6 @@
 }
 
 .RegisterForm button {
-  padding: 0.4rem;
   margin-bottom: 0.8rem;
 }
 
@@ -71,10 +70,6 @@
 
   .RegisterForm form .Item {
     margin-bottom: 0.7rem;
-  }
-
-  .RegisterForm button {
-    padding: 0.5rem;
   }
 
   .RegisterForm small a::before {

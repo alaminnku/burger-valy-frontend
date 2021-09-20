@@ -45,9 +45,6 @@
   color: var(--almostWhite);
   text-align: center;
   cursor: pointer;
-}
-
-.SubItems h5:first-child {
   margin-bottom: 0.5rem;
 }
 

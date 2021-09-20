@@ -77,10 +77,6 @@ const menu = ({ showMenu, handleShowDetails }) => {
               <h5 onClick={(e) => handleShowDetails(e)}>Generic</h5>
             </div>
           )}
-
-          <h5 className={styles.Item} onClick={(e) => handleShowDetails(e)}>
-            Table Reservation
-          </h5>
         </div>
       )}
 
@@ -133,7 +129,6 @@ const menu = ({ showMenu, handleShowDetails }) => {
             <h5 onClick={(e) => handleShowDetails(e)}>Generic</h5>
           </div>
         )}
-        <h5 onClick={(e) => handleShowDetails(e)}>Table Reservation</h5>
       </div>
     </>
   );

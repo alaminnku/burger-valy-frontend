@@ -33,7 +33,6 @@ const dashboard = () => {
     pendingOrdersGeneric: false,
     allOrdersBurger: false,
     allOrdersGeneric: false,
-    tableReservation: false,
   });
 
   // Push to login page if there isn't a user
@@ -183,9 +182,6 @@ const dashboard = () => {
                 orderDone={orderDone}
               />
             )}
-
-            {/* Show table reservation */}
-            {showDetails.tableReservation && <div>Table Reservation</div>}
           </div>
         </>
       )}

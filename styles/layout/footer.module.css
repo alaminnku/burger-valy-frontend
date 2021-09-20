@@ -1,12 +1,12 @@
 .Footer {
   padding: 1rem;
   margin-bottom: 3.5rem;
-  background-color: var(--almostWhite);
+  background-color: var(--slateGrey);
 }
 
 .Content {
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid var(--borderColor);
+  border-bottom: 0.5px solid var(--almostWhite);
 }
 
 .AboutUs,
@@ -18,17 +18,19 @@
 
 .Footer h4 {
   margin-bottom: 0.3rem;
+  color: var(--kindaRed);
 }
 
 .Footer p {
   font-weight: var(--medium);
+  color: var(--almostWhite);
   font-size: 0.9rem;
   margin-bottom: 0.3rem;
 }
 
 .Footer small {
   font-weight: var(--regular);
-  color: var(--grey);
+  color: var(--almostWhite);
   font-size: 0.9rem;
 }
 
@@ -37,7 +39,7 @@
 }
 
 .QuickLinks ul li a {
-  color: var(--green);
+  color: var(--kindaRed);
   font-size: 0.9rem;
   transition: all 200ms ease-in-out;
 }
@@ -63,7 +65,7 @@
   }
 
   .QuickLinks ul li a:hover {
-    color: var(--kindaRed);
+    color: var(--almostWhite);
   }
 
   .Content {
