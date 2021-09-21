@@ -18,8 +18,8 @@ const Footer = () => {
         <div className={styles.Info}>
           <div className={styles.OpeningHours}>
             <h4>Opening Hours</h4>
-            <p>Saturday-Friday</p>
-            <small>10AM-10PM</small>
+            <p>Saturday-Thursday</p>
+            <small>10am-10pm</small>
           </div>
 
           <div className={styles.ContactInfo}>
