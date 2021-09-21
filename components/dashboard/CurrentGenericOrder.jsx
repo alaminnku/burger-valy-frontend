@@ -73,8 +73,8 @@ const CurrentGenericOrder = ({ orderDone, reOrdered }) => {
 
   const address = (
     <small className={styles.Address}>
-      <span>Please collect your orders at - </span> Thompson Street 75, New York
-      City, NY 10012. USA
+      <span>Please collect your orders at - </span> 68/5 Dorga Road, Opposite of
+      Lions School Khulna, Bangladesh
     </small>
   );
 

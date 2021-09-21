@@ -14,8 +14,8 @@ const MenuPage = () => {
         <div className={styles.Title}>
           <h2>Order Food for You and Your Family!</h2>
           <small>
-            Pick your order up hot in 30 minutes and enjoy the deliciousness
-            together!
+            Get the food you like! Order and pickup hot in 30 minutes and enjoy
+            the deliciousness together!
           </small>
         </div>
         <Menu />

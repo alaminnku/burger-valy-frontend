@@ -23,14 +23,14 @@ export const updatePrice = () => async (dispatch) => {
       small,
       medium,
       large,
-      cheesePizza,
       clubSandwich,
       crispyFriedChicken,
       fishFingers,
       mexicanTaco,
-      ovenBakedPasta,
+      pasta,
       pepperoniPizza,
       subSandwich,
+      mushroomSalad,
     } = res.data;
 
     // Fetched price
@@ -42,14 +42,14 @@ export const updatePrice = () => async (dispatch) => {
       small,
       medium,
       large,
-      cheesePizza,
       clubSandwich,
       crispyFriedChicken,
       fishFingers,
       mexicanTaco,
-      ovenBakedPasta,
+      pasta,
       pepperoniPizza,
       subSandwich,
+      mushroomSalad,
     };
 
     dispatch({

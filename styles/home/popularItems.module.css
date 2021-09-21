@@ -2,6 +2,8 @@
 }
 
 .PopularItems .Title {
+  max-width: 34rem;
+  margin: 0 auto;
   margin-bottom: 1rem;
 }
 

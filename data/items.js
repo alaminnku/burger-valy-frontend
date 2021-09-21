@@ -1,27 +1,5 @@
 export const items = [
   {
-    name: "Cheese Pizza",
-    slug: "cheese-pizza",
-    img: "/images/menu/cheese-pizza.jpg",
-    ingredients: [
-      "Yeast",
-      "Flour",
-      "Oil",
-      "Salt",
-      "Sugar",
-      "Cornmeal",
-      "Pizza sauce",
-      "Dried oregano",
-      "Garlic powder",
-      "Fresh mozzarella cheese",
-      "Shredded mozzarella cheese",
-    ],
-    quantity: 1,
-    calorie: 450,
-    pickupTime: "30m",
-  },
-
-  {
     name: "Club Sandwich",
     slug: "club-sandwich",
     img: "/images/menu/club-sandwich.jpg",
@@ -61,9 +39,9 @@ export const items = [
   },
 
   {
-    name: "Oven Baked Pasta",
-    slug: "oven-baked-pasta",
-    img: "/images/menu/oven-baked-pasta.jpg",
+    name: "Pasta",
+    slug: "pasta",
+    img: "/images/menu/pasta.jpg",
     ingredients: [
       "Dry pasta",
       "Lean ground beef",
@@ -160,5 +138,26 @@ export const items = [
     quantity: 1,
     calorie: 250,
     pickupTime: "45m",
+  },
+  {
+    name: "Mushroom Salad",
+    slug: "mushroom-salad",
+    img: "/images/menu/mushroom-salad.jpg",
+    ingredients: [
+      "Chopped chicken",
+      "Bell peppers",
+      "Fresh parsley",
+      "Lemon juice",
+      "Olive oil",
+      "Soy sauce",
+      "Shredded lettuce",
+      "Sherry vinegar",
+      "Tomato paste",
+      "Fresh ground pepper",
+      "Extra virgin olive oil",
+    ],
+    quantity: 1,
+    calorie: 150,
+    pickupTime: "30m",
   },
 ];

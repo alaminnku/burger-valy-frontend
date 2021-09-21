@@ -8,10 +8,10 @@ const Footer = () => {
         <div className={styles.AboutUs}>
           <h4>About Us</h4>
           <small>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
-            dolores sint. Pariatur, perferendis vitae ipsum distinctio, alias,
-            est blanditiis similique voluptatibus iure incidunt libero
-            cupiditate!
+            We are a small restaurant trying to deliver the best quality food
+            possible. We love cooking delicious foods for you. Everyday we get
+            inspired seeing the delightful faces of our customers when they try
+            our foods.
           </small>
         </div>
 
@@ -34,12 +34,12 @@ const Footer = () => {
 
             <div className={styles.Item}>
               <p>Phone:</p>
-              <small>+880 17011 022 532</small>
+              <a href='tel:01701022532'>+880 17011 022 532</a>
             </div>
 
             <div className={styles.Item}>
               <p>Email:</p>
-              <small>info@burgervalley.com</small>
+              <a href='mailto: info@burgervalley.com'>info@burgervalley.com</a>
             </div>
           </div>
         </div>

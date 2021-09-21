@@ -22,10 +22,10 @@ const HomePage = () => {
 
       <main className={styles.HomePage}>
         <div className={styles.Title}>
-          <h2>Make Your Burger</h2>
+          <h2>Make Your Burger Right</h2>
           <small>
-            Choose the ingredients and make the burger. Order online and pickup
-            in 30 minutes!
+            Choose the ingredients you like and make the burger instantly. Order
+            online and pickup in 30 minutes!
           </small>
         </div>
         <Cards />
@@ -33,7 +33,8 @@ const HomePage = () => {
         <div className={styles.Title}>
           <h2>Delicious Foods on Table!</h2>
           <small>
-            Visit our restaurant and enjoy foods in a foodie environment!
+            Visit our restaurant and enjoy delicious foods in a foodie
+            environment!
           </small>
         </div>
 
@@ -45,7 +46,8 @@ const HomePage = () => {
           <div className={styles.Title}>
             <h2>Reserve a Table</h2>
             <small>
-              Reserve a table and enjoy foods with your friends and family!
+              Reserve a table for your friends and family and enjoy the
+              deliciousness together!
             </small>
           </div>
 

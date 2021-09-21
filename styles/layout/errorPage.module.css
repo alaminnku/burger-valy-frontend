@@ -1,0 +1,40 @@
+.ErrorPage {
+  padding: 1rem;
+  text-align: center;
+}
+
+.Content {
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+.Content h4,
+.Content p {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .ErrorPage {
+    padding: 2rem 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .ErrorPage {
+    padding: 3rem 5rem;
+  }
+
+  .Content h4,
+  .Content p {
+    margin-bottom: 0.8rem;
+  }
+}
+@media (min-width: 1280px) {
+  .ErrorPage {
+    padding: 4rem 8rem;
+  }
+}
+@media (min-width: 1440px) {
+  .ErrorPage {
+    padding: 4rem 10rem;
+  }
+}

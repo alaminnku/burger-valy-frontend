@@ -54,7 +54,8 @@ const PopularItems = () => {
       <div className={styles.Title}>
         <h2>Most Popular Items</h2>
         <small>
-          Few of our great dishes absolutely loved by people like you!
+          Few of our great dishes absolutely loved by people like you! Pick
+          yours from the list below.
         </small>
       </div>
 

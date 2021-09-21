@@ -3,6 +3,8 @@
 }
 
 .HomePage .Title {
+  max-width: 34rem;
+  margin: 0 auto;
   margin-bottom: 1rem;
 }
 
@@ -34,8 +36,6 @@
 
   .HomePage .Title {
     text-align: center;
-    width: 80%;
-    margin: 0 auto;
     margin-bottom: 1.5rem;
   }
 

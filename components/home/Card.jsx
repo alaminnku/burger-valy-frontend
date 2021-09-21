@@ -4,7 +4,7 @@ import LinkButton from "../layout/LinkButton";
 const Card = ({ title, href, bgImage }) => {
   const background = {
     backgroundImage: `url(${bgImage})`,
-    backgroundPosition: "left bottom",
+    backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   };

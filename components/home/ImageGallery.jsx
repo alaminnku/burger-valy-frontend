@@ -5,12 +5,11 @@ import styles from "@styles/home/imageGallery.module.css";
 
 const images = [
   { src: "/images/home/interior-1.jpg" },
-  { src: "/images/home/table.jpg" },
-  { src: "/images/home/table-2.jpg" },
-  { src: "/images/home/food-plates.jpg" },
-  { src: "/images/home/noodles.jpg" },
-  { src: "/images/home/pizza.jpg" },
-  { src: "/images/home/burger.jpg" },
+  { src: "/images/home/mexican-taco.jpg" },
+  { src: "/images/home/pepperoni-pizza.jpg" },
+  { src: "/images/home/fish-fingers.jpg" },
+  { src: "/images/home/chicken-burger.jpg" },
+  { src: "/images/home/mushroom-salad.jpg" },
   { src: "/images/home/coffee.jpg" },
 ];
 
