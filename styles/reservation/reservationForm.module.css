@@ -35,6 +35,16 @@
   width: 100%;
 }
 
+.ReservationForm form .Item input[type="date"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  min-height: 2.2rem;
+}
+
+.ReservationForm form .Item select {
+  -webkit-appearance: none;
+}
+
 .ReservationForm form select {
   padding: 0.6rem 0.3rem;
 }
