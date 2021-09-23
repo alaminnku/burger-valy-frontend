@@ -37,7 +37,7 @@
 }
 
 .QuickLinks ul li a {
-  color: var(--kindaRed);
+  color: var(--yellow);
   font-size: 0.9rem;
   transition: all 200ms ease-in-out;
 }
@@ -63,7 +63,7 @@
   }
 
   .QuickLinks ul li a:hover {
-    color: var(--slateGrey);
+    color: var(--green);
   }
 
   .Content {

@@ -19,7 +19,12 @@ const ImageGallery = () => {
   return (
     <div className={styles.ImageGallery}>
       <div className={styles.Image}>
-        <Image src={images[currentImage].src} width='1024' height='576' />
+        <Image
+          src={images[currentImage].src}
+          width='1024'
+          height='576'
+          layout='responsive'
+        />
       </div>
 
       <div className={styles.Arrows}>

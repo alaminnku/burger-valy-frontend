@@ -12,6 +12,10 @@
   margin-bottom: 1rem;
 }
 
+.ItemPage .Image img {
+  border-radius: 0.5rem;
+}
+
 .ItemPage .Content {
   display: flex;
   justify-content: space-between;
@@ -69,7 +73,7 @@
 @media (min-width: 1024px) {
   .ItemPage {
     padding: 3rem 5rem;
-    max-width: 55rem;
+    width: 85%;
     margin: 0 auto;
   }
 }

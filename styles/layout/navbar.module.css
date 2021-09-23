@@ -61,15 +61,14 @@
     border: none;
   }
 
-  .Navbar .DesktopNav ul li a:hover {
-    color: var(--green);
+  .Navbar .DesktopNav ul li a:hover,
+  .Navbar .DesktopNav ul li a.Active {
+    color: var(--yellow);
   }
 
-  .Navbar .DesktopNav ul li a.Active {
-    color: var(--green);
-  }
-  .Navbar .DesktopNav ul li:last-child a:hover {
-    background-color: var(--slateGrey);
+  .Navbar .DesktopNav ul li:last-child a:hover,
+  .Navbar .DesktopNav ul li:last-child a.Active {
+    background-color: var(--yellow);
     color: var(--almostWhite);
     border: none;
   }

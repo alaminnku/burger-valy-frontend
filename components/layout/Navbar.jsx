@@ -33,7 +33,7 @@ const Navbar = () => {
         <ul>
           <li>
             <Link href='/menu'>
-              <a className={router.pathname === "/menu" ? styles.Active : ""}>
+              <a className={router.pathname === "/menu" ? styles.Active : null}>
                 Menu
               </a>
             </Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
             <Link href='/reservation'>
               <a
                 className={
-                  router.pathname === "/reservation" ? styles.Active : ""
+                  router.pathname === "/reservation" ? styles.Active : null
                 }
               >
                 Reservation
@@ -55,7 +55,7 @@ const Navbar = () => {
             <Link href='/dashboard'>
               <a
                 className={
-                  router.pathname === "/dashboard" ? styles.Active : ""
+                  router.pathname === "/dashboard" ? styles.Active : null
                 }
               >
                 Dashboard
@@ -70,7 +70,13 @@ const Navbar = () => {
               </Link>
             ) : (
               <Link href='/register'>
-                <a>Sign Up</a>
+                <a
+                  className={
+                    router.pathname === "/register" ? styles.Active : null
+                  }
+                >
+                  Sign Up
+                </a>
               </Link>
             )}
           </li>

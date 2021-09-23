@@ -92,7 +92,13 @@ const ItemPage = ({ item }) => {
         <h3>{item.name}</h3>
 
         <div className={styles.Image}>
-          <Image src={item.img} alt='' width='768' height='432' />
+          <Image
+            src={item.img}
+            alt=''
+            width='768'
+            height='432'
+            layout='responsive'
+          />
         </div>
 
         <div className={styles.Content}>
