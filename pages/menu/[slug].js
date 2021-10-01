@@ -84,9 +84,9 @@ const ItemPage = ({ item }) => {
   return (
     <>
       <HeadSection
-        title={`Burger Valley | ${item.name}`}
+        title={`Burger Valy | ${item.name}`}
         content={`Order ${item.name.toLowerCase()} and pickup in just 30 minutes.`}
-        pageURL={`https://www.burgervalley.com/menu/${item.slug}`}
+        pageURL={`https://www.burgervaly.com/menu/${item.slug}`}
       />
       <main className={styles.ItemPage}>
         <h3>{item.name}</h3>

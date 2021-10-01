@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className={styles.Logo}>
         <Link href='/'>
           <a>
-            <h3>Burger Valley</h3>
+            <h3>Burger Valy</h3>
           </a>
         </Link>
       </div>

@@ -6,9 +6,9 @@ const ForgotPasswordPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Forgot Password'
+        title='Burger Valy | Forgot Password'
         content='Forgot your password? Get a password reset link to your email.'
-        pageURL='https://www.burgervalley.com/forgot-password'
+        pageURL='https://www.burgervaly.com/forgot-password'
       />
       <div className={styles.ForgotPasswordPage}>
         <ForgotPassword />

@@ -6,9 +6,9 @@ const BeefBurgerPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Beef Burger'
+        title='Burger Valy | Beef Burger'
         content='Make your beef burger right. Add and remove ingredients as you like.'
-        pageURL='https://www.burgervalley.com/beef-burger'
+        pageURL='https://www.burgervaly.com/beef-burger'
       />
       <main className={styles.BurgerPage}>
         <Burger pattyType='Beef' />

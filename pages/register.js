@@ -10,9 +10,9 @@ const RegisterPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Create Account'
-        content='Create your burger valley account and start ordering delicious foods.'
-        pageURL='https://www.burgervalley.com/register'
+        title='Burger Valy | Create Account'
+        content='Create your burger valy account and start ordering delicious foods.'
+        pageURL='https://www.burgervaly.com/register'
       />
       <main className={styles.Register}>
         <RegisterForm />

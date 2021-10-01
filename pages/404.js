@@ -6,7 +6,7 @@ const ErrorPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Page Not Found'
+        title='Burger Valy | Page Not Found'
         content='Requested page is not found!'
       />
       <main className={styles.ErrorPage}>
@@ -16,7 +16,7 @@ const ErrorPage = () => {
             The page you are requesting either doesn't exists or broken. Please
             check the link you are trying to open is correct.
           </p>
-          <LinkButton text='Go Home' href='https://www.burgervalley.com/' />
+          <LinkButton text='Go Home' href='https://www.burgervaly.com/' />
         </div>
       </main>
     </>

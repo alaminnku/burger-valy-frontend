@@ -39,7 +39,7 @@ const Footer = () => {
 
             <div className={styles.Item}>
               <p>Email:</p>
-              <a href='mailto: info@burgervalley.com'>info@burgervalley.com</a>
+              <a href='mailto: info@burgervaly.com'>info@burgervaly.com</a>
             </div>
           </div>
         </div>

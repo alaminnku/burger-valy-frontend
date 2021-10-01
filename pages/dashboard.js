@@ -11,9 +11,9 @@ const DashboardPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Dashboard'
+        title='Burger Valy | Dashboard'
         content='Check your current and all orders. Reorder foods you love in one click.'
-        pageURL='https://www.burgervalley.com/dashboard'
+        pageURL='https://www.burgervaly.com/dashboard'
       />
 
       <main className={styles.DashboardPage}>

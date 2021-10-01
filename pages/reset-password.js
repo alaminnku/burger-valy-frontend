@@ -6,9 +6,9 @@ const ResetPasswordPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Reset Password'
-        content='Reset your burger valley password.'
-        pageURL='https://www.burgervalley.com/reset-password'
+        title='Burger Valy | Reset Password'
+        content='Reset your burger valy password.'
+        pageURL='https://www.burgervaly.com/reset-password'
       />
 
       <main className={styles.ResetPasswordPage}>

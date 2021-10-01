@@ -7,9 +7,9 @@ const SidePage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Add Side'
+        title='Burger Valy | Add Side'
         content='See the initial summary and add side with your vegetable burger.'
-        pageURL='https://www.burgervalley.com/vegetable-burger/side'
+        pageURL='https://www.burgervaly.com/vegetable-burger/side'
       />
       <main className={styles.Side}>
         <Summary />

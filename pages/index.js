@@ -14,10 +14,10 @@ const HomePage = () => {
   return (
     <>
       <HeadSection
-        title='Best Quality Burgers and Fast Foods in Khulna - Burger Valley'
+        title='Best Quality Burgers and Fast Foods in Khulna - Burger Valy'
         content='Make, order and pickup your foods in just 30 minutes.'
-        pageURL='https://www.burgervalley.com/'
-        ogImage='https://www.burgervalley.com/images/home/burger.jpg'
+        pageURL='https://www.burgervaly.com/'
+        ogImage='https://www.burgervaly.com/images/home/burger.jpg'
       />
 
       <main className={styles.HomePage}>

@@ -10,9 +10,9 @@ const LoginPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Sing In'
-        content='Sign in to your burger valley account to see the active and all previous orders.'
-        pageURL='https://www.burgervalley.com/login'
+        title='Burger Valy | Sing In'
+        content='Sign in to your burger valy account to see the active and all previous orders.'
+        pageURL='https://www.burgervaly.com/login'
       />
       <main className={styles.Login}>
         <LoginForm />

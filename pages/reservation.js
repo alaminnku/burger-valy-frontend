@@ -7,9 +7,9 @@ const ReservationPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Reserve a Table'
+        title='Burger Valy | Reserve a Table'
         content='Reserve a table for party and family get together.'
-        pageURL='https://www.burgervalley.com/reservation'
+        pageURL='https://www.burgervaly.com/reservation'
       />
       <main className={styles.ReservationPage}>
         <ReservationForm

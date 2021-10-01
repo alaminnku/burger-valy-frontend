@@ -6,9 +6,9 @@ const MenuPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valley | Menu'
+        title='Burger Valy | Menu'
         content='Choose delicious foods from the menu. Order and pickup hot in 30 minutes.'
-        pageURL='https://www.burgervalley.com/menu'
+        pageURL='https://www.burgervaly.com/menu'
       />
       <main className={styles.MenuPage}>
         <div className={styles.Title}>
