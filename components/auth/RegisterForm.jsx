@@ -61,7 +61,7 @@ const RegisterForm = () => {
       setLoading(true);
 
       // Post the request
-      const res = await axios.post(`${API_URL}/auth/local/register`, {
+      await axios.post(`${API_URL}/auth/local/register`, {
         name,
         email,
         username: email,
