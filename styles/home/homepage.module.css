@@ -2,30 +2,30 @@
   padding: 1rem;
 }
 
-.HomePage .Title {
+.Title {
   max-width: 34rem;
   margin: 0 auto;
   margin-bottom: 1rem;
 }
 
-.HomePage .Title h2 {
+.Title h2 {
   font-weight: var(--bold);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
-.HomePage .Title small {
+.Title p {
   color: var(--grey);
 }
 
-.HomePage .ImageGallery {
+.ImageGallery {
   margin-bottom: 0.5rem;
 }
 
-.HomePage .ReservationForm {
+.ReservationForm {
   margin-bottom: 1rem;
 }
 
-.HomePage .ReservationForm .Title {
+.ReservationForm .Title {
   margin-bottom: 1rem;
 }
 
@@ -34,12 +34,12 @@
     padding: 2rem 3rem;
   }
 
-  .HomePage .Title {
+  .Title {
     text-align: center;
     margin-bottom: 1.5rem;
   }
 
-  .HomePage .ReservationForm {
+  .ReservationForm {
     margin-bottom: 2rem;
   }
 }
@@ -50,31 +50,34 @@
     margin-bottom: 0rem;
   }
 
-  .HomePage .Title {
+  .Title {
     width: 65%;
     margin-bottom: 2rem;
   }
 
-  .HomePage .ImageGallery {
+  .ImageGallery {
     margin-bottom: 3rem;
   }
 
-  .HomePage .ReservationForm {
+  .ReservationForm {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 3rem;
   }
 
-  .HomePage .ReservationForm .Title {
+  .ReservationForm .Title {
     width: 30%;
-    margin-bottom: 0rem;
+    margin: 0rem;
     text-align: left;
   }
 
-  .HomePage .ReservationForm .Form {
-    width: 70%;
-    margin-left: 2rem;
+  .ReservationForm .Title p {
+    color: var(--grey);
+  }
+
+  .ReservationForm .Form {
+    width: 60%;
   }
 }
 
@@ -85,11 +88,5 @@
 
   .HomePage .Title {
     margin-bottom: 3rem;
-  }
-}
-
-@media (min-width: 1440px) {
-  .HomePage {
-    padding: 4rem 10rem;
   }
 }

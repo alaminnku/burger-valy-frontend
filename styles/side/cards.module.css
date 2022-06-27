@@ -5,4 +5,12 @@
 
 .Cards button {
   align-self: center;
+  background-color: var(--slateGrey);
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+}
+
+.Cards button:hover {
+  box-shadow: 0 8px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: all 200ms;
 }

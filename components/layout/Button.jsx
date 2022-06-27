@@ -1,4 +1,5 @@
 import styles from "@styles/layout/button.module.css";
+
 const Button = ({ text, clicked, style, disabled }) => {
   return (
     <button

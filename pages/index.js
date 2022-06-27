@@ -14,28 +14,27 @@ const HomePage = () => {
   return (
     <>
       <HeadSection
-        title='Best Quality Burgers and Fast Foods in Khulna - Burger Valy'
-        content='Make, order and pickup your foods in just 30 minutes.'
-        pageURL='https://www.burgervaly.com/'
-        ogImage='https://www.burgervaly.com/images/home/burger.jpg'
+        title="Best Quality Burgers and Fast Foods in Khulna - Burger Valy"
+        content="Make, order and pickup your foods in just 30 minutes."
+        pageURL="https://www.burgervaly.com/"
+        ogImage="https://www.burgervaly.com/images/home/burger.jpg"
       />
 
       <main className={styles.HomePage}>
         <div className={styles.Title}>
-          <h2>Make Your Burger Right</h2>
-          <small>
-            Choose the ingredients you like and make the burger instantly. Order
-            online and pickup in 30 minutes!
-          </small>
+          <h2>Create custom burgers</h2>
+          <p>
+            Create a custom burger with the ingredients of your preference,
+            order online and pickup in 30 minutes
+          </p>
         </div>
         <Cards />
 
         <div className={styles.Title}>
-          <h2>Delicious Foods on Table!</h2>
-          <small>
-            Visit our restaurant and enjoy delicious foods in a foodie
-            environment!
-          </small>
+          <h2>Image gallery</h2>
+          <p>
+            Visit our restaurant to enjoy quality foods in a foodie environment
+          </p>
         </div>
 
         <div className={styles.ImageGallery}>
@@ -45,19 +44,11 @@ const HomePage = () => {
         <div className={styles.ReservationForm}>
           <div className={styles.Title}>
             <h2>Reserve a Table</h2>
-            <small>
-              Reserve a table for your friends and family and enjoy the
-              deliciousness together!
-            </small>
+            <p>Book a table to enjoy foods together with friends and family</p>
           </div>
 
           <div className={styles.Form}>
-            <ReservationForm
-              style={{
-                borderRadius: ".5rem",
-                borderTop: "1.5px solid var(--borderColor)",
-              }}
-            />
+            <ReservationForm />
           </div>
         </div>
 

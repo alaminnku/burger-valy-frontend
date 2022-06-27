@@ -28,10 +28,16 @@
   color: var(--green);
 }
 
+.Title small {
+  color: var(--grey);
+  font-size: 0.9rem;
+  font-weight: var(--regular);
+}
+
 .Icon {
   align-self: flex-end;
-  font-size: 2rem;
-  color: var(--kindaRed);
+  font-size: 1.5rem;
+  color: var(--yellow);
   cursor: pointer;
 }
 
@@ -61,6 +67,6 @@
   }
 
   .Icon {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
   }
 }

@@ -16,13 +16,13 @@
 
 .AddIcon,
 .RemoveIcon {
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
 .AddIcon {
-  margin-right: 1rem;
-  color: var(--green);
+  margin-right: 0.75rem;
+  color: var(--yellow);
 }
 
 .RemoveIcon {
@@ -30,35 +30,30 @@
 }
 
 .Disabled {
-  color: var(--grey);
+  color: var(--borderColor);
   cursor: not-allowed;
 }
 
 @media (min-width: 768px) {
   .Controller {
-    width: 30rem;
+    width: 25rem;
     align-self: center;
     margin-bottom: 1rem;
   }
+
   .AddIcon,
   .RemoveIcon {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
   }
 
   .AddIcon {
-    margin-right: 1.5rem;
+    margin-right: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
   .Controller {
-    width: 32rem;
+    width: 30rem;
     margin-bottom: 1.5rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .Controller {
-    margin-bottom: 2rem;
   }
 }

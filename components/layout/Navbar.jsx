@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { logout } from "@store/actions/authActions";
 import styles from "@styles/layout/navbar.module.css";
+import Image from "next/image";
 
 const Navbar = () => {
   // Dispatch and router
@@ -22,9 +23,9 @@ const Navbar = () => {
   return (
     <nav className={styles.Navbar}>
       <div className={styles.Logo}>
-        <Link href='/'>
+        <Link href="/">
           <a>
-            <h3>Burger Valy</h3>
+            <Image src="/images/layout/logo.png" width={100} height={100} />
           </a>
         </Link>
       </div>
@@ -32,7 +33,7 @@ const Navbar = () => {
       <div className={styles.DesktopNav}>
         <ul>
           <li>
-            <Link href='/menu'>
+            <Link href="/menu">
               <a className={router.pathname === "/menu" ? styles.Active : null}>
                 Menu
               </a>
@@ -40,7 +41,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link href='/reservation'>
+            <Link href="/reservation">
               <a
                 className={
                   router.pathname === "/reservation" ? styles.Active : null
@@ -52,7 +53,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link href='/dashboard'>
+            <Link href="/dashboard">
               <a
                 className={
                   router.pathname === "/dashboard" ? styles.Active : null
@@ -65,17 +66,17 @@ const Navbar = () => {
 
           <li>
             {token ? (
-              <Link href='#'>
+              <Link href="#">
                 <a onClick={handleLogout}>Log Out</a>
               </Link>
             ) : (
-              <Link href='/register'>
+              <Link href="/register">
                 <a
                   className={
                     router.pathname === "/register" ? styles.Active : null
                   }
                 >
-                  Sign Up
+                  Sign up
                 </a>
               </Link>
             )}
@@ -87,12 +88,12 @@ const Navbar = () => {
         <ul>
           <li>
             {token ? (
-              <Link href='#'>
+              <Link href="#">
                 <a onClick={handleLogout}>Log Out</a>
               </Link>
             ) : (
-              <Link href='/register'>
-                <a>Sign Up</a>
+              <Link href="/register">
+                <a>Sign up</a>
               </Link>
             )}
           </li>

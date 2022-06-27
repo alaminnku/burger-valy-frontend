@@ -1,6 +1,14 @@
 .ReservationForm {
-  padding: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
+  padding-bottom: 1rem;
+  background-color: var(--almostWhite);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border-radius: 0.25rem;
+}
+
+.ReservationForm form {
+  display: flex;
+  flex-direction: column;
 }
 
 .ReservationForm h3 {
@@ -9,66 +17,60 @@
   margin-bottom: 1rem;
 }
 
-.ReservationForm form {
-  display: flex;
-  flex-direction: column;
-}
-
 .Item {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.Item:nth-child(6) {
+  margin-bottom: 1.3rem;
 }
 
 .Item label {
-  margin-bottom: 0.3rem;
   font-size: 0.9rem;
-  color: var(--grey);
+  margin-bottom: 0.3rem;
+  font-weight: var(--medium);
 }
 
-.ReservationForm form input,
-.ReservationForm form textarea,
-.ReservationForm form select {
+.Item input,
+.Item textarea,
+.Item select {
   border: 1px solid var(--borderColor);
-  padding: 0.3rem;
-  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   width: 100%;
 }
 
-.ReservationForm form .Item input[type="date"] {
+.Item input[type="date"],
+.Item input[type="time"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   min-height: 2.2rem;
+  font-family: "Roboto", "sans-sarif";
+  font-size: 0.8rem;
+  color: var(--borderColor);
 }
 
-.ReservationForm form .Item select {
+.Item select {
   -webkit-appearance: none;
-}
-
-.ReservationForm form select {
   padding: 0.6rem 0.3rem;
 }
 
-.ReservationForm form textarea {
+.Item textarea {
   height: 10rem;
-  padding: 0.3rem;
-  margin-bottom: 1.5rem;
+  resize: none;
+  font-family: "Roboto", "sans-sarif";
 }
 
-.Item input:focus,
-.Item textarea:focus {
-  outline: 2px solid var(--kindaRed);
-  border: none;
+.Item input::placeholder,
+.Item textarea::placeholder {
+  font-size: 0.8rem;
+  color: var(--borderColor);
 }
 
 @media (min-width: 768px) {
   .ReservationForm {
-    padding: 2rem 4rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .ReservationForm {
-    padding: 3rem 5rem;
+    padding: 2rem;
   }
 }

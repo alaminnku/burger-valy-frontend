@@ -16,28 +16,13 @@
 
 .Item label {
   margin-right: 0.5rem;
+  color: var(--grey);
+  font-size: 0.9rem;
 }
 
 @media (min-width: 768px) {
   .Items {
-    grid-template-columns: auto auto auto auto;
-  }
-}
-
-@media (min-width: 1024px) {
-  .Items {
     margin-bottom: 1rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .Items {
-    margin-bottom: 1.5rem;
-  }
-}
-
-@media (min-width: 1440px) {
-  .Items {
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
   }
 }

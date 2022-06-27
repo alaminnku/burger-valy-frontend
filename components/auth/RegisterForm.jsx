@@ -100,45 +100,49 @@ const RegisterForm = () => {
       </h3>
       <form>
         <div className={styles.Item}>
-          <label htmlFor='name'>Name</label>
+          <label htmlFor="name">Name</label>
           <input
-            type='text'
-            id='name'
-            name='name'
+            type="text"
+            id="name"
+            name="name"
             value={name}
+            placeholder="Enter your name"
             onChange={(e) => handleChange(e)}
           />
         </div>
 
         <div className={styles.Item}>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor="email">Email</label>
           <input
-            type='email'
-            id='email'
-            name='email'
+            type="email"
+            id="email"
+            name="email"
             value={email}
+            placeholder="Enter your email address"
             onChange={(e) => handleChange(e)}
           />
         </div>
 
         <div className={styles.Item}>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor="password">Password</label>
           <input
-            type='password'
-            id='password'
-            name='password'
+            type="password"
+            id="password"
+            name="password"
             value={password}
+            placeholder="Enter password"
             onChange={(e) => handleChange(e)}
           />
         </div>
 
         <div className={styles.Item}>
-          <label htmlFor='confirmPassword'>Confirm password</label>
+          <label htmlFor="confirmPassword">Confirm password</label>
           <input
-            type='password'
-            id='confirmPassword'
-            name='confirmPassword'
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
             value={confirmPassword}
+            placeholder="Confirm password"
             onChange={(e) => handleChange(e)}
           />
         </div>
@@ -151,7 +155,7 @@ const RegisterForm = () => {
       </form>
 
       <small>
-        Already have an account? Please <Link href='/login'>login</Link>
+        Already have an account? Please <Link href="/login">login</Link>
       </small>
     </div>
   );

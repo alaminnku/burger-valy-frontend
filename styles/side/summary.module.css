@@ -22,12 +22,18 @@
 }
 
 .Description p {
-  font-weight: var(--semiBold);
+  font-weight: var(--medium);
 }
 
 .Description ul {
   margin-bottom: 0.25rem;
   margin-left: 0.5rem;
+}
+
+.Description ul li {
+  color: var(--grey);
+  font-weight: var(--regular);
+  font-size: 0.9rem;
 }
 
 @media (min-width: 768px) {
@@ -43,10 +49,6 @@
   .Description p:first-child,
   .Description ul {
     margin-bottom: 0.5rem;
-  }
-
-  .Icon {
-    font-size: 2rem;
   }
 }
 

@@ -98,53 +98,60 @@ const ReservationForm = ({ style, title }) => {
       {title}
       <form>
         <div className={styles.Item}>
-          <label htmlFor='name'>Name</label>
-          <input type='text' id='name' value={name} onChange={handleChange} />
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            placeholder="Enter your name"
+            onChange={handleChange}
+          />
         </div>
 
         <div className={styles.Item}>
-          <label htmlFor='numberOfGuests'>Number of Guests</label>
+          <label htmlFor="numberOfGuests">Guests</label>
           <input
-            type='number'
-            id='numberOfGuests'
+            type="number"
+            id="numberOfGuests"
+            placeholder="Number of guests"
             value={numberOfGuests}
             onChange={handleChange}
           />
         </div>
 
         <div className={styles.Item}>
-          <label htmlFor='date'>Date</label>
-          <input type='date' id='date' value={date} onChange={handleChange} />
+          <label htmlFor="date">Date</label>
+          <input type="date" id="date" value={date} onChange={handleChange} />
         </div>
 
         <div className={styles.Item}>
           <label>Time</label>
-          <select id='time' onChange={handleChange} value={time}>
-            <option hidden value='When would you like to book?'>
-              When would you like to book?
-            </option>
-            <option value='Lunch'>Lunch</option>
-            <option value='Dinner'>Dinner</option>
-          </select>
+          <input type="time" id="time" value={time} onChange={handleChange} />
         </div>
 
         <div className={styles.Item}>
-          <label htmlFor='phone'>Phone No.</label>
+          <label htmlFor="phone">Phone</label>
           <input
-            type='number'
-            id='phone'
+            type="number"
+            id="phone"
             value={phone}
+            placeholder="Enter your phone number"
             onChange={handleChange}
           />
         </div>
 
         <div className={styles.Item}>
-          <label htmlFor='message'>Message</label>
-          <textarea id='message' value={message} onChange={handleChange} />
+          <label htmlFor="message">Message</label>
+          <textarea
+            id="message"
+            value={message}
+            placeholder="Enter your message"
+            onChange={handleChange}
+          />
         </div>
 
         <Button
-          text={loading ? <Loader /> : "Reserve Now"}
+          text={loading ? <Loader /> : "Reserve now"}
           clicked={handleSubmit}
           disabled={disabled}
         />

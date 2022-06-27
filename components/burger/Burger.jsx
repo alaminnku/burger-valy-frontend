@@ -32,9 +32,12 @@ const Burger = ({ pattyType }) => {
 
   return (
     <div className={styles.Burger}>
-      <h3>{pattyType} Burger</h3>
+      <h2>{pattyType} burger</h2>
+
       <Ingredients ingredients={ingredients} pattyType={pattyType} />
-      <h4 className={styles.Price}>Price: ${totalPrice}</h4>
+
+      <p className={styles.Price}>Price: ${totalPrice}</p>
+
       <Controller
         ingredients={ingredients}
         price={price}
@@ -42,14 +45,13 @@ const Burger = ({ pattyType }) => {
       />
 
       <LinkButton
-        text="CONTINUE"
+        text="Continue"
         href={`${
           burger.type === "Cheddar"
             ? "/cheese-burger/side"
             : `/${burger.type.toLowerCase()}-burger/side`
         }`}
         clicked={() => Cookies.set("burger", burger)}
-        LinkStyle={{ textAlign: "center", width: "100%" }}
         disabled={disabled}
       />
     </div>

@@ -1,12 +1,18 @@
 .Burger {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
-.Burger h3,
+.Burger h2,
 .Price {
   margin-bottom: 1rem;
-  text-align: center;
+}
+
+.Price {
+  color: var(--green);
+  font-weight: var(--medium);
+  font-size: 0.9rem;
 }
 
 @media (min-width: 768px) {
@@ -15,13 +21,13 @@
     flex-direction: column;
   }
 
-  .Burger .Price {
-    margin-bottom: 2rem;
+  .Price {
+    margin-bottom: 1.5rem;
   }
 }
 
-@media (min-width: 120px) {
-  .Burger .Price {
-    margin-bottom: 2.5rem;
+@media (min-width: 1024px) {
+  .Burger a {
+    padding: 0.4rem 1.25rem;
   }
 }

@@ -10,7 +10,6 @@
 .Item h5 {
   align-self: flex-end;
   color: var(--almostWhite);
-  font-family: "Carter One";
   font-size: 0.8rem;
 }
 
@@ -21,7 +20,6 @@
 }
 
 .TitleButton h2 {
-  font-family: "Carter One";
   color: var(--almostWhite);
   max-width: 60%;
 }

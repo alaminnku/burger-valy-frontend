@@ -38,6 +38,11 @@
 }
 
 @media (min-width: 1024px) {
+  .ImageGallery {
+    width: 85%;
+    margin: 0 auto;
+  }
+
   .Arrows {
     font-size: 2rem;
     padding: 0rem 1rem;

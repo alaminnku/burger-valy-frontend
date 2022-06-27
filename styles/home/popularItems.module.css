@@ -1,92 +1,85 @@
-.PopularItems .Title {
-  max-width: 34rem;
-  margin: 0 auto;
+.Title {
   margin-bottom: 1rem;
 }
 
-.PopularItems .Title h2 {
+.Title h2 {
   font-weight: var(--bold);
   margin-bottom: 0.5rem;
 }
 
-.PopularItems .Title small {
+.Title p {
   color: var(--grey);
 }
 
-.PopularItems .Card {
+.Card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--almostWhite);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
   padding: 1rem;
-  border-radius: 0.5rem;
-  border-top: 1.5px solid var(--kindaRed);
+  border-radius: 0.25rem;
 }
 
-.PopularItems .Card .Image {
+.Image {
   position: relative;
   margin-bottom: 1rem;
 }
 
-.PopularItems .Card .Image h5 {
+.Image h5 {
   position: absolute;
   background-color: var(--green);
   border-radius: 50%;
-  padding: 1.14rem 0.5rem;
+  padding: 1rem 0.5rem;
   color: var(--almostWhite);
   top: 8%;
   right: -8%;
 }
 
-.PopularItems .Card img {
+.Card img {
   border-radius: 50%;
 }
 
-.PopularItems .Card .Content {
+.Content {
   text-align: center;
   margin-bottom: 1rem;
 }
 
-.PopularItems .Card .Content h4 {
+.Content h4 {
   margin-bottom: 0.5rem;
 }
 
-.PopularItems .Card .Content small {
+.Content small {
   color: var(--grey);
   font-size: 0.9rem;
+  font-weight: var(--regular);
 }
 
 @media (min-width: 768px) {
-  .PopularItems .Title {
-    text-align: center;
+  .Title {
     margin-bottom: 1.5rem;
   }
 
-  .PopularItems .Cards {
+  .Cards {
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 2rem;
   }
 
-  .PopularItems .Card {
+  .Card {
     margin-bottom: 0rem;
+    padding: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .PopularItems .Title {
+  .Title {
     margin-bottom: 2rem;
   }
 
-  .PopularItems .Cards {
+  .Cards {
     grid-template-columns: auto auto auto;
     grid-gap: 2.5rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .PopularItems .Title {
-    margin-bottom: 3rem;
   }
 }

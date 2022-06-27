@@ -1,42 +1,41 @@
 .Card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 15rem;
-  border-radius: 0.5rem;
-  padding: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border-radius: 0.25rem;
 }
 
-.Card h5 {
-  align-self: flex-end;
-  color: var(--almostWhite);
-  font-family: "Carter One";
-  font-size: 0.8rem;
+.Image img {
+  border-radius: 0.25rem 0.25rem 0rem 0rem;
 }
 
-.TitleButton {
+.Content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.5rem;
 }
 
-.Card h2 {
-  font-family: "Carter One";
-  color: var(--almostWhite);
+.Content p:first-child {
+  font-size: 1.25rem;
+  font-weight: var(--medium);
+  color: var(--slateGrey);
+}
+
+.Content p:last-child {
+  color: var(--grey);
+  font-size: 0.9rem;
 }
 
 @media (min-width: 768px) {
   .Card {
-    height: 17rem;
+    border-radius: 0.5rem;
   }
 
-  .Card h5 {
-    font-size: 0.9rem;
+  .Image img {
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    margin-bottom: 1rem;
   }
-}
 
-@media (min-width: 1280px) {
-  .Card {
-    height: 18rem;
+  .Content {
+    padding: 0.75rem 1rem;
   }
 }

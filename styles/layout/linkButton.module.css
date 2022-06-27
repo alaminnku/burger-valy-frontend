@@ -1,34 +1,27 @@
-.LinkButton {
-  display: flex;
-  justify-content: center;
-}
-
 .LinkButton a {
-  border: 2px solid transparent;
-  border-radius: 0.25rem;
-  background-color: var(--kindaRed);
-  padding: 0.1rem 0.8rem;
-  font-size: 1rem;
+  border-radius: 2rem;
+  background-color: var(--slateGrey);
+  padding: 0.3rem 1rem;
+  font-size: 0.9rem;
   color: var(--almostWhite);
-  font-weight: var(--medium);
+  font-weight: var(--regular);
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
 
-.LinkButton a:hover {
-  border: 2px solid var(--kindaRed);
-  color: var(--kindaRed);
-  background-color: transparent;
-}
-
 .Disabled a {
-  background-color: var(--grey);
-  color: var(--slateGrey);
+  background-color: var(--borderColor);
+  color: var(--grey);
   pointer-events: none;
 }
 
-@media (min-width: 768px) {
+.LinkButton a:hover {
+  box-shadow: 0 8px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: all 200ms;
+}
+
+@media (min-width: 1024px) {
   .LinkButton a {
-    font-weight: var(--medium);
+    padding: 0.3rem 0.8rem;
   }
 }

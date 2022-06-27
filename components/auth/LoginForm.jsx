@@ -58,23 +58,25 @@ const LoginForm = () => {
       </h3>
       <form>
         <div className={styles.Item}>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor="email">Email</label>
           <input
-            type='email'
-            id='email'
+            type="email"
+            id="email"
             value={email}
-            name='email'
+            name="email"
+            placeholder="Enter your email address"
             onChange={(e) => handleChange(e)}
           />
         </div>
 
         <div className={styles.Item}>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor="password">Password</label>
           <input
-            type='password'
-            id='password'
+            type="password"
+            id="password"
             value={password}
-            name='password'
+            name="password"
+            placeholder="Enter your password"
             onChange={(e) => handleChange(e)}
           />
         </div>
@@ -86,14 +88,12 @@ const LoginForm = () => {
         />
       </form>
 
-      <div className={styles.RegisterPassword}>
-        <small>
-          <Link href='/register'>Register here</Link>
-        </small>
-        <small>
-          <Link href='/forgot-password'>Reset password</Link>
-        </small>
-      </div>
+      <small>
+        Don't have an account? Register <Link href="/register">here</Link>
+      </small>
+      <small>
+        Forgot password? Reset <Link href="/forgot-password">here</Link>
+      </small>
     </div>
   );
 };

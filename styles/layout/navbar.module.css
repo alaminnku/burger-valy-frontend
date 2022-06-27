@@ -2,23 +2,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);
 }
 
-.Navbar .Logo {
-  font-family: "Permanent Marker";
+.Logo a {
+  display: flex;
+  align-items: center;
 }
 
-.Navbar .MobileNav ul li a {
-  background-color: var(--kindaRed);
-  padding: 0.3rem 0.8rem;
+.Logo img {
+  width: 45px;
+  height: 45px;
+}
+
+.MobileNav ul li a {
+  background-color: var(--green);
+  padding: 0.3rem 1rem;
   border-radius: 2rem;
   color: var(--almostWhite);
-  font-weight: var(--medium);
+  font-weight: var(--regular);
 }
 
-.Navbar .DesktopNav {
+.DesktopNav {
   display: none;
 }
 
@@ -30,45 +36,52 @@
 
 @media (min-width: 1024px) {
   .Navbar {
-    padding: 1.3rem 5rem;
+    padding: 0.75rem 5rem;
   }
 
-  .Navbar .MobileNav {
+  .MobileNav {
     display: none;
   }
 
-  .Navbar .DesktopNav {
+  .DesktopNav {
     display: flex;
     align-items: center;
   }
 
-  .Navbar .DesktopNav ul {
+  .Logo img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .DesktopNav ul {
     display: flex;
     margin-right: 0.5rem;
   }
 
-  .Navbar .DesktopNav ul li a {
+  .DesktopNav ul li a {
     padding: 0.3rem 0.8rem;
-    border-radius: 2rem;
-    font-weight: var(--medium);
+    font-size: 0.9rem;
+    font-weight: var(--regular);
     transition: all 200ms;
+    color: var(--grey);
   }
 
-  .Navbar .DesktopNav ul li:last-child a {
-    background-color: var(--kindaRed);
+  .DesktopNav ul li:last-child a {
+    background-color: var(--green);
     color: var(--almostWhite);
     margin-left: 0.3rem;
     border: none;
+    border-radius: 2rem;
   }
 
-  .Navbar .DesktopNav ul li a:hover,
-  .Navbar .DesktopNav ul li a.Active {
-    color: var(--yellow);
+  .DesktopNav ul li a:hover,
+  .DesktopNav ul li a.Active {
+    color: var(--slateGrey);
   }
 
-  .Navbar .DesktopNav ul li:last-child a:hover,
-  .Navbar .DesktopNav ul li:last-child a.Active {
-    background-color: var(--yellow);
+  .DesktopNav ul li:last-child a:hover,
+  .DesktopNav ul li:last-child a.Active {
+    background-color: var(--slateGrey);
     color: var(--almostWhite);
     border: none;
   }
@@ -77,11 +90,5 @@
 @media (min-width: 1280px) {
   .Navbar {
     padding: 1rem 8rem;
-  }
-}
-
-@media (min-width: 1440px) {
-  .Navbar {
-    padding: 1rem 10rem;
   }
 }

@@ -7,13 +7,12 @@ const ReservationPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valy | Reserve a Table'
-        content='Reserve a table for party and family get together.'
-        pageURL='https://www.burgervaly.com/reservation'
+        title="Burger Valy | Reserve a Table"
+        content="Reserve a table for party and family get together."
+        pageURL="https://www.burgervaly.com/reservation"
       />
       <main className={styles.ReservationPage}>
         <ReservationForm
-          style={{ borderTop: "2px solid var(--kindaRed)" }}
           title={
             <h3>
               <GiRoundTable style={{ marginRight: ".5rem" }} />

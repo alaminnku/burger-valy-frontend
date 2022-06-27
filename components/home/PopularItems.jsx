@@ -52,18 +52,15 @@ const PopularItems = () => {
   return (
     <div className={styles.PopularItems}>
       <div className={styles.Title}>
-        <h2>Most Popular Items</h2>
-        <small>
-          Few of our great dishes absolutely loved by people like you! Pick
-          yours from the list below.
-        </small>
+        <h2>Popular items</h2>
+        <p>A few of our dishes absolutely loved by people like you</p>
       </div>
 
       <div className={styles.Cards}>
         {items.map((item) => (
           <div key={item.name} className={styles.Card}>
             <div className={styles.Image}>
-              <Image src={item.src} width='200' height='200' />
+              <Image src={item.src} width="200" height="200" />
               <h5>${item.price}</h5>
             </div>
 
@@ -72,7 +69,7 @@ const PopularItems = () => {
               <small>{item.desc}</small>
             </div>
 
-            <LinkButton text='Order Now' href={item.url} />
+            <LinkButton text="Order now" href={item.url} />
           </div>
         ))}
       </div>

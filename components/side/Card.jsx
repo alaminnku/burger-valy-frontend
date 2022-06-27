@@ -25,11 +25,12 @@ const Card = ({ title, items, side, added }) => {
       <div className={styles.ImageTitle}>
         <div className={styles.Image}>
           <Image
-            src='/images/side-n-drink/drink-and-fries.svg'
+            src="/images/side-n-drink/drink-and-fries.svg"
             width={64}
             height={64}
           />
         </div>
+
         <div className={styles.Title}>
           <p>{title}</p>
           <small>{items}</small>
