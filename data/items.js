@@ -1,6 +1,6 @@
 export const items = [
   {
-    name: "Club Sandwich",
+    name: "Club sandwich",
     slug: "club-sandwich",
     img: "/images/menu/club-sandwich.jpg",
     ingredients: [
@@ -14,11 +14,12 @@ export const items = [
     ],
     quantity: 1,
     calorie: 250,
-    pickupTime: "45m",
+    pickupTime: "45 minutes",
+    price: "5.99",
   },
 
   {
-    name: "Crispy Fried Chicken",
+    name: "Crispy fried chicken",
     slug: "crispy-fried-chicken",
     img: "/images/menu/crispy-fried-chicken.jpg",
     ingredients: [
@@ -35,7 +36,8 @@ export const items = [
     ],
     quantity: 1,
     calorie: 250,
-    pickupTime: "45m",
+    pickupTime: "45 minutes",
+    price: "9.99",
   },
 
   {
@@ -56,11 +58,12 @@ export const items = [
     ],
     quantity: 1,
     calorie: 250,
-    pickupTime: "45m",
+    pickupTime: "45 minutes",
+    price: "5.99",
   },
 
   {
-    name: "Fish Fingers",
+    name: "Fish fingers",
     slug: "fish-fingers",
     img: "/images/menu/fish-fingers.jpg",
     ingredients: [
@@ -76,11 +79,12 @@ export const items = [
     ],
     quantity: 1,
     calorie: 250,
-    pickupTime: "45m",
+    pickupTime: "45 minutes",
+    price: "12.99",
   },
 
   {
-    name: "Mexican Taco",
+    name: "Mexican taco",
     slug: "mexican-taco",
     img: "/images/menu/mexican-taco.jpg",
     ingredients: [
@@ -98,11 +102,12 @@ export const items = [
     ],
     quantity: 1,
     calorie: 250,
-    pickupTime: "45m",
+    pickupTime: "45 minutes",
+    price: "9.99",
   },
 
   {
-    name: "Sub Sandwich",
+    name: "Sub sandwich",
     slug: "sub-sandwich",
     img: "/images/menu/sub-sandwich.jpg",
     ingredients: [
@@ -119,11 +124,12 @@ export const items = [
     ],
     quantity: 1,
     calorie: 250,
-    pickupTime: "45m",
+    pickupTime: "45 minutes",
+    price: "4.99",
   },
 
   {
-    name: "Pepperoni Pizza",
+    name: "Pepperoni pizza",
     slug: "pepperoni-pizza",
     img: "/images/menu/pepperoni-pizza.jpg",
     ingredients: [
@@ -137,10 +143,11 @@ export const items = [
     ],
     quantity: 1,
     calorie: 250,
-    pickupTime: "45m",
+    pickupTime: "45 minutes",
+    price: "9.99",
   },
   {
-    name: "Mushroom Salad",
+    name: "Mushroom salad",
     slug: "mushroom-salad",
     img: "/images/menu/mushroom-salad.jpg",
     ingredients: [
@@ -158,6 +165,7 @@ export const items = [
     ],
     quantity: 1,
     calorie: 150,
-    pickupTime: "30m",
+    pickupTime: "30 minutes",
+    price: "9.99",
   },
 ];

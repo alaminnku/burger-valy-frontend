@@ -11,6 +11,7 @@ const Menu = () => {
           bgImage={item.img}
           title={item.name}
           href={`/menu/${item.slug}`}
+          price={item.price}
         />
       ))}
     </div>

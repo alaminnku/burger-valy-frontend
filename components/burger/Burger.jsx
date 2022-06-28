@@ -4,7 +4,7 @@ import Controller from "./Controller";
 import LinkButton from "../layout/LinkButton";
 import styles from "@styles/burger/burger.module.css";
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { setBurgerType } from "@store/actions/burgerActions";
 
 const Burger = ({ pattyType }) => {

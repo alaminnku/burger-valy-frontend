@@ -32,6 +32,7 @@ export default async (req, res) => {
     } catch (err) {
       // If login fails
       const message = err.response.data.message[0].messages[0].message;
+      console.log(message);
       res.status(err.response.data.statusCode).json({ message });
     }
   } else {

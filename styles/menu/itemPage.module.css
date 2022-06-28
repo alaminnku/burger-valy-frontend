@@ -8,35 +8,37 @@
   margin-bottom: 0.8rem;
 }
 
-.ItemPage .Image {
+.Image {
   margin-bottom: 1rem;
 }
 
-.ItemPage .Image img {
-  border-radius: 0.5rem;
+.Image img {
+  border-radius: 0.25rem;
 }
 
-.ItemPage .Content {
+.Content {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
 
-.ItemPage .Content .Item {
-  margin-bottom: 0.5rem;
+.Item {
+  margin-bottom: 1.25rem;
 }
 
-.ItemPage .Content h4 {
+.Content h4 {
   font-size: 1rem;
   margin-bottom: 0.3rem;
 }
 
-.ItemPage .Content p,
-.ItemPage .Content ul li {
+.Content p,
+.Content ul li {
   font-size: 0.9rem;
+  color: var(--grey);
+  font-weight: var(--regular);
 }
 
-.ItemPage .Content ul li {
+.Content ul li {
   margin-bottom: 0.5rem;
 }
 
@@ -47,45 +49,45 @@
 }
 
 .AddIcon {
-  color: var(--green);
+  color: var(--yellow);
   margin-right: 0.5rem;
 }
 
 .RemoveIcon {
-  color: var(--kindaRed);
+  color: var(--slateGrey);
 }
 
 .Disabled {
-  color: var(--slateGrey);
+  color: var(--borderColor);
   pointer-events: none;
 }
 
 .ItemPage button {
   align-self: center;
+  background-color: var(--slateGrey);
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+}
+
+.ItemPage button:hover {
+  box-shadow: 0 8px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: all 200ms;
 }
 
 @media (min-width: 768px) {
   .ItemPage {
     padding: 2rem 3rem;
+    width: 75%;
+    margin: 0 auto;
   }
 }
 
 @media (min-width: 1024px) {
   .ItemPage {
     padding: 3rem 5rem;
-    width: 85%;
-    margin: 0 auto;
   }
-}
 
-@media (min-width: 1280px) {
-  .ItemPage {
-    padding: 4rem 8rem;
-  }
-}
-
-@media (min-width: 1440px) {
-  .ItemPage {
-    padding: 4rem 10rem;
+  .Image {
+    margin-bottom: 1.5rem;
   }
 }

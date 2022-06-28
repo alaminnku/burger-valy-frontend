@@ -5,8 +5,7 @@
   bottom: 0;
   width: 100%;
   padding: 0.5rem 1rem;
-  background-color: var(--almostWhite);
-  border-top: 1px solid white;
+  background-color: var(--grey);
 }
 
 .MobileNav .Item {
@@ -17,7 +16,7 @@
 .MobileNav .Item a {
   font-size: 0.9rem;
   font-weight: var(--regular);
-  color: var(--slateGrey);
+  color: var(--almostWhite);
 }
 
 .MobileNav .Item a {

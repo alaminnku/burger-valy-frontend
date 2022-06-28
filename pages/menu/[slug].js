@@ -17,14 +17,10 @@ import { setAlert } from "@store/actions/alertActions";
 import Alert from "@/components/layout/Alert";
 
 const ItemPage = ({ item }) => {
-  // Hooks
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const convertedText = convertName(item.name);
-
   // States
-  const { price } = useSelector((state) => state.burger);
   const { token } = useSelector((state) => state.auth);
   const [quantity, setQuantity] = useState(item.quantity);
   const [loading, setLoading] = useState(false);
@@ -34,7 +30,7 @@ const ItemPage = ({ item }) => {
   const finalItem = {
     name: item.name,
     quantity,
-    totalPrice: price[convertedText] * quantity,
+    totalPrice: item.price * quantity,
     img: item.img,
   };
 
@@ -52,15 +48,11 @@ const ItemPage = ({ item }) => {
       // Start the loader
       setLoading(true);
 
-      // Get the price
-      const priceRes = await axios.get(`${API_URL}/price`);
-      const fetchedPrice = priceRes.data;
-
       // Final item
       const order = {
         name: item.name,
         quantity,
-        totalPrice: fetchedPrice[convertedText] * quantity,
+        totalPrice: finalItem.totalPrice,
       };
 
       // Post the order to db
@@ -94,10 +86,10 @@ const ItemPage = ({ item }) => {
         <div className={styles.Image}>
           <Image
             src={item.img}
-            alt=''
-            width='768'
-            height='432'
-            layout='responsive'
+            alt=""
+            width={16}
+            height={9}
+            layout="responsive"
           />
         </div>
 
@@ -115,7 +107,7 @@ const ItemPage = ({ item }) => {
 
           <div>
             <div className={styles.Item}>
-              <h4> Calorie (Approx)</h4>
+              <h4> Calorie (approx)</h4>
               <p>{item.calorie}</p>
             </div>
 
@@ -143,13 +135,13 @@ const ItemPage = ({ item }) => {
 
             <div className={styles.Item}>
               <h4>Price</h4>
-              <p>${price[convertedText] * quantity}</p>
+              <p>${finalItem.totalPrice}</p>
             </div>
           </div>
         </div>
 
         <Button
-          text={loading ? <Loader /> : "Confirm Order"}
+          text={loading ? <Loader /> : "Confirm order"}
           clicked={handleSubmitOrder}
         />
 

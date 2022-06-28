@@ -1,32 +1,20 @@
-import { convertName } from "helpers";
 import LinkButton from "../layout/LinkButton";
-import { useSelector } from "react-redux";
 import styles from "@styles/menu/item.module.css";
+import Image from "next/image";
 
-const Item = ({ bgImage, title, href }) => {
-  // State
-  const { price } = useSelector((state) => state.burger);
-
-  const convertedText = convertName(title);
-
-  // Background
-  const background = {
-    backgroundImage: `url(${bgImage})`,
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-  };
-
+const Item = ({ bgImage, title, href, price }) => {
   return (
-    <div className={styles.Item} style={background}>
-      <h5>{`Starts from $${price[convertedText]}`}</h5>
-      <div className={styles.TitleButton}>
-        <h2>{title}</h2>
-        <LinkButton
-          href={href}
-          text='Order Now'
-          style={{ borderRadius: "1.5rem" }}
-        />
+    <div className={styles.Item}>
+      <div className={styles.Image}>
+        <Image src={bgImage} width={16} height={9} layout="responsive" />
+      </div>
+
+      <div className={styles.Content}>
+        <div>
+          <p>{title}</p>
+          <p>Starts from ${price}</p>
+        </div>
+        <LinkButton href={href} text="Order now" />
       </div>
     </div>
   );

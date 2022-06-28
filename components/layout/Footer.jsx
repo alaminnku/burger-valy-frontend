@@ -49,6 +49,9 @@ const Footer = () => {
           <h4>Quick Links</h4>
           <ul>
             <li>
+              <Link href="/login">Login</Link>
+            </li>
+            <li>
               <Link href="/menu">Menu</Link>
             </li>
             <li>
@@ -57,12 +60,15 @@ const Footer = () => {
             <li>
               <Link href="/reservation">Reservation</Link>
             </li>
+            <li>
+              <Link href="/forgot-password">Reset password</Link>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className={styles.Copyright}>
-        <p>Copyright &copy; {currentYear} All rights reserved</p>
+        <p>Copyright &copy; {currentYear} Octib. All rights reserved</p>
       </div>
     </footer>
   );

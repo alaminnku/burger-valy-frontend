@@ -2,18 +2,16 @@
   padding: 1rem;
 }
 
-.MenuPage .Title {
-  max-width: 34rem;
-  margin: 0 auto;
+.Title {
   margin-bottom: 1rem;
 }
 
-.MenuPage .Title h2 {
+.Title h2 {
   font-weight: var(--bold);
   margin-bottom: 0.5rem;
 }
 
-.MenuPage .Title small {
+.Title p {
   color: var(--grey);
 }
 
@@ -22,10 +20,7 @@
     padding: 2rem 3rem;
   }
 
-  .MenuPage .Title {
-    text-align: center;
-    width: 80%;
-    margin: 0 auto;
+  .Title {
     margin-bottom: 1.5rem;
   }
 }
@@ -35,8 +30,7 @@
     padding: 3rem 5rem;
   }
 
-  .MenuPage .Title {
-    width: 65%;
+  .Title {
     margin-bottom: 2rem;
   }
 }
@@ -46,7 +40,7 @@
     padding: 4rem 8rem;
   }
 
-  .MenuPage .Title {
+  .Title {
     margin-bottom: 3rem;
   }
 }

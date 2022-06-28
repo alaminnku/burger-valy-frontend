@@ -67,7 +67,7 @@ const Navbar = () => {
           <li>
             {token ? (
               <Link href="#">
-                <a onClick={handleLogout}>Log Out</a>
+                <a onClick={handleLogout}>Log out</a>
               </Link>
             ) : (
               <Link href="/register">

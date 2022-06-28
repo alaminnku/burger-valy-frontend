@@ -6,17 +6,14 @@ const MenuPage = () => {
   return (
     <>
       <HeadSection
-        title='Burger Valy | Menu'
-        content='Choose delicious foods from the menu. Order and pickup hot in 30 minutes.'
-        pageURL='https://www.burgervaly.com/menu'
+        title="Burger Valy | Menu"
+        content="Choose delicious foods from the menu. Order and pickup hot in 30 minutes."
+        pageURL="https://www.burgervaly.com/menu"
       />
       <main className={styles.MenuPage}>
         <div className={styles.Title}>
-          <h2>Order Food for You and Your Family!</h2>
-          <small>
-            Get the food you like! Order and pickup hot in 30 minutes and enjoy
-            the deliciousness together!
-          </small>
+          <h2>Choose, learn and order</h2>
+          <p>Get the food you like! Order and pickup hot in 30 minutes</p>
         </div>
         <Menu />
       </main>

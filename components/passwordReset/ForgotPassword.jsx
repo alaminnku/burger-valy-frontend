@@ -5,10 +5,11 @@ import { API_URL } from "config";
 import { setAlert } from "@store/actions/alertActions";
 import { useState } from "react";
 import axios from "axios";
-import styles from "@styles/passwordReset/forgotPassword.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Loader from "../layout/Loader";
+import { RiLockPasswordFill } from "react-icons/ri";
+import styles from "@styles/passwordReset/forgotPassword.module.css";
 
 const ForgotPassword = () => {
   const dispatch = useDispatch();
@@ -55,16 +56,29 @@ const ForgotPassword = () => {
 
   return (
     <form className={styles.ForgotPassword}>
-      <label htmlFor='email'>Email</label>
-      <input type='email' value={email} onChange={handleChange} id='email' />
+      <h3>
+        <RiLockPasswordFill className={styles.Icon} />
+        Reset password
+      </h3>
+      <div className={styles.Item}>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          value={email}
+          placeholder="Enter your email address"
+          onChange={handleChange}
+          id="email"
+        />
+      </div>
       <Button
-        text={loading ? <Loader /> : "Send Email"}
+        text={loading ? <Loader /> : "Send email"}
         clicked={handleSubmit}
         disabled={disabled}
       />
       <small>
-        <Link href='/login'>
-          <a>Sign in here</a>
+        Sign in{" "}
+        <Link href="/login">
+          <a>here</a>
         </Link>
       </small>
       <Alert alerts={alerts} />
