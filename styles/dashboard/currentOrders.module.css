@@ -1,8 +1,9 @@
-.CurrentBurgerOrders .Title {
-  margin-bottom: 1rem;
+.Title {
+  margin-bottom: 0.5rem;
+  font-weight: var(--medium);
 }
 
-.CurrentBurgerOrders small {
+.CurrentOrders small {
   color: var(--grey);
   display: block;
 }
@@ -10,30 +11,26 @@
 .Order {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   background-color: var(--almostWhite);
   margin-bottom: 1rem;
   border-radius: 0.25rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-.Order .TypeDate {
+.TypeDate {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.Order .Date {
+.Date {
   font-size: 0.6rem;
   color: var(--slateGrey);
 }
 
-.Order .Main {
+.Main {
   margin-bottom: 0.5rem;
-}
-
-.Order .Title {
-  font-weight: var(--semiBold);
-  margin-bottom: 0.1rem;
 }
 
 .Order ul {
@@ -44,25 +41,29 @@
 .Order ul li {
   padding: 0.2rem;
   color: var(--grey);
+  font-weight: var(--regular);
+  font-size: 0.9rem;
 }
 
-.Order .ItemsToRemove .Items {
+.Items {
   display: flex;
   margin-bottom: 0.3rem;
 }
 
-.Order .ItemsToRemove .Items small {
-  padding: 0.2rem;
+.Items p {
+  font-size: 0.9rem;
+  color: var(--grey);
   text-transform: capitalize;
 }
 
-.CurrentBurgerOrders .Address {
-  color: var(--slateGrey);
-  font-size: 0.9rem;
+.Title span {
+  color: var(--green);
 }
 
-.Address span {
-  font-weight: var(--semiBold);
+.Address {
+  color: var(--grey);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .NoOrder {
@@ -79,20 +80,20 @@
     margin-bottom: 0rem;
   }
 
-  .Order .Date {
+  .Date {
     font-size: 0.7rem;
   }
 
-  .Order .Main {
+  .Main {
     margin-bottom: 1rem;
   }
 
-  .Order .Title {
+  .Title {
     margin-bottom: 0.3rem;
     font-weight: var(--medium);
   }
 
-  .Order .ItemsToRemove {
+  .ItemsToRemove {
     margin-bottom: 0.5rem;
   }
 }

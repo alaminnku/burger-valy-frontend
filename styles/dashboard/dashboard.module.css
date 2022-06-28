@@ -2,6 +2,27 @@
   position: relative;
 }
 
+.Nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.Nav li {
+  font-weight: var(--regular);
+  border: 1px solid var(--borderColor);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+}
+
+.Nav li.Active {
+  border: 1px solid var(--green);
+}
+
 .MenuTop {
   display: flex;
   align-items: center;

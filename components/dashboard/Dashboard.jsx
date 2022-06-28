@@ -6,14 +6,9 @@ import styles from "@styles/dashboard/dashboard.module.css";
 import Alert from "../layout/Alert";
 import PendingGenericOrder from "./PendingGenericOrder";
 import PendingBurgerOrder from "./PendingBurgerOrder";
-import CurrentGenericOrder from "./CurrentGenericOrder";
-import CurrentBurgerOrder from "./CurrentBurgerOrder";
+import CurrentOrders from "./CurrentOrders";
 import AllBurgerOrders from "./AllBurgerOrders";
 import AllGenericOrders from "./AllGenericOrders";
-import { BiMenu } from "react-icons/bi";
-import { RiCloseFill } from "react-icons/ri";
-import { convertName } from "helpers";
-import Menu from "./Menu";
 
 const dashboard = () => {
   // Hooks
@@ -24,15 +19,11 @@ const dashboard = () => {
   const { token, user } = useSelector((state) => state.auth);
   const [reOrdered, setReOrdered] = useState([]);
   const alerts = useSelector((state) => state.alerts);
-  const [showMenu, setShowMenu] = useState(false);
   const [showDetails, setShowDetails] = useState({
     profile: true,
-    activeOrdersBurger: false,
-    activeOrdersGeneric: false,
-    pendingOrdersBurger: false,
-    pendingOrdersGeneric: false,
-    allOrdersBurger: false,
-    allOrdersGeneric: false,
+    activeOrders: false,
+    pendingOrders: false,
+    allOrders: false,
   });
 
   // Push to login page if there isn't a user
@@ -48,39 +39,50 @@ const dashboard = () => {
 
   // Handle show the details
   const handleShowDetails = (e) => {
-    // Child text
-    const childText = e.target.textContent;
+    const navName = e.target.textContent;
 
-    // Update state
-    if (childText === "Profile" || childText === "Table Reservation") {
-      // Converted text
-      const convertedText = convertName(childText);
+    {
+      navName === "Profile" &&
+        setShowDetails({
+          ...showDetails,
+          profile: true,
+          activeOrders: false,
+          pendingOrders: false,
+          allOrders: false,
+        });
+    }
 
-      // Update the state
-      setShowDetails({
-        [convertedText]: !showDetails[convertedText],
-      });
+    {
+      navName === "Active orders" &&
+        setShowDetails({
+          ...showDetails,
+          profile: false,
+          activeOrders: true,
+          pendingOrders: false,
+          allOrders: false,
+        });
+    }
 
-      // Remove the menu
-      setShowMenu(!showMenu);
-    } else {
-      // Parent text
-      const parentText =
-        e.target.parentElement.previousElementSibling.textContent;
+    {
+      navName === "Pending orders" &&
+        setShowDetails({
+          ...showDetails,
+          profile: false,
+          activeOrders: false,
+          pendingOrders: true,
+          allOrders: false,
+        });
+    }
 
-      // Converted text
-      const convertedText = convertName(parentText);
-
-      // Join parent and child text
-      const finalText = `${convertedText}${childText}`;
-
-      // Update the state
-      setShowDetails({
-        [finalText]: !showDetails[finalText],
-      });
-
-      // Remove the menu
-      setShowMenu(!showMenu);
+    {
+      navName === "All orders" &&
+        setShowDetails({
+          ...showDetails,
+          profile: false,
+          activeOrders: false,
+          pendingOrders: false,
+          allOrders: true,
+        });
     }
   };
 
@@ -88,60 +90,55 @@ const dashboard = () => {
     <div className={styles.Dashboard}>
       {token && (
         <>
-          <Menu showMenu={showMenu} handleShowDetails={handleShowDetails} />
+          <ul className={styles.Nav}>
+            <li
+              onClick={handleShowDetails}
+              className={showDetails.profile && styles.Active}
+            >
+              Profile
+            </li>
+            <li
+              onClick={handleShowDetails}
+              className={showDetails.activeOrders && styles.Active}
+            >
+              Active orders
+            </li>
+            <li
+              onClick={handleShowDetails}
+              className={showDetails.pendingOrders && styles.Active}
+            >
+              Pending orders
+            </li>
+            <li
+              onClick={handleShowDetails}
+              className={showDetails.allOrders && styles.Active}
+            >
+              All orders
+            </li>
+          </ul>
+
+          {showDetails.profile && (
+            <div className={styles.Profile}>
+              <h4 className={styles.Item}>Welcome back {user.name}!</h4>
+              <div className={styles.Item}>
+                <p>Name:</p>
+                <small>{user.name}</small>
+              </div>
+
+              <div className={styles.Item}>
+                <p>Email:</p>
+                <small>{user.email}</small>
+              </div>
+            </div>
+          )}
 
           <div className={styles.Details}>
-            <div className={styles.MenuTop}>
-              {/* Welcome title */}
-              <h4 className={styles.Title}>
-                Welcome back <span>{user.name}</span>!
-              </h4>
-
-              {/* Menu icon */}
-              {!showMenu ? (
-                <BiMenu
-                  onClick={() => setShowMenu(!showMenu)}
-                  className={styles.MenuIcon}
-                />
-              ) : (
-                <RiCloseFill
-                  className={styles.MenuIcon}
-                  onClick={() => setShowMenu(!showMenu)}
-                />
-              )}
-            </div>
-
-            {/* Show profile conditionally */}
-            {showDetails.profile && (
-              <div className={styles.Profile}>
-                <div className={styles.Item}>
-                  <p>Name:</p>
-                  <small>{user.name}</small>
-                </div>
-
-                <div className={styles.Item}>
-                  <p>Email:</p>
-                  <small>{user.email}</small>
-                </div>
-              </div>
-            )}
-
-            {/* Show active burger orders */}
-            {showDetails.activeOrdersBurger && (
-              <CurrentBurgerOrder reOrdered={reOrdered} orderDone={orderDone} />
-            )}
-
-            {/* Show active generic orders */}
-
-            {showDetails.activeOrdersGeneric && (
-              <CurrentGenericOrder
-                reOrdered={reOrdered}
-                orderDone={orderDone}
-              />
+            {/* Show current orders */}
+            {showDetails.activeOrders && (
+              <CurrentOrders reOrdered={reOrdered} orderDone={orderDone} />
             )}
 
             {/* Show pending burger orders */}
-
             {showDetails.pendingOrdersBurger && (
               <>
                 {!orderDone && burger ? (
