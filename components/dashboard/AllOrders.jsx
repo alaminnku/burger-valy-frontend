@@ -1,15 +1,23 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "config";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Button from "../layout/Button";
 import Loader from "../layout/Loader";
-import { useSelector } from "react-redux";
-import styles from "@styles/dashboard/currentOrders.module.css";
+import { setAlert } from "@store/actions/alertActions";
+import Alert from "../layout/Alert";
+import Link from "next/link";
+import styles from "@styles/dashboard/allOrders.module.css";
 
-const CurrentOrders = ({ orderDone, reOrdered }) => {
+const AllOrders = ({ orderDone, reOrdered, setReOrdered }) => {
+  // Hooks
+  const dispatch = useDispatch();
+
   // States
   const [allOrders, setAllOrders] = useState([]);
   const [loading, setLoading] = useState(false);
   const { token } = useSelector((state) => state.auth);
+  const alerts = useSelector((state) => state.alerts);
 
   // Fetch the orders on render
   useEffect(async () => {
@@ -36,41 +44,88 @@ const CurrentOrders = ({ orderDone, reOrdered }) => {
     // Generic orders
     const genericOrders = genericRes.data;
 
-    // Update the state and remove the loader
+    // Update the state and stop the loader
     setAllOrders([...burgerOrders, ...genericOrders]);
     setLoading(false);
   }, [orderDone, reOrdered]);
 
-  // Get the orders which is placed in last hour
-  const latestOrders = allOrders.filter((order) => {
-    if (
-      new Date().getTime() / 1000 -
-        new Date(order.createdAt).getTime() / 1000 <=
-      3600
-    ) {
-      return order;
+  // Handle burger reorder
+  const handleBurgerReorder = async (order) => {
+    // Delete unnecessary properties from order object
+    [
+      "__v",
+      "_id",
+      "createdAt",
+      "id",
+      "published_at",
+      "updatedAt",
+      "user",
+    ].forEach((prop) => delete order[prop]);
+
+    try {
+      // Post the order to DB with token
+      const res = await axios.post(`${API_URL}/burgerorders`, order, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Update reordered array with new order
+      setReOrdered([...reOrdered, res.data]);
+      dispatch(setAlert("Order placed successfully!", "Success"));
+    } catch (err) {
+      dispatch(setAlert(err.response.data.message, "Danger"));
     }
-  });
+  };
 
-  // Current orders markup
-  let latestOrdersMarkup;
+  // Handle generic item reorder
+  const handleGenericReorder = async (order) => {
+    // Delete unnecessary fields
+    [
+      "__v",
+      "_id",
+      "createdAt",
+      "id",
+      "published_at",
+      "updatedAt",
+      "user",
+    ].forEach((prop) => delete order[prop]);
 
-  // Render the current orders
-  if (latestOrders.length > 0) {
-    latestOrdersMarkup = latestOrders
+    try {
+      // Post the order to db
+      const res = await axios.post(`${API_URL}/genericorders`, order, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Update reordered array with new order
+      setReOrdered([...reOrdered, res.data]);
+      dispatch(setAlert("Order placed successfully!", "Success"));
+    } catch (err) {
+      dispatch(setAlert(err.response.data.message, "Danger"));
+    }
+  };
+
+  // All orders markup
+  let allOrdersMarkup;
+
+  // Render all the orders
+  if (allOrders.length > 0) {
+    allOrdersMarkup = allOrders
       .sort(
         (a, b) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       )
       .map((order) => {
         return (
-          <div className={styles.Order} key={order.id}>
+          <div key={order.id} className={styles.Order}>
             {order.Type === "Beef" ||
             order.Type == "Chicken" ||
             order.Type === "Cheddar" ||
             order.Type === "Vegetable" ? (
               <>
-                {/* Burger order */}
+                {/* Burger order markup */}
                 <div className={styles.Main}>
                   <div className={styles.TypeDate}>
                     <p className={styles.Title}>{order.Type} burger</p>
@@ -118,13 +173,20 @@ const CurrentOrders = ({ orderDone, reOrdered }) => {
                   ""
                 )}
 
-                <p className={styles.Title}>
-                  Total amount: <span>${order.TotalPrice}</span>
-                </p>
+                <div className={styles.PriceReorder}>
+                  <p className={styles.Title}>
+                    Total amount: <span>${order.TotalPrice}</span>
+                  </p>
+
+                  <Button
+                    text="Reorder"
+                    clicked={() => handleBurgerReorder(order)}
+                  />
+                </div>
               </>
             ) : (
               <>
-                {/* Generic order */}
+                {/* Generic order markup */}
                 <div className={styles.Main}>
                   <div className={styles.TypeDate}>
                     <p className={styles.Title}>{order.name}</p>
@@ -137,10 +199,15 @@ const CurrentOrders = ({ orderDone, reOrdered }) => {
                   </ul>
                 </div>
 
-                <div>
+                <div className={styles.PriceReorder}>
                   <p className={styles.Title}>
                     Total amount: <span>${order.totalPrice}</span>
                   </p>
+
+                  <Button
+                    text="Reorder"
+                    clicked={() => handleGenericReorder(order)}
+                  />
                 </div>
               </>
             )}
@@ -149,29 +216,26 @@ const CurrentOrders = ({ orderDone, reOrdered }) => {
       });
   }
 
-  const address = (
-    <p className={styles.Address}>
-      Please collect your orders from: 135/7a, Opposite of Khulna University
-      Khulna, Bangladesh
-    </p>
-  );
-
   return (
-    <div className={styles.CurrentOrders}>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          {latestOrdersMarkup}
-          {latestOrders.length > 0 ? (
-            address
-          ) : (
-            <p className={styles.NoOrder}>You don't have any active orders!</p>
-          )}
-        </>
-      )}
-    </div>
+    <>
+      <div className={styles.AllOrders}>
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            {allOrders.length > 0 ? (
+              allOrdersMarkup
+            ) : (
+              <small className={styles.NoOrder}>
+                Haven't ordered any foods yet? Order <Link href="/">here</Link>
+              </small>
+            )}
+          </>
+        )}
+      </div>
+      <Alert alerts={alerts} />
+    </>
   );
 };
 
-export default CurrentOrders;
+export default AllOrders;

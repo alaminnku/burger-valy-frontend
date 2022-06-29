@@ -24,11 +24,11 @@ const Summary = () => {
   let friesAndDrink = "No fries and drink";
 
   if (burger.side === "small") {
-    friesAndDrink = "1 small fries and drink";
+    friesAndDrink = "One small fries and drink";
   } else if (burger.side === "medium") {
-    friesAndDrink = "1 medium fries and drink";
+    friesAndDrink = "One medium fries and drink";
   } else if (burger.side === "large") {
-    friesAndDrink = "1 large fries and drink";
+    friesAndDrink = "One large fries and drink";
   }
 
   // Destructure ingredients
@@ -37,18 +37,18 @@ const Summary = () => {
   return (
     <div className={styles.Summary}>
       <div className={styles.Burger}>
-        <Image src='/images/layout/burger.svg' width={64} height={64} />
+        <Image src="/images/layout/burger.svg" width={64} height={64} />
       </div>
       <div className={styles.Description}>
         <p>Your burger with</p>
         <ul>
-          <li>{Salad}x salad</li>
-          <li>{Cheese}x cheese</li>
-          <li>{Bacon}x bacon</li>
+          <li>Salad: {Salad}</li>
+          <li>Cheese: {Cheese}</li>
+          <li>Bacon: {Bacon}</li>
           <li>
-            {Patty}x {burger.type.toLowerCase()} patty
+            Patty: {Patty} ({burger.type.toLowerCase()})
           </li>
-          <li>{friesAndDrink}</li>
+          <li>Side: {friesAndDrink}</li>
         </ul>
         <p className={styles.Price}>Total price: ${burger.totalPrice}</p>
       </div>

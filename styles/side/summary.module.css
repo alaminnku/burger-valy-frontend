@@ -38,22 +38,11 @@
 
 @media (min-width: 768px) {
   .Summary {
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .Description p {
-    font-weight: var(--medium);
+    padding: 1rem 1.5rem;
   }
 
   .Description p:first-child,
   .Description ul {
     margin-bottom: 0.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .Summary {
-    margin-bottom: 2rem;
   }
 }

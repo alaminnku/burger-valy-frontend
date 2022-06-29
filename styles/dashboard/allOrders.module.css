@@ -8,6 +8,10 @@
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
+.Order:last-child {
+  margin-bottom: 0rem;
+}
+
 .Title {
   margin-bottom: 0.5rem;
   font-weight: var(--medium);
@@ -52,23 +56,31 @@
 .Items p {
   font-size: 0.9rem;
   color: var(--grey);
+  margin-right: 0.25rem;
   text-transform: capitalize;
 }
 
-.Address {
-  color: var(--grey);
-  font-size: 0.9rem;
-  text-align: center;
+.PriceReorder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.NoOrder {
-  margin-bottom: 1rem;
+.Order button {
+  background-color: var(--slateGrey);
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
 }
 
 @media (min-width: 768px) {
   .Order {
     padding: 0.75rem 1rem;
     margin-bottom: 1.5rem;
+  }
+
+  .Order:last-child {
+    margin-bottom: 0rem;
   }
 
   .Main {

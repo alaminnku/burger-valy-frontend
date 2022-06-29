@@ -8,7 +8,6 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { convertName } from "helpers";
 import { setAlert } from "@store/actions/alertActions";
-import styles from "@styles/dashboard/pendingGenericOrder.module.css";
 
 const PendingGenericOrder = ({ setOrderDone }) => {
   // Hooks
@@ -62,7 +61,7 @@ const PendingGenericOrder = ({ setOrderDone }) => {
   return (
     <div className={styles.PendingGenericOrder}>
       <div className={styles.Item}>
-        <Image src={item.img} width='192' height='108' />
+        <Image src={item.img} width="192" height="108" />
 
         <div className={styles.Content}>
           <p>Your order with</p>

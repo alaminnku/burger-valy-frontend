@@ -1,46 +1,30 @@
-.Dashboard {
-  position: relative;
-}
-
 .Nav {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.Nav li {
-  font-weight: var(--regular);
-  border: 1px solid var(--borderColor);
-  border-radius: 0.25rem;
-  padding: 0.1rem 0.8rem;
-  font-size: 0.9rem;
-  cursor: pointer;
+  border-bottom: 1px solid var(--almostWhite);
   margin-bottom: 0.75rem;
 }
 
-.Nav li.Active {
-  border: 1px solid var(--green);
-}
-
-.MenuTop {
+.Nav ul {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.MenuIcon {
-  border: 1.5px solid var(--grey);
-  color: var(--grey);
-  padding: 0.2rem;
-  font-size: 2rem;
-  border-radius: 50%;
+.Nav ul li {
+  font-weight: var(--regular);
+  background-color: var(--green);
+  color: var(--almostWhite);
+  border-radius: 2rem;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
-.SideMenu {
-  display: none;
+.Nav ul li.Active {
+  background-color: var(--yellow);
 }
 
 .Item {
@@ -57,26 +41,19 @@
   font-size: 0.9rem;
 }
 
+.NoPendingOrder {
+  color: var(--grey);
+  font-size: 0.9rem;
+}
+
 @media (min-width: 768px) {
   .Dashboard {
-    display: flex;
-    justify-content: space-between;
+    width: 75%;
+    margin: 0 auto;
   }
 
-  .MenuIcon {
-    display: none;
+  .Nav {
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
   }
-
-  .Details {
-    width: 70%;
-  }
-}
-
-@media (min-width: 1024px) {
-}
-
-@media (min-width: 1280px) {
-}
-
-@media (min-width: 1440px) {
 }
