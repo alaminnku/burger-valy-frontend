@@ -8,7 +8,7 @@
 .Loader > div {
   height: 10px;
   width: 10px;
-  background-color: var(--yellow);
+  background-color: var(--almostWhite);
   border-radius: 50%;
   animation: bounce 1.5s infinite ease-in-out both;
 }
