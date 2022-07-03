@@ -8,67 +8,47 @@
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-.Order:last-child {
-  margin-bottom: 0rem;
-}
-
-.Title {
+.Item {
   margin-bottom: 0.5rem;
-  font-weight: var(--medium);
 }
 
-.Title span {
-  color: var(--green);
-}
-
-.TypeDate {
+.Item:first-child,
+.TotalPrice {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.Date {
+.Item p,
+.TotalPrice p {
+  font-weight: var(--semiBold);
+}
+
+.TotalPrice p span {
+  color: var(--green);
+}
+
+.Item:first-child small {
   font-size: 0.6rem;
   color: var(--borderColor);
 }
 
-.Main {
-  margin-bottom: 0.5rem;
-}
-
-.Order ul {
+.Item ul {
   display: flex;
   flex-wrap: wrap;
 }
 
-.Order ul li {
-  padding: 0.2rem;
+.Item ul li,
+.Item small {
   color: var(--grey);
   font-weight: var(--regular);
   font-size: 0.9rem;
-}
-
-.Items {
-  display: flex;
-  margin-bottom: 0.3rem;
-}
-
-.Items p {
-  font-size: 0.9rem;
-  color: var(--grey);
-  margin-right: 0.25rem;
-  text-transform: capitalize;
-}
-
-.PriceReorder {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 0rem 0.25rem;
 }
 
 .Order button {
   background-color: var(--slateGrey);
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 2rem;
   font-size: 0.9rem;
 }
@@ -81,13 +61,5 @@
 
   .Order:last-child {
     margin-bottom: 0rem;
-  }
-
-  .Main {
-    margin-bottom: 0.75rem;
-  }
-
-  .ItemsToRemove {
-    margin-bottom: 0.5rem;
   }
 }

@@ -1,10 +1,10 @@
 .LinkButton a {
   border-radius: 2rem;
   background-color: var(--slateGrey);
-  padding: 0.3rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 0.9rem;
   color: var(--almostWhite);
-  font-weight: var(--regular);
+  font-weight: var(--semiBold);
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
@@ -22,6 +22,6 @@
 
 @media (min-width: 1024px) {
   .LinkButton a {
-    padding: 0.3rem 0.8rem;
+    font-weight: var(--medium);
   }
 }

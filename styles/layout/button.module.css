@@ -1,7 +1,7 @@
 .Button {
   border: none;
   font-size: 1rem;
-  font-weight: var(--medium);
+  font-weight: var(--semiBold);
   color: var(--almostWhite);
   background-color: var(--green);
   padding: 0.75rem 0.8rem;
@@ -13,4 +13,10 @@
   background-color: var(--borderColor);
   cursor: not-allowed;
   color: var(--grey);
+}
+
+@media (min-width: 1024px) {
+  .Button {
+    font-weight: var(--medium);
+  }
 }

@@ -71,74 +71,74 @@ const CurrentOrders = ({ orderDone, reOrdered }) => {
             order.Type === "Vegetable" ? (
               <>
                 {/* Burger order */}
-                <div className={styles.Main}>
-                  <div className={styles.TypeDate}>
-                    <p className={styles.Title}>{order.Type} burger</p>
-                    <small className={styles.Date}>
-                      {new Date(order.createdAt).toDateString()}
-                    </small>
+                <div>
+                  <div className={styles.Item}>
+                    <p>{order.Type} burger</p>
+                    <small>{new Date(order.createdAt).toDateString()}</small>
                   </div>
-                  <ul>
-                    <li>Salad: {order.Salad},</li>
-                    <li>Cheese: {order.Cheese},</li>
-                    <li>Bacon: {order.Bacon},</li>
-                    <li>
-                      {order.Type} patty: {order.Patty},
-                    </li>
-                    <li>
-                      {order.Side === ""
-                        ? "No fries and drink"
-                        : `One ${order.Side} fries and drink`}
-                    </li>
-                  </ul>
+
+                  <div className={styles.Item}>
+                    <ul>
+                      <li>Salad: {order.Salad},</li>
+                      <li>Cheese: {order.Cheese},</li>
+                      <li>Bacon: {order.Bacon},</li>
+                      <li>
+                        {order.Type} patty: {order.Patty},
+                      </li>
+                      <li>
+                        {order.Side === ""
+                          ? "No fries and drink"
+                          : `One ${order.Side} fries and drink`}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 {/* Show items to remove only when there is something to remove */}
                 {Object.entries(order).filter((item) => item[1] === true)
                   .length > 0 ? (
-                  <div className={styles.ItemsToRemove}>
-                    <p className={styles.Title}>Removed items</p>
-                    <div className={styles.Items}>
-                      {Object.entries(order)
-                        .filter((item) => item[1] === true)
-                        .map((el, i) => (
-                          <p key={el[0]}>{`${el[0]}${
-                            i <
-                            Object.entries(order).filter(
-                              (item) => item[1] === true
-                            ).length -
-                              1
-                              ? ","
-                              : ""
-                          }`}</p>
-                        ))}
-                    </div>
+                  <div className={styles.Item}>
+                    <p>Removed items</p>
+                    {Object.entries(order)
+                      .filter((item) => item[1] === true)
+                      .map((el, i) => (
+                        <small key={el[0]}>{`${el[0]}${
+                          i <
+                          Object.entries(order).filter(
+                            (item) => item[1] === true
+                          ).length -
+                            1
+                            ? ","
+                            : ""
+                        }`}</small>
+                      ))}
                   </div>
                 ) : (
                   ""
                 )}
 
-                <p className={styles.Title}>
-                  Total amount: <span>${order.TotalPrice}</span>
-                </p>
+                <div className={styles.TotalPrice}>
+                  <p>
+                    Total amount: <span>${order.TotalPrice}</span>
+                  </p>
+                </div>
               </>
             ) : (
               <>
                 {/* Generic order */}
-                <div className={styles.Main}>
-                  <div className={styles.TypeDate}>
-                    <p className={styles.Title}>{order.name}</p>
-                    <small className={styles.Date}>
-                      {new Date(order.createdAt).toDateString()}
-                    </small>
+                <div>
+                  <div className={styles.Item}>
+                    <p>{order.name}</p>
+                    <small>{new Date(order.createdAt).toDateString()}</small>
                   </div>
-                  <ul>
-                    <li>Quantity: {order.quantity}</li>
-                  </ul>
+
+                  <div className={styles.Item}>
+                    <small>Quantity: {order.quantity}</small>
+                  </div>
                 </div>
 
-                <div>
-                  <p className={styles.Title}>
+                <div className={styles.TotalPrice}>
+                  <p>
                     Total amount: <span>${order.totalPrice}</span>
                   </p>
                 </div>
@@ -157,7 +157,7 @@ const CurrentOrders = ({ orderDone, reOrdered }) => {
   );
 
   return (
-    <div className={styles.CurrentOrders}>
+    <>
       {loading ? (
         <Loader />
       ) : (
@@ -170,7 +170,7 @@ const CurrentOrders = ({ orderDone, reOrdered }) => {
           )}
         </>
       )}
-    </div>
+    </>
   );
 };
 

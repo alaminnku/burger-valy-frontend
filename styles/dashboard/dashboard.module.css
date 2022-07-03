@@ -13,7 +13,7 @@
 }
 
 .Nav ul li {
-  font-weight: var(--regular);
+  font-weight: var(--semiBold);
   background-color: var(--green);
   color: var(--almostWhite);
   border-radius: 2rem;
@@ -55,5 +55,11 @@
   .Nav {
     padding-bottom: 0.75rem;
     margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Nav ul li {
+    font-weight: var(--regular);
   }
 }

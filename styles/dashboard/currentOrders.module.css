@@ -8,51 +8,48 @@
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-.Title {
+.Item {
   margin-bottom: 0.5rem;
-  font-weight: var(--medium);
 }
 
-.Title span {
-  color: var(--green);
-}
-
-.TypeDate {
+.Item:first-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.Date {
+.Item p,
+.TotalPrice p {
+  font-weight: var(--semiBold);
+}
+
+.TotalPrice p span {
+  color: var(--green);
+}
+
+.Item:first-child small {
   font-size: 0.6rem;
   color: var(--borderColor);
 }
 
-.Main {
-  margin-bottom: 0.5rem;
-}
-
-.Order ul {
+.Item ul {
   display: flex;
   flex-wrap: wrap;
 }
 
-.Order ul li {
-  padding: 0.2rem;
+.Item ul li,
+.Item small {
   color: var(--grey);
   font-weight: var(--regular);
   font-size: 0.9rem;
+  padding: 0rem 0.25rem;
 }
 
-.Items {
-  display: flex;
-  margin-bottom: 0.3rem;
-}
-
-.Items p {
+.Order button {
+  background-color: var(--slateGrey);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
   font-size: 0.9rem;
-  color: var(--grey);
-  text-transform: capitalize;
 }
 
 .Address {
@@ -71,11 +68,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .Main {
-    margin-bottom: 0.75rem;
-  }
-
-  .ItemsToRemove {
-    margin-bottom: 0.5rem;
+  .Order:last-child {
+    margin-bottom: 0rem;
   }
 }

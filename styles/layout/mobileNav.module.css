@@ -19,6 +19,10 @@
   color: var(--almostWhite);
 }
 
+.MobileNav .Item p {
+  font-weight: var(--semiBold);
+}
+
 .MobileNav .Item a {
   display: flex;
   flex-direction: column;
