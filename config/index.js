@@ -1,6 +1,6 @@
-export const API_URL = "https://burger-valley.herokuapp.com";
+export const API_URL = "https://burgervaly.onrender.com";
 
-export const NEXT_URL = "https://www.burgervaly.com/api";
+export const NEXT_URL = "https://burgervaly.octib.com/api";
 
 // "https://burger-valley.herokuapp.com";
 // "https://burgervalley.vercel.app/api";
